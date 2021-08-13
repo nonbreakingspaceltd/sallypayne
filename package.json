@@ -1,6 +1,6 @@
 {
   "name": "sallypayne",
-  "packageManager": "yarn@3.0.1",
+  "packageManager": "yarn",
   "private": true,
   "workspaces": [
     "packages/*"
