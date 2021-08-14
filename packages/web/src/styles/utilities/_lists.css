@@ -1,0 +1,19 @@
+.u-list {
+  &-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  &-inline {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: var(--space-x-2);
+      }
+    }
+  }
+}

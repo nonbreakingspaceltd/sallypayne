@@ -1,0 +1,50 @@
+.c-form {
+  max-width: 800px;
+  margin-bottom: 24px;
+
+  @media (--mq-m) {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    padding-bottom: 16px;
+
+    @media (--mq-m) {
+      padding-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      padding-bottom: 4px;
+      font-size: 16px;
+      line-height: 24px;
+
+      @media (--mq-m) {
+        font-size: 18px;
+        padding-bottom: 8px;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      appearance: none;
+      border: 4px dotted #ddd;
+      padding: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+      font-size: 16px;
+      line-height: 24px;
+      background: transparent;
+
+      &:focus {
+        border-color: var(--color-brand--e);
+      }
+    }
+
+    textarea {
+      height: 160px;
+      resize: none;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'SketchySallySans';
+  src: url('/fonts/sketchysallysans-regular-webfont.woff2') format('woff2'),
+    url('/fonts/sketchysallysans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}

@@ -1,0 +1,21 @@
+/* Color Variables */
+
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-text: #525254;
+
+    --color-brand--a:  #a2d8d5;
+    --color-brand--b:  #f5ab8a;
+    --color-brand--c:  #88bc95;
+    --color-brand--d:  #f2cd7d;
+    --color-brand--e:  #76aad8;
+
+    /* social colors */
+    --color-social--twitter: #55acee;
+    --color-social--facebook: #1877F2;
+    --color-social--linkedin: #1c86bd;
+    --color-social--youtube: #cd201f;
+    --color-social--pinterest: #cc2127;
+    --color-social--etsy: #EF5000;
+}

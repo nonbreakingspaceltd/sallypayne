@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+.sp-l-layout {
+  transition: opacity 0.2s ease-in-out;
+
+  .medium-zoom--opened & {
+    opacity: 0;
+  }
+}
+
+.sp-l-main {
+  padding-top: 80px;
+
+  @media (--mq-m) {
+    padding-top: 108px;
+  }
+
+  @media (--mq-l) {
+    padding-top: 112px;
+  }
+}
+
+.sp-l-page {
+  width: 100%;
+
+  @media (--mq-l) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--work {
+    background-color: var(--color-brand--b);
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-size: 150px 36px;
+  }
+
+  &--journal {
+    background-color: var(--color-brand--d);
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-size: 150px 36px;
+  }
+
+  &--shop {
+    background-color: var(--color-brand--c);
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-size: 150px 36px;
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 16px;
+    min-height: 100%;
+
+    @media (--mq-m) {
+      padding: 32px 32px;
+    }
+  }
+
+  &--work-detail &__inner,
+  &--about &__inner {
+    padding: 0;
+    max-width: none;
+  }
+
+  &--home &__inner {
+    padding: 0;
+    max-width: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  &__section {
+    padding: 24px 16px;
+    position: relative;
+
+    @media (--mq-m) {
+      padding: 32px;
+    }
+
+    @media (--mq-l) {
+    flex: 1;
+      max-width: 50%;
+      flex-basis: 50%;
+      min-height: min-content;
+      padding: 48px;
+    }
+
+    &--0 {
+      padding: 0;
+
+      @media (--mq-m) {
+        height: 50vh;
+      }
+
+      @media (--mq-l) {
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+
+        @media (--mq-m) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &--about &__section--0 {
+    background-color: var(--color-brand--a);
+  }
+
+  &--about &__section--1,
+  &--contact &__section--1 {
+    /* background-color: #f9f9f9; */
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-size: 150px 36px;
+  }
+}

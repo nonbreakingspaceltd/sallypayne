@@ -1,0 +1,8 @@
+.sp-o-pagetitle {
+  margin-bottom: 16px;
+  color: var(--color-black);
+
+  @media (--mq-m) {
+    margin-bottom: 32px;
+  }
+}

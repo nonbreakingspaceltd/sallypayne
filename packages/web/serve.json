@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "source": "**/*.@(avif|webp|jpg|jpeg|gif|png|woff|woff2|css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }
+      ]
+    },
+    {
+      "source": "404.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=300"
+        }
+      ]
+    }
+  ]
+}

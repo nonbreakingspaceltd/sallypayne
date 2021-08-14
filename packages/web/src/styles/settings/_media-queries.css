@@ -1,0 +1,44 @@
+/*
+* Pixel calc 400/16.
+* Examples of devices that will fall under this breakpoint:
+* - iPhone 5/6/7/8/X/XS
+* - Samsung Galaxy S7/S8/S9 and their plus equivelents.
+* - iPhone X/XS
+*/
+@custom-media --mq-xs screen and (min-width: 25em);
+
+/*
+* Pixel calc 600/16.
+* Examples of devices that will fall under this breakpoint:
+* - Horizontal mobiles
+* - Mid-sized tablets
+*/
+@custom-media --mq-s screen and (min-width: 37.5em);
+
+/*
+* Pixel calc 768/16.
+* Examples of devices that will fall under this breakpoint:
+* - iPad Third & Fourth Generation
+* - iPad Air 1 & 2
+* - iPad Mini 2 & 3
+* - Nexus 9
+*/
+@custom-media --mq-m screen and (min-width: 48em);
+
+/*
+* Pixel calc 1024/16.
+* Horizontal breakpoint for tablets.
+*/
+@custom-media --mq-l screen and (min-width: 64em);
+
+/*
+* Pixel calc 1296/16.
+* Breakpoint for laptops and desktops.
+*/
+@custom-media --mq-xl screen and (min-width: 81em);
+
+/*
+* Pixel calc 1440/16.
+* Breakpoint for larger screens.
+*/
+@custom-media --mq-xxl screen and (min-width: 90em);

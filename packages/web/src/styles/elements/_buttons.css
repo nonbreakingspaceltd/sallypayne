@@ -1,0 +1,55 @@
+/* Button */
+
+.sp-c-btn {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  appearance: none;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 24px;
+
+  &.disabled,
+  &[disabled] {
+      cursor: default;
+  }
+
+  &__label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--block {
+    width: 100%;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--etsy {
+    background-color: var(--color-social--etsy);
+    border-color: var(--color-social--etsy);
+    color: var(--color-white);
+  }
+
+  &--etsy &__icon {
+    fill: var(--color-white);
+    width: 50px;
+    vertical-align: -10px;
+    margin-left: 10px;
+  }
+
+  &--color-e {
+    background-color: var(--color-brand--e);
+    border-color: var(--color-brand--e);
+    color: var(--color-white);
+  }
+
+}

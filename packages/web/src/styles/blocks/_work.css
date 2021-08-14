@@ -1,0 +1,120 @@
+/* Work */
+
+.sp-c-work {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  /* transition: background-color 0.3s ease-in-out; */
+  height: 100vw;
+
+  @media (--mq-m) {
+    height: auto;
+    flex-grow: 1;
+  }
+
+  &.is--fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+
+  &__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    background-size: 60vh auto;
+    background-attachment: fixed;
+
+    @media (--mq-m) {
+      background-size: 500px auto;
+    }
+  }
+
+  &__media {
+    margin: 0 auto;
+    padding: 32px;
+    display: block;
+    width: 100%;
+    max-width: 70vh;
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+
+    &__item {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--color-white);
+      text-decoration: none;
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      border-radius: 100%;
+      text-align: center;
+
+      @media (--mq-m) {
+        width: 48px;
+        height: 48px;
+      }
+
+      &__svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 24px;
+        fill: var(--color-text);
+
+        @media (--mq-m) {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      &:hover &__svg,
+      &:focus &__svg {
+        fill: var(--color-black);
+      }
+
+      &--prev {
+        left: 16px;
+
+        @media (--mq-m) {
+          left: 32px;
+        }
+      }
+
+      &--next {
+        right: 16px;
+
+        @media (--mq-m) {
+          right: 32px;
+        }
+      }
+    }
+  }
+
+  &:hover &__nav {
+    visibility: visible;
+    opacity: 1;
+  }
+}

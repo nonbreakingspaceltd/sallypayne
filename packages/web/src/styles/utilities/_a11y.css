@@ -1,0 +1,50 @@
+/*! purgecss start ignore */
+
+/*
+  blur images with no alt
+*/
+img:not([alt]),
+img[alt=' '],
+img[alt='undefined'],
+img[alt='null'] {
+  filter: blur(5px);
+}
+
+/*
+  disable animation for reduced motion
+*/
+@media (prefers-reduced-motion: reduce) {
+  html *,
+  html *:after,
+  html *:before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+  Remove default focus styles for mouse users ONLY if
+  :focus-visible is supported on this platform.
+*/
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/*
+  Optionally: If :focus-visible is supported on this
+  platform, provide enhanced focus styles for keyboard
+  focus.
+*/
+:focus-visible  {
+  outline: 3px solid var(--color-accessible-focus);
+}
+
+.js-focus-visible .focus-visible {
+  outline: 3px solid var(--color-accessible-focus);
+}
+
+/*! purgecss end ignore */

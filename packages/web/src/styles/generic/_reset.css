@@ -1,0 +1,9 @@
+@import 'modern-normalize';
+
+main:focus {
+  outline: 0;
+}
+
+figure {
+  margin: 0;
+}

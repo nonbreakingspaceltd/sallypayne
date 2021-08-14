@@ -1,0 +1,41 @@
+---
+import LayoutBase from '../layouts/Base';
+import Counter from '../components/Counter/Counter.vue';
+import Card from '../components/Card/Card.vue';
+
+const { title = 'Sally Payne' } = Astro.props;
+
+const imageBase = 'https://cdn.sanity.io/images/jrwpak9p/us-en-prod-content/4719cbf16bc67482bd3fa54d7d2a5dd5dd8e69c0-5184x3456.jpg?bg=FFFFFF&q=60&format=auto'
+
+const image = {
+  src: `${imageBase}?&w=500`,
+  alt: 'Test image',
+  width: 500,
+  height: 333,
+  backgroundColor: '#b2bdc3',
+  sources: [
+    {
+      srcset: [
+        `${imageBase}?&w=375 1x`,
+        `${imageBase}?&w=750 2x`
+      ],
+      type: 'image/jpeg',
+      media: 'screen and (max-width: 375px)'
+    },
+    {
+      srcset: [
+        `${imageBase}?&w=500 1x`,
+        `${imageBase}?&w=1000 2x`
+      ],
+      type: 'image/jpeg',
+      media: 'screen and (min-width: 376px)'
+    }
+  ]
+}
+---
+<LayoutBase title={title}>
+  <Card title="This is the title" link="#" image={image}>
+    <p>Text that should go into the card</p>
+    <Counter client:visible />
+  </Card>
+</LayoutBase>

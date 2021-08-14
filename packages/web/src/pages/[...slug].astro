@@ -1,0 +1,32 @@
+---
+import LayoutBase from '../layouts/Base';
+import { client } from '../utils/sanityClient';
+
+export async function getStaticPaths() {
+  const pages = await client.fetch(/* groq */ `
+    *[_type == 'page'] {
+      title,
+      "slug": slug.current
+    }
+  `);
+  return pages.map(page => ({
+    params: {
+      slug: page.slug
+    },
+    props: {
+      page,
+      title: page.title,
+      meta: {
+        title: page.title,
+        description: page.title,
+      }
+    }
+  }));
+}
+const { slug } = Astro.request.params;
+const { page, title, meta } = Astro.props;
+---
+<LayoutBase title={title} meta={meta}>
+  <p>{JSON.stringify(page)}</p>
+</LayoutBase>
+

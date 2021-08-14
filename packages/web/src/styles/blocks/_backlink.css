@@ -1,0 +1,12 @@
+.sp-o-backlink {
+  display: none;
+
+  @media (--mq-l) {
+    position: fixed;
+    width: 32px;
+    top: 174px;
+    left: 32px;
+    z-index: 2;
+    display: block;
+  }
+}

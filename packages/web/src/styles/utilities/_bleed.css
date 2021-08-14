@@ -1,0 +1,12 @@
+.u-bleed {
+  &-full {
+    width: var(--fluid-screen);
+    margin-left: calc(50% - calc(var(--fluid-screen) / 2));
+
+    /* IE cannot handle the variable calc() */
+    @media (--mq-ie11) {
+      width: calc(100vw - 8px); /* remove 8px for scrollbar compensation */
+      margin-left: calc(50% - 50vw);
+    }
+  }
+}

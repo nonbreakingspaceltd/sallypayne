@@ -1,0 +1,33 @@
+/* Document */
+
+html {
+    -webkit-tap-highlight-color: color-mod(var(--color-black) alpha(0%));
+    background-color: var(--color-white);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-white);
+}
+
+.sp-l-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-o-header,
+.sp-o-footer {
+  flex-shrink: 0;
+}
+
+.sp-l-main {
+  flex-grow: 1;
+  display: flex;
+}
+
