@@ -1,11 +1,13 @@
 ---
+import Header from '../components/Header/Header.vue';
+import Footer from '../components/Footer/Footer.vue';
 
 const { title, meta, path } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
 const req = Astro.request;
 ---
-<style global>
-  @import "../styles/index.css";
+<style>
+  @import "../assets/styles/index.css";
 </style>
 
 <html lang="en">
@@ -44,10 +46,15 @@ const req = Astro.request;
 
   </head>
   <body>
+
+    <Header client:idle />
+
     <main>
       <h1>{title}</h1>
       <slot />
     </main>
+
+    <Footer />
 
     <!-- [additional foot scripts] -->
 
