@@ -1,4 +1,0 @@
-.u-link-effect {
-  color: inherit;
-  @mixin link-effect var(--color-brand-peppermint-green), var(--color-black);
-}

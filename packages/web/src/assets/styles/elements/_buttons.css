@@ -1,6 +1,16 @@
 /* Button */
 
 .sp-c-btn {
+  /* reset */
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  /* core */
   text-align: center;
   text-decoration: none;
   display: inline-block;
