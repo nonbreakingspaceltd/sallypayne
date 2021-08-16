@@ -4,7 +4,41 @@ import Footer from '../components/Footer/Footer.vue';
 
 const { title, meta, path } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
+const currentPath = Astro.request.url.pathname;
 const req = Astro.request;
+let navigationLinks = [
+  {
+    label: 'About',
+    href: '/about',
+    current: null
+  },
+  {
+    label: 'Work',
+    href: '/work',
+    current: null
+  },
+  {
+    label: 'Shop',
+    href: '/shop',
+    current: null
+  },
+  {
+    label: 'Journal',
+    href: '/journal',
+    current: null
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
+    current: null
+  },
+];
+navigationLinks.forEach((link) => {
+  if (currentPath.includes(link.href)) {
+    link.current = true
+  }
+});
+
 ---
 <style>
   @import "../assets/styles/index.css";
@@ -47,7 +81,7 @@ const req = Astro.request;
   </head>
   <body>
 
-    <Header client:idle />
+    <Header client:idle links={navigationLinks} />
 
     <main>
       <h1>{title}</h1>

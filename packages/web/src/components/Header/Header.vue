@@ -42,13 +42,22 @@
         </div>
       </a>
     </div>
-    <button class="sp-c-header__menu-toggle" @click="toggleMenu()" v-if="smallscreen">
-      <span class="sp-u-sronly">Toggle menu</span>
+    <button
+      :class="['sp-c-header__menu-toggle', menuActive && 'is-active']"
+      @click="toggleMenu()"
+      v-if="isClient && smallscreen"
+      aria-controls="nav"
+      aria-haspopup="true"
+      :aria-expanded="menuExpanded"
+    >
+      <span class="sp-u-sronly">
+        {{ menuActive ? 'Close navigation' : 'Toggle navigation' }}
+      </span>
       <svg
         class="sp-c-header__menu-toggle__svg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"
-        v-if="!menuIn"
+        v-if="!menuActive"
       >
         <path
           d="M.5 7.6c0 .2.2.4.4.4 0 0 .1.1.2.1 1.1.1 2.2.1 3.3-.1 1-.1 1.9-.1 2.8-.2 3.3 0 6.5-.1 9.7-.1.4 0 .7 0 1.1-.1.7-.1 1.3-.2 2-.2h10c.3 0 .7 0 .9-.1.5 0 .8-.3 1-.8.2-.7.2-1.4 0-2.2-.1-.3-.1-.5-.3-.7-.1-.2-.3-.3-.5-.3h-1.7c-3.3.1-7.8.1-11.1.1-.4 0-.8 0-1.2.1-.7.1-1.3.2-2 .1-1.6 0-3.3 0-5 .1-1.7.1-3.4.2-5.1.2-.3 0-.7 0-.9.1-.7.1-1.4.2-2.1.2-.2-.1-.4 0-.6 0-.3 0-.5.1-.5.3-.2.3-.3.5-.4.8-.1.8-.2 1.5 0 2.3zm31.1 6.8c-.1-.2-.2-.3-.4-.5-.1 0-.1-.1-.1-.1-1.1-.1-2.3-.2-3.4-.1-.9.1-1.8.1-2.8.1-3.3-.1-6.5-.2-9.7-.3h-1.1c-.7.1-1.3.1-2 .1H8v.1l-5.9-.2h-.9c-.5 0-.8.3-1 .8-.2.7-.2 1.4-.1 2.1.1.3.1.5.3.7.1.2.3.3.5.3l1.7.1c3.3.1 7.8.2 11.1.3.4.1.8.1 1.2 0 .7-.1 1.3-.1 2-.1 1.6.1 3.3.1 5 .1 1.7.1 3.4.1 5.1.1h.9c.7-.1 1.4-.1 2.1-.1h.6c.2 0 .4-.1.5-.3.1-.3.3-.5.4-.8.2-.8.2-1.5.1-2.3zm0 9.9c-.1-.2-.3-.3-.4-.4-.1 0-.1-.1-.1-.1-1.1-.1-2.3-.1-3.4.1-.9.1-1.8.2-2.7.2-3.3 0-6.5.1-9.7.1-.4 0-.7 0-1.1.1-.7.1-1.3.2-2 .2H8.1v.1H2.2c-.3 0-.7 0-.9.1-.5 0-.8.3-1 .8-.1.7-.1 1.4.1 2.2.1.3.1.5.3.7.1.2.3.3.5.3h1.7c3.3-.1 7.8-.1 11.1-.1.4 0 .8 0 1.2-.1.7-.1 1.3-.2 2-.1 1.6 0 3.3 0 5-.1 1.7 0 3.4-.1 5.1-.1.3 0 .7 0 .9-.1.7-.1 1.4-.2 2.1-.2.2 0 .4 0 .6-.1.2 0 .4-.1.5-.3.1-.3.3-.5.3-.8 0-.8 0-1.6-.1-2.4z"
@@ -58,7 +67,7 @@
         class="sp-c-header__menu-toggle__svg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"
-        v-if="menuIn"
+        v-if="menuActive"
       >
         <path
           d="M29.3 25.8L28 24.5c-2.5-2.4-6-5.9-8.6-8.4.9-.9 2.2-2.1 3.1-3.1l3.9-3.9c.2-.2.5-.5.7-.8.4-.6.9-1.2 1.5-1.8.1-.1.3-.4.4-.5.1-.1.2-.4.1-.6 0-.4-.1-.6-.4-.9-.5-.7-1.1-1.3-1.7-1.8-.2-.1-.4-.1-.6 0l-.1.1c-.9.8-1.8 1.7-2.6 2.6-.6.8-1.4 1.6-2.1 2.3-1.8 1.8-3.8 3.9-5.5 5.6-1.1-1.1-2.2-2.2-3.4-3.3-1.4-1.3-2.6-2.6-4-3.9 0-.4-.3-.6-.5-.8-.6-.5-1.3-1-1.8-1.5l-.5-.5c-.2-.1-.4-.2-.6-.2-.4.1-.7.2-1 .5-.7.5-1.2 1-1.7 1.7-.1.2-.1.5 0 .7 0 .1.1.1.1.1.8.9 1.7 1.8 2.6 2.6.8.6 1.6 1.3 2.3 2 1.9 1.9 3.8 3.7 5.6 5.6l-4.3 4.5.1.1-4.6 4.6c-.3.2-.5.5-.7.8-.4.4-.4.9-.1 1.4.5.6 1.1 1.1 1.8 1.6.2.1.5.2.7.3s.5 0 .6-.1L8 28c2.4-2.5 8.3-8.6 8.5-8.6l4.3 4.1.1-.1 4.6 4.6c.2.2.5.5.8.7.4.4.9.4 1.4.1.6-.4 1.2-1 1.6-1.7.1-.2.2-.5.3-.7-.1-.2-.1-.4-.3-.6z"
@@ -67,14 +76,21 @@
     </button>
     <nav
       id="nav"
-      class="sp-c-header__nav"
-      :class="{ 'is-active': menuIn }"
+      :class="['sp-c-header__nav', menuActive && 'is-active']"
       role="navigation"
-      v-show="!isClient || !smallscreen || menuIn"
+      v-if="!isClient || !smallscreen || menuActive"
+      tabindex="-1"
     >
       <ul class="sp-c-header__nav__menu">
         <li class="sp-c-header__nav__item" v-for="link in links" :key="link.href">
-          <a :href="link.href" :class="['sp-c-header__nav__link', linkClass(link.label)]">
+          <a
+            :href="link.href"
+            :class="[
+              'sp-c-header__nav__link',
+              linkVariant(link.label),
+              link.current && 'is-active',
+            ]"
+          >
             <span class="sp-c-header__nav__link__label">
               {{ link.label }}
             </span>
@@ -89,30 +105,16 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export default {
+  name: 'Header',
+  props: {
+    links: {
+      type: Array,
+      required: true,
+    },
+  },
   setup() {
-    const links = ref([
-      {
-        label: 'About',
-        href: '/about',
-      },
-      {
-        label: 'Work',
-        href: '/work',
-      },
-      {
-        label: 'Shop',
-        href: '/shop',
-      },
-      {
-        label: 'Journal',
-        href: '/journal',
-      },
-      {
-        label: 'Contact',
-        href: '/contact',
-      },
-    ]);
-    const menuIn = ref(false);
+    const menuActive = ref(false);
+    const menuExpanded = ref(null);
     const isClient = ref(false);
     const smallscreen = ref(true);
 
@@ -121,18 +123,28 @@ export default {
     };
 
     const toggleMenu = () => {
-      menuIn.value = !menuIn.value;
+      menuActive.value = !menuActive.value;
+      testExpanded();
     };
 
-    const linkClass = (label) => {
+    const linkVariant = (label) => {
       const parsedLabel = label.toLowerCase().replace(/\W/g, '');
       return `sp-c-header__nav__link--${parsedLabel}`;
+    };
+
+    const testExpanded = () => {
+      let test = null;
+      if (smallscreen.value) {
+        test = menuActive.value ? 'true' : 'false';
+      }
+      menuExpanded.value = test;
     };
 
     onMounted(() => {
       isClient.value = true;
       window.addEventListener('resize', handleResize);
       handleResize();
+      testExpanded();
     });
 
     onUnmounted(() => {
@@ -140,13 +152,13 @@ export default {
     });
 
     return {
-      links,
-      menuIn,
+      menuActive,
+      menuExpanded,
       isClient,
       smallscreen,
       handleResize,
       toggleMenu,
-      linkClass,
+      linkVariant,
     };
   },
 };
@@ -254,6 +266,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
 
     .js & {
       position: fixed;
@@ -325,6 +338,46 @@ export default {
         letter-spacing: 3px;
       }
 
+      &--about {
+        &:hover,
+        &:focus,
+        &.is-active {
+          color: var(--color-brand-sinbad);
+        }
+      }
+
+      &--work {
+        &:hover,
+        &:focus,
+        &.is-active {
+          color: var(--color-brand-manhattan);
+        }
+      }
+
+      &--shop {
+        &:hover,
+        &:focus,
+        &.is-active {
+          color: var(--color-brand-acapulco);
+        }
+      }
+
+      &--journal {
+        &:hover,
+        &:focus,
+        &.is-active {
+          color: var(--color-brand-goldensand);
+        }
+      }
+
+      &--contact {
+        &:hover,
+        &:focus,
+        &.is-active {
+          color: var(--color-brand-danube);
+        }
+      }
+
       &__label {
         display: block;
         position: relative;
@@ -352,46 +405,6 @@ export default {
       &.active &__label {
         &::after {
           visibility: visible;
-        }
-      }
-
-      &--about {
-        &:hover,
-        &:focus,
-        &.active {
-          color: var(--color-brand--a);
-        }
-      }
-
-      &--work {
-        &:hover,
-        &:focus,
-        &.active {
-          color: var(--color-brand--b);
-        }
-      }
-
-      &--shop {
-        &:hover,
-        &:focus,
-        &.active {
-          color: var(--color-brand--c);
-        }
-      }
-
-      &--journal {
-        &:hover,
-        &:focus,
-        &.active {
-          color: var(--color-brand--d);
-        }
-      }
-
-      &--contact {
-        &:hover,
-        &:focus,
-        &.active {
-          color: var(--color-brand--e);
         }
       }
     }
