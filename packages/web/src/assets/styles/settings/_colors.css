@@ -1,21 +1,91 @@
 /* Color Variables */
 
 :root {
-    --color-white: #FFFFFF;
-    --color-black: #000000;
-    --color-text: #525254;
+  /* Brand */
 
-    --color-brand--a:  #a2d8d5;
-    --color-brand--b:  #f5ab8a;
-    --color-brand--c:  #88bc95;
-    --color-brand--d:  #f2cd7d;
-    --color-brand--e:  #76aad8;
+  --color-brand-sinbad: #a2d8d5;
+  --color-brand-sinbad-rgb: 162, 216, 213;
 
-    /* social colors */
-    --color-social--twitter: #55acee;
-    --color-social--facebook: #1877F2;
-    --color-social--linkedin: #1c86bd;
-    --color-social--youtube: #cd201f;
-    --color-social--pinterest: #cc2127;
-    --color-social--etsy: #EF5000;
+  --color-brand-manhattan: #f5ab8a;
+  --color-brand-manhattan-rgb: #a2d8d5;
+
+  --color-brand-acapulco: #88bc95;
+  --color-brand-acapulco-rgb: 136, 188, 149;
+
+  --color-brand-goldensand: #f2cd7d;
+  --color-brand-goldensand-rgb: 242, 205, 125;
+
+  --color-brand-danube: #76aad8;
+  --color-brand-danube-rgb: 118, 170, 216;
+
+  --color-brand-abbey: #525254;
+  --color-brand-abbey-rgb: 82, 82, 84;
+
+  /* Neutrals */
+
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+
+  --color-black: #000000;
+  --color-black-rgb: 0, 0, 0;
+
+  --color-darkest-grey: #222222;
+  --color-darkest-grey-rgb: 34, 34, 34;
+
+  --color-dark-grey: #333333;
+  --color-dark-grey-rgb: 51, 51, 51;
+
+  --color-mid-grey: #666666;
+  --color-mid-grey-rgb: 102, 102, 102;
+
+  --color-light-grey: #eeeeee;
+  --color-light-grey-rgb: 238, 238, 238;
+
+  --color-lightest-grey: #f5f5f5;
+  --color-lightest-grey-rgb: 245, 245, 245;
+
+  /* Accessiblity */
+
+  --color-accessible-focus: #eb5f1e;
+  --color-accessible-focus-rgb: 235, 95, 30;
+
+  /* Status */
+
+  --color-status-danger: #d32f2f;
+  --color-status-danger-rgb: 211, 47, 47;
+
+  --color-status-info: #1976d2;
+  --color-status-info-rgb: 25, 118, 210;
+
+  --color-status-warning: #ff8f00;
+  --color-status-warning-rgb: 255, 143, 0;
+
+  --color-status-success: #388e3c;
+  --color-status-success-rgb: 56, 142, 60;
+
+  /* Social */
+
+  --color-social-twitter: #55acee;
+  --color-social-twitter-rgb: 85, 172, 238;
+
+  --color-social-facebook: #1877f2;
+  --color-social-facebook-rgb: 24, 119, 242;
+
+  --color-social-linkedin: #1c86bd;
+  --color-social-linkedin-rgb: 28, 134, 189;
+
+  --color-social-youtube: #cd201f;
+  --color-social-youtube-rgb: 205, 32, 31;
+
+  --color-social-pinterest: #cc2127;
+  --color-social-pinterest-rgb: 204, 33, 39;
+
+  --color-social-whatsapp: #25d366;
+  --color-social-whatsapp-rgb: 37, 211, 102;
+
+  --color-social-instagram: #f01874;
+  --color-social-instagram-rgb: 240, 24, 116;
+
+  --color-social-etsy: #ef5000;
+  --color-social-etsy-rgb: 239, 80, 0;
 }

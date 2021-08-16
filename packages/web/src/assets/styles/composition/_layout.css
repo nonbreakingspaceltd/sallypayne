@@ -31,7 +31,7 @@
   }
 
   &--work {
-    background-color: var(--color-brand--b);
+    background-color: var(--color-brand-manhattan);
     /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
     background-position: 50% 50%;
     background-repeat: repeat;
@@ -39,7 +39,7 @@
   }
 
   &--journal {
-    background-color: var(--color-brand--d);
+    background-color: var(--color-brand-goldensand);
     /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
     background-position: 50% 50%;
     background-repeat: repeat;
@@ -47,7 +47,7 @@
   }
 
   &--shop {
-    background-color: var(--color-brand--c);
+    background-color: var(--color-brand-acapulco);
     /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
     background-position: 50% 50%;
     background-repeat: repeat;
@@ -127,7 +127,7 @@
   }
 
   &--about &__section--0 {
-    background-color: var(--color-brand--a);
+    background-color: var(--color-brand-sinbad);
   }
 
   &--about &__section--1,

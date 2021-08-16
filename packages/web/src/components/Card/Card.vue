@@ -106,12 +106,12 @@ export default {
 
   &--journal a:hover &__title,
   &--journal a:focus &__title {
-    color: var(--color-brand--d);
+    color: var(--color-brand-goldensand);
   }
 
   &--product a:hover &__title,
   &--product a:focus &__title {
-    color: var(--color-brand--c);
+    color: var(--color-brand-acapulco);
   }
 
   &__body {

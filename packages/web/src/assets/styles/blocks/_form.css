@@ -38,7 +38,7 @@
       background: transparent;
 
       &:focus {
-        border-color: var(--color-brand--e);
+        border-color: var(--color-brand-danube);
       }
     }
 

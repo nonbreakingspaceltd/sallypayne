@@ -128,22 +128,22 @@ export default {
 
       &__svg {
         width: 100%;
-        fill: var(--color-text);
+        fill: var(--color-brand-abbey);
       }
 
       &--facebook:hover &__svg,
       &--facebook:focus &__svg {
-        fill: var(--color-social--facebook);
+        fill: var(--color-social-facebook);
       }
 
       &--twitter:hover &__svg,
       &--twitter:focus &__svg {
-        fill: var(--color-social--twitter);
+        fill: var(--color-social-twitter);
       }
 
       &--pinterest:hover &__svg,
       &--pinterest:focus &__svg {
-        fill: var(--color-social--pinterest);
+        fill: var(--color-social-pinterest);
       }
 
       &--instagram &__g2 {

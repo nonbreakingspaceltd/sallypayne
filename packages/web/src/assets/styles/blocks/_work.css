@@ -82,7 +82,7 @@
         transform: translate(-50%, -50%);
         width: 24px;
         height: 24px;
-        fill: var(--color-text);
+        fill: var(--color-brand-abbey);
 
         @media (--mq-m) {
           width: 32px;

@@ -44,8 +44,8 @@
   }
 
   &--etsy {
-    background-color: var(--color-social--etsy);
-    border-color: var(--color-social--etsy);
+    background-color: var(--color-social-etsy);
+    border-color: var(--color-social-etsy);
     color: var(--color-white);
   }
 
@@ -57,8 +57,8 @@
   }
 
   &--color-e {
-    background-color: var(--color-brand--e);
-    border-color: var(--color-brand--e);
+    background-color: var(--color-brand-danube);
+    border-color: var(--color-brand-danube);
     color: var(--color-white);
   }
 
