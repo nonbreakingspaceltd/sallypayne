@@ -45,7 +45,7 @@
     <button
       :class="['sp-c-header__menu-toggle', menuActive && 'is-active']"
       @click="toggleMenu()"
-      v-if="isClient && smallscreen"
+      v-if="smallscreen"
       aria-controls="nav"
       aria-haspopup="true"
       :aria-expanded="menuExpanded"
@@ -263,10 +263,10 @@ export default {
     width: 100%;
     background-color: var(--color-white);
     margin-left: auto;
-    display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
+    display: none;
 
     .js & {
       position: fixed;
@@ -288,6 +288,11 @@ export default {
         right: auto;
         bottom: auto;
         left: auto;
+        display: flex;
+      }
+
+      &.is-active {
+        display: flex;
       }
     }
 

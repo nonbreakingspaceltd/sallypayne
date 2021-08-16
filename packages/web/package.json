@@ -4,23 +4,29 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "yarn start",
-    "build": "npx astro build",
+    "build": "astro build && yarn optimize",
+    "optimize": "node src/scripts/optimize.js",
     "serve": "yarn build && npx serve --config ../serve.json dist",
-    "start": "npx astro dev"
+    "start": "astro dev"
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
     "astro": "^0.19.0-next.2",
     "autoprefixer": "^10.3.1",
+    "critters": "^0.0.10",
     "cssnano": "^5.0.7",
     "dotenv": "^10.0.0",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "htmlnano": "^1.0.0",
     "postcss": "^8.3.6",
     "postcss-at-rules-variables": "^0.3.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.6",
-    "postcss-pxtorem": "^6.0.0"
+    "postcss-pxtorem": "^6.0.0",
+    "purgecss": "^4.0.3"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
