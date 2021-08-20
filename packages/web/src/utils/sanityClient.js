@@ -1,13 +1,13 @@
 const sanityClient = (options) => {
-  const { useCdn, projectId, dataset, token } = options;
+  const { useCdn, projectId, dataset, token, apiVersion } = options;
   const hasToken = token && token.length > 0;
-  const baseHost = useCdn && !hasToken ? "apicdn.sanity.io" : "api.sanity.io";
-  const endpoint = `https://${projectId}.${baseHost}/v1/data/query/${dataset}`;
+  const baseHost = useCdn && !hasToken ? 'apicdn.sanity.io' : 'api.sanity.io';
+  const endpoint = `https://${projectId}.${baseHost}/v${apiVersion}/data/query/${dataset}`;
 
   // Parse JSON and throw on bad responses
   const responseHandler = (response) => {
     if (response.status >= 400) {
-      throw new Error([response.status, response.statusText].join(" "));
+      throw new Error([response.status, response.statusText].join(' '));
     }
     return response.json();
   };
@@ -26,7 +26,7 @@ const sanityClient = (options) => {
         ...(parameters && transformedParams(parameters)),
       });
 
-      const url = new URL([endpoint, urlParams].join("?"));
+      const url = new URL([endpoint, urlParams].join('?'));
 
       return (
         fetch(url.toString(), {
@@ -50,5 +50,3 @@ export const client = sanityClient({
   apiVersion: process.env.SANITY_STUDIO_API_VERSION,
   useCdn: false,
 });
-
-
