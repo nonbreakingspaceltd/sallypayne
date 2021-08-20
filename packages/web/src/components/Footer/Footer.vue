@@ -137,14 +137,18 @@ export default {
         display: none;
       }
 
-      &--instagram:hover &__g1,
-      &--instagram:focus &__g1 {
-        display: none;
-      }
+      &--instagram:hover &__icon {
+        .intragram-icon-path-1 {
+          fill: url(#intragram-icon-gradient-1);
+        }
 
-      &--instagram:hover &__g2,
-      &--instagram:focus &__g2 {
-        display: block;
+        .intragram-icon-path-2 {
+          fill: url(#intragram-icon-gradient-2);
+        }
+
+        .intragram-icon-path-3 {
+          fill: url(#intragram-icon-gradient-3);
+        }
       }
     }
   }
