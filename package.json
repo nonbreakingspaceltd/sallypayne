@@ -3,6 +3,6 @@
   "packageManager": "yarn",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/**/*"
   ]
 }

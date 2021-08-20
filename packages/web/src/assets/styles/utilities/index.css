@@ -1,6 +1,6 @@
-@import './_a11y';
-@import './_screen-readers';
-@import './_bleed';
-@import './_colors';
-@import './_text';
-@import './_lists';
+@import './_a11y.css';
+@import './_screen-readers.css';
+@import './_bleed.css';
+@import './_colors.css';
+@import './_text.css';
+@import './_lists.css';

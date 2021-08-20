@@ -2,5 +2,5 @@
 // See all supported options: https://www.snowpack.dev/reference/configuration
 
 export default {
-  plugins: ['@snowpack/plugin-postcss'],
+  plugins: ['@sallypayne/snowpack-plugin-vue-svg', '@snowpack/plugin-postcss'],
 };

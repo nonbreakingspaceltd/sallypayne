@@ -9,58 +9,45 @@
     <aside class="sp-c-footer__social">
       <a
         href="https://www.facebook.com/sallypaynedesign/"
-        class="sp-c-footer__social__item sp-c-footer__social__item--facebook"
+        class="sp-c-footer__social__link sp-c-footer__social__link--facebook"
       >
-        <span class="sp-u-sronly">Facebook</span>
-        <img
-          svg-inline
-          src="../../assets/icons/facebook.svg"
-          class="sp-c-footer__social__item__svg"
-          alt=""
-        />
+        <IconFacebook class="sp-c-footer__social__link__icon" />
       </a>
       <a
         href="https://twitter.com/salpdesign"
-        class="sp-c-footer__social__item sp-c-footer__social__item--twitter"
+        class="sp-c-footer__social__link sp-c-footer__social__link--twitter"
       >
-        <span class="sp-u-sronly">Twitter</span>
-        <img
-          svg-inline
-          src="../../assets/icons/twitter.svg"
-          class="sp-c-footer__social__item__svg"
-          alt=""
-        />
+        <IconTwitter class="sp-c-footer__social__link__icon" />
       </a>
       <a
         href="https://www.instagram.com/sallypayne_design/"
-        class="sp-c-footer__social__item sp-c-footer__social__item--instagram"
+        class="sp-c-footer__social__link sp-c-footer__social__link--instagram"
       >
-        <span class="sp-u-sronly">Instagram</span>
-        <img
-          svg-inline
-          src="../../assets/icons/instagram.svg"
-          class="sp-c-footer__social__item__svg"
-          alt=""
-        />
+        <IconInstagram class="sp-c-footer__social__link__icon" />
       </a>
       <a
         href="https://www.pinterest.co.uk/salhoulker/"
-        class="sp-c-footer__social__item sp-c-footer__social__item--pinterest"
+        class="sp-c-footer__social__link sp-c-footer__social__link--pinterest"
       >
-        <span class="sp-u-sronly">Pinterest</span>
-        <img
-          svg-inline
-          src="../../assets/icons/pinterest.svg"
-          class="sp-c-footer__social__item__svg"
-          alt=""
-        />
+        <IconPinterest class="sp-c-footer__social__link__icon" />
       </a>
     </aside>
   </footer>
 </template>
 
 <script>
+import IconFacebook from './../../assets/icons/facebook.svg';
+import IconTwitter from './../../assets/icons/twitter.svg';
+import IconInstagram from './../../assets/icons/instagram.svg';
+import IconPinterest from './../../assets/icons/pinterest.svg';
+
 export default {
+  components: {
+    IconFacebook,
+    IconTwitter,
+    IconInstagram,
+    IconPinterest,
+  },
   computed: {
     currentYear() {
       return new Date().getFullYear();
@@ -118,7 +105,7 @@ export default {
       margin: -4px 0;
     }
 
-    &__item {
+    &__link {
       width: 32px;
       display: inline-block;
 
@@ -126,23 +113,23 @@ export default {
         margin-left: 10px;
       }
 
-      &__svg {
+      &__icon {
         width: 100%;
         fill: var(--color-brand-abbey);
       }
 
-      &--facebook:hover &__svg,
-      &--facebook:focus &__svg {
+      &--facebook:hover &__icon,
+      &--facebook:focus &__icon {
         fill: var(--color-social-facebook);
       }
 
-      &--twitter:hover &__svg,
-      &--twitter:focus &__svg {
+      &--twitter:hover &__icon,
+      &--twitter:focus &__icon {
         fill: var(--color-social-twitter);
       }
 
-      &--pinterest:hover &__svg,
-      &--pinterest:focus &__svg {
+      &--pinterest:hover &__icon,
+      &--pinterest:focus &__icon {
         fill: var(--color-social-pinterest);
       }
 

@@ -1,5 +1,5 @@
-@import './_media-queries';
-@import './_colors';
-@import './_space';
-@import './_text';
-@import './_layout';
+@import './_media-queries.css';
+@import './_colors.css';
+@import './_space.css';
+@import './_text.css';
+@import './_layout.css';
