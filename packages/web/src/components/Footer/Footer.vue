@@ -57,6 +57,9 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/styles/settings';
+@import '../../assets/styles/tools';
+
 .sp-c-footer {
   padding: calc(var(--baseline) * 4);
   font-size: 0;

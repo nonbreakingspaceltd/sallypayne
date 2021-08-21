@@ -11,9 +11,10 @@ const purgeCssConfig = {
     standard: ['body', 'html', 'img', 'a'],
     greedy: [/^is-/, /^has-/, /^js/, /^no-js/, /^data-/, /^disabled/],
   },
+  variables: true,
 };
 
-glob('**/*.html', { root: baseDir }, (err, files) => {
+glob(baseDir + '/**/*.html', (err, files) => {
   if (err) {
     throw err;
   }
@@ -27,6 +28,16 @@ glob('**/*.html', { root: baseDir }, (err, files) => {
         .match(/(?<=href=")[^."]+\.css/g)
         ?.map((file) => baseDir + file)
         .reverse();
+
+      // if no CSS files found
+      if (!cssFilePaths) {
+        // remove placeholders
+        html.replace('<link id="inline-css">', '');
+        html.replace('<link id="preload-fonts"></link>', '');
+        // write file
+        await fs.outputFile(filePath, html);
+        return;
+      }
 
       // get CSS contents
       let css = '';
@@ -61,6 +72,7 @@ glob('**/*.html', { root: baseDir }, (err, files) => {
 
       // output inline CSS
       html = html.replace('<link id="inline-css">', `<style>${optimizedCss}</style>`);
+      // html = html.replace('<link id="inline-css">', `<style>${css}</style>`);
 
       // remove external CSS links
       html = html.replace(/<link rel="stylesheet" href=".*\.css"[^>]+>/g, '');

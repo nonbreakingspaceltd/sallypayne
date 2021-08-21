@@ -123,6 +123,9 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/styles/settings';
+@import '../../assets/styles/tools';
+
 .sp-c-header {
   padding: calc(var(--baseline) * 4) calc(var(--baseline) * 4);
   background-color: rgba(255, 255, 255, 0.95);
@@ -174,8 +177,8 @@ export default {
     &__bird {
       position: absolute;
       width: 32px;
-      top: -8%;
-      left: 70%;
+      top: 18%;
+      left: 80%;
       transform: translate3d(-50%, -50%, 0);
       z-index: 2;
       backface-visibility: hidden;
