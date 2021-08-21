@@ -65,13 +65,19 @@ navigationLinks.forEach((link) => {
 
     <link rel="preconnect" href="//cdn.sanity.io" crossorigin />
 
+    <!-- Replaced with preload font links -->
+    <link id="preload-fonts">
+
     <!-- [additional preconnects/preloads] -->
 
     <script id="js-head">
       document.documentElement.classList.add('js');
     </script>
 
-    <!-- [additional head css] -->
+    <!-- Replaced with inline CSS -->
+    <link id="inline-css">
+
+    <!-- [additional css] -->
 
     <!-- [additional head scripts] -->
 
@@ -81,7 +87,6 @@ navigationLinks.forEach((link) => {
     <Header client:load links={navigationLinks} />
 
     <main>
-      <h1>{title}</h1>
       <slot />
     </main>
 

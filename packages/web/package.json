@@ -4,17 +4,17 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "yarn start",
-    "build": "astro build && yarn optimize",
-    "optimize": "node src/scripts/optimize.js",
+    "build": "astro build && yarn transform:css",
     "serve": "yarn build && npx serve --config ../serve.json dist",
-    "start": "astro dev"
+    "start": "astro dev",
+    "transform:css": "node src/transforms/css.js",
+    "transform:html": "node src/transforms/html.js"
   },
   "devDependencies": {
     "@sallypayne/snowpack-plugin-vue-svg": "0.0.1",
     "@snowpack/plugin-postcss": "^1.4.3",
     "astro": "^0.19.1",
     "autoprefixer": "^10.3.1",
-    "critters": "^0.0.10",
     "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.0.0",

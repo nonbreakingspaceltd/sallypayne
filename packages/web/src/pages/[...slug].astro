@@ -9,6 +9,7 @@ const { slug } = Astro.request.params;
 const { page, title, meta } = Astro.props;
 ---
 <LayoutBase title={title} meta={meta}>
+  <h1>{title}</h1>
   <p>{JSON.stringify(page)}</p>
 </LayoutBase>
 
