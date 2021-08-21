@@ -4,9 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "yarn start",
-    "build": "astro build && yarn transform:css && yarn transform:404",
+    "build": "astro build && yarn transform",
     "serve": "yarn build && npx serve --config ../serve.json dist",
     "start": "astro dev",
+    "transform": "yarn transform:css && yarn transform:404",
     "transform:404": "node src/transforms/404.js",
     "transform:css": "node src/transforms/css.js",
     "transform:html": "node src/transforms/html.js"
