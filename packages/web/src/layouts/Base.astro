@@ -82,15 +82,15 @@ navigationLinks.forEach((link) => {
     <!-- [additional head scripts] -->
 
   </head>
-  <body>
+  <body class="sp-l-layout">
 
-    <Header client:load links={navigationLinks} />
+    <Header client:load links={navigationLinks} class="sp-l-header" />
 
-    <main>
+    <main class="sp-l-main">
       <slot />
     </main>
 
-    <Footer />
+    <Footer class="sp-l-footer" />
 
     <!-- [additional foot scripts] -->
 
