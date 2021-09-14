@@ -12,15 +12,6 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
-
-  @media (--mq-m) {
-    padding-top: 108px;
-  }
-
-  @media (--mq-l) {
-    padding-top: 112px;
-  }
 }
 
 .sp-l-header,

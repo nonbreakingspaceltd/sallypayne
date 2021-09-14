@@ -1,24 +1,117 @@
 <template>
-  <div class="sp-l-page sp-l-page--home">
-    <div class="sp-l-page__inner">
-      <h1 class="sp-u-sronly">Sally Payne</h1>
-      <div class="sp-c-homecanvas">
-        <div class="sp-c-homecanvas__inner">
-          <iframe
-            ref="animation"
-            class="sp-c-homecanvas__iframe"
-            src="/animations/home.html"
-            scrolling="no"
-            title="Homepage Animation"
-          ></iframe>
-        </div>
-      </div>
+  <div class="sp-c-homecanvas">
+    <div class="sp-c-homecanvas__inner">
+      <img v-if="!iframeLoaded" class="sp-c-homecanvas__placeholder" :src="placeholder" alt="" />
+      <iframe
+        ref="iframe"
+        :class="['sp-c-homecanvas__iframe', iframeLoaded && 'is-loaded']"
+        :src="iframeSrc"
+        scrolling="no"
+        title="Homepage illustration animation"
+        @load="iframeLoaded = true"
+        v-show="iframeLoaded"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
 export default {
-  name: 'HomeCanvas'
+  name: 'HomeCanvas',
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
+    const iframe = ref(null);
+    const iframeSrc = ref('');
+    const iframeLoaded = ref(false);
+
+    onMounted(() => {
+      iframeSrc.value = props.src;
+    });
+
+    return {
+      iframe,
+      iframeSrc,
+      iframeLoaded,
+    };
+  },
 };
 </script>
+
+<style lang="postcss">
+@import '../../assets/styles/settings';
+@import '../../assets/styles/tools';
+
+.sp-c-homecanvas {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  @media (--mq-m) {
+    display: flex;
+    align-content: center;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__inner {
+    width: 120vh;
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @media (--mq-m) {
+      width: 100%;
+      max-height: 100%;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      padding-top: 51.26953125%;
+      width: 100%;
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    filter: blur(5px);
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background: #fff;
+  }
+}
+</style>
