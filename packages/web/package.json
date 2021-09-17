@@ -12,7 +12,6 @@
     "transform:html": "node src/transforms/html.js"
   },
   "devDependencies": {
-    "@sallypayne/snowpack-plugin-vue-svg": "0.0.1",
     "@snowpack/plugin-postcss": "^1.4.3",
     "astro": "^0.20.7",
     "autoprefixer": "^10.3.4",
@@ -28,7 +27,8 @@
     "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.6",
     "postcss-pxtorem": "^6.0.0",
-    "purgecss": "^4.0.3"
+    "purgecss": "^4.0.3",
+    "snowpack-vue-svg-plugin": "^2.0.0"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
