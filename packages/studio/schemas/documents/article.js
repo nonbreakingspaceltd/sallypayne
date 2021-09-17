@@ -1,6 +1,8 @@
+import { format } from 'date-fns';
+
 export default {
-  name: 'page',
-  title: 'Page',
+  name: 'article',
+  title: 'Article',
   type: 'document',
   fields: [
     {
@@ -17,6 +19,13 @@ export default {
         source: ({ title }) => title,
         maxLength: 200,
       },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Publish date',
+      name: 'publishedDate',
+      type: 'date',
+      initialValue: format(new Date(), 'yyyy-MM-dd'),
       validation: (Rule) => Rule.required(),
     },
     {
