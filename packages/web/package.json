@@ -14,7 +14,7 @@
   "devDependencies": {
     "@sallypayne/snowpack-plugin-vue-svg": "0.0.1",
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.5",
+    "astro": "^0.20.7",
     "autoprefixer": "^10.3.4",
     "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",
