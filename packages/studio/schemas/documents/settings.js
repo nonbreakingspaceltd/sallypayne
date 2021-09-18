@@ -16,6 +16,7 @@ export default {
       name: 'description',
       title: 'Site Description',
       type: 'text',
+      rows: 3,
     },
   ],
   preview: {

@@ -16,7 +16,7 @@
       aria-haspopup="true"
       :aria-expanded="menuExpanded"
     >
-      <span class="sp-u-sronly">
+      <span class="sp-u-sr-only">
         {{ menuActive ? 'Close navigation' : 'Toggle navigation' }}
       </span>
       <IconMenu class="sp-c-header__menu-toggle__icon" aria-hidden="true" v-if="!menuActive" />
@@ -135,7 +135,7 @@ export default {
 
   .js & {
     position: sticky;
-    z-index: 2;
+    z-index: 10;
     top: 0;
     left: 0;
     right: 0;

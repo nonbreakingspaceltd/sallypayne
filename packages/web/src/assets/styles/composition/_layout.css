@@ -27,6 +27,10 @@
     flex-direction: row;
   }
 
+  &--home {
+    margin-top: auto;
+  }
+
   &--work {
     background-color: var(--color-brand-manhattan);
     /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
@@ -86,7 +90,7 @@
     }
 
     @media (--mq-l) {
-    flex: 1;
+      flex: 1;
       max-width: 50%;
       flex-basis: 50%;
       min-height: min-content;

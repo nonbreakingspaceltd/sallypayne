@@ -1,0 +1,15 @@
+---
+import LayoutBase from '../../../../layouts/Base';
+import LayoutPost from '../../../../layouts/Post/Post.vue';
+import { getPosts } from '../../../../data/posts';
+
+export async function getStaticPaths() {
+  return getPosts();
+}
+
+const { year, momth, slug } = Astro.request.params;
+const { title, body, publishedDate, meta } = Astro.props;
+---
+<LayoutBase modifier="post" title={title} meta={meta}>
+  <LayoutPost title={title} publishedDate={publishedDate} body={body} />
+</LayoutBase>

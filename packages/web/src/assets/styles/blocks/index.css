@@ -1,9 +1,7 @@
 /* Blocks */
-@import "./_backlink.css";
+@import "./_form.css";
 @import "./_pagetitle.css";
 @import "./_pagecontent.css";
-@import "./_work.css";
-@import "./_post.css";
-@import "./_product.css";
 @import "./_pagination.css";
-@import "./_form.css";
+@import "./_product.css";
+@import "./_work.css";

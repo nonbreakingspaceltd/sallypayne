@@ -43,10 +43,13 @@ const sanityClient = (options) => {
   };
 };
 
-export const client = sanityClient({
+export const config = {
   projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
   dataset: process.env.SANITY_STUDIO_API_DATASET,
   token: process.env.SANITY_STUDIO_API_TOKEN,
   apiVersion: process.env.SANITY_STUDIO_API_VERSION,
   useCdn: false,
-});
+};
+
+
+export const client = sanityClient(config);

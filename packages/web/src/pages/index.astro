@@ -7,48 +7,10 @@ const { title = 'Sally Payne - Illustration & Surface Pattern Design' } = Astro.
 const meta = {
   description: `Welcome to Sally Payne's world of illustration and surface pattern design`
 };
-
-const imageBase = 'https://cdn.sanity.io/images/jrwpak9p/us-en-prod-content/4719cbf16bc67482bd3fa54d7d2a5dd5dd8e69c0-5184x3456.jpg?bg=FFFFFF&q=60&format=auto';
-
-const image = {
-  src: `${imageBase}?&w=500`,
-  alt: 'Test image',
-  width: 500,
-  height: 333,
-  backgroundColor: '#b2bdc3',
-  sources: [
-    {
-      srcset: [
-        `${imageBase}?&w=375 1x`,
-        `${imageBase}?&w=750 2x`
-      ],
-      type: 'image/jpeg',
-      media: 'screen and (max-width: 375px)'
-    },
-    {
-      srcset: [
-        `${imageBase}?&w=500 1x`,
-        `${imageBase}?&w=1000 2x`
-      ],
-      type: 'image/jpeg',
-      media: 'screen and (min-width: 376px)'
-    }
-  ]
-};
 ---
-<LayoutBase title={title} meta={meta}>
-  <div class="sp-l-page sp-l-page--home">
-    <div class="sp-l-page__inner">
-      <h1 class="sp-u-sronly">
-        Sally Payne - Illustration &amp; Surface Pattern Design
-      </h1>
-      <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" />
-    </div>
-  </div>
+<LayoutBase modifier="home" title={title} meta={meta}>
+  <h1 class="sp-u-sr-only">
+    Sally Payne - Illustration &amp; Surface Pattern Design
+  </h1>
+  <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" />
 </LayoutBase>
-
-<style>
-.sp-l-page--home {
-  margin-top: auto;
-}
-</style>

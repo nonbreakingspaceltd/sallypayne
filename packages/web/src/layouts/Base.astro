@@ -1,44 +1,13 @@
 ---
 import Header from '../components/Header/Header.vue';
 import Footer from '../components/Footer/Footer.vue';
+import { getNavigation } from '../data/global';
 
-const { title, meta, path } = Astro.props;
+const { title, meta, modifier, path } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
 const currentPath = Astro.request.url.pathname;
 const req = Astro.request;
-let navigationLinks = [
-  {
-    label: 'About',
-    href: '/about',
-    current: null
-  },
-  {
-    label: 'Work',
-    href: '/work',
-    current: null
-  },
-  {
-    label: 'Shop',
-    href: '/shop',
-    current: null
-  },
-  {
-    label: 'Journal',
-    href: '/journal',
-    current: null
-  },
-  {
-    label: 'Contact',
-    href: '/contact',
-    current: null
-  },
-];
-navigationLinks.forEach((link) => {
-  if (currentPath.includes(link.href)) {
-    link.current = true
-  }
-});
-
+const navigation = getNavigation(currentPath);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -84,10 +53,14 @@ navigationLinks.forEach((link) => {
   </head>
   <body class="sp-l-layout">
 
-    <Header client:load links={navigationLinks} class="sp-l-header" />
+    <Header client:load links={navigation} class="sp-l-header" />
 
     <main class="sp-l-main">
-      <slot />
+      <div class={`sp-l-page sp-l-page--${modifier}`}>
+        <div class="sp-l-page__inner">
+          <slot />
+        </div>
+      </div>
     </main>
 
     <Footer class="sp-l-footer" />

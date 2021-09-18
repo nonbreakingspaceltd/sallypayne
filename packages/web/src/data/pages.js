@@ -1,10 +1,13 @@
 import { client } from '../utils/sanityClient';
+import { getSiteSettings } from './global';
 
 export async function getPages() {
+  const siteSettings = await getSiteSettings();
   const pages = await client.fetch(/* groq */ `
     *[_type == 'page'] {
       title,
-      "slug": slug.current
+      "slug": slug.current,
+      meta
     }
   `);
   return pages.map((page) => ({
@@ -15,8 +18,8 @@ export async function getPages() {
       page,
       title: page.title,
       meta: {
-        title: page.title,
-        description: page.title,
+        title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
+        description: page.meta.metaDescription,
       },
     },
   }));

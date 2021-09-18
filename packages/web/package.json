@@ -16,6 +16,7 @@
     "astro": "^0.20.7",
     "autoprefixer": "^10.3.4",
     "cssnano": "^5.0.8",
+    "date-fns": "^2.24.0",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.7",
@@ -31,6 +32,11 @@
     "snowpack-vue-svg-plugin": "^2.0.0"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "@sanity/block-content-to-hyperscript": "^3.0.0",
+    "@sanity/image-url": "^1.0.1",
+    "classnames": "^2.3.1",
+    "modern-normalize": "^1.1.0",
+    "object-assign": "^4.1.1",
+    "sanity-blocks-vue-component": "^1.0.1"
   }
 }
