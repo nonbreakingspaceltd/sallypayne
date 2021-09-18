@@ -10,7 +10,7 @@
           </g>
         </svg>
       </div>
-      <img v-if="!iframeLoaded" class="sp-c-homecanvas__placeholder" :src="placeholder" alt="" />
+      <img class="sp-c-homecanvas__placeholder" :src="placeholder" alt="" />
       <iframe
         ref="iframe"
         :class="['sp-c-homecanvas__iframe', iframeLoaded && 'is-loaded']"
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'HomeCanvas',
@@ -113,20 +113,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    overflow: hidden;
-    filter: blur(5px);
-  }
-
-  &__iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 2;
     width: 100%;
     height: 100%;
@@ -134,7 +120,25 @@ export default {
     padding: 0;
     border: none;
     overflow: hidden;
-    background: #fff;
+    filter: blur(5px);
+
+    .is-animation-loaded & {
+      display: none;
+    }
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background: transparent;
   }
 }
 </style>
