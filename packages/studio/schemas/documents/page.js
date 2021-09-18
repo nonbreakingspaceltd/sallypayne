@@ -1,7 +1,10 @@
+import { BiFileBlank } from "react-icons/bi";
+
 export default {
   name: 'page',
   title: 'Page',
   type: 'document',
+  icon: BiFileBlank,
   fields: [
     {
       name: 'title',
@@ -35,12 +38,15 @@ export default {
         {
           type: 'block',
         },
+        {
+          type: 'image',
+        },
       ],
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'images',
-      title: 'Images',
+      name: 'media',
+      title: 'Media',
       type: 'object',
       fields: [
         {
@@ -57,4 +63,11 @@ export default {
       type: 'meta',
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'excerpt',
+      media: 'media.main.asset',
+    },
+  },
 };

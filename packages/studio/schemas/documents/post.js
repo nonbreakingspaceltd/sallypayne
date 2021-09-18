@@ -1,9 +1,11 @@
 import { format } from 'date-fns';
+import { BiFile } from "react-icons/bi";
 
 export default {
-  name: 'article',
-  title: 'Article',
+  name: 'post',
+  title: 'Post',
   type: 'document',
+  icon: BiFile,
   fields: [
     {
       name: 'title',
@@ -18,6 +20,7 @@ export default {
       options: {
         source: ({ title }) => title,
         maxLength: 200,
+        isUnique: () => true,
       },
       validation: (Rule) => Rule.required(),
     },
@@ -44,12 +47,15 @@ export default {
         {
           type: 'block',
         },
+        {
+          type: 'image',
+        },
       ],
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'images',
-      title: 'Images',
+      name: 'media',
+      title: 'Media',
       type: 'object',
       fields: [
         {
@@ -66,4 +72,11 @@ export default {
       type: 'meta',
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'publishedDate',
+      media: 'media.main',
+    },
+  },
 };

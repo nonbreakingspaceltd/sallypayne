@@ -16,3 +16,6 @@ yarn-error.log*
 
 # macOS-specific files
 .DS_Store
+
+# migration
+packages/studio/migration/data
