@@ -8,30 +8,32 @@ import { processAllofType } from './utils/process';
 const imageUrlBuilder = sanityImageUrlBuilder(config);
 
 const processImage = (props) => {
-  const { _type, asset } = props;
+  const { asset } = props;
   const src = imageUrlBuilder.image(asset).auto('format').quality(60);
   const sizes = [
     {
-      media: 'screen and (max-width: 1023px)',
+      media: 'screen and (max-width: 767px)',
       width: 350,
-      height: 350,
     },
     {
-      media: 'screen and (min-width: 1024px)',
-      width: 1000,
-      height: 1000,
+      media: 'screen and (min-width: 768px)',
+      width: 704,
     },
   ];
   const defaultSize = sizes[0];
+
+  // console.log(asset.metadata);
 
   return {
     _type: 'picture',
     alt: '',
     src: src.url(),
-    width: defaultSize.width,
-    height: defaultSize.height,
-    sources: sizes.map(({ media, width, height }) => {
-      const imageBase = src.width(width).height(height);
+    width: asset.metadata.dimensions.width,
+    height: asset.metadata.dimensions.height,
+    lqip: asset.metadata.lqip,
+    backgroundColor: asset.metadata.palette?.dominant?.background,
+    sources: sizes.map(({ media, width }) => {
+      const imageBase = src.width(width);
       return {
         src: imageBase.url(),
         srcset: [

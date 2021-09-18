@@ -1,11 +1,19 @@
 .sp-l-flow {
   > * + * {
     margin-top: var(--space-y-4);
+
+    @media (--mq-m) {
+      margin-top: var(--space-y-8);
+    }
   }
 }
 
 .sp-l-flow-slim {
   > * + * {
     margin-top: var(--space-y-2);
+
+    @media (--mq-m) {
+      margin-top: var(--space-y-4);
+    }
   }
 }

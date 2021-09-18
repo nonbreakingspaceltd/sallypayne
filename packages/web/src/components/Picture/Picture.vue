@@ -4,7 +4,6 @@
       :style="{
         'background-image': lqip && `url(${lqip})`,
         'background-color': backgroundColor,
-        'padding-top': aspectRatio,
       }"
       class="c-picture__picture"
     >
@@ -20,8 +19,8 @@
       <img
         :src="src"
         :alt="alt"
-        :width="size.width"
-        :height="size.height"
+        :width="width"
+        :height="height"
         class="c-picture__image"
         :loading="loading"
       />
@@ -54,22 +53,17 @@ export default {
         return (value && ['lazy', 'eager'].includes(value)) || value === null;
       },
     },
-    maintainAspectRatio: {
-      type: Boolean,
-      default: false,
-    },
     variants: {
       type: Array,
     },
     sources: {
       type: Array,
     },
-    size: {
-      type: Object,
-      default: () => ({
-        width: null,
-        height: null,
-      }),
+    width: {
+      type: Number,
+    },
+    height: {
+      type: Number,
     },
     src: {
       type: String,
@@ -77,18 +71,12 @@ export default {
     },
   },
   computed: {
-    classes: ({ variants, size, maintainAspectRatio }) => {
+    classes: ({ variants }) => {
       return classNames(
         'sp-c-picture',
-        variants && variants.map((variant) => `sp-c-picture--${variant}`),
-        size?.width && size?.height && maintainAspectRatio && `sp-c-picture--maintain-ratio`
+        variants && variants.map((variant) => `sp-c-picture--${variant}`)
       );
     },
-    aspectRatio: ({ size, maintainAspectRatio }) => {
-      return maintainAspectRatio && size?.width && size?.height
-        ? `${(size.height / size.width) * 100}%`
-        : null;
-    }
   },
 };
 </script>
@@ -113,14 +101,7 @@ export default {
     display: block;
     height: auto;
     width: 100%;
-  }
-
-  &--maintain-ratio &__image {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    aspect-ratio: attr(width) / attr(height);
   }
 
   &__caption {

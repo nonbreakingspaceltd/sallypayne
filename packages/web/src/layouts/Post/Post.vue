@@ -57,8 +57,8 @@ export default {
 @import '../../assets/styles/tools';
 
 .sp-l-post {
-  max-width: 660px;
-  margin: 0 auto 40px;
+  max-width: 704px;
+  margin: 0 auto;
 
   &__header {
     padding-bottom: 16px;
