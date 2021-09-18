@@ -1,6 +1,17 @@
 ---
 import LayoutBase from '../../layouts/Base';
+import { getSiteSettings } from '../../data/global';
+
+const siteSettings = await getSiteSettings();
+
+const { title = 'Journal' } = Astro.props;
+
+const meta = {
+  title: `${title} | ${siteSettings.title}`,
+  description: `Welcome to Sally Payne's world of illustration and surface pattern design`
+};
 ---
-<LayoutBase title="Journal">
-  <h1>Journal</h1>
+<LayoutBase title={title} meta={meta}>
+  <h1>{title}</h1>
 </LayoutBase>
+
