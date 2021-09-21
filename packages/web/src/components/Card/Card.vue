@@ -70,60 +70,65 @@ export default {
 
 .sp-c-card {
   display: block;
-  background-color: #ffffff;
+  background-color:var(--color-white);
+}
 
-  &__link {
-    display: block;
-    text-decoration: none;
-  }
+.sp-c-card__link {
+  display: block;
+  text-decoration: none;
+}
 
-  &__media {
-    padding: 0;
-    margin: 0;
+.sp-c-card__media {
+  padding: 0;
+  margin: 0;
 
-    &__picture {
-      display: block;
-    }
-
-    &__image {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      aspect-ratio: attr(width) / attr(height);
-    }
-  }
-
-  &--journal &__media,
-  &--product &__media {
+  .sp-c-card--journal &,
+  .sp-c-card--product & {
     padding: 16px 16px 0;
   }
 
-  &--work &__media {
+  .sp-c-card--work & {
     padding: 16px;
   }
+}
 
-  &__content {
-    padding: 24px 16px 16px;
-  }
+.sp-c-card__media__picture {
+  display: block;
+}
 
-  &--journal a:hover &__title,
-  &--journal a:focus &__title {
-    color: var(--color-brand-goldensand);
-  }
+.sp-c-card__media__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: attr(width) / attr(height);
+}
 
-  &--product a:hover &__title,
-  &--product a:focus &__title {
-    color: var(--color-brand-acapulco);
-  }
+.sp-c-card__content {
+  padding: 24px 16px 16px;
+}
 
-  &__body {
-    margin: 8px 0 0;
-  }
+.sp-c-card__title {
 
-  &__price {
-    font-weight: 700;
-    font-size: 24px;
+  a:hover &,
+  a:focus & {
+
+    .sp-c-card--journal & {
+      color: var(--color-brand-goldensand);
+    }
+
+    .sp-c-card--product & {
+      color: var(--color-brand-acapulco);
+    }
   }
+}
+
+.sp-c-card__body {
+  margin: 8px 0 0;
+}
+
+.sp-c-card__price {
+  font-weight: 700;
+  font-size: 24px;
 }
 </style>

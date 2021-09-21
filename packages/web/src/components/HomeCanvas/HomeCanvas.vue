@@ -70,75 +70,75 @@ export default {
     display: flex;
     align-content: center;
   }
+}
 
-  &__scroll-icon {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    z-index: 3;
+.sp-c-homecanvas__scroll-icon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 3;
 
-    @media (--mq-m) {
-      display: none;
-    }
+  @media (--mq-m) {
+    display: none;
+  }
+}
+
+.sp-c-homecanvas__inner {
+  width: 120vh;
+  position: relative;
+  margin: 0 auto;
+
+  @media screen and (max-height: 860px) {
+    max-width: 1280px;
   }
 
-  &__inner {
-    width: 120vh;
-    position: relative;
-    margin: 0 auto;
-
-    @media screen and (max-height: 860px) {
-      max-width: 1280px;
-    }
-
-    @media (--mq-m) {
-      width: 100%;
-      max-height: 100%;
-    }
-
-    @media (--mq-xxl) {
-      max-width: 3000px;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      padding-top: 51.26953125%;
-      width: 100%;
-    }
-  }
-
-  &__placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+  @media (--mq-m) {
     width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    overflow: hidden;
-    filter: blur(5px);
-
-    .is-animation-loaded & {
-      display: none;
-    }
+    max-height: 100%;
   }
 
-  &__iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  @media (--mq-xxl) {
+    max-width: 3000px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 51.26953125%;
     width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    overflow: hidden;
-    background: transparent;
   }
+}
+
+.sp-c-homecanvas__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  filter: blur(5px);
+
+  .is-animation-loaded & {
+    display: none;
+  }
+}
+
+.sp-c-homecanvas__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  background: transparent;
 }
 </style>

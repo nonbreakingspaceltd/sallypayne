@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 @import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 

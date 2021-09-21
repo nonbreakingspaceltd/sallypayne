@@ -87,33 +87,33 @@ export default {
 
 .c-picture {
   display: block;
+}
 
-  &__picture {
-    display: block;
-    margin: 0;
-    background-size: cover;
-    background-position: 50% 50%;
-    z-index: 1;
-    position: relative;
-  }
+.c-picture__picture {
+  display: block;
+  margin: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+  position: relative;
+}
 
-  &__image {
-    display: block;
-    height: auto;
-    width: 100%;
-    aspect-ratio: attr(width) / attr(height);
-  }
+.c-picture__image {
+  display: block;
+  height: auto;
+  width: 100%;
+  aspect-ratio: attr(width) / attr(height);
+}
 
-  &__caption {
-    display: block;
-    z-index: 2;
-    bottom: 0;
-    right: 0;
-    color: var(--color-mid-grey);
-    padding: var(--space-y-1) 0 0;
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-xs);
-    font-style: italic;
-  }
+.c-picture__caption {
+  display: block;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+  color: var(--color-mid-grey);
+  padding: var(--space-y-1) 0 0;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-style: italic;
 }
 </style>

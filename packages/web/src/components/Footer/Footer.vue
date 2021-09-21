@@ -68,91 +68,91 @@ export default {
   @media (--mq-m) {
     padding: calc(var(--baseline) * 8);
   }
+}
 
-  &__item {
-    font-size: 14px;
-    line-height: 18px;
-    display: block;
+.sp-c-footer__item {
+  font-size: 14px;
+  line-height: 18px;
+  display: block;
+
+  @media (--mq-m) {
+    display: inline-block;
+  }
+
+  @media (--mq-l) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  & + & {
+    margin-top: 8px;
 
     @media (--mq-m) {
-      display: inline-block;
-    }
-
-    @media (--mq-l) {
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    & + & {
-      margin-top: 8px;
-
-      @media (--mq-m) {
-        padding-left: 10px;
-        margin-top: 0;
-        margin-left: 10px;
-        border-left: 1px solid #ddd;
-      }
-    }
-
-    small {
-      font-size: inherit;
-      line-height: inherit;
+      padding-left: 10px;
+      margin-top: 0;
+      margin-left: 10px;
+      border-left: 1px solid #ddd;
     }
   }
 
-  &__social {
-    margin-top: 16px;
+  small {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
 
-    @media (--mq-l) {
-      float: right;
-      margin: -4px 0;
+.sp-c-footer__social {
+  margin-top: 16px;
+
+  @media (--mq-l) {
+    float: right;
+    margin: -4px 0;
+  }
+}
+
+.sp-c-footer__social__link {
+  width: 32px;
+  display: inline-block;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &__icon {
+    width: 100%;
+    fill: var(--color-brand-abbey);
+  }
+
+  &--facebook:hover &__icon,
+  &--facebook:focus &__icon {
+    fill: var(--color-social-facebook);
+  }
+
+  &--twitter:hover &__icon,
+  &--twitter:focus &__icon {
+    fill: var(--color-social-twitter);
+  }
+
+  &--pinterest:hover &__icon,
+  &--pinterest:focus &__icon {
+    fill: var(--color-social-pinterest);
+  }
+
+  &--instagram &__g2 {
+    display: none;
+  }
+
+  &--instagram:hover &__icon {
+    .intragram-icon-path-1 {
+      fill: url(#intragram-icon-gradient-1);
     }
 
-    &__link {
-      width: 32px;
-      display: inline-block;
+    .intragram-icon-path-2 {
+      fill: url(#intragram-icon-gradient-2);
+    }
 
-      & + & {
-        margin-left: 10px;
-      }
-
-      &__icon {
-        width: 100%;
-        fill: var(--color-brand-abbey);
-      }
-
-      &--facebook:hover &__icon,
-      &--facebook:focus &__icon {
-        fill: var(--color-social-facebook);
-      }
-
-      &--twitter:hover &__icon,
-      &--twitter:focus &__icon {
-        fill: var(--color-social-twitter);
-      }
-
-      &--pinterest:hover &__icon,
-      &--pinterest:focus &__icon {
-        fill: var(--color-social-pinterest);
-      }
-
-      &--instagram &__g2 {
-        display: none;
-      }
-
-      &--instagram:hover &__icon {
-        .intragram-icon-path-1 {
-          fill: url(#intragram-icon-gradient-1);
-        }
-
-        .intragram-icon-path-2 {
-          fill: url(#intragram-icon-gradient-2);
-        }
-
-        .intragram-icon-path-3 {
-          fill: url(#intragram-icon-gradient-3);
-        }
-      }
+    .intragram-icon-path-3 {
+      fill: url(#intragram-icon-gradient-3);
     }
   }
 }
