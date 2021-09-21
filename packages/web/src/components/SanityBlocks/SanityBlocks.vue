@@ -14,7 +14,6 @@ export default {
     },
     serializers: {
       type: Object,
-      required: true,
     }
   },
   components: {
