@@ -71,6 +71,7 @@ export async function getPosts() {
         }
       },
       body[] {
+        ...,
         _type == "image" => {
           ...,
   				asset-> {
