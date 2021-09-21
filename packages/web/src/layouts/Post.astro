@@ -1,0 +1,42 @@
+---
+import BackLink from '../components/BackLink/BackLink.vue';
+import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
+
+const { title, publishedDate, body } = Astro.props;
+---
+<article class="sp-l-post">
+  <header class="sp-l-post__header">
+    <h1 class="sp-l-post__title">
+      {title}
+    </h1>
+    <p class="sp-l-post__published-date">
+      {publishedDate}
+    </p>
+    <BackLink label="Back to journal" path="/journal" />
+  </header>
+  <div class="sp-l-post__body sp-l-flow">
+    <SanityBlocks blocks={body} />
+  </div>
+</article>
+
+<style lang="postcss">
+
+.sp-l-post {
+  max-width: 704px;
+  margin: 0 auto;
+}
+
+.sp-l-post__header {
+  padding-bottom: 16px;
+}
+
+.sp-l-post__title {
+  margin-bottom: 16px;
+  color: var(--color-brand-goldensand);
+}
+
+.sp-l-post__published-date {
+  font-weight: 700;
+}
+
+</style>
