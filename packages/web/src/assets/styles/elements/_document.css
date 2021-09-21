@@ -5,6 +5,10 @@ html {
   background-color: var(--color-white);
   margin: 0;
   padding: 0;
+
+  @media (--mq-xxxl) {
+    font-size: 200%;
+  }
 }
 
 body {
