@@ -5,7 +5,8 @@
 
 import sanityClient from 'part:@sanity/base/client';
 import consola from 'consola';
-import grammarify from 'grammarify';
+import { format } from 'date-fns';
+import { blocksToPlainText } from './lib/blocksToPlainText';
 
 const DATASET = 'dev';
 
@@ -24,30 +25,46 @@ const runProcess = async () => {
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        const newBody = doc.body.map((block) => {
+        newBody = doc.body;
+
+        let newExcerpt = null;
+
+        newBody = newBody.filter((block) => {
+          let keep = true;
           if (block._type == 'block' && block.children) {
-            block = block.children.map((child) => {
-              if (child.text) {
-                const cleanText = child.text
-                  .replace('........', '…')
-                  .replace('.......', '…')
-                  .replace('......', '…')
-                  .replace('.....', '…')
-                  .replace('....', '…')
-                  .replace('...', '…')
-                  .trim();
-                child.text = grammarify.clean(cleanText);
+            block = block.children.forEach((child) => {
+              if (child.text !== undefined && child.text.length < 1) {
+                consola.log('Block text is empty');
+                keep = false;
+              } else {
+                if (!newExcerpt) {
+                  newExcerpt = child.text;
+                }
               }
-              return child;
             });
           }
-          return block;
+          return keep;
         });
+
+        if (newExcerpt) {
+          newExcerpt = blocksToPlainText(newExcerpt).toString();
+          // newExcerpt = newExcerpt.split('. ', 1)[0];
+        }
+
+        const maxDescriptionLength = 159;
+        const newMetaDescription =
+          newExcerpt?.length > maxDescriptionLength
+            ? `${newExcerpt.substring(0, maxDescriptionLength).trim()}…`
+            : `Posted on ${format(new Date(doc.publishedDate), 'eeee, MMMM do yyyy')}`;
 
         await client
           .patch(doc._id)
           .set({
             body: newBody,
+            excerpt: newExcerpt || '',
+            meta: {
+              metaDescription: newMetaDescription,
+            },
           })
           .commit()
           .then((updatedDoc) => {
