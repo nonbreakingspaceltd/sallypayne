@@ -42,3 +42,14 @@
 * Breakpoint for larger screens.
 */
 @custom-media --mq-xxl screen and (min-width: 90em);
+
+/*
+* Pixel calc 3000/16.
+* Breakpoint for super-size screens.
+*/
+@custom-media --mq-xxxl screen and (min-width: 187.5em);
+
+/*
+* IE11 if needed.
+*/
+@custom-media --mq-ie11 all and (-ms-high-contrast: none), (-ms-high-contrast: active);

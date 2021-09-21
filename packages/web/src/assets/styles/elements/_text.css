@@ -1,5 +1,17 @@
 /* Text */
 
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-brand-abbey);
+
+  @media (--mq-xxxl) {
+    font-size: 200%;
+  }
+}
+
+
 p,
 ul,
 ol,

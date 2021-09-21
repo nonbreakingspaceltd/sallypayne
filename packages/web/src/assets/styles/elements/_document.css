@@ -8,9 +8,5 @@ html {
 }
 
 body {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--color-brand-abbey);
   background-color: var(--color-white);
 }
