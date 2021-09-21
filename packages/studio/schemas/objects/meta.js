@@ -12,6 +12,7 @@ export default {
         source: 'title',
         maxLength: 60,
       },
+      validation: (Rule) => Rule.max(60).warning('Greater than 60 characters'),
     },
     {
       name: 'metaDescription',
@@ -22,7 +23,7 @@ export default {
       options: {
         maxLength: 160,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(160).warning('Greater than 160 characters'),
     },
     {
       name: 'isNotIndexed',
