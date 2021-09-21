@@ -5,9 +5,8 @@ import { getPosts } from '../../../../data/posts';
 
 export async function getStaticPaths() {
   return getPosts();
-}
+};
 
-const { year, month, slug } = Astro.request.params;
 const { title, body, publishedDate, meta } = Astro.props;
 ---
 <LayoutBase modifier="post" title={title} meta={meta}>

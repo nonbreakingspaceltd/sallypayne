@@ -4,8 +4,8 @@ import { getPages } from '../data/pages';
 
 export async function getStaticPaths() {
   return getPages();
-}
-const { slug } = Astro.request.params;
+};
+
 const { page, title, meta } = Astro.props;
 ---
 <LayoutBase modifier="page" title={title} meta={meta}>
