@@ -11,25 +11,25 @@
         href="https://www.facebook.com/sallypaynedesign/"
         class="sp-c-footer__social__link sp-c-footer__social__link--facebook"
       >
-        <IconFacebook class="sp-c-footer__social__link__icon" />
+        <IconFacebook class="sp-c-footer__social__icon" />
       </a>
       <a
         href="https://twitter.com/salpdesign"
         class="sp-c-footer__social__link sp-c-footer__social__link--twitter"
       >
-        <IconTwitter class="sp-c-footer__social__link__icon" />
+        <IconTwitter class="sp-c-footer__social__icon" />
       </a>
       <a
         href="https://www.instagram.com/sallypayne_design/"
         class="sp-c-footer__social__link sp-c-footer__social__link--instagram"
       >
-        <IconInstagram class="sp-c-footer__social__link__icon" />
+        <IconInstagram class="sp-c-footer__social__icon" />
       </a>
       <a
         href="https://www.pinterest.co.uk/salhoulker/"
         class="sp-c-footer__social__link sp-c-footer__social__link--pinterest"
       >
-        <IconPinterest class="sp-c-footer__social__link__icon" />
+        <IconPinterest class="sp-c-footer__social__icon" />
       </a>
     </aside>
   </footer>
@@ -113,47 +113,47 @@ export default {
 .sp-c-footer__social__link {
   width: 32px;
   display: inline-block;
+  color: var(--color-brand-abbey);
 
   & + & {
     margin-left: 10px;
   }
 
-  &__icon {
-    width: 100%;
-    fill: var(--color-brand-abbey);
-  }
+  &--facebook {
 
-  &--facebook:hover &__icon,
-  &--facebook:focus &__icon {
-    fill: var(--color-social-facebook);
-  }
-
-  &--twitter:hover &__icon,
-  &--twitter:focus &__icon {
-    fill: var(--color-social-twitter);
-  }
-
-  &--pinterest:hover &__icon,
-  &--pinterest:focus &__icon {
-    fill: var(--color-social-pinterest);
-  }
-
-  &--instagram &__g2 {
-    display: none;
-  }
-
-  &--instagram:hover &__icon {
-    .intragram-icon-path-1 {
-      fill: url(#intragram-icon-gradient-1);
-    }
-
-    .intragram-icon-path-2 {
-      fill: url(#intragram-icon-gradient-2);
-    }
-
-    .intragram-icon-path-3 {
-      fill: url(#intragram-icon-gradient-3);
+    &:hover,
+    &:focus {
+      color: var(--color-social-facebook);
     }
   }
+
+  &--twitter {
+
+    &:hover,
+    &:focus {
+      color: var(--color-social-twitter);
+    }
+  }
+
+  &--pinterest {
+
+    &:hover,
+    &:focus {
+      color: var(--color-social-pinterest);
+    }
+  }
+
+  &--instagram {
+
+    &:hover,
+    &:focus {
+      color: var(--color-social-instagram);
+    }
+  }
+}
+
+.sp-c-footer__social__icon {
+  width: 100%;
+  fill: currentColor;
 }
 </style>
