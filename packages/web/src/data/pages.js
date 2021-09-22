@@ -31,6 +31,8 @@ const processImage = (props) => {
     return undefined;
   }
 
+  delete props._type;
+
   const sizes = [
     {
       media: 'screen and (max-width: 767px)',

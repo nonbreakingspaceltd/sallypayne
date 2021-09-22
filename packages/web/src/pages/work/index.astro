@@ -8,7 +8,7 @@ const { title = 'Work' } = Astro.props;
 
 const meta = {
   title: `${title} | ${siteSettings.title}`,
-  description: `Welcome to Sally Payne's world of illustration and surface pattern design`
+  description: siteSettings.description
 };
 ---
 <LayoutBase title={title} meta={meta}>

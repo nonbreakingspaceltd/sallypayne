@@ -72,7 +72,6 @@ export async function getPosts() {
         },
       },
     }
-    console.log(data);
     return data;
   });
 }

@@ -5,7 +5,7 @@ const imageUrlBuilder = sanityImageUrlBuilder(config);
 
 export const processPicture = (props, sizes) => {
   const { asset } = props;
-  const src = imageUrlBuilder.image(asset).auto('format').quality(60);
+  const src = imageUrlBuilder.image(asset).auto('format').quality(100);
 
   return {
     _type: 'picture',

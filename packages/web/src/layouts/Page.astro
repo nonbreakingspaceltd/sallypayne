@@ -8,10 +8,12 @@ const { title, image, body } = Astro.props;
   <div class="sp-l-page__media">
     <Picture class="sp-l-page__media__picture" {...image} />
   </div>
-  <div class="sp-l-page__body sp-l-flow">
-    <h1 class="sp-o-pagetitle">{title}</h1>
-    <slot />
-    <SanityBlocks blocks={body} />
+  <div class="sp-l-page__body">
+    <div class="sp-l-page__body__inner sp-l-flow">
+      <h1 class="sp-o-pagetitle">{title}</h1>
+      <slot />
+      <SanityBlocks blocks={body} />
+    </div>
   </div>
 </div>
 
@@ -42,6 +44,10 @@ const { title, image, body } = Astro.props;
     min-height: min-content;
     padding: 48px;
   }
+}
+
+.sp-l-page__body__inner {
+  max-width: 780px;
 }
 
 .sp-l-page__media {
