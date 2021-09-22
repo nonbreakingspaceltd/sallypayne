@@ -1,0 +1,17 @@
+---
+import HomeCanvas from '../components/HomeCanvas/HomeCanvas.vue';
+
+const { title } = Astro.props;
+---
+<div class="sp-l-home">
+  <h1 class="sp-u-sr-only">
+    {title}
+  </h1>
+  <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" />
+</div>
+
+<style lang="postcss" global>
+.sp-l-home {
+  margin-top: auto;
+}
+</style>

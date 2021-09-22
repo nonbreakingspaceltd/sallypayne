@@ -33,7 +33,7 @@ glob(baseDir + '/**/*.html', (err, files) => {
       if (!cssFilePaths) {
         // remove placeholders
         html.replace('<link id="inline-css">', '');
-        html.replace('<link id="preload-fonts"></link>', '');
+        html.replace('<link id="preload-fonts">', '');
         // write file
         await fs.outputFile(filePath, html);
         return;

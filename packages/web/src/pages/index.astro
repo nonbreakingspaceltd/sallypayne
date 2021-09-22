@@ -1,6 +1,6 @@
 ---
 import LayoutBase from '../layouts/Base';
-import HomeCanvas from '../components/HomeCanvas/HomeCanvas.vue';
+import LayoutHome from '../layouts/Home';
 
 const { title = 'Sally Payne - Illustration & Surface Pattern Design' } = Astro.props;
 
@@ -9,8 +9,5 @@ const meta = {
 };
 ---
 <LayoutBase modifier="home" title={title} meta={meta}>
-  <h1 class="sp-u-sr-only">
-    Sally Payne - Illustration &amp; Surface Pattern Design
-  </h1>
-  <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" />
+  <LayoutHome title={title} />
 </LayoutBase>

@@ -1,0 +1,16 @@
+---
+import LayoutBase from '../layouts/Base';
+import LayoutPage from '../layouts/Page';
+import ContactForm from '../components/ContactForm/ContactForm.vue';
+import { getPage } from '../data/pages';
+
+const response = await getPage('contact');
+
+const { body, title, image, meta } = response.props;
+---
+<LayoutBase modifier="page" title={title} meta={meta}>
+  <LayoutPage title={title} body={body} image={image}>
+    <ContactForm client:idle />
+  </LayoutPage>
+</LayoutBase>
+

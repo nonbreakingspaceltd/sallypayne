@@ -1,5 +1,5 @@
 <template>
-  <article class="sp-c-card" :class="['sp-c-card', additionalCssClasses]">
+  <article class="sp-c-card" :class="['sp-c-card', variantClasses]">
     <figure class="sp-c-card__media" v-if="image">
       <picture
         :style="{
@@ -56,7 +56,7 @@ export default {
     variant: String,
   },
   computed: {
-    additionalCssClasses() {
+    variantClasses() {
       const { variant } = this;
       return variant && `sp-c-card--${variant}`;
     },

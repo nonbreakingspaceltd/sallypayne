@@ -51,16 +51,12 @@ const navigation = getNavigation(currentPath);
     <!-- [additional head scripts] -->
 
   </head>
-  <body class="sp-l-layout">
+  <body class={`sp-l-layout sp-l-layout--${modifier}`}>
 
     <Header client:load links={navigation} class="sp-l-header" />
 
     <main class="sp-l-main">
-      <div class={`sp-l-page sp-l-page--${modifier}`}>
-        <div class="sp-l-page__inner">
-          <slot />
-        </div>
-      </div>
+      <slot />
     </main>
 
     <Footer class="sp-l-footer" />
