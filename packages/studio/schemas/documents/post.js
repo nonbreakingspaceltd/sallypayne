@@ -62,7 +62,7 @@ export default {
           name: 'main',
           title: 'Main image',
           description: 'The primary image of the document, utilised for thumbnails etc.',
-          type: 'image',
+          type: 'imageExtended',
         },
       ],
     },

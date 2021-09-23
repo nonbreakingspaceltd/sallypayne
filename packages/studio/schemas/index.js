@@ -7,6 +7,7 @@ import post from './documents/post';
 import settings from './documents/settings';
 // Objects
 import meta from './objects/meta';
+import imageExtended from './objects/imageExtended';
 
 export default createSchema({
   name: 'default',
@@ -18,5 +19,6 @@ export default createSchema({
     settings,
     // Objects
     meta,
+    imageExtended,
   ]),
 });

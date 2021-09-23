@@ -1,6 +1,6 @@
 /**
- * Patches meta.descritption to meta.metaDescription.
- * Run this script with: `sanity exec --with-user-token ./migration/patchMeta.js`
+ * Patches media by adding first image in body as main image
+ * Run this script with: `sanity exec --with-user-token ./migration/patchImages.js`
  */
 
 import consola from 'consola';
@@ -9,20 +9,27 @@ import sanityClient from './sanityClient';
 const client = sanityClient('dev');
 
 const runProcess = async () => {
-  const allDocuments = await client.fetch(`*[_type == 'post']`);
+  const allDocuments = await client.fetch(`*[media.main._type == 'image']`);
   let documentsUpdated = 0;
   const concurrency = 50; // keep under sanity rate limit
 
-  console.time('patchMeta');
+  console.time('patchImages');
 
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
+        documentsUpdated++;
         await client
           .patch(doc._id)
           .set({
-            meta: {
-              metaDescription: doc.meta.description,
+            media: {
+              main: {
+                _type: 'imageExtended',
+                asset: {
+                  _ref: doc.media.main.asset._ref,
+                  _type: 'reference',
+                },
+              },
             },
           })
           .commit()
@@ -37,7 +44,7 @@ const runProcess = async () => {
   }
 
   consola.info(`Number of documents updated: ${documentsUpdated}`);
-  console.timeEnd('patchMeta');
+  console.timeEnd('patchImages');
 };
 
 runProcess();

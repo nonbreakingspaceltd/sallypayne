@@ -2,47 +2,30 @@
  * Patches media by adding first image in body as main image
  * Run this script with: `sanity exec --with-user-token ./migration/patchMedia.js`
  */
-
-import sanityClient from 'part:@sanity/base/client';
 import consola from 'consola';
+import sanityClient from './sanityClient';
 
-const DATASET = 'dev';
+const client = sanityClient('dev');
 
-const client = sanityClient.withConfig({
-  dataset: DATASET,
-  apiVersion: 'v2020-03-15',
-});
+const query = /* groq */ `*[_type == 'post']`;
 
-const runProcess = async () => {
-  const allDocuments = await client.fetch(`*[_type == 'post']`);
+const removeMain = async () => {
+  const allDocuments = await client.fetch(query);
   let documentsUpdated = 0;
   const concurrency = 50; // keep under sanity rate limit
 
-  console.time('patchMeta');
+  console.time('removeMain');
 
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        const firstImage = doc.body.find(block => block._type == 'image');
-        if (!firstImage) {
-          return undefined;
-        }
         await client
           .patch(doc._id)
-          .set({
-            media: {
-              main: {
-                _type:'image',
-                asset:{
-                  _type:'reference',
-                  _ref: firstImage.asset._ref
-                }
-              }
-            }
-          })
+          .unset(['media.main'])
           .commit()
           .then((updatedDoc) => {
-            consola.success(`Patched ${updatedDoc._id}`);
+            documentsUpdated++;
+            consola.success(`Removed main media from ${updatedDoc._id}`);
           })
           .catch((err) => {
             consola.error(`Error patch doc ${id}`, err);
@@ -52,7 +35,50 @@ const runProcess = async () => {
   }
 
   consola.info(`Number of documents updated: ${documentsUpdated}`);
-  console.timeEnd('patchMeta');
+  console.timeEnd('removeMain');
 };
 
-runProcess();
+const addMain = async () => {
+  const allDocuments = await client.fetch(query);
+  let documentsUpdated = 0;
+  const concurrency = 50; // keep under sanity rate limit
+
+  console.time('addMain');
+
+  while (allDocuments.length) {
+    await Promise.all(
+      allDocuments.splice(0, concurrency).map(async (doc) => {
+        const firstImage = doc.body.find((block) => block._type == 'image');
+        if (!firstImage) {
+          return undefined;
+        }
+        await client
+          .patch(doc._id)
+          .set({
+            media: {
+              main: {
+                _type: 'imageExtended',
+                asset: {
+                  _type: 'reference',
+                  _ref: firstImage.asset._ref,
+                },
+              },
+            },
+          })
+          .commit()
+          .then((updatedDoc) => {
+            documentsUpdated++;
+            consola.success(`Added main media to ${updatedDoc._id}`);
+          })
+          .catch((err) => {
+            consola.error(`Error patch doc ${id}`, err);
+          });
+      })
+    );
+  }
+
+  consola.info(`Number of documents updated: ${documentsUpdated}`);
+  console.timeEnd('addMain');
+};
+
+addMain();
