@@ -1,0 +1,66 @@
+---
+import LayoutBase from '../../layouts/Base';
+import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
+import { getPaginatedPosts, postToCard } from '../../data/posts';
+import { getSiteSettings } from '../../data/global';
+
+export function getStaticPaths({ paginate }) {
+  return getPaginatedPosts(paginate);
+}
+
+const siteSettings = await getSiteSettings();
+
+const { page } = Astro.props;
+let title = 'Journal';
+let metaTitle = `${title} | ${siteSettings.title}`;
+if (page.currentPage > 1) {
+  title = `${title} – Page ${page.currentPage}`;
+  metaTitle = `Page ${page.currentPage} | ${metaTitle}`;
+}
+const meta = {
+  title: metaTitle,
+  description: siteSettings.description,
+};
+
+const posts = page.data.map(post => {
+  const { title, path, excerpt, image, publishedDate } = post;
+  // Map to Card props
+  return {
+    title,
+    subtitle: publishedDate,
+    href: path,
+    excerpt,
+    image,
+    variant: 'journal'
+  }
+});
+---
+<LayoutBase modifier="post" meta={meta}>
+  <div class="sp-l-list sp-l-list--journal">
+    <h1 class="sp-o-pagetitle sp-u-sr-only">
+      {title}
+    </h1>
+    <CardMasonry items={posts} />
+    <a href={page.url.prev}>
+      Previous
+    </a>
+    <a href={page.url.next}>
+      Next
+    </a>
+  </div>
+</LayoutBase>
+
+<style lang="postcss" global>
+.sp-l-list {
+  padding: 24px 16px;
+  position: relative;
+
+  &--journal {
+    background-color: var(--color-brand-goldensand);
+  }
+
+  @media (--mq-m) {
+    padding: 32px;
+  }
+}
+</style>

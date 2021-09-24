@@ -39,7 +39,7 @@ export default {
           type: 'block',
         },
         {
-          type: 'image',
+          type: 'imageExtended',
         },
       ],
       validation: (Rule) => Rule.required(),

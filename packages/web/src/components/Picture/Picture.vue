@@ -49,6 +49,7 @@ export default {
     },
     loading: {
       type: String,
+      default: 'lazy',
       validator: (value) => {
         return (value && ['lazy', 'eager'].includes(value)) || value === null;
       },
@@ -72,9 +73,10 @@ export default {
   },
   computed: {
     classes: ({ variants }) => {
+      const baseClass = 'sp-c-picture';
       return classNames(
-        'sp-c-picture',
-        variants && variants.map((variant) => `sp-c-picture--${variant}`)
+        baseClass,
+        variants && variants.map((variant) => `${baseClass}--${variant}`)
       );
     },
   },

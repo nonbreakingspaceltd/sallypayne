@@ -1,5 +1,4 @@
 /**
- * Patches media by adding first image in body as main image
  * Run this script with: `sanity exec --with-user-token ./migration/patchImages.js`
  */
 
@@ -8,43 +7,62 @@ import sanityClient from './sanityClient';
 
 const client = sanityClient('dev');
 
-const runProcess = async () => {
-  const allDocuments = await client.fetch(`*[media.main._type == 'image']`);
-  let documentsUpdated = 0;
-  const concurrency = 50; // keep under sanity rate limit
+const query = /* groq */ `*[]`;
 
-  console.time('patchImages');
+const imageToImageExtended = (obj, updateDocument) => {
+  if (obj !== null) {
+    Object.entries(obj).forEach(([key, value]) => {
+      if (key === '_type' && value === 'image') {
+        obj._type = 'imageExtended';
+        obj.crop = {
+          _type: 'sanity.imageCrop',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          top: 0,
+        };
+        obj.hotspot = {
+          _type: 'sanity.imageHotspot',
+          height: 1,
+          width: 1,
+          x: 0.5,
+          y: 0.5,
+        };
+        updateDocument = true;
+      } else if (typeof value === 'object') {
+        updateDocument = imageToImageExtended(value, updateDocument);
+      }
+    });
+  }
+  return updateDocument;
+};
+
+const runProcess = async () => {
+  const allDocuments = await client.fetch(query);
+
+  let documentsUpdated = 0;
+  const concurrency = 10; // keep under sanity rate limit
+
+  console.time('imageToImageExtended');
 
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        documentsUpdated++;
-        await client
-          .patch(doc._id)
-          .set({
-            media: {
-              main: {
-                _type: 'imageExtended',
-                asset: {
-                  _ref: doc.media.main.asset._ref,
-                  _type: 'reference',
-                },
-              },
-            },
-          })
-          .commit()
-          .then((updatedDoc) => {
-            consola.success(`Patched ${updatedDoc._id}`);
-          })
-          .catch((err) => {
-            consola.error(`Error patch doc ${id}`, err);
-          });
+        const updateDocument = imageToImageExtended(doc, false);
+
+        if (updateDocument) {
+          consola.success(`Fixing (${doc._type}) ${doc._id}`);
+
+          await client.createOrReplace(doc);
+
+          documentsUpdated++;
+        }
       })
     );
   }
 
   consola.info(`Number of documents updated: ${documentsUpdated}`);
-  console.timeEnd('patchImages');
+  console.timeEnd('imageToImageExtended');
 };
 
 runProcess();

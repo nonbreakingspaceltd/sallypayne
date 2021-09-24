@@ -1,7 +1,7 @@
 <template>
   <footer class="sp-c-footer">
     <span class="sp-c-footer__item">
-      <small> All Content &copy; Copyright {{ currentYear }} Sally Payne Illustration </small>
+      <small> All Content &copy; Copyright Sally Payne Design &amp; Illustration </small>
     </span>
     <span class="sp-c-footer__item">
       <a href="mailto:sallypaynedesign@gmail.com"> sallypaynedesign@gmail.com </a>
@@ -48,11 +48,6 @@ export default {
     IconInstagram,
     IconPinterest,
   },
-  computed: {
-    currentYear() {
-      return new Date().getFullYear();
-    },
-  },
 };
 </script>
 
@@ -68,6 +63,10 @@ export default {
   @media (--mq-m) {
     padding: calc(var(--baseline) * 8);
   }
+
+  @media (--mq-l) {
+    display: flex;
+  }
 }
 
 .sp-c-footer__item {
@@ -75,11 +74,8 @@ export default {
   line-height: 18px;
   display: block;
 
-  @media (--mq-m) {
-    display: inline-block;
-  }
-
   @media (--mq-l) {
+    display: inline-block;
     font-size: 16px;
     line-height: 24px;
   }
@@ -87,7 +83,7 @@ export default {
   & + & {
     margin-top: 8px;
 
-    @media (--mq-m) {
+    @media (--mq-l) {
       padding-left: 10px;
       margin-top: 0;
       margin-left: 10px;
@@ -105,8 +101,7 @@ export default {
   margin-top: 16px;
 
   @media (--mq-l) {
-    float: right;
-    margin: -4px 0;
+    margin: -4px 0 0 auto;
   }
 }
 

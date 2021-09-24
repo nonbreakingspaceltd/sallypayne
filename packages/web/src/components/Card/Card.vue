@@ -1,40 +1,18 @@
 <template>
-  <article class="sp-c-card" :class="['sp-c-card', variantClasses]">
-    <figure class="sp-c-card__media" v-if="image">
-      <picture
-        :style="{
-          'background-color': image.backgroundColor,
-        }"
-        class="c-picture__picture"
-      >
-        <template v-if="image.sources">
-          <source
-            v-for="(source, index) in image.sources"
-            :key="index"
-            :srcset="source.srcset.join(',')"
-            :type="source.type"
-            :media="source.media"
-          />
-        </template>
-        <img
-          :src="image.src"
-          :alt="image.alt"
-          :width="image.width"
-          :height="image.height"
-          class="sp-c-card__media__image"
-        />
-      </picture>
-    </figure>
+  <article :class="classes" @click="handleClick">
+    <Picture class="sp-c-card__media" v-bind="image" v-if="image" />
     <div class="sp-c-card__content">
       <h2 class="sp-c-card__title">
-        <a :href="link" class="sp-c-card__link" v-if="link">
+        <a :href="href" class="sp-c-card__link" v-if="href" ref="link">
           {{ title }}
         </a>
-        <span v-else>
+        <template v-else>
           {{ title }}
-        </span>
+        </template>
       </h2>
-      <div class="sp-c-card__price" v-if="price">&pound;{{ price }}</div>
+      <div class="sp-c-card__subtitle" v-if="subtitle">
+        {{ subtitle }}
+      </div>
       <div class="sp-c-card__body">
         <slot />
       </div>
@@ -43,22 +21,43 @@
 </template>
 
 <script>
+import classNames from 'classnames';
+import Picture from '../Picture';
+
 export default {
-  name: 'Card',
   props: {
     title: {
       type: String,
       required: true,
     },
-    link: String,
-    image: Object,
-    price: String,
-    variant: String,
+    href: {
+      type: String,
+    },
+    image: {
+      type: Object,
+    },
+    subtitle: {
+      type: String,
+    },
+    variant: {
+      type: String,
+    },
+  },
+  components: {
+    Picture,
   },
   computed: {
-    variantClasses() {
-      const { variant } = this;
-      return variant && `sp-c-card--${variant}`;
+    classes: ({ variant, href }) => {
+      const baseClass = 'sp-c-card';
+      return classNames(baseClass, href && 'is-clickable', variant && `${baseClass}--${variant}`);
+    },
+  },
+  methods: {
+    handleClick() {
+      const link = this.$refs.link;
+      if (this.href && link) {
+        link.click();
+      }
     },
   },
 };
@@ -70,7 +69,11 @@ export default {
 
 .sp-c-card {
   display: block;
-  background-color:var(--color-white);
+  background-color: var(--color-white);
+
+  &.is-clickable {
+    cursor: pointer;
+  }
 }
 
 .sp-c-card__link {
@@ -108,16 +111,16 @@ export default {
   padding: 24px 16px 16px;
 }
 
-.sp-c-card__title {
+.sp-c-card__link {
+  .is-clickable:hover &,
+  .is-clickable:focus & {
+    color: var(--color-black);
 
-  a:hover &,
-  a:focus & {
-
-    .sp-c-card--journal & {
+    .sp-c-card--journal& {
       color: var(--color-brand-goldensand);
     }
 
-    .sp-c-card--product & {
+    .sp-c-card--product& {
       color: var(--color-brand-acapulco);
     }
   }
@@ -127,8 +130,8 @@ export default {
   margin: 8px 0 0;
 }
 
-.sp-c-card__price {
+.sp-c-card__subtitle {
   font-weight: 700;
-  font-size: 24px;
+  margin: 8px 0 0;
 }
 </style>

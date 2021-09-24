@@ -5,18 +5,26 @@ const imageUrlBuilder = sanityImageUrlBuilder(config);
 
 export const processPicture = (props, sizes) => {
   const { asset } = props;
-  const src = imageUrlBuilder.image(asset).auto('format').quality(100);
+  const src = imageUrlBuilder.image(asset).auto('format').quality(60);
+  const defaultSize = sizes[0];
+  const hasDimensions = defaultSize.width && defaultSize.height;
 
   return {
     _type: 'picture',
     alt: '',
     src: src.url(),
-    width: asset.metadata.dimensions.width,
-    height: asset.metadata.dimensions.height,
+    width: hasDimensions ? defaultSize.width : asset.metadata.dimensions.width,
+    height: hasDimensions ? defaultSize.height : asset.metadata.dimensions.height,
     lqip: asset.metadata.lqip,
     backgroundColor: asset.metadata.palette?.dominant?.background,
-    sources: sizes.map(({ media, width }) => {
-      const imageBase = src.width(width);
+    sources: sizes.map(({ media, width, height }) => {
+      let imageBase = src;
+      if (width) {
+        imageBase = imageBase.width(width);
+      }
+      if (height) {
+        imageBase = imageBase.height(height);
+      }
       return {
         src: imageBase.url(),
         srcset: [
