@@ -122,10 +122,10 @@ export default {
     color: var(--color-black);
 
     .sp-c-card--scrapbook& {
-      color: var(--color-brand-goldensand);
+      color: var(--color-brand-manhattan);
     }
 
-    .sp-c-card--productt& {
+    .sp-c-card--product& {
       color: var(--color-brand-acapulco);
     }
   }
