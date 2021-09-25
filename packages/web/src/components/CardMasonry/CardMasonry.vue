@@ -7,7 +7,7 @@
           :subtitle="item.subtitle"
           :href="item.href"
           :image="item.image"
-          :variant="item.variant"
+          :variants="[item.variant]"
         >
           <p v-if="item.excerpt">
             {{ item.excerpt }}
@@ -107,10 +107,6 @@ export default {
 .sp-c-card-masonry {
   display: grid;
   grid-gap: 16px;
-
-  @media (--mq-m) {
-    /* grid-gap: 32px; */
-  }
 
   @media (--mq-s) {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

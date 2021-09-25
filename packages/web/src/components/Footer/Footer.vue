@@ -1,7 +1,7 @@
 <template>
   <footer class="sp-c-footer">
     <span class="sp-c-footer__item">
-      <small> All Content &copy; Copyright Sally Payne Design &amp; Illustration </small>
+      <small> All Content &copy; Copyright Sally Payne Design </small>
     </span>
     <span class="sp-c-footer__item">
       <a href="mailto:sallypaynedesign@gmail.com"> sallypaynedesign@gmail.com </a>

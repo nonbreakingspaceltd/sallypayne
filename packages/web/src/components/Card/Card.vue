@@ -39,17 +39,21 @@ export default {
     subtitle: {
       type: String,
     },
-    variant: {
-      type: String,
+    variants: {
+      type: Array,
     },
   },
   components: {
     Picture,
   },
   computed: {
-    classes: ({ variant, href }) => {
+    classes: ({ variants, href }) => {
       const baseClass = 'sp-c-card';
-      return classNames(baseClass, href && 'is-clickable', variant && `${baseClass}--${variant}`);
+      return classNames(
+        baseClass,
+        href && 'is-clickable',
+        variants && variants.map((variant) => `${baseClass}--${variant}`)
+      );
     },
   },
   methods: {
@@ -70,6 +74,7 @@ export default {
 .sp-c-card {
   display: block;
   background-color: var(--color-white);
+  color: var(--color-brand-abbey);
 
   &.is-clickable {
     cursor: pointer;
@@ -120,7 +125,7 @@ export default {
       color: var(--color-brand-goldensand);
     }
 
-    .sp-c-card--product& {
+    .sp-c-card--productt& {
       color: var(--color-brand-acapulco);
     }
   }

@@ -53,7 +53,7 @@ const navigation = getNavigation(currentPath);
     <!-- [additional head scripts] -->
 
   </head>
-  <body class={`sp-l-layout sp-l-layout--${modifier}`}>
+  <body class={`sp-l-layout {modifier ? 'sp-l-layout--${modifier}' : ''`}>
 
     <Header client:idle title={siteSettings.title} links={navigation} class="sp-l-header" />
 
