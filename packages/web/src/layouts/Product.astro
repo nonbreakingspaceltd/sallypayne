@@ -20,11 +20,11 @@ const { title, price, description, url, image} = Astro.props;
         </p>
         <BackLink label="Back to shop" path="/shop" />
       </header>
-      <div class="sp-l-product__body">
-        {description}
-      </div>
       <div class="sp-l-product__actions">
         <EtsyButton href={url} />
+      </div>
+      <div class="sp-l-product__body">
+        {description}
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ const { title, price, description, url, image} = Astro.props;
 }
 
 .sp-l-product__actions {
-  margin-top: 16px;
+  margin-bottom: 32px;
 }
 
 .sp-l-product__inner {
