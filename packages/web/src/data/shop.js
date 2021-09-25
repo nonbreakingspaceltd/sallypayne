@@ -1,4 +1,4 @@
-import { processPicture } from './components/picture';
+import { getSiteSettings } from './global';
 
 const config = {
   storeId: process.env.ETSY_STORE_ID,
@@ -18,7 +18,8 @@ const processProductPath = (id) => {
   return `/shop/product/${id}/`;
 };
 
-const proccessProduct = (product, images) => {
+const proccessProduct = async (product, images) => {
+  const siteSettings = await getSiteSettings();
   const { state, listing_id, title, price, currency_code, url, description } = product;
   const cleanTitle = toSentenceCase(title.split(' - ')[0]);
   let image = images[1] ? images[1] : images[0];
@@ -39,13 +40,16 @@ const proccessProduct = (product, images) => {
     listingId: listing_id,
     state,
     image,
+    meta: {
+      title: `${cleanTitle} | Shop | ${siteSettings.title}`,
+      description: description,
+    },
   };
 };
 
 const getProductImages = async (listingId) => {
   const imagesResponse = await fetch(
     `${endpoint}/${listingId}/images?client_id=${config.token}`
-    // https://openapi.etsy.com/v3/application/shops/19320819/listings/954377865/images?client_id=obqc39xcqxhlc61l553jp7f9
   );
   let images = await imagesResponse.json();
   return images;
@@ -81,7 +85,7 @@ export async function getProducts(fetch) {
       params: {
         id: listing_id.toString(),
       },
-      props: proccessProduct(product, images.results),
+      props: await proccessProduct(product, images.results),
     };
     products.push(processedProduct);
   }

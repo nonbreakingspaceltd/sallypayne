@@ -13,7 +13,8 @@ const {
   price,
   description,
   image,
-  url
+  url,
+  meta
 } = Astro.props;
 
 const product = {
@@ -24,6 +25,6 @@ const product = {
   url
 }
 ---
-<LayoutBase modifier="product" title={title}>
+<LayoutBase modifier="product" title={title} meta={meta}>
   <LayoutProduct {...product} />
 </LayoutBase>
