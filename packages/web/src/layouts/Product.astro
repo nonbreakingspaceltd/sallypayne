@@ -8,7 +8,7 @@ const { title, price, description, url, image} = Astro.props;
 <article class="sp-l-product">
   <div class="sp-l-product__inner">
     <figure class="sp-l-product__media">
-      <Picture {...image} class="sp-l-product__media__image" />
+      <Picture {...image} class="sp-l-product__media__image" loading="eager" />
     </figure>
     <div class="sp-l-product__details">
       <header class="sp-l-product__header">
