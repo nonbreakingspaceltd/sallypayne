@@ -53,6 +53,18 @@ const processBody = (body) => {
   return processedBody;
 };
 
+const processPage = (page, siteSettings) => {
+  return {
+    title: page.title,
+    body: processBody(page.body),
+    image: processImage(page.media?.main),
+    meta: {
+      title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
+      description: page.meta.metaDescription,
+    },
+  };
+};
+
 export async function getPages() {
   const siteSettings = await getSiteSettings();
   const pages = await client.fetch(/* groq */ `
@@ -64,15 +76,7 @@ export async function getPages() {
     params: {
       slug: page.slug,
     },
-    props: {
-      title: page.title,
-      body: processBody(page.body),
-      image: processImage(page.media?.main),
-      meta: {
-        title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
-        description: page.meta.metaDescription,
-      },
-    },
+    props: processPage(page, siteSettings),
   }));
 }
 
@@ -87,15 +91,7 @@ export async function getPage(slug) {
     params: {
       slug: page.slug,
     },
-    props: {
-      title: page.title,
-      body: processBody(page.body),
-      image: processImage(page.media?.main),
-      meta: {
-        title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
-        description: page.meta.metaDescription,
-      },
-    },
+    props: processPage(page, siteSettings),
   };
   return data;
 }

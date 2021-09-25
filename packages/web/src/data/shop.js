@@ -1,53 +1,34 @@
 import { getSiteSettings } from './global';
+import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
 
 const config = {
+  endpoint: `https://openapi.etsy.com/v2`,
   storeId: process.env.ETSY_STORE_ID,
   token: process.env.ETSY_API_TOKEN,
-};
-
-const endpoint = `https://openapi.etsy.com/v3/application/shops/${config.storeId}/listings`;
-
-export const slugify = (input) => {
-  const slug = input
-    .normalize('NFD') // split an accented letter in the base letter and the acent
-    .replace(/[\u0300-\u036f]/g, '') // remove all previously split accents
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9 ]/g, '') // remove all chars not letters, numbers and spaces (to be replaced)
-    .replace(/\s+/g, '-'); // separator
-  return slug;
-};
-
-const toSentenceCase = (str) => {
-  const newString = str.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function (c) {
-    return c.toUpperCase();
-  });
-  return newString;
 };
 
 const processProductPath = (slug) => {
   return `/shop/product/${slug}/`;
 };
 
-const proccessProduct = async (product, images) => {
-  const siteSettings = await getSiteSettings();
-  const { state, listing_id, title, price, currency_code, url, description } = product;
+const proccessProduct = (product, siteSettings) => {
+  const { state, listing_id, title, price, currency_code, url, description, MainImage } = product;
+  const currencySymbol = currency_code === 'GBP' ? '£' : 'NA';
   const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
   const slug = slugify(cleanTitle);
   const trimmedDescription = toSentenceCase(description.split('About me:')[0]);
   const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
-  const htmlDescription = '<p>' + trimmedDescription.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br />') + '</p>';
-  let image = images[1] ? images[1] : images[0];
-  image = {
-    src: image.url_570xN,
-    width: image.full_width,
-    height: image.full_height,
+  const htmlDescription = textToHtml(trimmedDescription);
+  const image = {
+    src: MainImage.url_570xN,
+    width: MainImage.full_width,
+    height: MainImage.full_height,
     alt: cleanTitle,
-    backgroundColor: `#${image.hex_code}`
+    backgroundColor: MainImage.hex_code && `#${MainImage.hex_code}`,
   };
-  return {
+  const processedProduct = {
     title: cleanTitle || title,
-    price: `£${(price.amount / price.divisor).toFixed(2)}`,
+    price: `${currencySymbol}${price}`,
     description: htmlDescription,
     currencyCode: currency_code,
     path: processProductPath(slug),
@@ -61,52 +42,24 @@ const proccessProduct = async (product, images) => {
       description: descriptionParts[1] || title,
     },
   };
-};
-
-const getProductImages = async (listingId) => {
-  const imagesResponse = await fetch(
-    `${endpoint}/${listingId}/images?client_id=${config.token}`
-  );
-  let images = await imagesResponse.json();
-  return images;
+  return processedProduct;
 };
 
 export async function getProducts(fetch) {
-  const productsResponse = await fetch(
-    `${endpoint}/active?client_id=${config.token}&limit=100&includes=MainImage`
+  const siteSettings = await getSiteSettings();
+  const response = await fetch(
+    `${config.endpoint}/shops/${config.storeId}/listings/active?method=GET&api_key=${config.token}&limit=100&includes=MainImage`
   );
-  const productsResponseData = await productsResponse.json();
-  console.log(productsResponseData);
-  let products = [];
-  // const concurrency = 2;
-  // while (productsResponseData.results.length) {
-  //   await Promise.all(
-  //     productsResponseData.results.splice(0, concurrency).map(async (product) => {
-  //       const { listing_id } = product;
-  //       const images = await getProductImages(listing_id);
-  //       const processedProduct = await proccessProduct(product, images.results);
-  //       const newProduct = {
-  //         params: {
-  //           id: processedProduct.slug,
-  //         },
-  //         props: processedProduct,
-  //       };
-  //       products.push(newProduct);
-  //     })
-  //   );
-  // }
-  for await (product of productsResponseData.results) {
-    const { listing_id } = product;
-    const images = await getProductImages(listing_id);
-    const processedProduct = await proccessProduct(product, images.results);
-    const newProduct = {
+  const data = await response.json();
+  const products = data.results.map((product) => {
+    const processedProduct = proccessProduct(product, siteSettings);
+    return {
       params: {
         id: processedProduct.slug,
       },
       props: processedProduct,
     };
-    products.push(newProduct);
-  }
+  });
   return products;
 }
 
