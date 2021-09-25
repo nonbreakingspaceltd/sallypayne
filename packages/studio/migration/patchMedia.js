@@ -48,7 +48,7 @@ const addMain = async () => {
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        const firstImage = doc.body.find((block) => block._type == 'image');
+        const firstImage = doc.body.find((block) => block._type == 'imageExtended');
         if (!firstImage) {
           return undefined;
         }
@@ -71,10 +71,10 @@ const addMain = async () => {
                 },
                 hotspot: {
                   _type: 'sanity.imageHotspot',
-                  height: 0,
-                  width: 0,
-                  x: 0,
-                  y: 0,
+                  height: 1,
+                  width: 1,
+                  x: 0.5,
+                  y: 0.5,
                 },
               },
             },

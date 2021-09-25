@@ -85,7 +85,7 @@ export default {
   padding: 0;
   margin: 0;
 
-  .sp-c-card--journal &,
+  .sp-c-card--scrapbook &,
   .sp-c-card--product & {
     padding: 16px 16px 0;
   }
@@ -116,7 +116,7 @@ export default {
   .is-clickable:focus & {
     color: var(--color-black);
 
-    .sp-c-card--journal& {
+    .sp-c-card--scrapbook& {
       color: var(--color-brand-goldensand);
     }
 

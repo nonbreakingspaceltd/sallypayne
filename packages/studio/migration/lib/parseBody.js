@@ -2,7 +2,6 @@ import { JSDOM } from 'jsdom';
 import blockTools from '@sanity/block-tools';
 import sanitizeHTML from './sanitizeHTML.js';
 import defaultSchema from '../../schemas';
-import grammarify from 'grammarify';
 
 const ignoreImage = 'www.terrysfabrics.co.uk';
 
@@ -16,7 +15,10 @@ function htmlToBlocks(html, options) {
   }
 
   let blocks = blockTools.htmlToBlocks(sanitizeHTML(html), blockContentType, {
-    parseHtml: (htmlContent) => new JSDOM(htmlContent).window.document,
+    parseHtml: (htmlContent) => {
+      // console.log(htmlContent);
+      return new JSDOM(htmlContent).window.document;
+    },
     rules: [
       {
         deserialize(el, next, block) {
@@ -46,7 +48,6 @@ function htmlToBlocks(html, options) {
             .replace('....', '…')
             .replace('...', '…')
             .trim();
-          text = grammarify.clean(text);
           return block({
             children: [],
             _type: 'code',
@@ -63,7 +64,7 @@ function htmlToBlocks(html, options) {
             return !isIgnoredImage(imgSrc)
               ? block({
                   children: [],
-                  _type: 'image',
+                  _type: 'imageExtended',
                   _sanityAsset: `image@${imgSrc}`,
                 })
               : undefined;
@@ -78,7 +79,7 @@ function htmlToBlocks(html, options) {
             const imgSrc = el.childNodes[0].getAttribute('src').replace(/^\/\//, 'https://');
             return !isIgnoredImage(imgSrc)
               ? block({
-                  _type: 'image',
+                  _type: 'imageExtended',
                   _sanityAsset: `image@${el.childNodes[0]
                     .getAttribute('src')
                     .replace(/^\/\//, 'https://')}`,

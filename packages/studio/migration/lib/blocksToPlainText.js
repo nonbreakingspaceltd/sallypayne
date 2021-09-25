@@ -1,14 +1,16 @@
 export const blocksToPlainText = (blocks) => {
-  if (!blocks || blocks.length == 0) return '';
-  if (typeof blocks === 'string' || blocks instanceof String) {
-    return blocks;
-  }
   return blocks
-    .map((block) => {
+    // loop through each block
+    .map(block => {
+      // if it's not a text block with children,
+      // return nothing
       if (block._type !== 'block' || !block.children) {
-        return block.text;
+        return ''
       }
-      return block.children.map((child) => child.text).join(' ');
+      // loop through the children spans, and join the
+      // text strings
+      return block.children.map(child => child.text).join('')
     })
-    .join(' ');
+    // join the paragraphs leaving split by two linebreaks
+    .join('\n\n')
 };

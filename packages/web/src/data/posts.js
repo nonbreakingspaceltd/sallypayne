@@ -5,7 +5,7 @@ import { processAllofType } from './utils/process';
 import { processPicture } from './components/picture';
 
 const postQuery = /* groq */ `
-  *[_type == 'post'] {
+  *[_type == 'post'] | order(publishedDate desc) {
     title,
     "slug": slug.current,
     publishedDate,
@@ -60,7 +60,7 @@ const processPostBody = (body) => {
 };
 
 const processPostPath = (slug, year, month) => {
-  return `/journal/${year}/${month}/${slug}/`;
+  return `/scrapbook/${year}/${month}/${slug}/`;
 };
 
 const proccessPost = (post, siteSettings) => {
@@ -76,19 +76,11 @@ const proccessPost = (post, siteSettings) => {
     body: processPostBody(body),
     image: processImage(media?.main),
     meta: {
-      title: `${meta.metaTitle || title} | Journal | ${siteSettings.title}`,
+      title: `${meta.metaTitle || title} | Scrapbook | ${siteSettings.title}`,
       description: meta.metaDescription,
     },
   };
 };
-
-export function postToCard(post) {
-  const { title, path } = post;
-  return {
-    title,
-    href: path,
-  };
-}
 
 export async function getPaginatedPosts(paginate) {
   const siteSettings = await getSiteSettings();

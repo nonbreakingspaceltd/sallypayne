@@ -402,15 +402,7 @@ export default {
       &:hover,
       &:focus,
       &.is-active {
-        color: var(--color-brand-sinbad);
-      }
-    }
-
-    &--work {
-      &:hover,
-      &:focus,
-      &.is-active {
-        color: var(--color-brand-manhattan);
+        color: var(--color-brand-goldensand);
       }
     }
 
@@ -422,11 +414,11 @@ export default {
       }
     }
 
-    &--journal {
+    &--scrapbook {
       &:hover,
       &:focus,
       &.is-active {
-        color: var(--color-brand-goldensand);
+        color: var(--color-brand-manhattan);
       }
     }
 

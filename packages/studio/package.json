@@ -14,6 +14,7 @@
   ],
   "dependencies": {
     "@sanity/base": "2.20.1-canary.122",
+    "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/components": "2.18.1-canary.9",
     "@sanity/core": "2.20.1-canary.122",
     "@sanity/default-layout": "2.20.1-canary.122",

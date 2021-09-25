@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { BiFile } from "react-icons/bi";
+import { BiFile } from 'react-icons/bi';
 
 export default {
   name: 'post',
@@ -79,4 +79,16 @@ export default {
       media: 'media.main',
     },
   },
+  orderings: [
+    {
+      title: 'Published Date, New',
+      name: 'publishedDateDesc',
+      by: [{ field: 'publishedDate', direction: 'desc' }],
+    },
+    {
+      title: 'Published Date, Old',
+      name: 'publishedDateAsc',
+      by: [{ field: 'publishedDate', direction: 'asc' }],
+    },
+  ],
 };

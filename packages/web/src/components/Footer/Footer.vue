@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import IconFacebook from './../../assets/icons/facebook.svg';
-import IconTwitter from './../../assets/icons/twitter.svg';
-import IconInstagram from './../../assets/icons/instagram.svg';
-import IconPinterest from './../../assets/icons/pinterest.svg';
+import IconFacebook from '../../assets/icons/facebook.svg';
+import IconTwitter from '../../assets/icons/twitter.svg';
+import IconInstagram from '../../assets/icons/instagram.svg';
+import IconPinterest from '../../assets/icons/pinterest.svg';
 
 export default {
   components: {

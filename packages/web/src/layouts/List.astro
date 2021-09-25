@@ -1,0 +1,29 @@
+---
+const { variant, title } = Astro.props;
+---
+<div class={`sp-l-list sp-l-list--${variant}`}>
+  <h1 class="sp-o-pagetitle sp-u-sr-only">
+    {title}
+  </h1>
+  <slot />
+</div>
+
+<style lang="postcss" global>
+.sp-l-list {
+  padding: 16px;
+  position: relative;
+  flex: 1;
+
+  @media (--mq-m) {
+    padding: 32px;
+  }
+
+  &--scrapbook {
+    background-color: var(--color-brand-manhattan);
+  }
+
+  &--shop {
+    background-color: var(--color-brand-acapulco);
+  }
+}
+</style>

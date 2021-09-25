@@ -1,22 +1,17 @@
 /**
- * Patches media by adding first image in body as main image
- * Run this script with: `sanity exec --with-user-token ./migration/patchMedia.js`
+ * Run this script with: `sanity exec --with-user-token ./migration/patchBody.js`
  */
 
-import sanityClient from 'part:@sanity/base/client';
 import consola from 'consola';
-import { format } from 'date-fns';
-import { blocksToPlainText } from './lib/blocksToPlainText';
+import sanityClient from './sanityClient';
+import grammarify from 'grammarify';
 
-const DATASET = 'dev';
+const client = sanityClient('dev');
 
-const client = sanityClient.withConfig({
-  dataset: DATASET,
-  apiVersion: 'v2020-03-15',
-});
+const query = /* groq */ `*[_type == 'post']`;
 
 const runProcess = async () => {
-  const allDocuments = await client.fetch(`*[_type == 'post']`);
+  const allDocuments = await client.fetch(query);
   let documentsUpdated = 0;
   const concurrency = 50; // keep under sanity rate limit
 
@@ -25,11 +20,7 @@ const runProcess = async () => {
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        newBody = doc.body;
-
-        let newExcerpt = null;
-
-        newBody = newBody.filter((block) => {
+        let newBody = doc.body.filter((block) => {
           let keep = true;
           if (block._type == 'block' && block.children) {
             block = block.children.forEach((child) => {
@@ -37,37 +28,29 @@ const runProcess = async () => {
                 consola.log('Block text is empty');
                 keep = false;
               } else {
-                if (!newExcerpt) {
-                  newExcerpt = child.text;
-                }
+                child.text = child.text
+                  .replace('........', '…')
+                  .replace('.......', '…')
+                  .replace('......', '…')
+                  .replace('.....', '…')
+                  .replace('....', '…')
+                  .replace('...', '…')
+                  .trim();
+                child.text = grammarify.clean(child.text);
               }
             });
           }
           return keep;
         });
 
-        if (newExcerpt) {
-          newExcerpt = blocksToPlainText(newExcerpt).toString();
-          // newExcerpt = newExcerpt.split('. ', 1)[0];
-        }
-
-        const maxDescriptionLength = 159;
-        const newMetaDescription =
-          newExcerpt?.length > maxDescriptionLength
-            ? `${newExcerpt.substring(0, maxDescriptionLength).trim()}…`
-            : `Posted on ${format(new Date(doc.publishedDate), 'eeee, MMMM do yyyy')}`;
-
         await client
           .patch(doc._id)
           .set({
             body: newBody,
-            excerpt: newExcerpt || '',
-            meta: {
-              metaDescription: newMetaDescription,
-            },
           })
           .commit()
           .then((updatedDoc) => {
+            documentsUpdated++;
             consola.success(`Patched ${updatedDoc._id}`);
           })
           .catch((err) => {

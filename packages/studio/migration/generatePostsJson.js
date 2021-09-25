@@ -29,35 +29,14 @@ function readFile(path = '') {
 async function buildJSONfromStream(stream) {
   const xml = await new XmlStream(stream);
 
-  return new Promise((res, rej) => {
-    /**
-     * Get the categories
-     */
-    // const categories = [];
-    // xml.on('endElement: category', (wpCategory) => {
-    //   const { nicename } = wpCategory.$;
-    //   const category = {
-    //     _type: 'category',
-    //     _id: generateCategoryId(nicename),
-    //     title: nicename,
-    //     slug: {
-    //       current: slugify(nicename, {
-    //         lower: true,
-    //         strict: true,
-    //       }),
-    //     },
-    //   };
-    //   categories.push(category);
-    //   console.log(category);
-    // });
-
+  return new Promise((resolve) => {
     /**
      * Get the posts
      */
     const posts = [];
     xml.collect('wp:postmeta');
     xml.on('endElement: item', (item) => {
-      const { title, category, link: permalink, description } = item;
+      const { title, description } = item;
       if (item['wp:post_type'] != 'post') {
         return;
       }
@@ -90,7 +69,7 @@ async function buildJSONfromStream(stream) {
     xml.on('end', () => {
       const output = [...posts];
 
-      return res(output);
+      return resolve(output);
     });
   });
 }

@@ -1,0 +1,140 @@
+---
+import BackLink from '../components/BackLink/BackLink.vue';
+import EtsyButton from '../components/EtsyButton/EtsyButton.vue';
+import Picture from '../components/Picture/Picture.vue';
+
+const { title, price, description, url, image} = Astro.props;
+---
+<article class="sp-l-product">
+  <div class="sp-l-product__inner">
+    <figure class="sp-l-product__media">
+      <Picture {...image} class="sp-l-product__media__image" />
+    </figure>
+    <div class="sp-l-product__details">
+      <header class="sp-l-product__header">
+        <h1 class="sp-l-product__title">
+          {title}
+        </h1>
+        <p class="sp-l-product__price">
+          {price}
+        </p>
+        <BackLink label="Back to shop" path="/shop" />
+      </header>
+      <div class="sp-l-product__body">
+        {description}
+      </div>
+      <div class="sp-l-product__actions">
+        <EtsyButton href={url} />
+      </div>
+    </div>
+  </div>
+</article>
+
+<style lang="postcss" global>
+.sp-l-product {
+  padding: 16px;
+
+  @media (--mq-m) {
+    padding: 32px;
+  }
+
+  @media (--mq-l) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.sp-l-product__inner {
+  width: 100%;
+  max-width: 704px;
+  margin: 0 auto;
+
+  @media (--mq-l) {
+    max-width: 1080px;
+  }
+}
+
+.sp-l-product__header {
+  padding-bottom: 16px;
+}
+
+.sp-l-product__title {
+  margin-bottom: 16px;
+  color: var(--color-brand-acapulco);
+}
+
+.sp-l-product__price {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+}
+
+.sp-l-product__actions {
+  margin-top: 16px;
+}
+
+.sp-l-product__inner {
+  width: 100%;
+
+  @media (--mq-m) {
+    display: flex;
+  }
+}
+
+
+.sp-l-product__media {
+  margin: 0 auto 32px;
+  width: 100%;
+  text-align: center;
+
+  @media (--mq-m) {
+    padding-right: 16px;
+    max-width: none;
+    width: 40%;
+    min-width: 40%;
+    flex-basis: 40%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  @media (--mq-l) {
+    padding-right: 32px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
+
+    @media (--mq-m) {
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+
+.sp-l-product__details {
+
+  @media (--mq-m) {
+    min-width: 60%;
+    flex-basis: 60%;
+    display: flex;
+    padding-left: 16px;
+    flex-direction: column;
+  }
+
+  @media (--mq-l) {
+    padding-left: 16px;
+  }
+}
+
+.sp-l-product__body {
+  max-width: 65ch;
+}
+
+</style>

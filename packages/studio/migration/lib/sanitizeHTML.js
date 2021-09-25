@@ -36,4 +36,7 @@ export default (html) =>
       'ul',
       'video',
     ],
+    transformTags: {
+      'div': 'p',
+    },
   });

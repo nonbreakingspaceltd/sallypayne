@@ -1,0 +1,45 @@
+---
+import LayoutBase from '../../layouts/Base.astro';
+import LayoutList from '../../layouts/List.astro';
+import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
+import Pagination from '../../components/Pagination/Pagination.vue';
+import { getPaginatedProducts } from '../../data/shop';
+import { getSiteSettings } from '../../data/global';
+
+export function getStaticPaths({ paginate }) {
+  return getPaginatedProducts(fetch, paginate);
+}
+
+const siteSettings = await getSiteSettings();
+
+const { page } = Astro.props;
+let title = 'Shop';
+let metaTitle = `${title} | ${siteSettings.title}`;
+if (page.currentPage > 1) {
+  title = `${title} – Page ${page.currentPage}`;
+  metaTitle = `Page ${page.currentPage} | ${metaTitle}`;
+}
+const meta = {
+  title: metaTitle,
+  description: siteSettings.description,
+};
+
+const products = page.data.map(product => {
+  const { title, price, path, image } = product.props;
+  // map to card props
+  const card = {
+    title,
+    subtitle: price,
+    href: path,
+    image,
+    variant: 'shop'
+  }
+  return card;
+});
+---
+<LayoutBase modifier="post" meta={meta}>
+  <LayoutList title={title} variant="shop">
+    <CardMasonry client:idle items={products} />
+    <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
+  </LayoutList>
+</LayoutBase>

@@ -7,11 +7,12 @@ import sanityClient from './sanityClient';
 
 const client = sanityClient('dev');
 
-const query = /* groq */ `*[]`;
+const query = /* groq */ `*[_type == "post"]`;
 
-const imageToImageExtended = (obj, updateDocument) => {
+const imageToImageExtended = async (obj, updateDocument) => {
   if (obj !== null) {
-    Object.entries(obj).forEach(([key, value]) => {
+    for await (entry of Object.entries(obj)) {
+      const [key, value] = entry;
       if (key === '_type' && value === 'image') {
         obj._type = 'imageExtended';
         obj.crop = {
@@ -29,10 +30,40 @@ const imageToImageExtended = (obj, updateDocument) => {
           y: 0.5,
         };
         updateDocument = true;
+      } else if (key === '_sanityAsset' && value.includes('image@')) {
+        const originalFilename = value.split('/').pop();
+        console.log(originalFilename);
+        const image = await client.fetch(
+          `*[_type == 'sanity.imageAsset' && originalFilename == '${originalFilename}'] [0] { _id }`
+        );
+        if (image._id) {
+          obj = {
+            _type: 'imageExtended',
+            asset:{
+              _ref: image._id,
+              _type: 'reference'
+            },
+            crop: {
+              _type: 'sanity.imageCrop',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+            },
+            hotspot: {
+              _type: 'sanity.imageHotspot',
+              height: 1,
+              width: 1,
+              x: 0.5,
+              y: 0.5,
+            },
+          };
+          updateDocument = true;
+        }
       } else if (typeof value === 'object') {
         updateDocument = imageToImageExtended(value, updateDocument);
       }
-    });
+    }
   }
   return updateDocument;
 };
@@ -48,7 +79,7 @@ const runProcess = async () => {
   while (allDocuments.length) {
     await Promise.all(
       allDocuments.splice(0, concurrency).map(async (doc) => {
-        const updateDocument = imageToImageExtended(doc, false);
+        const updateDocument = await imageToImageExtended(doc.body, false);
 
         if (updateDocument) {
           consola.success(`Fixing (${doc._type}) ${doc._id}`);

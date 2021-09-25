@@ -53,7 +53,7 @@ const navigation = getNavigation(currentPath);
   </head>
   <body class={`sp-l-layout sp-l-layout--${modifier}`}>
 
-    <Header client:load links={navigation} class="sp-l-header" />
+    <Header client:idle links={navigation} class="sp-l-header" />
 
     <main class="sp-l-main">
       <slot />

@@ -36,11 +36,11 @@ export default {
     return {
       masonryEvents: ['load', 'resize'],
       classNames: {
-        container: 'sp-c-masonry',
-        item: 'sp-c-masonry__item',
-        content: 'sp-c-masonry__item__content',
+        container: 'sp-c-card-masonry',
+        item: 'sp-c-card-masonry__item',
+        content: 'sp-c-card-masonry__item__content',
       },
-      isActive: false
+      isActive: false,
     };
   },
   watch: {
@@ -53,19 +53,14 @@ export default {
   },
   computed: {
     containerClassNames() {
-      return classNames(
-        this.classNames.container,
-        { 'is-active': this.isActive }
-      );
+      return classNames(this.classNames.container, { 'is-active': this.isActive });
     },
   },
   methods: {
     resizeMasonryItem(item) {
       const computedStyle = window.getComputedStyle(this.$el);
       const rowHeight = 1;
-      const rowGap = parseInt(
-        computedStyle.getPropertyValue('grid-row-gap')
-      );
+      const rowGap = parseInt(computedStyle.getPropertyValue('grid-row-gap'));
       const rowSpan = Math.ceil(
         (item.querySelector(`.${this.classNames.content}`).getBoundingClientRect().height +
           rowGap) /
@@ -74,7 +69,6 @@ export default {
       item.style.gridRowEnd = `span ${rowSpan}`;
     },
     resizeAllMasonryItems() {
-      console.log('test')
       var allItems = this.$el.querySelectorAll(`.${this.classNames.item}`);
       allItems.forEach((item) => {
         this.resizeMasonryItem(item);
@@ -89,9 +83,11 @@ export default {
   },
   mounted() {
     this.isActive = true;
-    this.resizeAllMasonryItems();
-    window.dispatchEvent(new Event('resize'));
-    console.log('mounted')
+    if (!window.CSS.supports('grid-template-rows', 'masonry')) {
+      this.resizeAllMasonryItems();
+      window.dispatchEvent(new Event('resize'));
+      console.log('mounted');
+    }
   },
   beforeDestroy() {
     const vm = this;
@@ -108,7 +104,7 @@ export default {
 @import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
-.sp-c-masonry {
+.sp-c-card-masonry {
   display: grid;
   grid-gap: 16px;
 
@@ -130,7 +126,7 @@ export default {
     background-color: #ffffff;
   }
 }
-.sp-c-masonry {
+.sp-c-card-masonry {
   display: grid;
   grid-gap: 16px;
   grid-template-rows: masonry;

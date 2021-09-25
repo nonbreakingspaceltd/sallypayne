@@ -2,13 +2,13 @@
   <component
     :is="htmlTag"
     :type="href ? null : type"
-    :class="['c-button', variantClasses]"
+    :class="['sp-c-button', variantClasses]"
     :href="href"
   >
-    <span class="c-button__label" v-if="$slots.default">
+    <span class="sp-c-button__label" v-if="$slots.default">
       <slot name="default" />
     </span>
-    <span class="c-button__icon" v-if="$slots.icon">
+    <span class="sp-c-button__icon" v-if="$slots.icon">
       <slot name="icon" />
     </span>
   </component>
@@ -34,10 +34,10 @@ export default {
   },
   computed: {
     htmlTag({ as, href }) {
-      return as || (href && 'a') || 'button';
+      return as || (href ? 'a' : 'button');
     },
     variantClasses({ variants }) {
-      return classNames(variants && variants.map((variant) => `c-button--${variant}`));
+      return classNames(variants && variants.map((variant) => `sp-c-button--${variant}`));
     },
   },
 };
@@ -47,7 +47,7 @@ export default {
 @import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
-.c-button {
+.sp-c-button {
   @mixin button-reset;
   @mixin font-smoothing;
 
@@ -167,28 +167,15 @@ export default {
     border-color: var(--color-brand-danube);
     color: var(--color-white);
   }
-
-  &--etsy {
-    background-color: var(--color-social-etsy);
-    border-color: var(--color-social-etsy);
-    color: var(--color-white);
-  }
 }
 
-.c-button__label {
+.sp-c-button__label {
   display: inline-block;
   vertical-align: middle;
 }
 
-.c-button__icon {
+.sp-c-button__icon {
   display: inline-block;
   vertical-align: middle;
-
-  .c-button--etsy & {
-    fill: var(--color-white);
-    width: 50px;
-    vertical-align: -10px;
-    margin-left: 10px;
-  }
 }
 </style>

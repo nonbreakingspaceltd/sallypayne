@@ -1,0 +1,29 @@
+---
+import LayoutBase from '../../../layouts/Base.astro';
+import LayoutProduct from '../../../layouts/Product.astro';
+import { getProducts } from '../../../data/shop';
+
+export async function getStaticPaths() {
+  return getProducts(fetch)
+};
+
+const { id } = Astro.request.params;
+const {
+  title,
+  price,
+  description,
+  image,
+  url
+} = Astro.props;
+
+const product = {
+  title,
+  price,
+  description,
+  image,
+  url
+}
+---
+<LayoutBase modifier="product" title={title}>
+  <LayoutProduct {...product} />
+</LayoutBase>

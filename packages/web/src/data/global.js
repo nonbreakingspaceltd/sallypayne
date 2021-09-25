@@ -18,18 +18,13 @@ export function getNavigation(currentPath) {
       current: null
     },
     {
-      label: 'Work',
-      href: '/work',
+      label: 'Scrapbook',
+      href: '/scrapbook',
       current: null
     },
     {
       label: 'Shop',
       href: '/shop',
-      current: null
-    },
-    {
-      label: 'Journal',
-      href: '/journal',
       current: null
     },
     {
