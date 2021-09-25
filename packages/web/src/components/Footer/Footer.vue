@@ -7,6 +7,9 @@
       <a href="mailto:sallypaynedesign@gmail.com"> sallypaynedesign@gmail.com </a>
     </span>
     <aside class="sp-c-footer__social">
+      <h2 class="sp-c-footer__social sp-u-sr-only">
+        Social accounts
+      </h2>
       <a
         href="https://www.facebook.com/sallypaynedesign/"
         class="sp-c-footer__social__link sp-c-footer__social__link--facebook"
