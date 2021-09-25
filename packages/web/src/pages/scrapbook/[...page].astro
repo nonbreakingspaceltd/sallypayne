@@ -13,15 +13,17 @@ export function getStaticPaths({ paginate }) {
 const siteSettings = await getSiteSettings();
 
 const { page } = Astro.props;
+
 let title = 'Scrapbook';
 let metaTitle = `${title} | ${siteSettings.title}`;
 if (page.currentPage > 1) {
-  title = `${title} – Page ${page.currentPage}`;
-  metaTitle = `Page ${page.currentPage} | ${metaTitle}`;
+  title = `${title} (Page ${page.currentPage})`;
+  metaTitle = `${title} | ${siteSettings.title}`;
 }
+
 const meta = {
   title: metaTitle,
-  description: siteSettings.description,
+  description: `Sally Payne's Scrapbook is a place to share new work, scribbles, illustrations and ideas.`,
 };
 
 const posts = page.data.map(post => {

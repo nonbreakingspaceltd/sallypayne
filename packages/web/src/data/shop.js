@@ -7,6 +7,17 @@ const config = {
 
 const endpoint = `https://openapi.etsy.com/v3/application/shops/${config.storeId}/listings`;
 
+export const slugify = (input) => {
+  const slug = input
+    .normalize('NFD') // split an accented letter in the base letter and the acent
+    .replace(/[\u0300-\u036f]/g, '') // remove all previously split accents
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9 ]/g, '') // remove all chars not letters, numbers and spaces (to be replaced)
+    .replace(/\s+/g, '-'); // separator
+  return slug;
+};
+
 const toSentenceCase = (str) => {
   const newString = str.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function (c) {
     return c.toUpperCase();
@@ -14,14 +25,18 @@ const toSentenceCase = (str) => {
   return newString;
 };
 
-const processProductPath = (id) => {
-  return `/shop/product/${id}/`;
+const processProductPath = (slug) => {
+  return `/shop/product/${slug}/`;
 };
 
 const proccessProduct = async (product, images) => {
   const siteSettings = await getSiteSettings();
   const { state, listing_id, title, price, currency_code, url, description } = product;
-  const cleanTitle = toSentenceCase(title.split(' - ')[0]);
+  const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
+  const slug = slugify(cleanTitle);
+  const trimmedDescription = toSentenceCase(description.split('About me:')[0]);
+  const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
+  const htmlDescription = '<p>' + trimmedDescription.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br />') + '</p>';
   let image = images[1] ? images[1] : images[0];
   image = {
     src: image.url_570xN,
@@ -31,18 +46,19 @@ const proccessProduct = async (product, images) => {
     backgroundColor: `#${image.hex_code}`
   };
   return {
-    title: cleanTitle,
+    title: cleanTitle || title,
     price: `£${(price.amount / price.divisor).toFixed(2)}`,
-    description,
+    description: htmlDescription,
     currencyCode: currency_code,
-    path: processProductPath(listing_id),
+    path: processProductPath(slug),
+    slug,
     url,
     listingId: listing_id,
     state,
     image,
     meta: {
       title: `${cleanTitle} | Shop | ${siteSettings.title}`,
-      description: description,
+      description: descriptionParts[1] || title,
     },
   };
 };
@@ -57,9 +73,10 @@ const getProductImages = async (listingId) => {
 
 export async function getProducts(fetch) {
   const productsResponse = await fetch(
-    `${endpoint}/active?client_id=${config.token}&limit=100`
+    `${endpoint}/active?client_id=${config.token}&limit=100&includes=MainImage`
   );
   const productsResponseData = await productsResponse.json();
+  console.log(productsResponseData);
   let products = [];
   // const concurrency = 2;
   // while (productsResponseData.results.length) {
@@ -67,27 +84,28 @@ export async function getProducts(fetch) {
   //     productsResponseData.results.splice(0, concurrency).map(async (product) => {
   //       const { listing_id } = product;
   //       const images = await getProductImages(listing_id);
-  //       const processedProduct = {
+  //       const processedProduct = await proccessProduct(product, images.results);
+  //       const newProduct = {
   //         params: {
-  //           id: listing_id.toString(),
+  //           id: processedProduct.slug,
   //         },
-  //         props: proccessProduct(product, images),
+  //         props: processedProduct,
   //       };
-  //       products.push(processedProduct);
-  //       return processedProduct;
+  //       products.push(newProduct);
   //     })
   //   );
   // }
   for await (product of productsResponseData.results) {
     const { listing_id } = product;
     const images = await getProductImages(listing_id);
-    const processedProduct = {
+    const processedProduct = await proccessProduct(product, images.results);
+    const newProduct = {
       params: {
-        id: listing_id.toString(),
+        id: processedProduct.slug,
       },
-      props: await proccessProduct(product, images.results),
+      props: processedProduct,
     };
-    products.push(processedProduct);
+    products.push(newProduct);
   }
   return products;
 }

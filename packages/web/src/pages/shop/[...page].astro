@@ -13,15 +13,17 @@ export function getStaticPaths({ paginate }) {
 const siteSettings = await getSiteSettings();
 
 const { page } = Astro.props;
+
 let title = 'Shop';
 let metaTitle = `${title} | ${siteSettings.title}`;
 if (page.currentPage > 1) {
-  title = `${title} – Page ${page.currentPage}`;
-  metaTitle = `Page ${page.currentPage} | ${metaTitle}`;
+  title = `${title} (Page ${page.currentPage})`;
+  metaTitle = `${title} | ${siteSettings.title}`;
 }
+
 const meta = {
   title: metaTitle,
-  description: siteSettings.description,
+  description: `Buy products from Sally Payne's Etsy shop.`,
 };
 
 const products = page.data.map(product => {
