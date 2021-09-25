@@ -154,6 +154,9 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/styles/settings';
+@import '../../assets/styles/tools';
+
 .sp-c-pagination {
   display: flex;
   padding: 32px 0 0;
