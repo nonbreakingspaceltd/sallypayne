@@ -1,34 +1,31 @@
 import { getSiteSettings } from './global';
 import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
+import { client } from '../utils/etsyClient';
 
-const config = {
-  endpoint: `https://openapi.etsy.com/v2`,
-  storeId: process.env.ETSY_STORE_ID,
-  token: process.env.ETSY_API_TOKEN,
-};
+const storeId = process.env.ETSY_STORE_ID;
 
 const processProductPath = (slug) => {
   return `/shop/product/${slug}/`;
 };
 
 const proccessProduct = (product, siteSettings) => {
-  const { state, listing_id, title, price, currency_code, url, description, MainImage } = product;
-  const currencySymbol = currency_code === 'GBP' ? '£' : 'NA';
+  const { state, listing_id, title, price, currency_code, url, description, images } = product;
+  const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
   const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
   const slug = slugify(cleanTitle);
   const trimmedDescription = toSentenceCase(description.split('About me:')[0]);
   const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
   const htmlDescription = textToHtml(trimmedDescription);
   const image = {
-    src: MainImage.url_570xN,
-    width: MainImage.full_width,
-    height: MainImage.full_height,
+    src: images[0].url_570xN,
+    width: images[0].full_width,
+    height: images[0].full_height,
     alt: cleanTitle,
-    backgroundColor: MainImage.hex_code && `#${MainImage.hex_code}`,
+    backgroundColor: images[0].hex_code && `#${images[0].hex_code}`,
   };
   const processedProduct = {
     title: cleanTitle || title,
-    price: `${currencySymbol}${price}`,
+    price: `${currencySymbol}${price.amount / price.divisor}`,
     description: htmlDescription,
     currencyCode: currency_code,
     path: processProductPath(slug),
@@ -47,11 +44,13 @@ const proccessProduct = (product, siteSettings) => {
 
 export async function getProducts(fetch) {
   const siteSettings = await getSiteSettings();
-  const response = await fetch(
-    `${config.endpoint}/shops/${config.storeId}/listings/active?method=GET&api_key=${config.token}&limit=100&includes=MainImage`
-  );
-  const data = await response.json();
-  const products = data.results.map((product) => {
+  const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
+  if (!activeProducts) {
+    return [];
+  }
+  const ids = activeProducts.results.map((item) => item.listing_id).join(',');
+  const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
+  const products = productsData.results.map((product) => {
     const processedProduct = proccessProduct(product, siteSettings);
     return {
       params: {
