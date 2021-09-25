@@ -43,6 +43,10 @@ const { title, publishedDate, body } = Astro.props;
 
 .sp-l-post__header {
   padding-bottom: 16px;
+
+  @media (--mq-m) {
+    padding-bottom: 32px;
+  }
 }
 
 .sp-l-post__title {

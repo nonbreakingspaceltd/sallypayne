@@ -7,16 +7,11 @@ body {
   color: var(--color-brand-abbey);
 }
 
-
 p,
 ul,
 ol,
 dl,
 table,
 blockquote {
-  margin-top: 0;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  margin: 0;
 }

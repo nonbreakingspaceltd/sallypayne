@@ -1,6 +1,9 @@
 <template>
   <nav class="sp-c-pagination">
-    <h2 class="sp-c-pagination__title" id="pagination">Page:</h2>
+    <h2 class="sp-c-pagination__title" id="pagination">
+      Page:
+      <span class="sp-u-sr-only"> {{ currentPage }} of {{ totalPage }} </span>
+    </h2>
     <ul class="sp-c-pagination__list" aria-labelledby="pagination">
       <li class="sp-c-pagination__item" v-if="showNextPrev">
         <component
