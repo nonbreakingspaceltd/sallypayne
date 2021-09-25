@@ -1,7 +1,9 @@
 ---
 import Header from '../components/Header/Header.vue';
 import Footer from '../components/Footer/Footer.vue';
-import { getNavigation } from '../data/global';
+import { getNavigation, getSiteSettings } from '../data/global';
+
+const siteSettings = await getSiteSettings();
 
 const { title, meta, modifier, path } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
@@ -53,7 +55,7 @@ const navigation = getNavigation(currentPath);
   </head>
   <body class={`sp-l-layout sp-l-layout--${modifier}`}>
 
-    <Header client:idle links={navigation} class="sp-l-header" />
+    <Header client:idle title={siteSettings.title} links={navigation} class="sp-l-header" />
 
     <main class="sp-l-main">
       <slot />

@@ -12,24 +12,36 @@
         class="sp-c-footer__social__link sp-c-footer__social__link--facebook"
       >
         <IconFacebook class="sp-c-footer__social__icon" />
+        <span class="sp-u-sr-only">
+          Facebook
+        </span>
       </a>
       <a
         href="https://twitter.com/salpdesign"
         class="sp-c-footer__social__link sp-c-footer__social__link--twitter"
       >
         <IconTwitter class="sp-c-footer__social__icon" />
+        <span class="sp-u-sr-only">
+          Twitter
+        </span>
       </a>
       <a
         href="https://www.instagram.com/sallypayne_design/"
         class="sp-c-footer__social__link sp-c-footer__social__link--instagram"
       >
         <IconInstagram class="sp-c-footer__social__icon" />
+        <span class="sp-u-sr-only">
+          Instagram
+        </span>
       </a>
       <a
         href="https://www.pinterest.co.uk/salhoulker/"
         class="sp-c-footer__social__link sp-c-footer__social__link--pinterest"
       >
         <IconPinterest class="sp-c-footer__social__icon" />
+        <span class="sp-u-sr-only">
+          Pinterest
+        </span>
       </a>
     </aside>
   </footer>

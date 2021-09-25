@@ -6,6 +6,9 @@
         <span class="sp-c-header__logo__bird">
           <Bird aria-hidden="true" />
         </span>
+        <span class="sp-u-sr-only">
+          {{ title }}
+        </span>
       </a>
     </div>
     <button
@@ -59,6 +62,10 @@ import Logo from './../../assets/images/logo.svg';
 export default {
   name: 'Header',
   props: {
+    title: {
+      type: String,
+      required: true,
+    },
     links: {
       type: Array,
       required: true,

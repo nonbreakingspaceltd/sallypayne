@@ -1,5 +1,6 @@
 ---
-import HomeCanvas from '../components/HomeCanvas/HomeCanvas.vue';
+// import HomeCanvas from '../components/HomeCanvas/HomeCanvas.vue';
+// import SallyPayneHome from '../assets/images/sally-payne-home.svg';
 
 const { title } = Astro.props;
 ---
@@ -7,11 +8,38 @@ const { title } = Astro.props;
   <h1 class="sp-u-sr-only">
     {title}
   </h1>
-  <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" />
+  <!-- <HomeCanvas client:load src="/animations/home/sallypayne.html" placeholder="/animations/home/images/lqip.jpg" /> -->
+  <!-- <SallyPayneHome class="sp-l-home__image" /> -->
+  <div class="sp-l-home__media">
+    <img src="/images/sally-payne-home.svg" class="sp-l-home__image" alt="Homepage Illustration of Charactacters" width="1024" height="525" />
+  </div>
 </div>
 
 <style lang="postcss" global>
 .sp-l-home {
   margin-top: auto;
+}
+
+.sp-l-home__media {
+  width: 100%;
+  overflow: auto;
+}
+
+.sp-l-home__image {
+  width: 110vh;
+  position: relative;
+  margin: 0 auto;
+
+  @media screen and (max-height: 860px) {
+    max-width: 1280px;
+  }
+
+  @media (--mq-m) {
+    width: 100%;
+  }
+
+  @media (--mq-xxl) {
+    max-width: 3000px;
+  }
 }
 </style>
