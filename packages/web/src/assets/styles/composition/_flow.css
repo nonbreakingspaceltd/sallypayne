@@ -3,7 +3,7 @@
     margin-top: var(--space-y-4);
 
     @media (--mq-m) {
-      margin-top: var(--space-y-8);
+      margin-top: var(--space-y-6);
     }
   }
 }
