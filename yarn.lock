@@ -1507,30 +1507,30 @@
   resolved "https://registry.yarnpkg.com/@sanity/asset-utils/-/asset-utils-1.1.5.tgz#dada8644757462c89be2b1e74e1bdb5d70e0d3d5"
   integrity sha512-cghhQZTOFaa0HiBQnf3UF6Nm1DnuS3cS0RZeSUFsC9KmIDwE/DmU7LDfXiZ7xI7dm/RuNa8WSRGfFJBE+KX02g==
 
-"@sanity/base@2.20.1-canary.122", "@sanity/base@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/base/-/base-2.20.1-canary.122.tgz#a3e9b2093f1d170bbd3883cbcda90e23ce24eeab"
-  integrity sha512-EC+hFxI/JEaIu86ot0lDzUhf6SuDG4Do/3jn5YkPItRZv5A9SbrEsVuwiPoMPco3FoM73QqUiGDslx7sCgpvGw==
+"@sanity/base@2.20.1-canary.143", "@sanity/base@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.20.1-canary.143.tgz#e701969ea6e8aac6b3b473d15165b3ceb8e50464"
+  integrity sha512-r2zpGCKNo6wHx7pW3rHKz5YqlwK7ipC499vS/4DdOEZrVaVmWLJbEvtt2uJv3FxMtUuZK60adNV/W8HaA9OANQ==
   dependencies:
     "@juggle/resize-observer" "^3.3.0"
     "@popperjs/core" "^2.5.4"
     "@reach/auto-id" "^0.13.2"
     "@sanity/bifur-client" "^0.0.8"
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/color" "^2.1.5"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/icons" "^1.1.7"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/icons" "^1.2.1"
     "@sanity/image-url" "^1.0.1"
-    "@sanity/initial-value-templates" "2.20.1-canary.122+6a5854f662"
-    "@sanity/mutator" "2.20.1-canary.122+6a5854f662"
-    "@sanity/schema" "2.20.1-canary.122+6a5854f662"
-    "@sanity/state-router" "2.20.1-canary.122+6a5854f662"
-    "@sanity/structure" "2.20.1-canary.122+6a5854f662"
-    "@sanity/transaction-collator" "2.20.1-canary.122+6a5854f662"
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
-    "@sanity/ui" "^0.36.10"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
-    "@sanity/validation" "2.20.1-canary.122+6a5854f662"
+    "@sanity/initial-value-templates" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/mutator" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/schema" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/state-router" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/structure" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/transaction-collator" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/ui" "^0.36.12"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/validation" "2.20.1-canary.143+80fb4a83d6"
     boundless-arrow-key-navigation "^1.1.0"
     circular-at "^1.0.3"
     classnames "^2.2.5"
@@ -1593,10 +1593,10 @@
     hyperscript "^2.0.2"
     object-assign "^4.1.1"
 
-"@sanity/block-tools@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/block-tools/-/block-tools-2.20.1-canary.122.tgz#259a3cf619c446e710fa080b1517fd52538fe4a7"
-  integrity sha512-aE3nUfWhNtV8/4/PtCkopu2+QN0ssudhUHNiVjLNbXE+1K/K0zRbj78/PvI73vdLcnuMqoxJdb1kCaTTlsKtew==
+"@sanity/block-tools@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/block-tools/-/block-tools-2.20.1-canary.143.tgz#448204a0df03cbcf134559f9b29873a2804fe2d8"
+  integrity sha512-NxLe+fwQATBCfQa7zTVXdtjrIYk7xnueo2/duWIwzieRFpL4vFcTFxJW4yZ+RyFM+EA1DzUV0ZjU/x7I6Ns3ig==
   dependencies:
     get-random-values "^1.2.2"
     lodash "^4.17.15"
@@ -1614,13 +1614,13 @@
     make-error "^1.3.0"
     object-assign "^4.1.1"
 
-"@sanity/client@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/client/-/client-2.20.1-canary.122.tgz#8c753d53b7bf9427d1545c15ef362a46436db034"
-  integrity sha512-Dl4SAviLSF27OulaQ/3bYV3O27RAXZ7Y1e4D+Z6IGV98sSp0Df+0JyYtAmRsK8zi05SR6dBkCdQKp8EisEuiuA==
+"@sanity/client@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-2.20.1-canary.143.tgz#4b3e468f6af8b45eebc6c0998b102808ff6bfcab"
+  integrity sha512-ZlN7xGvUti5JVqzLj92LcP6Ee9ubateVt3ZeQCQ4GFRXvoyB3QNoMmwyEdHxng8sDhCiZya5+TV920qcmB+m6Q==
   dependencies:
-    "@sanity/eventsource" "2.20.1-canary.122+6a5854f662"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
+    "@sanity/eventsource" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/observable" "2.0.9"
     deep-assign "^2.0.0"
     get-it "^5.0.3"
@@ -1637,27 +1637,27 @@
   resolved "https://registry.npmjs.org/@sanity/components/-/components-2.18.1-canary.9.tgz#43caf86e8a7dbcec9f7dbe6f880f3d6168101f67"
   integrity sha512-Hr7kT5y2pquPcF4vQAMCVTn3/2UmvwIFAlmXPgGDr1tS8b3QTokV3m4wES0VExDs8RHw8G1g0g201BPICWMzAA==
 
-"@sanity/core@2.20.1-canary.122":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/core/-/core-2.20.1-canary.122.tgz#0670d694b82460d86a66b45b6a0b8b884b5ea1d0"
-  integrity sha512-ef9GJQhiU+tSflgWlwtC78IKpWuS5ezSTmcO/ouciz+IcQSpeys1Td1fFsR/HqTNZoqqcXxXTLD0QGQ8y13P/w==
+"@sanity/core@2.20.1-canary.143":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.20.1-canary.143.tgz#da8a57d7a9f1f1a4631af433cf382be5ccba87b2"
+  integrity sha512-383qQb10Lk+WJnFjXMbY86Vlw2kd69Qdj+tMjVR+zuiO7lRq4IVCVobymWnHATzin+BDuhC8ko9lRY8Ai2ZpZQ==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.10.4"
     "@babel/preset-env" "^7.11.5"
     "@babel/preset-react" "^7.10.4"
     "@babel/preset-typescript" "^7.10.4"
     "@babel/register" "^7.7.4"
-    "@sanity/eventsource" "2.20.1-canary.122+6a5854f662"
-    "@sanity/export" "2.20.1-canary.122+6a5854f662"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/import" "2.20.1-canary.122+6a5854f662"
-    "@sanity/plugin-loader" "2.20.1-canary.122+6a5854f662"
-    "@sanity/resolver" "2.20.1-canary.122+6a5854f662"
-    "@sanity/schema" "2.20.1-canary.122+6a5854f662"
-    "@sanity/server" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/eventsource" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/export" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/import" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/plugin-loader" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/resolver" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/schema" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/server" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/uuid" "^3.0.1"
-    "@sanity/webpack-integration" "2.20.1-canary.122+6a5854f662"
+    "@sanity/webpack-integration" "2.20.1-canary.143+80fb4a83d6"
     chalk "^2.4.2"
     chokidar "^3.0.0"
     configstore "^5.0.1"
@@ -1708,60 +1708,60 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
-"@sanity/data-aspects@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/data-aspects/-/data-aspects-2.20.1-canary.122.tgz#a3a94d788960fd63e5fc8cb365145f37dec8d302"
-  integrity sha512-taWOY/aOm17CUNjU9gr5l5QKo+Md/c7aHbGnilMB+L5ZR+8xrsORO/3GCdb38NaW0o8jHiWXu2FfkQ/jDZ6GDA==
+"@sanity/data-aspects@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/data-aspects/-/data-aspects-2.20.1-canary.143.tgz#df06d243cdf35e4f05f3bda9c0df8769d06fdaaa"
+  integrity sha512-j2CRsKFwtab9lLT0gGj0LurQlCBnWzMVlBeABVKPwioH1FNAv+VGgr9Y5IiikWr3dAmcJ5JmTxlxXjz6y433bQ==
   dependencies:
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
     lodash "^4.17.15"
 
-"@sanity/default-layout@2.20.1-canary.122":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-2.20.1-canary.122.tgz#b5b8b8887933b7b067f48f5ec69106a0b5f3d11a"
-  integrity sha512-r/nkCqt5uXKHJVnlQ+NiYCaTlGNNDZy5y69wKQ5Ujpf/295vvZ2ggzS9XJbmBd33ozT0KylgOCX98A2aWqc3fg==
+"@sanity/default-layout@2.20.1-canary.143":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.20.1-canary.143.tgz#ae615d45da898233c312dd232d8a83042b45b121"
+  integrity sha512-QJ+knaJgUtk22EElet/hI/BAKpLIplOttbYwRTfmh32TMGjSfHD/+D0Iwqnap3ZeqGsK1aN/Ixym3cnc+JGSFA==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.20.1-canary.122+6a5854f662"
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/icons" "^1.1.7"
-    "@sanity/ui" "^0.36.10"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/base" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/icons" "^1.2.1"
+    "@sanity/ui" "^0.36.12"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     lodash "^4.17.15"
     react-props-stream "^1.0.0"
     react-rx "^1.0.0-beta.6"
     rxjs "^6.5.3"
 
-"@sanity/default-login@2.20.1-canary.122":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/default-login/-/default-login-2.20.1-canary.122.tgz#62b1031fda75c883d180321abbd7cdd19bdd5177"
-  integrity sha512-GM8w3OcwOUXolRWauNw/CQoEX9U6RM3jQkG9/6MdtkvjjNAnmvT3ROxelvkV5/uHyFYO8IOolC8/ISn5k2fS8A==
+"@sanity/default-login@2.20.1-canary.143":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.20.1-canary.143.tgz#d71f9c8d96480f77a1e44b30e29be1b9a94a4e67"
+  integrity sha512-0MB4Rjzx2KVgYPDCv/7gUPHuc1E9MLKeCvMkvdvcvSxqE11LZIFe2UrCoENhC81UMegICmchF7tDGNX7YsUNlA==
   dependencies:
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/logos" "^1.1.6"
-    "@sanity/ui" "^0.36.10"
+    "@sanity/ui" "^0.36.12"
     prop-types "^15.6.0"
     rxjs "^6.5.3"
 
-"@sanity/desk-tool@2.20.1-canary.122":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-2.20.1-canary.122.tgz#7ca312b78796ce982eb2f4af032d780bdeb639cb"
-  integrity sha512-B8xP4zDnQ+wFEN2QCwW6q0/0uZmTPo/pOeG+4nFo5aTgLzLlPT1zxQBIS7KasWkALFLUNzMseBkElIJE2/Z4ag==
+"@sanity/desk-tool@2.20.1-canary.143":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.20.1-canary.143.tgz#bfc30bb90d43bb586efa3bef2e9b1af85e600fcf"
+  integrity sha512-GdKiC73YffjxNsBPVnSse+yHn61Fk7HbgyK+9m6DZKzmtTfbtue847yTUKiVfX7qTOJlVcQuPUMq+s2Ne0yNfw==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
-    "@sanity/data-aspects" "2.20.1-canary.122+6a5854f662"
-    "@sanity/diff" "2.20.1-canary.122+6a5854f662"
-    "@sanity/field" "2.20.1-canary.122+6a5854f662"
-    "@sanity/form-builder" "2.20.1-canary.122+6a5854f662"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/icons" "^1.1.7"
-    "@sanity/react-hooks" "2.20.1-canary.122+6a5854f662"
-    "@sanity/structure" "2.20.1-canary.122+6a5854f662"
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
-    "@sanity/ui" "^0.36.10"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/data-aspects" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/diff" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/field" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/form-builder" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/icons" "^1.2.1"
+    "@sanity/react-hooks" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/structure" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/ui" "^0.36.12"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/uuid" "^3.0.1"
     hashlru "^2.1.0"
     is-hotkey "^0.1.6"
@@ -1775,10 +1775,10 @@
     rxjs "^6.5.3"
     shallow-equals "^1.0.0"
 
-"@sanity/diff@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/diff/-/diff-2.20.1-canary.122.tgz#1f363070bac2994a1293a6de942e289eeac435bf"
-  integrity sha512-GJ+e6BNAmNsovcLEKBliI8up+Hm8JarOVQtdzWKX6POTT2yJamXsdj56UTJ2ldQUcD/EpOVcUPDlvyz7ET06fQ==
+"@sanity/diff@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/diff/-/diff-2.20.1-canary.143.tgz#aa29c1b4b0194446261c4e25ed9690ebb6fa3bc3"
+  integrity sha512-UhdB0uUF25SfGdcq5eDNG9PXE5bU4hyW/od5R99mOwmza1IVDp74jNMYQgS3AkaUSrXcGWFcclZbnRWPEO+T4A==
   dependencies:
     diff-match-patch "^1.0.4"
 
@@ -1790,18 +1790,18 @@
     "@rexxars/eventsource-polyfill" "^1.0.0"
     eventsource "^1.0.6"
 
-"@sanity/eventsource@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/eventsource/-/eventsource-2.20.1-canary.122.tgz#957fbc68214a20308ececce8087fb41308f1f480"
-  integrity sha512-qWmZWC/TkmrpJr88kTCeaHhSIm7Jb4o2RVZo2GR/9gqp3ZaJcPcMahiG/lT5pefmec7UL1AQuGP0gbcgNwGx5A==
+"@sanity/eventsource@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-2.20.1-canary.143.tgz#0c50910979cbb740e618751712f8681176073909"
+  integrity sha512-tDZ4BZ00nZvA1NAioEODp1o8OOlvreCGZBv7whDZQN8lFakLAESlHiFo3WkNHZiJD5RdtVGwdPzMkWWU/UTlsQ==
   dependencies:
     "@rexxars/eventsource-polyfill" "^1.0.0"
     eventsource "^1.0.6"
 
-"@sanity/export@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/export/-/export-2.20.1-canary.122.tgz#c2ad76a1a3dc0aa51b097c02c51651c59eaf6d30"
-  integrity sha512-gb9LV5EZra6OLTXsnCcl86Ku1eCkRfx/eMX8OTXsS3aKYlh70XShV8eU0/JrGC/pZDaPr/40cKaQqEEqcdT+lQ==
+"@sanity/export@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/export/-/export-2.20.1-canary.143.tgz#c93416051276c595cfcba6618b10db05c6f58611"
+  integrity sha512-pioZpONYdOWrFZ/ZUWMXY9yrzwnweI04oUiUTbpwILVhgUEAN/j1tB9yUUlNO1Zy4AY6os8Nac2M2U4IjiMPnQ==
   dependencies:
     agentkeepalive "^4.1.0"
     archiver "^5.0.0"
@@ -1813,46 +1813,46 @@
     simple-get "^4.0.0"
     split2 "^3.2.2"
 
-"@sanity/field@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/field/-/field-2.20.1-canary.122.tgz#948ca1e75a8cf5e84dc6a7ea858205007634743e"
-  integrity sha512-cuM/qFT+wgn0CaaFro4jhRr0q/w13rWl/Yj31dSMHYTAqMco2wA0Esw0Rf7RmCPMFwj+BZEPzYR1bRXKs4tGNA==
+"@sanity/field@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/field/-/field-2.20.1-canary.143.tgz#a0d2db111af4ed11e467aee4f6db9ef49ad91686"
+  integrity sha512-9gh86sXJFQP5jhFGlgdb9H3l0F8nwW3BkrfoNJiAkmSppsOcXhaW2nESff3h/2R/A4W2ARhY6fni3aMPKx2ZAQ==
   dependencies:
     "@sanity/asset-utils" "^1.1.2"
-    "@sanity/base" "2.20.1-canary.122+6a5854f662"
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
+    "@sanity/base" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/color" "^2.1.5"
-    "@sanity/diff" "2.20.1-canary.122+6a5854f662"
-    "@sanity/icons" "^1.1.7"
+    "@sanity/diff" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/icons" "^1.2.1"
     "@sanity/image-url" "^1.0.1"
-    "@sanity/react-hooks" "2.20.1-canary.122+6a5854f662"
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
-    "@sanity/ui" "^0.36.10"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/react-hooks" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/ui" "^0.36.12"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     diff-match-patch "^1.0.4"
     lodash "^4.17.15"
     sanity-diff-patch "^1.0.9"
 
-"@sanity/form-builder@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-2.20.1-canary.122.tgz#f15a3de3c7b6bf8c88b422ba11a28ff34e2a7822"
-  integrity sha512-6Khr2LBUQovCDreU/7oZmwP+Z9o4H8slaMniKjad7Rb7gykuEBsKur6mTbwXA1mDFLQqQ60qcJeHXZ4k2Hl/Og==
+"@sanity/form-builder@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.20.1-canary.143.tgz#1545073257871736400071ec4ced736ef9f92b13"
+  integrity sha512-ZMT1sZCS1SWqm9zs8Zp73uK9FoImWeu4GB4ZAcsJ3qjgEGUphCJXY9GTbOyiW+h3GIpCrNW1V54zyY3xQ5BpAg==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.20.1-canary.122+6a5854f662"
-    "@sanity/block-tools" "2.20.1-canary.122+6a5854f662"
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
+    "@sanity/base" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/block-tools" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/color" "^2.1.5"
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/icons" "^1.1.7"
-    "@sanity/imagetool" "2.20.1-canary.122+6a5854f662"
-    "@sanity/initial-value-templates" "2.20.1-canary.122+6a5854f662"
-    "@sanity/mutator" "2.20.1-canary.122+6a5854f662"
-    "@sanity/portable-text-editor" "2.20.1-canary.122+6a5854f662"
-    "@sanity/schema" "2.20.1-canary.122+6a5854f662"
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
-    "@sanity/ui" "^0.36.10"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/icons" "^1.2.1"
+    "@sanity/imagetool" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/initial-value-templates" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/mutator" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/portable-text-editor" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/schema" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/ui" "^0.36.12"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/uuid" "^3.0.1"
     attr-accept "^1.1.0"
     classnames "^2.2.5"
@@ -1880,10 +1880,10 @@
   resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-2.18.0.tgz#9130301579ff38b6bcc2ea0ce6105a7979272a66"
   integrity sha512-If8Qkw32LWPes16UzqwUsTLgfxF5d4ACdUvCLMl6grJc/5G8LKPAGCQUuA/d1F4W16yCJVV7Zv31HDRDXJSJkg==
 
-"@sanity/generate-help-url@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/generate-help-url/-/generate-help-url-2.20.1-canary.122.tgz#d1ed43d0ffd8766348f2a7c2bedd51161b9081b6"
-  integrity sha512-NsMCUR8o+pvv1k2vn6YkjUxwFgaIOprrDXHRWakX3cytFuned6C48kmpPn2kSwXqQt1C2cZY4b3WYKB9r01nmg==
+"@sanity/generate-help-url@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-2.20.1-canary.143.tgz#7616a220625689ce31a0f538c0b12933fbc18db6"
+  integrity sha512-ZGik/npE53+K9jLXTZZ4EOLDl77wTGIsxiPtPcIjCkPair2xqO1vACICjFFVZ8iRyyPXnMLxEQ4xgkn9CyCbQQ==
 
 "@sanity/generate-help-url@^0.140.0":
   version "0.140.0"
@@ -1895,10 +1895,10 @@
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-1.1.7.tgz#f2b6f2d9b68965b6f26975c0d5528ae75e1472d8"
   integrity sha512-5KbAhNowjO94UjIrsaaKCGNLdHs+ek+RF5Bc+XRELOi1TFR0GBG3Wo7LK30df2ajA7TW6HwERLbPQB3sJyMRMQ==
 
-"@sanity/icons@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.2.0.tgz#087fe31be360ee21ae6176557aefe61d9b1620fd"
-  integrity sha512-2G1pP1CFealw7gPoRZh4812Fg8LszaVzQDt0dmPfkoZ+m5rC6pF9iwZ+qG0qGh8S7ehBaDRQLDhkqo0TVGALnQ==
+"@sanity/icons@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-1.2.1.tgz#0dcef7d0c0ea965acffbccb825d9da6ccaa53330"
+  integrity sha512-dDXvyRIppU6OD8dNPBdd8LVBaIw5n5TrVOZ6AvT5pCoDswXlFQinoea5Fe4Huk26C+IZfe8d++P4tctnQPG8Vw==
 
 "@sanity/image-url@^0.140.15":
   version "0.140.22"
@@ -1910,21 +1910,21 @@
   resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-1.0.1.tgz#960d649b2f4396da0adb31cf94503c929495cea0"
   integrity sha512-AdKQ3zMk7WdoNwoJPrAvQhW+kUtBldBX0nHtnGy+rwmgsCQ0rAXasrgH43Fhmsp/yB6piiq+F2d5qEuBFsdQVg==
 
-"@sanity/imagetool@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/imagetool/-/imagetool-2.20.1-canary.122.tgz#7a78bcac5e85a35a7baffc08be8b4697f67d5500"
-  integrity sha512-BOYr+3h2BaOnDrOPJIT0HDkljjCv57H1oAQ2GG775AHt5PpIXbojF6g66iV25yka0SmyBMvZ8WR6VOVtMStZtA==
+"@sanity/imagetool@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/imagetool/-/imagetool-2.20.1-canary.143.tgz#4e1707e69e1affbcf73410702c72c89041f61879"
+  integrity sha512-2T0CepTmbv6OH9puPL56/4MFhYKeRZTSnNEYZIavL/tGKBIjOJrKiAS2hoQyadOh/JPCnmyffITFZGi+ZmFWjg==
   dependencies:
     debug "^3.2.7"
     lodash "^4.17.15"
 
-"@sanity/import@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/import/-/import-2.20.1-canary.122.tgz#146649b0c8c8beeef01170a22785e9949d7168de"
-  integrity sha512-uMxz2bCDMAKtJiomSWd6eI59HY6qbiDyANm+4pT57zyycZIqioWA63U1U6KSEdhRIpWRlEsK/7AQrgHE0J/xrQ==
+"@sanity/import@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/import/-/import-2.20.1-canary.143.tgz#095dd52ad2efa18d78e1beec99173bb5655e5765"
+  integrity sha512-fFZt6vs0GZQcnqxvsDjfRMZAkb9umcwCu5twEONuLngomcyJ4ug4vFI/TwE98xWeU3tyyA5gjLoEcPt2MmEDeQ==
   dependencies:
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/mutator" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/mutator" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/uuid" "^3.0.1"
     debug "^3.2.7"
     file-url "^2.0.2"
@@ -1942,12 +1942,12 @@
     tempy "^0.3.0"
     whatwg-url "^7.0.0"
 
-"@sanity/initial-value-templates@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/initial-value-templates/-/initial-value-templates-2.20.1-canary.122.tgz#3802c0f2af933d92a3c773047f208a9a8e7b715d"
-  integrity sha512-Eh1xqgdfGCLNSATEas/j6tgyfkhoNKyVh2mlakUPxXae5Lbw+BjxtLR9nFUG3bIa1oCEzG7qfcPPiYVBEyY9iQ==
+"@sanity/initial-value-templates@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/initial-value-templates/-/initial-value-templates-2.20.1-canary.143.tgz#5a13c430c7130dc0e19330ee0595783bd3f1478e"
+  integrity sha512-N8LCLrhMw+N2DJQ8w/Zp8VC7T5HC/z6631fCXSp1NDr049XUh+4mCiq4QrV6NV1HpANN66KbAcPw+nOqyWSZHg==
   dependencies:
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
     oneline "^1.0.3"
@@ -1957,10 +1957,10 @@
   resolved "https://registry.yarnpkg.com/@sanity/logos/-/logos-1.1.6.tgz#10bd44f945543cd9efbbfda61bb9ce87b7899c43"
   integrity sha512-IgX2e7OvvYl/5fArPl1VxyXCLxBYiA5a6kUHKXeT5WFxsuD7f71hLxFT7DcGWXADOMsuy7l99YdkrfnHHj1ayw==
 
-"@sanity/mutator@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/mutator/-/mutator-2.20.1-canary.122.tgz#6809e05f70bf72ffab10ccefb7600f640696a448"
-  integrity sha512-SAq4O9bnc3zfuJQIN834H+ahDWajBYCEMXS9p7PaHtezihbc0IpO9/43Ae/Pp/3zgiVIXa+O7ZpZrSpH1/iWVw==
+"@sanity/mutator@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/mutator/-/mutator-2.20.1-canary.143.tgz#31b13cfe2eaaa279492e54ca8d82252c2779b881"
+  integrity sha512-+RmXytxh+mJbqv/cdvETLqkcYXS46PNwkT1ZaUlwjyBQ0MbTVaWpjTT0sFZWcA68dgwmm+XR6/RIfvF8K7QZNw==
   dependencies:
     "@types/diff-match-patch" "^1.0.32"
     debug "^3.2.7"
@@ -1975,69 +1975,70 @@
     object-assign "^4.1.1"
     rxjs "^6.5.3"
 
-"@sanity/plugin-loader@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/plugin-loader/-/plugin-loader-2.20.1-canary.122.tgz#7d700bd99f791cee1bc6d8f441eb9e6e0570b887"
-  integrity sha512-6fHJzMVRhV2MMa5+TtsVEmvqTtz4dTTapSsMiPOcJT8yiAY1Uef7g3Nz+ZdoPNoGjg3uAt3g0f+AYt49p3wO9g==
+"@sanity/plugin-loader@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/plugin-loader/-/plugin-loader-2.20.1-canary.143.tgz#33cab3ecaab227a29c668c034967f4b39be222ec"
+  integrity sha512-Vv0AE2F2rjq7X/xxpLbWrV2Obxrgp+Z6opdtSEMn3u+It0oSI1FiMQyJTmJTow2HNgX1GKdLNK7Lle7begPWVQ==
   dependencies:
-    "@sanity/resolver" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
-    "@sanity/webpack-integration" "2.20.1-canary.122+6a5854f662"
+    "@sanity/resolver" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/webpack-integration" "2.20.1-canary.143+80fb4a83d6"
     css-modules-require-hook "4.1.0"
     interop-require "^1.0.0"
 
-"@sanity/portable-text-editor@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/portable-text-editor/-/portable-text-editor-2.20.1-canary.122.tgz#48ca02325d6870618f4c209503fe5b5f03a96cf9"
-  integrity sha512-FxHOI328BOTislE4NJpCU6PE44foWBNODdasrfOvKC9oCe1CIHZPMxdT/2ML0jD0DtMFas5wfBobsN+iXsU+Vw==
+"@sanity/portable-text-editor@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/portable-text-editor/-/portable-text-editor-2.20.1-canary.143.tgz#264c861f93072121ff1abcafc21de58e93ac1711"
+  integrity sha512-YhZT1EcXWsGzD7B8Rr/nxxm85RzrpZUa84uxww3ueq18/AR5zag314gNQpSLTCY7rQ9U4x6thJAFNQaluNn6ow==
   dependencies:
-    "@sanity/block-tools" "2.20.1-canary.122+6a5854f662"
-    "@sanity/schema" "2.20.1-canary.122+6a5854f662"
+    "@sanity/block-tools" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/schema" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/slate-react" "0.58.7"
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     debug "^3.2.7"
     is-hotkey "^0.1.6"
     lodash "^4.17.15"
     slate "^0.58.4"
 
-"@sanity/react-hooks@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/react-hooks/-/react-hooks-2.20.1-canary.122.tgz#ca080ef698684770853941b2f8cf314b5da282a9"
-  integrity sha512-7868g9JCxQtH3JB5qeFWr1VW9Fi8mmt6PeJtcke2RYavPGCnXZUZXBoDKSvhhWGjMBb0OtvfIsvDee7J7ySUPg==
+"@sanity/react-hooks@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/react-hooks/-/react-hooks-2.20.1-canary.143.tgz#098e9db3a339daa0dc448eaff9d1d0d0fba2f879"
+  integrity sha512-6ddiXnAT7i49Pag+0Eg35GvkirZ2zFcXb1hagkFdVMBJvRwu0/ZMKO3AvZOZB2kaJYHbC4qX1U4WJao4ohQ+1A==
   dependencies:
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
+    lodash "^4.17.15"
     react-rx "^1.0.0-beta.6"
     rxjs "^6.5.3"
 
-"@sanity/resolver@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/resolver/-/resolver-2.20.1-canary.122.tgz#4173a1c6141e00c1e0a59aef7493377c3d8a0563"
-  integrity sha512-geWXQs6GB0dlA1TqloNOtdrY7ughGvZEDRPf4eNAyDf+ud9DkgwoVHBEF4muc1vfOEwItIZ3FKoms2x4IVCHUg==
+"@sanity/resolver@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/resolver/-/resolver-2.20.1-canary.143.tgz#f709eacbd4d9671126848d9a638bc121a0ccdd13"
+  integrity sha512-ZABkXc1g087+QkO28byWFsnwz2YMGY1VabOx08Q72ROB+s3LHS+DJgneGtZjIsuk7Va+5z+pt9/hltrvqObOPA==
   dependencies:
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     fs-extra "^7.0.0"
     lodash "^4.17.15"
     path-exists "^3.0.0"
     promise-props-recursive "^1.0.0"
 
-"@sanity/schema@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/schema/-/schema-2.20.1-canary.122.tgz#f6bf986a32d4263557918b1a06c0c292c42bc376"
-  integrity sha512-PZke8FeWOc78ySHozQCQhx8xU7SSq9J0AwPA5cnKCBU1msDFZdK0olrkC7+g7xTXtLQaBL2n6yu+nVNnAAFkJw==
+"@sanity/schema@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/schema/-/schema-2.20.1-canary.143.tgz#5d938c6f1a42aca8fb8adb05e6f1b90506884b64"
+  integrity sha512-ZavX7l+vj/E1l1zByhQpXkKbX13FrU1tewkoWp7dV1CigTMnHY7kPqsPsV/JXbDn8/sJeByspjyY1YW/kWgNqg==
   dependencies:
-    "@sanity/generate-help-url" "2.20.1-canary.122+6a5854f662"
+    "@sanity/generate-help-url" "2.20.1-canary.143+80fb4a83d6"
     arrify "^1.0.1"
     humanize-list "^1.0.1"
     leven "^2.1.0"
     lodash "^4.17.15"
     object-inspect "^1.6.0"
 
-"@sanity/server@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/server/-/server-2.20.1-canary.122.tgz#e396324ad349e2971698a2b2832378d6a960341f"
-  integrity sha512-qO3PFc9FcA+ECv9gp4NsAuFrxbBNU/k66AIujm7sBeB1hYhDVmxpC39MoftJJEEgQlViS/N6DWi02TXHqhKjmQ==
+"@sanity/server@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/server/-/server-2.20.1-canary.143.tgz#73652b874da37e2a8f212730f9548b849bd2e8e1"
+  integrity sha512-BhjLw6JlitultLsA8+VuoZuvdmu7eg09lxscEI99c0nxZeJRdsJE50UlYWdI5oFH6X+wHuMZlBNreUtyF3UDSg==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/plugin-proposal-class-properties" "^7.10.4"
@@ -2047,11 +2048,11 @@
     "@babel/register" "^7.7.4"
     "@hot-loader/react-dom" "^16.9.0-4.12.11"
     "@sanity/css-loader" "^0.28.12"
-    "@sanity/eventsource" "2.20.1-canary.122+6a5854f662"
-    "@sanity/resolver" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/eventsource" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/resolver" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/webpack-dev-middleware" "^2.0.6"
-    "@sanity/webpack-integration" "2.20.1-canary.122+6a5854f662"
+    "@sanity/webpack-integration" "2.20.1-canary.143+80fb4a83d6"
     babel-loader "^8.0.6"
     eventsource-polyfill "^0.9.6"
     express "^4.16.1"
@@ -2085,22 +2086,22 @@
     lodash "^4.17.4"
     scroll-into-view-if-needed "^2.2.20"
 
-"@sanity/state-router@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/state-router/-/state-router-2.20.1-canary.122.tgz#71d6a40c0c279778fc7fc274b288755322c39772"
-  integrity sha512-lMevCvmRrBjg3VOiqCrjveRfZbTjqhSCgdm+9a+2KnHwNz234QyyTseZ6vfHOUlEn1VR2CKwqC++0TFNm08Xbg==
+"@sanity/state-router@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/state-router/-/state-router-2.20.1-canary.143.tgz#c4cf2bbb409fa5cf3030a8d4a30320f7a64aab02"
+  integrity sha512-dp/atfAtEanKqqjv4N1X0pcAhkXZHFqPkRj/kRtOuRe1KKVXaaUZkkA7GktZBKsnUFehmA44HAxuaikB7F1VgQ==
   dependencies:
     debug "^3.2.7"
     lodash "^4.17.15"
     nano-pubsub "^2.0.0"
 
-"@sanity/structure@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/structure/-/structure-2.20.1-canary.122.tgz#364b5ff06f70879c7b54685ed7b4b72b6a944354"
-  integrity sha512-HHDbKRuzDo57h88+bEKGtydm94Mh61ZFESyB+Yq1DXqIepHpVzb2j1ymCZsZ0ONaZJT1ikNE+0+VkbotLivbIw==
+"@sanity/structure@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/structure/-/structure-2.20.1-canary.143.tgz#50caa39c522a938babbe6e0ee8677a0aa38ed938"
+  integrity sha512-LAaNSsx+o+58Bfit/kfjX1+xTltyBvQU+p4yywqrZiOQtXLAsWWRnL0vQD0crcruLcEF0Ok5D0ZbRthGesXq0g==
   dependencies:
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
-    "@sanity/initial-value-templates" "2.20.1-canary.122+6a5854f662"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/initial-value-templates" "2.20.1-canary.143+80fb4a83d6"
     "@types/lodash" "^4.14.149"
     "@types/memoize-one" "^3.1.1"
     lodash "^4.17.15"
@@ -2111,20 +2112,20 @@
   resolved "https://registry.yarnpkg.com/@sanity/timed-out/-/timed-out-4.0.2.tgz#c9f61f9a1609baa1eb3e4235a24ea2a775022cdf"
   integrity sha512-NBDKGj14g9Z+bopIvZcQKWCzJq5JSrdmzRR1CS+iyA3Gm8SnIWBfZa7I3mTg2X6Nu8LQXG0EPKXdOGozLS4i3w==
 
-"@sanity/transaction-collator@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/transaction-collator/-/transaction-collator-2.20.1-canary.122.tgz#2a4e4017946dc6e77f475898d6b2c51cfd8260c2"
-  integrity sha512-vU6TQcJkoLaeapLpJfqSs5GZfczdiuokWjzlFuDmuD8tQgOSlJNFlnrtPcweiCHCGwrYkDBxrTxtxYwgU8EPXA==
+"@sanity/transaction-collator@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/transaction-collator/-/transaction-collator-2.20.1-canary.143.tgz#b73f9f2f66a7ac09cb9da762b80ed3b3b7214d1f"
+  integrity sha512-yjdTmXcG+m3wLbsdyed4ww3JmO8NPN/T5uwhqZ9BrXl6Sk3hcyAdclabNVVl1H7wAG1FE1VZ0O5p3QMQVnJQXw==
   dependencies:
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
 
-"@sanity/types@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/types/-/types-2.20.1-canary.122.tgz#206150ac647dfeb0e508c282e73972282727f9d2"
-  integrity sha512-8CjG/HwvCQC1p4Aufk4xMXSv+SP4rH/JtVchOVZwtyVLqdtRBgmeIb8/RWFOngWInCGPp8wkrYutEF+A9ss2BA==
+"@sanity/types@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.20.1-canary.143.tgz#9af24587a80bd7020b741027f0bf99a177cc9a48"
+  integrity sha512-GShq7fb1+nMfmDEAQk6sBMi2ojRPPWfQaNxhKbbNiwpPl/ZHabAZtKUkRA6rRAEI//i7BTyK1HIYggC1hU/QVw==
   dependencies:
-    "@sanity/client" "2.20.1-canary.122+6a5854f662"
+    "@sanity/client" "2.20.1-canary.143+80fb4a83d6"
     "@sanity/color" "^2.1.5"
     "@types/react" "^17.0.0"
     react "17.0.1"
@@ -2157,28 +2158,28 @@
     react-popper "^2.2.5"
     react-refractor "^2.1.4"
 
-"@sanity/ui@^0.36.10":
-  version "0.36.11"
-  resolved "https://registry.npmjs.org/@sanity/ui/-/ui-0.36.11.tgz#6280ada0bb9451bd8b00944cabefc32edd565afd"
-  integrity sha512-KAA8RDPqIqk4wxK+pKHzHo3yp2GpqcB7wIegM/03AP81ETCc8qIxkgt5nhAPjTcrazhIbjV5vj1EKvb9OO+mMQ==
+"@sanity/ui@^0.36.12":
+  version "0.36.12"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.36.12.tgz#cdc0fde42869dfe2a8fc9c7afdbcbc1cac020e6c"
+  integrity sha512-BTkuBWGIf03lVUrlgLRyUwixI9uWJjsOzJx0MJeZBO7fLsbaiI+4sMZZYqWpMZrw1mh2p0+jsaoDbKlbiHwrPA==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
     "@popperjs/core" "^2.10.1"
     "@reach/auto-id" "^0.16.0"
     "@sanity/color" "^2.1.5"
-    "@sanity/icons" "^1.2.0"
+    "@sanity/icons" "^1.2.1"
     framer-motion "^4.1.17"
     popper-max-size-modifier "^0.2.0"
     react-is "^17.0.2"
     react-popper "^2.2.5"
     react-refractor "^2.1.5"
 
-"@sanity/util@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/util/-/util-2.20.1-canary.122.tgz#16f8ebd215648770a27b0d9a08699f4e031106ca"
-  integrity sha512-+okMxfnbaxQ8AW6O0yPX4CVoyAHx49b3MHnVosnPIrjBE4OwHP1l3VHgGgr7jXKQQdrihPcJQXR0M5u+vQKYvg==
+"@sanity/util@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-2.20.1-canary.143.tgz#2f75bd00abce121cf52459f6909383b7af389c78"
+  integrity sha512-AO4Qo5hz1jNgE4jcxo9cgQ/RuFVXwrsQ7NUC/xTgDyq0jy21Ok7zsTIf73lSSxDjdXEkKXsQzGj1IvW9cF3UXg==
   dependencies:
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
     dotenv "^8.2.0"
     fs-extra "^7.0.0"
     get-random-values "^1.2.2"
@@ -2194,22 +2195,22 @@
     "@types/uuid" "^8.0.0"
     uuid "^8.0.0"
 
-"@sanity/validation@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/validation/-/validation-2.20.1-canary.122.tgz#bea5a469842c60b30d560d9899e7a90053f958ed"
-  integrity sha512-GVaChe/FeAQfn4RwUkhj6yGlqLVd9aBU855pARJW4nJ8fl9NVC+mt/dwxqpttjktXJP8mQEtIPf3VEmPf5sJtg==
+"@sanity/validation@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/validation/-/validation-2.20.1-canary.143.tgz#30d529f63ab4070c8b8ba4f658344a92240eb42b"
+  integrity sha512-icTksw7ksi8vNtBGRRWnSK5FW0L4Aip9oVEFSU3hoXfJUM3Rc+UXuC4dWb39vTpTDSs/oLAWA7+HllO0Bqr6VA==
   dependencies:
-    "@sanity/types" "2.20.1-canary.122+6a5854f662"
+    "@sanity/types" "2.20.1-canary.143+80fb4a83d6"
     date-fns "^2.16.1"
     lodash "^4.17.15"
 
-"@sanity/vision@2.20.1-canary.122":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/vision/-/vision-2.20.1-canary.122.tgz#4f638c5e541baa3adb01bbd070d8e0fa8f8a3766"
-  integrity sha512-fbKzjHaQejjUB1fPRZreCuZGwVG+zt5+s14ON0c0obDQmzB7ZffegXMumu+EPi+0DJamcREHLG7X83bm19bafg==
+"@sanity/vision@2.20.1-canary.143":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.20.1-canary.143.tgz#dbeea0b5002053d18ae95c4bed84fb0393970c76"
+  integrity sha512-sgJQ+DdTCTKTT1jXHlPg2ofvm7aUfSLv9uG1xt3+cFrgqa+EnitlJfn1YYj1z0CXZ7daxdnmnxSuiTUGeP1R6Q==
   dependencies:
-    "@sanity/icons" "^1.1.7"
-    "@sanity/ui" "^0.36.10"
+    "@sanity/icons" "^1.2.1"
+    "@sanity/ui" "^0.36.12"
     classnames "^2.2.5"
     codemirror "^5.47.0"
     moment "^2.19.1"
@@ -2232,13 +2233,13 @@
     url-join "^2.0.2"
     webpack-log "^1.0.1"
 
-"@sanity/webpack-integration@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/webpack-integration/-/webpack-integration-2.20.1-canary.122.tgz#32ad5dfb584d4ce1f5e91363c28da9a55f335a7a"
-  integrity sha512-Mw/5ugKpq5kXLqQQKLHokExsF/VvjI9BTPhvNoML7Lp6jeU3xJ+lFwKYCXy06s4JeKu6wJP6OIOHDnFV8T0o9g==
+"@sanity/webpack-integration@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/webpack-integration/-/webpack-integration-2.20.1-canary.143.tgz#cda730ece1274868e6b48e53630590e3c9f0cbd8"
+  integrity sha512-gWnAAQNjQDqo4nj2O9zm6gHr6wF1FgCHTtT6wJUrLvdwL5Z4T1nPD+DYh7VCX0Bb02IyZXXyepoVkrAGjLN/Zw==
   dependencies:
-    "@sanity/resolver" "2.20.1-canary.122+6a5854f662"
-    "@sanity/webpack-loader" "2.20.1-canary.122+6a5854f662"
+    "@sanity/resolver" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/webpack-loader" "2.20.1-canary.143+80fb4a83d6"
     css-color-function "^1.3.3"
     dotenv "^8.2.0"
     fs.realpath "^1.0.0"
@@ -2252,13 +2253,13 @@
     postcss-url "^7.3.1"
     resolve "^1.3.3"
 
-"@sanity/webpack-loader@2.20.1-canary.122+6a5854f662":
-  version "2.20.1-canary.122"
-  resolved "https://registry.npmjs.org/@sanity/webpack-loader/-/webpack-loader-2.20.1-canary.122.tgz#dfdf97bfb592f04dae22691009dbea1cd8193077"
-  integrity sha512-4BJASjOPEcqxSg2Mt4/jdrCF+0wiMcmOFAjXZCJP14FTEyU5V+/qdJH7B6mqNiH17yZuszju5SciJBr7jvAYTg==
+"@sanity/webpack-loader@2.20.1-canary.143+80fb4a83d6":
+  version "2.20.1-canary.143"
+  resolved "https://registry.yarnpkg.com/@sanity/webpack-loader/-/webpack-loader-2.20.1-canary.143.tgz#dcb0a9fe51d3fd0f771946d641e45fb6dc447192"
+  integrity sha512-pQTj6fFgJdJ4d08jSuFlrTTxpol1etueVoJPM8tpcZVqqHUuaduJMJalRwrXvNMQa02aBc2iW0hDj68HN2Y22w==
   dependencies:
-    "@sanity/resolver" "2.20.1-canary.122+6a5854f662"
-    "@sanity/util" "2.20.1-canary.122+6a5854f662"
+    "@sanity/resolver" "2.20.1-canary.143+80fb4a83d6"
+    "@sanity/util" "2.20.1-canary.143+80fb4a83d6"
     loader-utils "1.1.0"
 
 "@silvenon/remark-smartypants@^1.0.0":
@@ -3295,7 +3296,7 @@ attr-accept@^2.2.1:
   resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-2.2.2.tgz#646613809660110749e92f2c10833b70968d929b"
   integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
 
-autoprefixer@^10.2.5, autoprefixer@^10.3.5:
+autoprefixer@^10.2.5:
   version "10.3.5"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.3.5.tgz#762e6c13e30c5a0e650bf81d9ffd5713f1c8f344"
   integrity sha512-2H5kQSsyoOMdIehTzIt/sC9ZDIgWqlkG/dbevm9B9xQZ1TDPBHpNUDW5ENqqQQzuaBWEo75JkV0LJe+o5Lnr5g==
@@ -3304,6 +3305,18 @@ autoprefixer@^10.2.5, autoprefixer@^10.3.5:
     caniuse-lite "^1.0.30001259"
     fraction.js "^4.1.1"
     nanocolors "^0.1.5"
+    normalize-range "^0.1.2"
+    postcss-value-parser "^4.1.0"
+
+autoprefixer@^10.3.6:
+  version "10.3.6"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.3.6.tgz#537c8a046e32ec46bfe528bcc9e2a5f2d87cd4c4"
+  integrity sha512-3bDjTfF0MfZntwVCSd18XAT2Zndufh3Mep+mafbzdIQEeWbncVRUVDjH8/EPANV9Hq40seJ24QcYAyhUsFz7gQ==
+  dependencies:
+    browserslist "^4.17.1"
+    caniuse-lite "^1.0.30001260"
+    fraction.js "^4.1.1"
+    nanocolors "^0.2.8"
     normalize-range "^0.1.2"
     postcss-value-parser "^4.1.0"
 
@@ -3997,6 +4010,13 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, can
   version "1.0.30001259"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001259.tgz#ae21691d3da9c4be6144403ac40f71d9f6efd790"
   integrity sha512-V7mQTFhjITxuk9zBpI6nYsiTXhcPe05l+364nZjK7MFK/E7ibvYBSAXr4YcA6oPR8j3ZLM/LN+lUqUVAQEUZFg==
+
+caniuse-lite@^1.0.30001260:
+  version "1.0.30001260"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001260.tgz#e3be3f34ddad735ca4a2736fa9e768ef34316270"
+  integrity sha512-Fhjc/k8725ItmrvW5QomzxLeojewxvqiYCKeFcfFEhut28IVLdpHU19dneOmltZQIE5HNbawj1HYD+1f2bM1Dg==
+  dependencies:
+    nanocolors "^0.1.0"
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -6637,6 +6657,18 @@ glob@^7.0.0, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@^7.1.7, glob@~7.1.6:
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
   integrity sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.4"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
+glob@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
+  integrity sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -9543,10 +9575,20 @@ nanoclone@^0.2.1:
   resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
   integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
+nanocolors@^0.1.0:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.1.12.tgz#8577482c58cbd7b5bb1681db4cf48f11a87fd5f6"
+  integrity sha512-2nMHqg1x5PU+unxX7PGY7AuYxl2qDx7PSrTRjizr8sxdd3l/3hBuWWaki62qmtYm2U5i4Z5E7GbjlyDFhs9/EQ==
+
 nanocolors@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.1.5.tgz#b756736ad3e35f9e325f0cf319206f74cd2dafed"
   integrity sha512-8qaMI2gVxDmSUgoSXwWwkDDKxVePjhYaPIoy0e1xRMP52EAQINxGJ04GfyUPs+Z2g83RPwuHx+mBiaUFJGfTCA==
+
+nanocolors@^0.2.2, nanocolors@^0.2.8:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.2.10.tgz#a712df4d3c1bf12d9b4fb8b5aa61b5ba31337503"
+  integrity sha512-i+EDWGsJClQwR/bhLIG/CObZZwaYaS5qt+yjxZbfV+77QiNHNzE9nj4d9Ut1TGZ0R0eSwPcQWzReASzXuw/7oA==
 
 nanoid@3.1.20:
   version "3.1.20"
@@ -11494,12 +11536,21 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.27
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.0.2, postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.0, postcss@^8.2.1, postcss@^8.2.15, postcss@^8.3.5, postcss@^8.3.6, postcss@^8.3.7:
+postcss@^8.0.2, postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.0, postcss@^8.2.1, postcss@^8.2.15, postcss@^8.3.5, postcss@^8.3.6:
   version "8.3.7"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.7.tgz#ec88563588c8da8e58e7226f7633b51ae221eeda"
   integrity sha512-9SaY7nnyQ63/WittqZYAvkkYPyKxchMKH71UDzeTmWuLSvxTRpeEeABZAzlCi55cuGcoFyoV/amX2BdsafQidQ==
   dependencies:
     nanocolors "^0.1.5"
+    nanoid "^3.1.25"
+    source-map-js "^0.6.2"
+
+postcss@^8.3.8:
+  version "8.3.8"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.8.tgz#9ebe2a127396b4b4570ae9f7770e7fb83db2bac1"
+  integrity sha512-GT5bTjjZnwDifajzczOC+r3FI3Cu+PgPvrsjhQdRqa2kTJ4968/X9CUce9xttIB0xOs5c6xf0TCWZo/y9lF6bA==
+  dependencies:
+    nanocolors "^0.2.2"
     nanoid "^3.1.25"
     source-map-js "^0.6.2"
 

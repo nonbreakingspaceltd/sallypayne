@@ -75,15 +75,13 @@ export default {
       });
     },
   },
-  beforeMount() {
-    const vm = this;
-    vm.masonryEvents.forEach((event) => {
-      window.addEventListener(event, vm.resizeAllMasonryItems);
-    });
-  },
   mounted() {
+    const vm = this;
     this.isActive = true;
     if (!window.CSS.supports('grid-template-rows', 'masonry')) {
+      vm.masonryEvents.forEach((event) => {
+        window.addEventListener(event, vm.resizeAllMasonryItems);
+      });
       this.resizeAllMasonryItems();
       window.dispatchEvent(new Event('resize'));
       console.log('mounted');
@@ -92,9 +90,11 @@ export default {
   beforeDestroy() {
     const vm = this;
     if (process.isClient) {
-      vm.masonryEvents.forEach((event) => {
-        window.removeEventListener(event, vm.resizeAllMasonryItems);
-      });
+      if (!window.CSS.supports('grid-template-rows', 'masonry')) {
+        vm.masonryEvents.forEach((event) => {
+          window.removeEventListener(event, vm.resizeAllMasonryItems);
+        });
+      }
     }
   },
 };

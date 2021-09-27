@@ -8,32 +8,39 @@ const processProductPath = (slug) => {
   return `/shop/product/${slug}/`;
 };
 
+const processPrice = (price) => {
+  const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
+  const amount = parseInt(price.amount / price.divisor).toFixed(2);
+  return `${currencySymbol}${amount}`
+}
+
+const processImage = (image, alt) => {
+  return {
+    src: image.url_570xN,
+    width: image.full_width,
+    height: image.full_height,
+    alt,
+    backgroundColor: image.hex_code && `#${image.hex_code}`,
+  }
+}
+
 const proccessProduct = (product, siteSettings) => {
   const { state, listing_id, title, price, currency_code, url, description, images } = product;
-  const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
   const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
   const slug = slugify(cleanTitle);
-  const trimmedDescription = toSentenceCase(description.split('About me:')[0]);
+  const trimmedDescription = toSentenceCase(description.split('About me:')[0] || description);
   const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
-  const htmlDescription = textToHtml(trimmedDescription);
-  const image = {
-    src: images[0].url_570xN,
-    width: images[0].full_width,
-    height: images[0].full_height,
-    alt: cleanTitle,
-    backgroundColor: images[0].hex_code && `#${images[0].hex_code}`,
-  };
   const processedProduct = {
     title: cleanTitle || title,
-    price: `${currencySymbol}${price.amount / price.divisor}`,
-    description: htmlDescription,
+    price: processPrice(price),
+    description: textToHtml(trimmedDescription),
     currencyCode: currency_code,
     path: processProductPath(slug),
     slug,
     url,
     listingId: listing_id,
     state,
-    image,
+    image: processImage(images[0], cleanTitle),
     meta: {
       title: `${cleanTitle} | Shop | ${siteSettings.title}`,
       description: descriptionParts[1] || title,
