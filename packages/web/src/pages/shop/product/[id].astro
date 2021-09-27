@@ -1,7 +1,7 @@
 ---
 import LayoutBase from '../../../layouts/Base.astro';
 import LayoutProduct from '../../../layouts/Product.astro';
-import { getProducts } from '../../../data/shop';
+import { getProducts } from '../../../data/products';
 
 export async function getStaticPaths() {
   return getProducts(fetch)
