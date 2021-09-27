@@ -162,12 +162,9 @@ export default {
 
 .sp-c-pagination {
   display: flex;
-  padding: 32px 0 0;
+  padding: var(--space-y-8) 0 0;
   align-items: center;
-
-  @media (--mq-m) {
-    justify-content: flex-end;
-  }
+  justify-content: flex-end;
 }
 
 .sp-c-pagination__title {

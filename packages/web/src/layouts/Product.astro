@@ -18,7 +18,6 @@ const { title, price, description, url, image} = Astro.props;
         <p class="sp-l-product__price">
           {price}
         </p>
-        <BackLink label="Back to shop" path="/shop" />
       </header>
       <div class="sp-l-product__actions">
         <EtsyButton href={url} />
@@ -28,17 +27,18 @@ const { title, price, description, url, image} = Astro.props;
       </div>
     </div>
   </div>
+  <BackLink label="Back to shop" path="/shop" />
 </article>
 
 <style lang="postcss" global>
 .sp-l-product {
-  padding: 16px;
+  padding: var(--space-y-4) var(--space-x-4);
 
-  @media (--mq-m) {
-    padding: 32px;
+  @media (--mq-md) {
+    padding: var(--space-y-6) var(--space-x-6);
   }
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -56,11 +56,11 @@ const { title, price, description, url, image} = Astro.props;
 }
 
 .sp-l-product__header {
-  padding-bottom: 16px;
+  padding-bottom: var(--space-y-3);
 }
 
 .sp-l-product__title {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-y-2);
   color: var(--color-brand-acapulco);
 }
 
@@ -71,25 +71,25 @@ const { title, price, description, url, image} = Astro.props;
 }
 
 .sp-l-product__actions {
-  margin-bottom: 32px;
+  margin-bottom: var(--space-y-6);
 }
 
 .sp-l-product__inner {
   width: 100%;
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     display: flex;
   }
 }
 
 
 .sp-l-product__media {
-  margin: 0 auto 32px;
+  margin: 0 auto var(--space-y-6);
   width: 100%;
   text-align: center;
 
-  @media (--mq-m) {
-    padding-right: 16px;
+  @media (--mq-md) {
+    padding-right: var(--space-x-2);
     max-width: none;
     width: 40%;
     min-width: 40%;
@@ -100,8 +100,8 @@ const { title, price, description, url, image} = Astro.props;
     margin-bottom: 0;
   }
 
-  @media (--mq-l) {
-    padding-right: 32px;
+  @media (--mq-lg) {
+    padding-right: var(--space-x-6);
   }
 
   img {
@@ -110,7 +110,7 @@ const { title, price, description, url, image} = Astro.props;
     display: block;
     border: 0;
 
-    @media (--mq-m) {
+    @media (--mq-md) {
       max-height: 100%;
       object-fit: contain;
     }
@@ -120,16 +120,16 @@ const { title, price, description, url, image} = Astro.props;
 
 .sp-l-product__details {
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     min-width: 60%;
     flex-basis: 60%;
     display: flex;
-    padding-left: 16px;
+    padding-left: var(--space-x-2);
     flex-direction: column;
   }
 
-  @media (--mq-l) {
-    padding-left: 16px;
+  @media (--mq-lg) {
+    padding-left: var(--space-x-2);
   }
 }
 

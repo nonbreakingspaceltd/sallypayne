@@ -71,37 +71,37 @@ export default {
 @import '../../assets/styles/tools';
 
 .sp-c-footer {
-  padding: calc(var(--baseline) * 4);
+  padding: var(--space-y-4) var(--space-x-4);
   font-size: 0;
   overflow: hidden;
 
-  @media (--mq-m) {
-    padding: calc(var(--baseline) * 8);
+  @media (--mq-md) {
+    padding: var(--space-y-8) var(--space-x-8);
   }
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     display: flex;
   }
 }
 
 .sp-c-footer__item {
   font-size: 14px;
-  line-height: 18px;
+  line-height: var(--space-y-5);
   display: block;
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     display: inline-block;
     font-size: 16px;
-    line-height: 24px;
+    line-height: var(--space-y-7);
   }
 
   & + & {
-    margin-top: 8px;
+    margin-top: var(--space-y-2);
 
-    @media (--mq-l) {
-      padding-left: 10px;
+    @media (--mq-lg) {
+      padding-left: var(--space-x-3);
       margin-top: 0;
-      margin-left: 10px;
+      margin-left: var(--space-x-3);
       border-left: 1px solid #ddd;
     }
   }
@@ -113,20 +113,20 @@ export default {
 }
 
 .sp-c-footer__social {
-  margin-top: 16px;
+  margin-top: var(--space-y-4);
 
-  @media (--mq-l) {
-    margin: -4px 0 0 auto;
+  @media (--mq-lg) {
+    margin: calc(var(--space-y-1) * -1) 0 0 auto;
   }
 }
 
 .sp-c-footer__social__link {
-  width: 32px;
+  width: var(--space-x-7);
   display: inline-block;
   color: var(--color-brand-abbey);
 
   & + & {
-    margin-left: 10px;
+    margin-left: var(--space-x-2);
   }
 
   &--facebook {

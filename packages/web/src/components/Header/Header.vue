@@ -1,55 +1,63 @@
 <template>
-  <header class="sp-c-header">
-    <div class="sp-c-header__logo">
-      <a href="/" class="sp-c-header__logo__link">
-        <Logo class="sp-c-header__logo__main" />
-        <span class="sp-c-header__logo__bird">
-          <Bird aria-hidden="true" />
-        </span>
+  <FocusLoop
+    as="header"
+    :disabled="!menuActive"
+    :class="['sp-c-header', menuActive && 'is-nav-active']"
+    @keydown.esc="closeMenu()"
+  >
+    <div class="sp-c-header__inner">
+      <div class="sp-c-header__logo">
+        <a href="/" class="sp-c-header__logo__link">
+          <Logo class="sp-c-header__logo__main" />
+          <span class="sp-c-header__logo__bird">
+            <Bird aria-hidden="true" />
+          </span>
+          <span class="sp-u-sr-only">
+            {{ title }}
+          </span>
+        </a>
+      </div>
+      <button
+        :class="['sp-c-header__menu-toggle', menuActive && 'is-nav-active']"
+        @click="toggleMenu()"
+        v-if="smallscreen"
+        aria-controls="nav"
+        aria-haspopup="true"
+        :aria-expanded="menuExpanded"
+        ref="menuToggle"
+      >
         <span class="sp-u-sr-only">
-          {{ title }}
+          {{ menuActive ? 'Close navigation' : 'Toggle navigation' }}
         </span>
-      </a>
+        <IconMenu class="sp-c-header__menu-toggle__icon" aria-hidden="true" v-if="!menuActive" />
+        <IconClose class="sp-c-header__menu-toggle__icon" aria-hidden="true" v-if="menuActive" />
+      </button>
+      <nav
+        id="nav"
+        :class="['sp-c-header__nav', menuActive && 'is-nav-active']"
+        role="navigation"
+        v-if="!isClient || !smallscreen || menuActive"
+        tabindex="-1"
+      >
+        <ul class="sp-c-header__nav__menu">
+          <li class="sp-c-header__nav__item" v-for="link in links" :key="link.href">
+            <a
+              :href="link.href"
+              :class="[
+                'sp-c-header__nav__link',
+                linkVariant(link.label),
+                link.current && 'is-active',
+              ]"
+            >
+              <span class="sp-c-header__nav__link__label">
+                {{ link.label }}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <button
-      :class="['sp-c-header__menu-toggle', menuActive && 'is-active']"
-      @click="toggleMenu()"
-      v-if="smallscreen"
-      aria-controls="nav"
-      aria-haspopup="true"
-      :aria-expanded="menuExpanded"
-    >
-      <span class="sp-u-sr-only">
-        {{ menuActive ? 'Close navigation' : 'Toggle navigation' }}
-      </span>
-      <IconMenu class="sp-c-header__menu-toggle__icon" aria-hidden="true" v-if="!menuActive" />
-      <IconClose class="sp-c-header__menu-toggle__icon" aria-hidden="true" v-if="menuActive" />
-    </button>
-    <nav
-      id="nav"
-      :class="['sp-c-header__nav', menuActive && 'is-active']"
-      role="navigation"
-      v-if="!isClient || !smallscreen || menuActive"
-      tabindex="-1"
-    >
-      <ul class="sp-c-header__nav__menu">
-        <li class="sp-c-header__nav__item" v-for="link in links" :key="link.href">
-          <a
-            :href="link.href"
-            :class="[
-              'sp-c-header__nav__link',
-              linkVariant(link.label),
-              link.current && 'is-active',
-            ]"
-          >
-            <span class="sp-c-header__nav__link__label">
-              {{ link.label }}
-            </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  </FocusLoop>
 </template>
 
 <script>
@@ -58,6 +66,7 @@ import IconMenu from './../../assets/icons/menu.svg';
 import IconClose from './../../assets/icons/close.svg';
 import Bird from './../../assets/images/bird.svg';
 import Logo from './../../assets/images/logo.svg';
+import FocusLoop from '../FocusLoop';
 
 export default {
   name: 'Header',
@@ -76,15 +85,23 @@ export default {
     IconClose,
     Bird,
     Logo,
+    FocusLoop,
   },
   setup() {
     const menuActive = ref(false);
     const menuExpanded = ref(null);
     const isClient = ref(false);
     const smallscreen = ref(true);
+    const menuToggle = ref(null);
 
     const handleResize = () => {
       smallscreen.value = window.innerWidth < 1024;
+    };
+
+    const closeMenu = () => {
+      menuActive.value = false;
+      menuToggle.value.focus();
+      testExpanded();
     };
 
     const toggleMenu = () => {
@@ -124,6 +141,8 @@ export default {
       handleResize,
       toggleMenu,
       linkVariant,
+      closeMenu,
+      menuToggle
     };
   },
 };
@@ -134,11 +153,18 @@ export default {
 @import '../../assets/styles/tools';
 
 .sp-c-header {
-  padding: calc(var(--baseline) * 4) calc(var(--baseline) * 4);
+  padding: var(--space-y-4) var(--space-x-4);
   background-color: rgba(255, 255, 255, 0.95);
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  backdrop-filter: blur(5px);
+
+  @media (--mq-md) {
+    padding: var(--space-y-4) var(--space-x-8);
+  }
+
+  @media (--mq-lg) {
+    padding: var(--space-y-7) var(--space-x-8);
+  }
 
   .js & {
     position: sticky;
@@ -148,14 +174,14 @@ export default {
     right: 0;
   }
 
-  @media (--mq-m) {
-    padding: calc(var(--baseline) * 4) calc(var(--baseline) * 8);
+  &.is-nav-active {
+    background-color: var(--color-white);
   }
+}
 
-  @media (--mq-l) {
-    padding: 28px 32px;
-    backdrop-filter: blur(5px);
-  }
+.sp-c-header__inner {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sp-c-header__logo {
@@ -163,11 +189,11 @@ export default {
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     height: 76px;
   }
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     margin: -8px 0 -24px;
   }
 }
@@ -192,7 +218,7 @@ export default {
   z-index: 2;
   backface-visibility: hidden;
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     width: 48px;
   }
 
@@ -299,13 +325,13 @@ export default {
     transform: translateY(-50%);
     margin-left: auto;
 
-    @media (--mq-m) {
+    @media (--mq-md) {
       width: 32px;
       height: 32px;
       right: calc(var(--baseline) * 8);
     }
 
-    @media (--mq-l) {
+    @media (--mq-lg) {
       display: none;
     }
   }
@@ -329,35 +355,29 @@ export default {
   justify-content: center;
   outline: none;
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     width: auto;
     display: flex;
   }
 
   .js & {
-    position: fixed;
-    top: 48px;
-    left: 0;
-    right: 0;
-    bottom: 0;
     display: none;
 
-    &.is-active {
+    &.is-nav-active {
       display: flex;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 80px);
+
+      @media (--mq-md) {
+        top: 108px;
+        height: calc(100vh - 108px);
+      }
     }
 
-    @media (--mq-m) {
-      top: 108px;
-      height: calc(100% - 108px);
-    }
-
-    @media (--mq-l) {
-      position: relative;
-      background-color: transparent;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
+    @media (--mq-lg) {
       display: flex;
     }
   }
@@ -366,7 +386,7 @@ export default {
     margin: 0;
     padding: 0;
 
-    @media (--mq-l) {
+    @media (--mq-lg) {
       display: flex;
     }
   }
@@ -378,7 +398,7 @@ export default {
     display: flex;
     justify-content: center;
 
-    @media (--mq-l) {
+    @media (--mq-lg) {
       display: block;
       margin-left: auto;
     }
@@ -399,10 +419,10 @@ export default {
     margin: 8px 0;
     display: inline-block;
     text-align: center;
-    color: var(--color-text);
+    color: var(--color-black);
     -webkit-tap-highlight-color: transparent;
 
-    @media (--mq-l) {
+    @media (--mq-lg) {
       margin: 0 0 0 calc(var(--baseline) * 8);
       font-size: 30px;
       line-height: 54px;
@@ -446,7 +466,7 @@ export default {
       position: relative;
       overflow: hidden;
 
-      @media (--mq-l) {
+      @media (--mq-lg) {
         display: block;
       }
 
@@ -465,7 +485,7 @@ export default {
 
     &:hover &__label,
     &:focus &__label,
-    &.is-active &__label {
+    &.is-nav-active &__label {
       &::after {
         visibility: visible;
       }

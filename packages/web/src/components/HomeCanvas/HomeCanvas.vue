@@ -57,7 +57,7 @@ export default {
   height: 100%;
   overflow-x: auto;
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     display: flex;
     align-content: center;
   }
@@ -72,7 +72,7 @@ export default {
     max-width: 1280px;
   }
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     width: 100%;
     max-height: 100%;
   }

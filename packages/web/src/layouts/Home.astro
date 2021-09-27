@@ -17,25 +17,33 @@ const { title } = Astro.props;
 
 <style lang="postcss" global>
 .sp-l-home {
-  margin-top: auto;
+  flex: 1;
+  display: flex;
 }
 
 .sp-l-home__media {
   width: 100%;
   overflow: auto;
+  flex: 1;
+  padding: 0 var(--space-x-4);
+
+  @media (--mq-md) {
+    margin-top: auto;
+    padding: 0 var(--space-x-6);
+  }
 }
 
 .sp-l-home__image {
-  width: 110vh;
+  height: 100%;
+  width: auto;
   max-width: none;
   position: relative;
-  padding: 0 16px;
 
-  @media (--mq-m) {
+  @media (--mq-md) {
+    height: auto;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
   }
 
   @media (--mq-xxxl) {

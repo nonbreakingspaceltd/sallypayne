@@ -41,6 +41,7 @@ export default {
         content: 'sp-c-card-masonry__item__content',
       },
       isActive: false,
+      isCalculated: false,
     };
   },
   watch: {
@@ -53,7 +54,10 @@ export default {
   },
   computed: {
     containerClassNames() {
-      return classNames(this.classNames.container, { 'is-active': this.isActive });
+      return classNames(this.classNames.container, {
+        'is-active': this.isActive,
+        'is-calculated': this.isCalculated,
+      });
     },
   },
   methods: {
@@ -69,10 +73,11 @@ export default {
       item.style.gridRowEnd = `span ${rowSpan}`;
     },
     resizeAllMasonryItems() {
-      var allItems = this.$el.querySelectorAll(`.${this.classNames.item}`);
+      var allItems = Array.from(this.$el.querySelectorAll(`.${this.classNames.item}`));
       allItems.forEach((item) => {
         this.resizeMasonryItem(item);
       });
+      this.isCalculated = true;
     },
   },
   mounted() {
@@ -84,7 +89,6 @@ export default {
       });
       this.resizeAllMasonryItems();
       window.dispatchEvent(new Event('resize'));
-      console.log('mounted');
     }
   },
   beforeDestroy() {
@@ -106,32 +110,21 @@ export default {
 
 .sp-c-card-masonry {
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
-  @media (--mq-s) {
+  @media (--mq-sm) {
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  }
+
+  @media (--mq-lg) {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-
-  &.is-calculated {
-    @media (--mq-s) {
-      grid-auto-rows: 0;
-    }
-  }
-
-  &.is-calculated &__item {
-    background-color: #ffffff;
   }
 }
-.sp-c-card-masonry {
-  display: grid;
-  grid-gap: 16px;
-  grid-template-rows: masonry;
 
-  @media (--mq-s) {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-
-  &.is-active &__item {
+.sp-c-card-masonry__item {
+  .is-calculated & {
     background-color: #ffffff;
   }
 }

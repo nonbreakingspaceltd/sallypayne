@@ -10,12 +10,12 @@ const { variant, title } = Astro.props;
 
 <style lang="postcss" global>
 .sp-l-list {
-  padding: 16px;
+  padding: var(--space-y-2) var(--space-x-2);
   position: relative;
   flex: 1;
 
-  @media (--mq-m) {
-    padding: 32px;
+  @media (--mq-sm) {
+    padding: var(--space-y-4) var(--space-x-4);
   }
 
   &--scrapbook {

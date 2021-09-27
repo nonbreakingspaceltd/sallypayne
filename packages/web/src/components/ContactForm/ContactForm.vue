@@ -47,30 +47,30 @@ export default {
 <style lang="postcss">
 .c-contact-form {
   max-width: 800px;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-y-6);
 
-  @media (--mq-m) {
-    margin-bottom: 32px;
+  @media (--mq-md) {
+    margin-bottom: var(--space-y-8);
   }
 }
 
 .c-contact-form__group {
-  padding-bottom: 16px;
+  padding-bottom: var(--space-y-4);
 
-  @media (--mq-m) {
-    padding-bottom: 20px;
+  @media (--mq-md) {
+    padding-bottom: var(--space-y-5);
   }
 }
 
 .c-contact-form__label {
   display: block;
-  padding-bottom: 4px;
+  padding-bottom: var(--space-y-1);
   font-size: 16px;
-  line-height: 24px;
+  line-height: var(--space-y-6);
 
-  @media (--mq-m) {
+  @media (--mq-md) {
     font-size: 18px;
-    padding-bottom: 8px;
+    padding-bottom: var(--space-y-2);
   }
 }
 
@@ -79,11 +79,11 @@ export default {
   width: 100%;
   appearance: none;
   border: 4px dotted #ddd;
-  padding: 8px;
+  padding: var(--space-y-2);
   outline: none;
   transition: border-color 0.2s;
   font-size: 16px;
-  line-height: 24px;
+  line-height: var(--space-y-6);
   background: transparent;
 
   &:focus {
@@ -92,7 +92,7 @@ export default {
 }
 
 .c-contact-form__textarea {
-  height: 160px;
-  resize: none;
+  height: 80px;
+  resize: vertical;
 }
 </style>

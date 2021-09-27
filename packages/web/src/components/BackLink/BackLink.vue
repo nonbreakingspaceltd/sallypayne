@@ -35,7 +35,7 @@ export default {
 .sp-c-backlink {
   display: none;
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     position: fixed;
     width: 32px;
     top: 164px;

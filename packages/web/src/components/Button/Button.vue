@@ -76,7 +76,7 @@ export default {
   line-height: calc(var(--baseline) * 6);
   white-space: nowrap;
 
-  @media (--mq-lg) {
+  @media (--mq-lgg) {
     line-height: calc(var(--baseline) * 7);
   }
 

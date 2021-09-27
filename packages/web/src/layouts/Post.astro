@@ -13,23 +13,23 @@ const { title, publishedDate, body } = Astro.props;
       <p class="sp-l-post__published-date">
         {publishedDate}
       </p>
-      <BackLink label="Back to scrapbook" path="/scrapbook" />
     </header>
     <div class="sp-l-post__body sp-l-flow">
       <SanityBlocks blocks={body} />
     </div>
   </div>
+  <BackLink label="Back to scrapbook" path="/scrapbook" />
 </article>
 
 <style lang="postcss" global>
 .sp-l-post {
-  padding: 16px;
+  padding: var(--space-y-4) var(--space-x-4);
 
-  @media (--mq-m) {
-    padding: 32px;
+  @media (--mq-md) {
+    padding: var(--space-y-6) var(--space-x-6);
   }
 
-  @media (--mq-l) {
+  @media (--mq-lg) {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -42,15 +42,15 @@ const { title, publishedDate, body } = Astro.props;
 }
 
 .sp-l-post__header {
-  padding-bottom: 16px;
+  padding-bottom: var(--space-y-4);
 
-  @media (--mq-m) {
-    padding-bottom: 32px;
+  @media (--mq-md) {
+    padding-bottom: var(--space-y-8);
   }
 }
 
 .sp-l-post__title {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-y-4);
   color: var(--color-brand-manhattan);
 }
 

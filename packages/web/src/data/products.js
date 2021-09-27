@@ -1,3 +1,4 @@
+import { decode } from 'html-entities';
 import { getSiteSettings } from './global';
 import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
 import { client } from '../utils/etsyClient';
@@ -11,8 +12,8 @@ const processProductPath = (slug) => {
 const processPrice = (price) => {
   const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
   const amount = (price.amount / price.divisor).toFixed(2);
-  return `${currencySymbol}${amount}`
-}
+  return `${currencySymbol}${amount}`;
+};
 
 const processImage = (image, alt) => {
   return {
@@ -21,8 +22,8 @@ const processImage = (image, alt) => {
     height: image.full_height,
     alt,
     backgroundColor: image.hex_code && `#${image.hex_code}`,
-  }
-}
+  };
+};
 
 const proccessProduct = (product, siteSettings) => {
   const { state, listing_id, title, price, currency_code, url, description, images } = product;
@@ -31,7 +32,7 @@ const proccessProduct = (product, siteSettings) => {
   const trimmedDescription = toSentenceCase(description.split('About me:')[0] || description);
   const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
   const processedProduct = {
-    title: cleanTitle || title,
+    title: decode(cleanTitle || title, { level: 'html5' }),
     price: processPrice(price),
     description: textToHtml(trimmedDescription),
     currencyCode: currency_code,

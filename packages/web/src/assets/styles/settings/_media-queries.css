@@ -13,7 +13,7 @@
 * - Horizontal mobiles
 * - Mid-sized tablets
 */
-@custom-media --mq-s screen and (min-width: 37.5em);
+@custom-media --mq-sm screen and (min-width: 37.5em);
 
 /*
 * Pixel calc 768/16.
@@ -23,13 +23,13 @@
 * - iPad Mini 2 & 3
 * - Nexus 9
 */
-@custom-media --mq-m screen and (min-width: 48em);
+@custom-media --mq-md screen and (min-width: 48em);
 
 /*
 * Pixel calc 1024/16.
 * Horizontal breakpoint for tablets.
 */
-@custom-media --mq-l screen and (min-width: 64em);
+@custom-media --mq-lg screen and (min-width: 64em);
 
 /*
 * Pixel calc 1296/16.

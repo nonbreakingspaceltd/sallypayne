@@ -87,16 +87,10 @@ export default {
 }
 
 .sp-c-card__media {
-  padding: 0;
-  margin: 0;
+  padding: var(--space-y-2) var(--space-x-2) 0;
 
-  .sp-c-card--scrapbook &,
-  .sp-c-card--product & {
-    padding: 16px 16px 0;
-  }
-
-  .sp-c-card--work & {
-    padding: 16px;
+  @media (--mq-sm) {
+    padding: var(--space-y-4) var(--space-x-4) 0;
   }
 }
 
@@ -113,13 +107,27 @@ export default {
 }
 
 .sp-c-card__content {
-  padding: 24px 16px 16px;
+  padding: var(--space-y-4) var(--space-x-2) var(--space-y-2);
+
+  @media (--mq-sm) {
+    padding: var(--space-y-6) var(--space-x-4) var(--space-y-4);
+  }
+}
+
+.sp-c-card__title {
+  font-size: var(--font-size-4);
+  color: var(--color-black);
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-3);
+  }
 }
 
 .sp-c-card__link {
+  color: currentColor;
+
   .is-clickable:hover &,
   .is-clickable:focus & {
-    color: var(--color-black);
 
     .sp-c-card--scrapbook& {
       color: var(--color-brand-manhattan);
@@ -132,11 +140,22 @@ export default {
 }
 
 .sp-c-card__body {
-  margin: 8px 0 0;
+  margin: var(--space-y-2) 0 0;
+  font-size: var(--font-size-7);
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-6);
+  }
 }
 
 .sp-c-card__subtitle {
   font-weight: 700;
-  margin: 8px 0 0;
+  margin: var(--space-y-2) 0 0;
+  font-size: var(--font-size-7);
+  word-wrap: break-word;
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-6);
+  }
 }
 </style>
