@@ -331,19 +331,16 @@ export default {
 
   .js & {
     position: fixed;
-    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
     display: none;
 
-    @media (--mq-m) {
-      top: 108px;
-      height: calc(100% - 108px);
+    &.is-active {
+      display: flex;
     }
 
     @media (--mq-l) {
-      width: auto;
       position: relative;
       background-color: transparent;
       top: auto;
@@ -352,10 +349,16 @@ export default {
       left: auto;
       display: flex;
     }
+  }
 
-    &.is-active {
-      display: flex;
-    }
+  @media (--mq-m) {
+    top: 108px;
+    height: calc(100% - 108px);
+  }
+
+  @media (--mq-l) {
+    width: auto;
+    display: flex;
   }
 
   &__menu {
