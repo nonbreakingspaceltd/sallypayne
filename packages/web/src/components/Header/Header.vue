@@ -329,8 +329,14 @@ export default {
   justify-content: center;
   outline: none;
 
+  @media (--mq-l) {
+    width: auto;
+    display: flex;
+  }
+
   .js & {
     position: fixed;
+    top: 48px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -338,6 +344,11 @@ export default {
 
     &.is-active {
       display: flex;
+    }
+
+    @media (--mq-m) {
+      top: 108px;
+      height: calc(100% - 108px);
     }
 
     @media (--mq-l) {
@@ -349,16 +360,6 @@ export default {
       left: auto;
       display: flex;
     }
-  }
-
-  @media (--mq-m) {
-    top: 108px;
-    height: calc(100% - 108px);
-  }
-
-  @media (--mq-l) {
-    width: auto;
-    display: flex;
   }
 
   &__menu {
