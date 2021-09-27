@@ -67,6 +67,17 @@ export default {
       ],
     },
     {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [
+        {
+          type: 'category',
+        },
+      ],
+      validation: (Rule) => Rule.unique(),
+    },
+    {
       name: 'meta',
       title: 'Meta',
       type: 'meta',
