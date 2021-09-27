@@ -9,7 +9,6 @@ const processProductPath = (slug) => {
 };
 
 const processPrice = (price) => {
-  console.log(price);
   const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
   const amount = (price.amount / price.divisor).toFixed(2);
   return `${currencySymbol}${amount}`
