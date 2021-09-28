@@ -53,14 +53,12 @@ const processImage = (imageProps) => {
 };
 
 const processYoutubeVideo = (videoProps) => {
-  console.log(videoProps)
   if (!videoProps) {
     return undefined;
   }
-
   return {
     _type: 'video',
-    videoId: videoProps.code
+    videoId: videoProps.code,
   };
 };
 

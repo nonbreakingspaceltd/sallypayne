@@ -102,42 +102,15 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/styles/settings';
+@import '../../assets/styles/tools';
+
 .sp-c-video {
+  width: 100%;
   position: relative;
   padding-bottom: calc(var(--video-aspect-ratio, 9 / 16) * 100%);
   height: 0;
-  cursor: pointer;
   background-color: var(--color-black);
-
-  [data-js-video-loaded] &,
-  [data-js-video-loading] & {
-    cursor: default;
-  }
-}
-.sp-c-video__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-
-  [data-js-video-loaded] &,
-  [data-js-video-loading] & {
-    display: none;
-  }
-}
-
-.sp-c-video__poster {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  [data-js-video-loaded] &,
-  [data-js-video-loading] & {
-    display: none;
-  }
 }
 
 .sp-c-video__player {
@@ -146,10 +119,5 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  // visibility: hidden;
-
-  [data-js-video-loaded] & {
-    // visibility: visible;
-  }
 }
 </style>
