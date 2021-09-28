@@ -104,8 +104,18 @@ export default {
       testExpanded();
     };
 
+    const openMenu = () => {
+      menuActive.value = true;
+      menuToggle.value.focus();
+      testExpanded();
+    };
+
     const toggleMenu = () => {
-      menuActive.value = !menuActive.value;
+      if (menuActive.value) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
       testExpanded();
     };
 
@@ -142,7 +152,7 @@ export default {
       toggleMenu,
       linkVariant,
       closeMenu,
-      menuToggle
+      menuToggle,
     };
   },
 };
