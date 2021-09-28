@@ -1,5 +1,5 @@
 <template>
-  <div class="sp-c-home-media" v-dragscroll>
+  <div class="sp-c-home-media" v-dragscroll.x="!isTouch">
     <img
       src="/images/sally-payne-home.svg"
       class="sp-c-home-media__image"
@@ -17,6 +17,11 @@ export default {
   name: 'HomeCanvas',
   directives: {
     dragscroll: dragscrollNext,
+  },
+  computed: {
+    isTouch: () => {
+      return 'ontouchstart' in window;
+    },
   },
 };
 </script>
