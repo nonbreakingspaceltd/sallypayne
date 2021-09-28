@@ -27,11 +27,11 @@ const meta = {
 };
 
 const posts = page.data.map(post => {
-  const { title, path, excerpt, image, publishedDate } = post;
+  const { title, path, excerpt, image, publishedDateShort } = post;
   // map to card props
   return {
     title,
-    subtitle: publishedDate,
+    subtitle: publishedDateShort,
     href: path,
     excerpt,
     image,

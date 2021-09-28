@@ -82,7 +82,8 @@ const proccessPost = (post, siteSettings) => {
   return {
     title,
     path: processPostPath(slug, year, month),
-    publishedDate: format(new Date(parsedPublishDate), 'eeee, MMMM do yyyy'), // dddd, MMMM Do YYYY
+    publishedDate: format(new Date(parsedPublishDate), 'eeee, MMMM do yyyy'),
+    publishedDateShort: format(new Date(parsedPublishDate), 'MMMM do yyyy'),
     excerpt,
     body: processPostBody(body),
     image: processImage(media?.main),
