@@ -37,6 +37,7 @@
     "focus-lock": "^0.9.2",
     "html-entities": "^2.3.2",
     "modern-normalize": "^1.1.0",
-    "sanity-blocks-vue-component": "^1.0.1"
+    "sanity-blocks-vue-component": "^1.0.1",
+    "vue-dragscroll": "^3.0.1"
   }
 }
