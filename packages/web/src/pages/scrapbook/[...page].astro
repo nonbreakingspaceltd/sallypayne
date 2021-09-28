@@ -41,7 +41,7 @@ const posts = page.data.map(post => {
 ---
 <LayoutBase variant="post" meta={meta}>
   <LayoutList title={title} variant="scrapbook">
-    <CardMasonry client:idle items={posts} />
+    <CardMasonry client:load items={posts} />
     <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/scrapbook" />
   </LayoutList>
 </LayoutBase>

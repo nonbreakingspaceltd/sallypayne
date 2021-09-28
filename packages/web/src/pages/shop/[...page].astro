@@ -41,7 +41,7 @@ const products = page.data.map(product => {
 ---
 <LayoutBase variant="post" meta={meta}>
   <LayoutList title={title} variant="shop">
-    <CardMasonry client:idle items={products} />
+    <CardMasonry client:load items={products} />
     <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
   </LayoutList>
 </LayoutBase>
