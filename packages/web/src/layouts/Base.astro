@@ -5,11 +5,12 @@ import { getNavigation, getSiteSettings } from '../data/global';
 
 const siteSettings = await getSiteSettings();
 
-const { title, meta, modifier, path } = Astro.props;
+const { title, meta, variant, path } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
 const currentPath = Astro.request.url.pathname;
 const req = Astro.request;
 const navigation = getNavigation(currentPath);
+const variantClass = variant ? `sp-l-layout--${variant}` : '';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +54,7 @@ const navigation = getNavigation(currentPath);
     <!-- [additional head scripts] -->
 
   </head>
-  <body class={`sp-l-layout {modifier ? 'sp-l-layout--${modifier}' : ''`}>
+  <body class={`sp-l-layout ${variantClass}`}>
 
     <Header client:idle title={siteSettings.title} links={navigation} class="sp-l-header" />
 

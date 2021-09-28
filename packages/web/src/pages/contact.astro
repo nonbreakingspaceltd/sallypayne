@@ -8,7 +8,7 @@ const response = await getPage('contact');
 
 const { body, title, image, meta } = response.props;
 ---
-<LayoutBase modifier="page" title={title} meta={meta}>
+<LayoutBase variant="contact" title={title} meta={meta}>
   <LayoutPage title={title} body={body} image={image}>
     <ContactForm client:idle />
   </LayoutPage>

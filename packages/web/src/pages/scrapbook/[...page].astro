@@ -39,7 +39,7 @@ const posts = page.data.map(post => {
   }
 });
 ---
-<LayoutBase modifier="post" meta={meta}>
+<LayoutBase variant="post" meta={meta}>
   <LayoutList title={title} variant="scrapbook">
     <CardMasonry client:idle items={posts} />
     <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/scrapbook" />

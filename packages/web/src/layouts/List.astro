@@ -1,7 +1,8 @@
 ---
 const { variant, title } = Astro.props;
+const variantClass = variant ? `sp-l-list--${variant}` : '';
 ---
-<div class={`sp-l-list sp-l-list--${variant}`}>
+<div class={`sp-l-list ${variantClass}`}>
   <h1 class="sp-o-pagetitle sp-u-sr-only">
     {title}
   </h1>
