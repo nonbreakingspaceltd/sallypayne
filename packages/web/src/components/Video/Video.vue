@@ -1,20 +1,5 @@
 <template>
-  <div class="sp-c-video" data-js-video :style="videoAspectRatio">
-    <!-- <Picture
-      v-if="videoPoster"
-      v-bind="videoPoster"
-      loading="lazy"
-      maintain-aspect-ratio
-      class="sp-c-video__poster"
-    />
-    <Button :modifiers="['color-a', 'icon-only', 'lg']" class="sp-c-video__play" data-js-video-play>
-      <span class="u-sr-only">
-        {{ labels.play }}
-      </span>
-      <template #icon>
-        <img src="@allthingshair/common-assets/icons/play.svg" svg-inline />
-      </template>
-    </Button> -->
+  <div class="sp-c-video" :style="videoAspectRatio">
     <iframe
       :id="`video-${videoId}`"
       :src="videoPath"
@@ -22,6 +7,7 @@
       :allow="videoAllow"
       allowfullscreen
       class="sp-c-video__player"
+      loading="lazy"
     />
   </div>
 </template>
