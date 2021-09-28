@@ -110,12 +110,12 @@ export default {
 
 .sp-c-card-masonry {
   display: grid;
-  grid-gap: 8px;
+  grid-gap: var(--space-y-2) var(--space-x-2);
   grid-template-rows: masonry;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
   @media (--mq-sm) {
-    grid-gap: 16px;
+    grid-gap: var(--space-y-4) var(--space-x-4);
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   }
 
