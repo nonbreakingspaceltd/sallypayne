@@ -111,6 +111,7 @@ export default {
 .sp-c-card-masonry {
   display: grid;
   grid-gap: 8px;
+  grid-template-rows: masonry;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
   @media (--mq-sm) {
