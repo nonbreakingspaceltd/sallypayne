@@ -485,7 +485,7 @@ export default {
 
     &:hover &__label,
     &:focus &__label,
-    &.is-nav-active &__label {
+    &.is-active &__label {
       &::after {
         visibility: visible;
       }

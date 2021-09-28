@@ -50,6 +50,9 @@ export default {
         {
           type: 'imageExtended',
         },
+        {
+          type: 'videoYoutube',
+        },
       ],
       validation: (Rule) => Rule.required(),
     },
@@ -72,7 +75,10 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'category',
+          type: 'reference',
+          to: {
+            type: 'category',
+          },
         },
       ],
       validation: (Rule) => Rule.unique(),

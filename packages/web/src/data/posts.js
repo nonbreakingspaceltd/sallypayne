@@ -52,9 +52,22 @@ const processImage = (imageProps) => {
   return processPicture(imageProps, sizes);
 };
 
+const processYoutubeVideo = (videoProps) => {
+  console.log(videoProps)
+  if (!videoProps) {
+    return undefined;
+  }
+
+  return {
+    _type: 'video',
+    videoId: videoProps.code
+  };
+};
+
 const processPostBody = (body) => {
   let processedBody = body;
   processedBody = processAllofType('imageExtended', processedBody, processImage);
+  processedBody = processAllofType('videoYoutube', processedBody, processYoutubeVideo);
 
   return processedBody;
 };

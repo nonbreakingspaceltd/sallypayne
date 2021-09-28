@@ -8,6 +8,7 @@ import settings from './documents/settings';
 // Objects
 import meta from './objects/meta';
 import imageExtended from './objects/imageExtended';
+import videoYoutube from './objects/videoYoutube';
 
 export default createSchema({
   name: 'default',
@@ -20,5 +21,6 @@ export default createSchema({
     // Objects
     meta,
     imageExtended,
+    videoYoutube,
   ]),
 });

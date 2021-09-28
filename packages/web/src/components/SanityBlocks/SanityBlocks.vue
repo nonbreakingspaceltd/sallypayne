@@ -5,6 +5,7 @@
 <script>
 import { SanityBlocks } from 'sanity-blocks-vue-component';
 import Picture from '../../components/Picture';
+import Video from '../../components/Video';
 
 export default {
   props: {
@@ -14,7 +15,7 @@ export default {
     },
     serializers: {
       type: Object,
-    }
+    },
   },
   components: {
     SanityBlocks,
@@ -23,8 +24,9 @@ export default {
     const serializers = {
       types: {
         picture: Picture,
+        video: Video,
       },
-      ...props.serializers
+      ...props.serializers,
     };
     return {
       serializers,

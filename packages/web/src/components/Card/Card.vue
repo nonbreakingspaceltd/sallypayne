@@ -142,6 +142,7 @@ export default {
 .sp-c-card__body {
   margin: var(--space-y-2) 0 0;
   font-size: var(--font-size-7);
+  word-wrap: break-word;
 
   @media (--mq-sm) {
     font-size: var(--font-size-6);
