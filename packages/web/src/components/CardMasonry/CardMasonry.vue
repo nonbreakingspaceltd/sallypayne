@@ -123,7 +123,7 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 
-  @media (--mq-xxl) {
+  @media (--mq-xxxl) {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   }
 }
