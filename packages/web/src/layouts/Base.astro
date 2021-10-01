@@ -5,7 +5,7 @@ import { getNavigation, getSiteSettings } from '../data/global';
 
 const siteSettings = await getSiteSettings();
 
-const { title, meta, variant, path } = Astro.props;
+const { title, meta, variant } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
 const currentPath = Astro.request.url.pathname;
 const req = Astro.request;
@@ -17,7 +17,10 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
   <head>
 
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="robots" content={meta?.blockIndexing ? 'noindex, nofollow' : 'index'} />
 
     <link rel="canonical" href={canonicalURL} />
 

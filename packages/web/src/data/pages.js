@@ -61,37 +61,40 @@ const processPage = (page, siteSettings) => {
     meta: {
       title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
       description: page.meta.metaDescription,
+      blockIndexing: page.meta.blockIndexing
     },
   };
 };
 
 export async function getPages() {
   const siteSettings = await getSiteSettings();
-  const pages = await client.fetch(/* groq */ `
+  const response = await client.fetch(/* groq */ `
     *[_type == 'page'] {
       ${pageFields}
     }
   `);
-  return pages.map((page) => ({
+  const pages = response.map((page) => ({
     params: {
       slug: page.slug,
     },
     props: processPage(page, siteSettings),
   }));
+  console.log(pages.map(page => page.props.meta))
+  return pages;
 }
 
 export async function getPage(slug) {
   const siteSettings = await getSiteSettings();
-  const page = await client.fetch(/* groq */ `
+  const response = await client.fetch(/* groq */ `
     *[_type == 'page' && slug.current == '${slug}'][0] {
       ${pageFields}
     }
   `);
-  const data = {
+  const page = {
     params: {
-      slug: page.slug,
+      slug: response.slug,
     },
-    props: processPage(page, siteSettings),
+    props: processPage(response, siteSettings),
   };
-  return data;
+  return page;
 }

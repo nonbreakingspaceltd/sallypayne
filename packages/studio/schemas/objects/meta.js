@@ -26,10 +26,10 @@ export default {
       validation: (Rule) => Rule.required().max(160).warning('Greater than 160 characters'),
     },
     {
-      name: 'isNotIndexed',
+      name: 'blockIndexing',
       title: 'Block indexing',
       description: 'Prevent the current document from being indexed by search engines.',
-      type: 'boolean',
+      type: 'boolean'
     },
   ],
   validation: (Rule) => Rule.required(),

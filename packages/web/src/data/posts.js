@@ -90,6 +90,7 @@ const proccessPost = (post, siteSettings) => {
     meta: {
       title: `${meta.metaTitle || title} | Scrapbook | ${siteSettings.title}`,
       description: meta.metaDescription,
+      blockIndexing: meta.blockIndexing
     },
   };
 };
@@ -106,8 +107,8 @@ export async function getPaginatedPosts(paginate) {
 
 export async function getPosts() {
   const siteSettings = await getSiteSettings();
-  const posts = await client.fetch(postQuery);
-  return posts.map((post) => {
+  const response = await client.fetch(postQuery);
+  const posts = response.map((post) => {
     return {
       params: {
         year: format(new Date(post.publishedDate), 'yyyy'),
@@ -117,4 +118,5 @@ export async function getPosts() {
       props: proccessPost(post, siteSettings),
     };
   });
+  return posts;
 }
