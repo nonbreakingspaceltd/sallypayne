@@ -1,0 +1,47 @@
+<div class="sp-l-404">
+  <h1 class="sp-l-404__title">
+    <span>404</span>
+    <span>Page not found</span>
+  </h1>
+  <img
+    src="/images/sally-payne-404.svg"
+    class="sp-l-404__image"
+    alt="Illustration of a space boy"
+    width="405"
+    height="308"
+  />
+</div>
+
+<style lang="postcss" global>
+.sp-l-404 {
+  flex: 1;
+  display: flex;
+  background-color: #1D2E33;
+  color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-l-404__title {
+  text-align: center;
+  padding-bottom: var(--space-y-10);
+}
+
+.sp-l-404__title span {
+  display: block;
+}
+
+.sp-l-404__title span:first-child {
+  font-size: var(--font-size-0);
+}
+
+.sp-l-404__image {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  height: auto;
+  width: 40vh;
+}
+</style>
