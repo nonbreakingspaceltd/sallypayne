@@ -62,10 +62,10 @@
 
 <script>
 import { ref, onMounted, onUnmounted } from 'vue';
-import IconMenu from './../../assets/icons/menu.svg';
-import IconClose from './../../assets/icons/close.svg';
-import Bird from './../../assets/images/bird.svg';
-import Logo from './../../assets/images/logo.svg';
+import IconMenu from '../../assets/icons/menu.svg';
+import IconClose from '../../assets/icons/close.svg';
+import Bird from '../../assets/images/bird.svg';
+import Logo from '../../assets/images/logo.svg';
 import FocusLoop from '../FocusLoop';
 
 export default {
