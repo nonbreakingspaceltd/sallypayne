@@ -79,7 +79,6 @@ export async function getPages() {
     },
     props: processPage(page, siteSettings),
   }));
-  console.log(pages.map(page => page.props.meta))
   return pages;
 }
 
