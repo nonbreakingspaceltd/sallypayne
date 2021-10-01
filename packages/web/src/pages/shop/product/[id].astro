@@ -4,7 +4,7 @@ import LayoutProduct from '../../../layouts/Product.astro';
 import { getProducts } from '../../../data/products';
 
 export async function getStaticPaths() {
-  return getProducts(fetch)
+  return getProducts();
 };
 
 const { id } = Astro.request.params;

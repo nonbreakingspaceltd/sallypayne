@@ -481,15 +481,13 @@ export default {
       }
 
       &::after {
-        content: '';
-        border-top: 4px dotted currentColor;
+        content: '....................';
         display: block;
         position: absolute;
-        bottom: 0;
+        bottom: calc(var(--space-y-4) * -1);
         left: 0;
         right: 0;
         visibility: hidden;
-        height: 1px;
       }
     }
 

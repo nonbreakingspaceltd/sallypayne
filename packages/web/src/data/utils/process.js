@@ -1,6 +1,6 @@
 let currentProcessor;
 
-const process = (_type, context) => {
+function process(_type, context) {
   if (typeof context === 'object') {
     if (context === null) {
       return null;
@@ -23,7 +23,7 @@ const process = (_type, context) => {
   return context;
 };
 
-export const processAllofType = (_type, context, processor) => {
+export function processAllofType(_type, context, processor) {
   if (!currentProcessor || currentProcessor !== processor) {
     currentProcessor = processor;
   }

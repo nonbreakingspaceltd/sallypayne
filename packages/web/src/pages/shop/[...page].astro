@@ -7,7 +7,7 @@ import { getPaginatedProducts } from '../../data/products';
 import { getSiteSettings } from '../../data/global';
 
 export function getStaticPaths({ paginate }) {
-  return getPaginatedProducts(fetch, paginate);
+  return getPaginatedProducts(paginate);
 }
 
 const siteSettings = await getSiteSettings();

@@ -5,17 +5,17 @@ import { client } from '../utils/etsyClient';
 
 const storeId = process.env.ETSY_STORE_ID;
 
-const processProductPath = (slug) => {
+function processProductPath(slug) {
   return `/shop/product/${slug}/`;
 };
 
-const processPrice = (price) => {
+function processPrice(price) {
   const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
   const amount = (price.amount / price.divisor).toFixed(2);
   return `${currencySymbol}${amount}`;
 };
 
-const processImage = (image, alt) => {
+function processImage(image, alt) {
   return {
     src: image.url_570xN,
     width: image.full_width,
@@ -25,7 +25,7 @@ const processImage = (image, alt) => {
   };
 };
 
-const proccessProduct = (product, siteSettings) => {
+function proccessProduct(product, siteSettings) {
   const { state, listing_id, title, price, currency_code, url, description, images } = product;
   const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
   const slug = slugify(cleanTitle);
@@ -50,7 +50,7 @@ const proccessProduct = (product, siteSettings) => {
   return processedProduct;
 };
 
-export async function getProducts(fetch) {
+export async function getProducts() {
   const siteSettings = await getSiteSettings();
   const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
   if (!activeProducts) {
@@ -70,8 +70,8 @@ export async function getProducts(fetch) {
   return products;
 }
 
-export async function getPaginatedProducts(fetch, paginate) {
-  const proccessedProducts = await getProducts(fetch);
+export async function getPaginatedProducts(paginate) {
+  const proccessedProducts = await getProducts();
   const pageSize = 20;
   return paginate(proccessedProducts, {
     pageSize,

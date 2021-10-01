@@ -31,7 +31,7 @@ const postQuery = /* groq */ `
   }
 `;
 
-const processImage = (imageProps) => {
+function processImage(imageProps) {
   if (!imageProps) {
     return undefined;
   }
@@ -52,7 +52,7 @@ const processImage = (imageProps) => {
   return processPicture(imageProps, sizes);
 };
 
-const processYoutubeVideo = (videoProps) => {
+function processYoutubeVideo(videoProps) {
   if (!videoProps) {
     return undefined;
   }
@@ -62,7 +62,7 @@ const processYoutubeVideo = (videoProps) => {
   };
 };
 
-const processPostBody = (body) => {
+function processPostBody(body) {
   let processedBody = body;
   processedBody = processAllofType('imageExtended', processedBody, processImage);
   processedBody = processAllofType('videoYoutube', processedBody, processYoutubeVideo);
@@ -70,11 +70,11 @@ const processPostBody = (body) => {
   return processedBody;
 };
 
-const processPostPath = (slug, year, month) => {
+function processPostPath(slug, year, month) {
   return `/scrapbook/${year}/${month}/${slug}/`;
 };
 
-const proccessPost = (post, siteSettings) => {
+function proccessPost(post, siteSettings) {
   const { title, slug, publishedDate, excerpt, body, meta, media } = post;
   const parsedPublishDate = new Date(publishedDate);
   const year = format(parsedPublishDate, 'yyyy');

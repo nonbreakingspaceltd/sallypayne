@@ -26,7 +26,7 @@ const pageFields = /* groq */ `
   }
 `;
 
-const processImage = (props) => {
+function processImage(props) {
   if (!props) {
     return undefined;
   }
@@ -46,14 +46,14 @@ const processImage = (props) => {
   return processPicture(props, sizes);
 };
 
-const processBody = (body) => {
+function processBody(body) {
   let processedBody = body;
   processedBody = processAllofType('image', processedBody, processImage);
 
   return processedBody;
 };
 
-const processPage = (page, siteSettings) => {
+function processPage(page, siteSettings) {
   return {
     title: page.title,
     body: processBody(page.body),
