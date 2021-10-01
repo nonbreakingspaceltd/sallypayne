@@ -2,17 +2,29 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const devPort = 3000;
+
+function siteUrl() {
+  let url = `https://localhost:${devPort}/`;
+  if (process.env.CONTEXT === 'production') {
+    url = process.env.SITE_URL;
+  } else if (process.env.NETLIFY) {
+    url = process.env.URL;
+  }
+  return url;
+}
+
 export default {
-  projectRoot: '.', // Where to resolve all URLs relative to. Useful if you have a monorepo project.
-  pages: './src/pages', // Path to Astro components, pages, and data
-  dist: './dist', // When running `astro build`, path to final static output
-  public: './public', // A folder of static files Astro will copy to the root. Useful for favicons, images, and other files that don’t need processing.
+  projectRoot: '.',
+  pages: './src/pages',
+  dist: './dist',
+  public: './public',
   buildOptions: {
-    site: process.env.SITE_URL || 'https://localhost:5000/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
-    sitemap: true, // Generate sitemap (set to "false" to disable)
+    site: siteUrl(),
+    sitemap: true,
   },
   devOptions: {
-    port: 3000, // The port to run the dev server on.
+    port: devPort,
   },
   renderers: ['@astrojs/renderer-vue'],
 };
