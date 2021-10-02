@@ -65,6 +65,7 @@ function proccessProduct(product, siteSettings) {
         offers: {
           '@type': 'AggregateOffer',
           price: calculatePrice(price.amount, price.divisor),
+          lowPrice: calculatePrice(price.amount, price.divisor),
           priceCurrency: price.currency_code,
         },
       },
