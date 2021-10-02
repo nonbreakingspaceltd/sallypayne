@@ -4,7 +4,7 @@ import LayoutPost from '../../../../layouts/Post.astro';
 import { getPosts } from '../../../../data/posts';
 
 export async function getStaticPaths() {
-  return getPosts();
+  return getPosts(Astro.site);
 };
 
 const { title, body, publishedDate, meta } = Astro.props;

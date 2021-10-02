@@ -1,3 +1,6 @@
+
+import sanityImageUrlBuilder from '@sanity/image-url';
+
 const sanityClient = (options) => {
   const { useCdn, projectId, dataset, token, apiVersion } = options;
   const hasToken = token && token.length > 0;
@@ -53,3 +56,5 @@ export const config = {
 
 
 export const client = sanityClient(config);
+
+export const imageUrlBuilder = sanityImageUrlBuilder(config);
