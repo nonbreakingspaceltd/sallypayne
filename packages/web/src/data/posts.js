@@ -4,6 +4,7 @@ import { getSiteSettings } from './global';
 import { processAllofType } from './utils/process';
 import { processOgImage } from './utils/processOgImage';
 import { processPicture } from './components/picture';
+import { fixPathSlashes } from './utils/fixPathSlashes';
 
 const postQuery = /* groq */ `
   *[_type == 'post'] | order(publishedDate desc) {
@@ -70,7 +71,7 @@ function processPostBody(body) {
 }
 
 function processPostPath(slug, year, month) {
-  return `/scrapbook/${year}/${month}/${slug}/`;
+  return fixPathSlashes(`/scrapbook/${year}/${month}/${slug}/`);
 }
 
 function proccessPost(post, siteSettings, siteUrl) {
@@ -102,10 +103,10 @@ function proccessPost(post, siteSettings, siteUrl) {
         headline: title,
         image: media?.main && processOgImage(media.main.asset),
         description: excerpt,
-        url: `${siteUrl}${path}`,
+        url: fixPathSlashes(`${siteUrl}${path}`),
         author: {
           '@type': 'Person',
-          name: 'Sally Payne'
+          name: 'Sally Payne',
         },
         datePublished: parsedPublishDate,
       },
