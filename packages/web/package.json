@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.9",
+    "astro": "^0.20.8",
     "autoprefixer": "^10.3.6",
     "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",
