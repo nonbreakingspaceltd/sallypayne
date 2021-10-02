@@ -1,0 +1,21 @@
+name: Build website
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run install and build
+      with:
+        node-version: '14.x'
+        cache: 'npm'
+      uses: actions/setup-node@v2
+    - run: cd packages/web
+    - run: npm ci
+    - run: npm run build
