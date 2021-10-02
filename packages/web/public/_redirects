@@ -1,3 +1,17 @@
+# General
+/tag/* /scrapbook/
+/surface-pattern/ /scrapbook/
+/surface-pattern/* /scrapbook/
+/surface-pattern-design/* /scrapbook/
+/illustration/ /scrapbook/
+/illustration/* /scrapbook/
+/blog/ /scrapbook/
+/blog/* /scrapbook/
+/work/ /scrapbook/
+/work/* /scrapbook/
+/about-me/ /about/
+
+# Posts
 /new-blog/ /scrapbook/2014/02/new-blog/
 /pinterest/ /scrapbook/2014/02/pinterest/
 /on-my-desk/ /scrapbook/2014/02/on-my-desk/
