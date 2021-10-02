@@ -8,9 +8,10 @@ const siteSettings = await getSiteSettings();
 const { title, meta, variant } = Astro.props;
 const canonicalURL = Astro.request.canonicalURL;
 const currentPath = Astro.request.url.pathname;
-const req = Astro.request;
 const navigation = getNavigation(currentPath);
 const variantClass = variant ? `sp-l-layout--${variant}` : '';
+const isArticle = meta?.og?.type === 'article'
+
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +25,10 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
 
     <link rel="canonical" href={canonicalURL} />
 
+    <title>{meta?.title || title}</title>
+
+    <meta name="description" content={meta?.description || title} />
+
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -32,9 +37,22 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
     <meta name="msapplication-TileColor" content="#b7efc0" />
     <meta name="theme-color" content="#b7efc0" />
 
-    <title>{meta?.title || title}</title>
+    <!-- Open graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={meta?.description} />
+    <meta property="og:type" content={meta?.og?.type || 'website'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={meta?.og?.image} />
+    <meta property="og:locale" content="en_GB" />
 
-    <meta name="description" content={meta?.description || title} />
+    {isArticle && <meta property="article:author" content="Sally Payne" />}
+    {isArticle && <meta property="article:published_time" content={meta?.og?.publishedDate} />}
+
+    <!-- Twitter card-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@salpdesign" />
+
+    <!-- {meta?.jsonLd && <script type="application/ld+json">{JSON.stringify(meta.jsonLd)}</script>} -->
 
     <!-- [additional meta] -->
 

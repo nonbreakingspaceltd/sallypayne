@@ -1,4 +1,4 @@
-import { client } from '../utils/sanityClient';
+import { client, imageUrlBuilder } from '../utils/sanityClient';
 import { getSiteSettings } from './global';
 import { processAllofType } from './utils/process';
 import { processPicture } from './components/picture';
@@ -61,7 +61,10 @@ function processPage(page, siteSettings) {
     meta: {
       title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
       description: page.meta.metaDescription,
-      blockIndexing: page.meta.blockIndexing
+      blockIndexing: page.meta.blockIndexing,
+      og: {
+        image: imageUrlBuilder.image(page.media?.main?.asset).width(1200).height(627).auto('format').url().toString()
+      }
     },
   };
 };

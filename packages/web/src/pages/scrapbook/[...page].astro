@@ -7,23 +7,28 @@ import { getPaginatedPosts } from '../../data/posts';
 import { getSiteSettings } from '../../data/global';
 
 export function getStaticPaths({ paginate }) {
-  return getPaginatedPosts(paginate);
+  return getPaginatedPosts(paginate, Astro.site);
 }
-
-const siteSettings = await getSiteSettings();
 
 const { page } = Astro.props;
 
+const siteSettings = await getSiteSettings();
+
 let title = 'Scrapbook';
-let metaTitle = `${title} | ${siteSettings.title}`;
+let metaDescription = `Sally Payne's Scrapbook is a place to share new work, scribbles, illustrations and ideas.`
 if (page.currentPage > 1) {
-  title = `${title} (Page ${page.currentPage})`;
-  metaTitle = `${title} | ${siteSettings.title}`;
+  const paginationTitle = `(Page ${page.currentPage})`;
+  title = `${title} ${paginationTitle}`;
+  metaDescription = `${metaDescription} ${paginationTitle}`
 }
+const metaTitle = `${title} | ${siteSettings.title}`;
 
 const meta = {
   title: metaTitle,
-  description: `Sally Payne's Scrapbook is a place to share new work, scribbles, illustrations and ideas.`,
+  description: metaDescription,
+  og: {
+    image: `${Astro.site}images/og/sketchbook.jpg`,
+  }
 };
 
 const posts = page.data.map(post => {

@@ -1,7 +1,4 @@
-import { config } from '../../utils/sanityClient';
-import sanityImageUrlBuilder from '@sanity/image-url';
-
-const imageUrlBuilder = sanityImageUrlBuilder(config);
+import { imageUrlBuilder } from '../../utils/sanityClient';
 
 export const processPicture = (props, sizes) => {
   const { asset } = props;

@@ -15,15 +15,20 @@ const siteSettings = await getSiteSettings();
 const { page } = Astro.props;
 
 let title = 'Shop';
-let metaTitle = `${title} | ${siteSettings.title}`;
+let metaDescription = `Buy products (prints, cards, posters etc.) from Sally Payne's Etsy shop.`
 if (page.currentPage > 1) {
-  title = `${title} (Page ${page.currentPage})`;
-  metaTitle = `${title} | ${siteSettings.title}`;
+  const paginationTitle = `(Page ${page.currentPage})`;
+  title = `${title} ${paginationTitle}`;
+  metaDescription = `${metaDescription} ${paginationTitle}`
 }
+const metaTitle = `${title} | ${siteSettings.title}`;
 
 const meta = {
   title: metaTitle,
-  description: `Buy products from Sally Payne's Etsy shop.`,
+  description: metaDescription,
+  og: {
+    image: `${Astro.site}images/og/shop.jpg`,
+  }
 };
 
 const products = page.data.map(product => {
