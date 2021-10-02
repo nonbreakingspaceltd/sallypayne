@@ -52,7 +52,7 @@ const isArticle = meta?.og?.type === 'article'
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@salpdesign" />
 
-    <!-- {meta?.jsonLd && <script type="application/ld+json">{JSON.stringify(meta.jsonLd)}</script>} -->
+    {meta?.jsonLd && `<script type="application/ld+json">${JSON.stringify(meta.jsonLd)}</script>`}
 
     <!-- [additional meta] -->
 

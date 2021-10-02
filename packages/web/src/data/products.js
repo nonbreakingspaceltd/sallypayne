@@ -31,12 +31,12 @@ function processImage(image, alt) {
 
 function proccessProduct(product, siteSettings) {
   const { state, listing_id, title, price, currency_code, url, description, images } = product;
-  const cleanTitle = toSentenceCase(title.split(' - ')[0] || title);
+  const cleanTitle = decode(toSentenceCase(title.split(' - ')[0] || title), { level: 'html5' });
   const slug = slugify(cleanTitle);
   const trimmedDescription = toSentenceCase(description.split('About me:')[0] || description);
   const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
   const processedProduct = {
-    title: decode(cleanTitle || title, { level: 'html5' }),
+    title: cleanTitle,
     price: processDisplayPrice(price),
     description: textToHtml(trimmedDescription),
     currencyCode: currency_code,
