@@ -31,7 +31,7 @@ export const processPicture = (props, sizes) => {
           `${imageBase.url()} 1x`,
           `${imageBase.dpr(1.5).url()} 1.5x`,
           `${imageBase.dpr(2).url()} 2x`,
-          `${imageBase.dpr(3).url()} 3x`,
+          //`${imageBase.dpr(3).url()} 3x`,
         ],
         media,
       };

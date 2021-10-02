@@ -40,12 +40,10 @@ function processImage(imageProps) {
     {
       media: 'screen and (max-width: 767px)',
       width: 350,
-      // height: 350,
     },
     {
       media: 'screen and (min-width: 768px)',
       width: 840,
-      // height: 840,
     },
   ];
 
