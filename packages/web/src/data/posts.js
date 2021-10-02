@@ -100,7 +100,7 @@ function proccessPost(post, siteSettings, siteUrl) {
         '@context': 'https://schema.org/',
         '@type': 'BlogPosting',
         headline: title,
-        image: imageUrlBuilder.image(media?.main?.asset).auto('format').url().toString(),
+        image: media?.main && processOgImage(media.main.asset),
         description: excerpt,
         url: `${siteUrl}${path}`,
         author: {
