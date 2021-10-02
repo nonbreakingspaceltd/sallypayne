@@ -1,7 +1,8 @@
-import { client, imageUrlBuilder } from '../utils/sanityClient';
+import { client } from '../utils/sanityClient';
 import { format } from 'date-fns';
 import { getSiteSettings } from './global';
 import { processAllofType } from './utils/process';
+import { processOgImage } from './utils/processOgImage';
 import { processPicture } from './components/picture';
 
 const postQuery = /* groq */ `
@@ -91,7 +92,7 @@ function proccessPost(post, siteSettings, siteUrl) {
       description: meta.metaDescription,
       blockIndexing: meta.blockIndexing,
       og: {
-        image: imageUrlBuilder.image(media?.main?.asset).width(1200).height(627).auto('format').url().toString(),
+        image: media?.main && processOgImage(media.main.asset),
         type: 'article',
         publishedDate: publishedDate,
       },
