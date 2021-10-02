@@ -38,7 +38,8 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
 
     <!-- [additional meta] -->
 
-    <link rel="preconnect" href="//cdn.sanity.io" crossorigin />
+    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
 
     <!-- Replaced with preload font links -->
     <link id="preload-fonts">
@@ -55,6 +56,8 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
     <!-- [additional css] -->
 
     <!-- [additional head scripts] -->
+
+    <script defer data-domain="sallypayne.com" src="https://plausible.io/js/plausible.js"></script>
 
   </head>
   <body class={`sp-l-layout ${variantClass}`}>
