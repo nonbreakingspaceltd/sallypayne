@@ -49,6 +49,9 @@ function proccessProduct(product, siteSettings) {
     meta: {
       title: `${cleanTitle} | Shop | ${siteSettings.title}`,
       description: descriptionParts[1] || title,
+      og: {
+        image: images[0].url_570xN
+      },
       jsonLd: {
         '@context': 'https://schema.org/',
         '@type': 'Product',

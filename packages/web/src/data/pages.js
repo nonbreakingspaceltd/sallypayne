@@ -1,6 +1,7 @@
-import { client, imageUrlBuilder } from '../utils/sanityClient';
+import { client } from '../utils/sanityClient';
 import { getSiteSettings } from './global';
 import { processAllofType } from './utils/process';
+import { processOgImage } from './utils/processOgImage';
 import { processPicture } from './components/picture';
 
 const pageFields = /* groq */ `
@@ -44,14 +45,14 @@ function processImage(props) {
     },
   ];
   return processPicture(props, sizes);
-};
+}
 
 function processBody(body) {
   let processedBody = body;
   processedBody = processAllofType('image', processedBody, processImage);
 
   return processedBody;
-};
+}
 
 function processPage(page, siteSettings) {
   return {
@@ -63,11 +64,11 @@ function processPage(page, siteSettings) {
       description: page.meta.metaDescription,
       blockIndexing: page.meta.blockIndexing,
       og: {
-        image: imageUrlBuilder.image(page.media?.main?.asset).width(1200).height(627).auto('format').url().toString()
-      }
+        image: page?.media?.main && processOgImage(page.media.main.asset),
+      },
     },
   };
-};
+}
 
 export async function getPages() {
   const siteSettings = await getSiteSettings();
