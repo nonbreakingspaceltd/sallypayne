@@ -11,5 +11,5 @@ const plugins = [
 ];
 
 module.exports = {
-  plugins: process.env.MINIFIED ? [...plugins, require('cssnano')] : plugins,
+  plugins: process.env.MINIFIED_CSS ? [...plugins, require('cssnano')] : plugins,
 };
