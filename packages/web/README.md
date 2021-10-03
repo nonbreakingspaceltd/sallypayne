@@ -1,38 +1,52 @@
-# Using Vue with Astro
+# @sallypayne/web
 
-This example showcases Astro's built-in support for [Vue](https://v3.vuejs.org/).
+[![Build website](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/build-website.yml/badge.svg?branch=main)](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/build-website.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/012cbb34-aa49-495c-8b38-5c32000aeeaf/deploy-status)](https://app.netlify.com/sites/sallypayne/deploys)
 
-## Installation
+## Commands
 
-### Automatic
+- `yarn dev` – Spins up development environment
+- `yarn build` – Builds production ready code
+- `yarn serve` – Builds and serves production ready code
 
-Bootstrap your Astro project with this template!
+## Studio/CMS and Data Sources
 
-```shell
-npm init astro -- --template framework-vue
+Content is sourced from Sanity - [/packages/studio](./packages/studio)
+
+### Sanity Config
+
+Configure the Sanity Token, Project ID and Dataset. Add the following to a `.env` file at the root of this package:
+
+```
+SANITY_STUDIO_API_PROJECT_ID=<string>
+SANITY_STUDIO_API_DATASET=<string>
+SANITY_STUDIO_API_VERSION=<string> (e.g. 2021-03-25)
+SANITY_STUDIO_API_TOKEN=<string>
 ```
 
-### Manual
+### Etsy Config
 
-To use Vue components in your Astro project:
+Configure the Etsy Token and Store ID. Add the following to a `.env` file at the root of this package:
 
-1. Install `@astrojs/renderer-vue`
+```
+ETSY_STORE_ID=<string>
+ETSY_API_TOKEN=<string>
+```
 
-    ```shell
-    npm i @astrojs/renderer-vue
-    ```
+To gain access to Tokens and ID's, please contact a project owner.
 
-2. Add `"@astrojs/renderer-vue"` to your `renderers` in `astro.config.mjs`.
+## Additional Environment Variables
 
-    ```js
-    export default {
-      renderers: [
-        "@astrojs/renderer-vue",
-        // optionally, others...
-      ]
-    }
-    ```
+```
+MINIFIED_CSS=<boolean>
+SITE_URL=<string> (e.g. https://www.sallypayne.com)
+```
 
-## Usage
+## URL's
 
-Write your Vue components as `.vue` files in your project.
+- Netlify Deployment - https://sallypayne.netlify.app/
+- Netlify Settings - https://app.netlify.com/sites/sallypayne/overview
+
+## Using Vue with Astro
+
+This example showcases Astro's built-in support for [Vue](https://v3.vuejs.org/).
