@@ -5,5 +5,11 @@
   "workspaces": [
     "packages/**/*"
   ],
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "reset": "yarn reset:node-modules && yarn reset:yarn-lock",
+    "reset:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "reset:yarn-lock": "find . -name 'yarn.lock' -type f -prune -exec rm -rf '{}' +",
+    "upgrade": "find . -type f -name 'package.json' -not -path './.git/*' -not -path '*/node_modules/*' -execdir npx npm-check-updates -i \\;"
+  }
 }
