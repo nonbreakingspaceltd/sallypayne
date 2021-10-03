@@ -2,11 +2,11 @@
 
 > Sally&#39;s world of illustration and surface pattern design
 
-This project contains the sorce code for Sally Payne. It is structured as a mono-repo, utilising Yarn workspaces, to facilitate easier maintenance of websites and applications.
+This project contains the sorce code for Sally Payne. It is structured as a monorepo, utilising Yarn workspaces, to facilitate easier maintenance of websites and applications.
 
 ## Setup
 
-1. Clone the mono-repo
+1. Clone the monorepo
 2. `cd` into the project directory
 3. Run `yarn install`
 

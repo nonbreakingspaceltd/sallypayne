@@ -1,4 +1,4 @@
-# Developing packages for the mono-repo
+# Developing packages for the monorepo
 
 ## Installation
 
