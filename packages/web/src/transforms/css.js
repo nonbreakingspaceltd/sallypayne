@@ -11,7 +11,7 @@ const purgeCssConfig = {
     standard: ['body', 'html', 'img', 'a'],
     greedy: [/^is-/, /^has-/, /^js/, /^no-js/, /^data-/, /^disabled/],
   },
-  variables: true,
+  variables: false,
 };
 
 glob(baseDir + '/**/*.html', (err, files) => {
