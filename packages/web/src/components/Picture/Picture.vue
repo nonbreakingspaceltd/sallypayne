@@ -11,7 +11,7 @@
         <source
           v-for="(source, index) in sources"
           :key="index"
-          :srcset="source.srcset.join(',')"
+          :srcset="source.srcset.join(', ')"
           :type="source.type"
           :media="source.media"
         />
