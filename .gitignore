@@ -19,3 +19,6 @@ yarn-error.log*
 
 # migration
 packages/studio/migration/data
+
+sanity
+*.tar.gz

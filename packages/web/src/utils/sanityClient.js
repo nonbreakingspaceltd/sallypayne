@@ -51,7 +51,7 @@ export const config = {
   dataset: process.env.SANITY_STUDIO_API_DATASET,
   token: process.env.SANITY_STUDIO_API_TOKEN,
   apiVersion: process.env.SANITY_STUDIO_API_VERSION,
-  useCdn: false,
+  useCdn: true,
 };
 
 

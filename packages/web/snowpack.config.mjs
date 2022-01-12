@@ -3,5 +3,5 @@
 
 export default {
   plugins: ['snowpack-vue-svg-plugin', '@snowpack/plugin-postcss'],
-  knownEntrypoints: ['vue/server-renderer'],
+  knownEntrypoints: ['vue/server-renderer', '@vue/server-renderer', '@vue/reactivity'],
 };
