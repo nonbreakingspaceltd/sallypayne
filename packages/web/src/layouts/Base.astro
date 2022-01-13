@@ -13,6 +13,10 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
 const isArticle = meta?.og?.type === 'article'
 
 ---
+<style lang="postcss" global>
+  @import "../assets/styles/index.css";
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -89,7 +93,3 @@ const isArticle = meta?.og?.type === 'article'
 
   </body>
 </html>
-
-<style lang="postcss" global>
-  @import "../assets/styles/index.css";
-</style>

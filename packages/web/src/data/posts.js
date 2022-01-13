@@ -125,6 +125,7 @@ export async function getPaginatedPosts(paginate, siteUrl) {
 }
 
 export async function getPosts(siteUrl) {
+  console.log('Fetching posts...');
   const siteSettings = await getSiteSettings();
   const response = await client.fetch(postQuery);
   const posts = response.map((post) => {
@@ -137,5 +138,6 @@ export async function getPosts(siteUrl) {
       props: proccessPost(post, siteSettings, siteUrl),
     };
   });
+  console.log('Fetched posts:', posts.length);
   return posts;
 }

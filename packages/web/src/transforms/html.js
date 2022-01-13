@@ -2,9 +2,11 @@ const htmlnano = require('htmlnano');
 const fs = require('fs-extra');
 const glob = require('glob');
 const kleur = require('kleur');
+const path = require('path');
 
 // relative-to-package root build output folder
-const baseDir = './dist';
+const root = path.resolve(__dirname, '../../');
+const dist = path.resolve(root, './dist');
 
 // https://github.com/posthtml/htmlnano
 const htmlnanoOptions = {
@@ -15,7 +17,7 @@ const htmlnanoOptions = {
   removeEmptyAttributes: false,
   removeAttributeQuotes: false,
   removeUnusedCss: false,
-  minifyCss: false,
+  minifyCss: true,
   minifyJs: false,
   minifyJson: false,
   minifySvg: false,
@@ -30,7 +32,7 @@ const htmlnanoOptions = {
   removeOptionalTags: false,
 };
 
-glob('**/*.html', { root: baseDir }, (err, files) => {
+glob('**/*.html', { root: dist }, (err, files) => {
   if (err) {
     throw err;
   }
@@ -44,7 +46,7 @@ glob('**/*.html', { root: baseDir }, (err, files) => {
     console.log(
       `[${kleur.bold().blue('transform:html')}]`,
       kleur.green('✔'),
-      filePath.split(baseDir).pop()
+      filePath.split(dist).pop()
     );
   });
 });

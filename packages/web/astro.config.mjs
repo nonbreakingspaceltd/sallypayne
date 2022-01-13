@@ -1,6 +1,5 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
+import 'dotenv/config';
+import svgLoader from 'vite-svg-loader';
 
 const devPort = 3000;
 
@@ -27,4 +26,20 @@ export default {
     port: devPort,
   },
   renderers: ['@astrojs/renderer-vue'],
+  vite: {
+    plugins: [svgLoader()],
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          return `assets/[hash].[ext]`;
+        },
+        chunkFileNames: (chunkInfo) => {
+          return `assets/[hash].js`;
+        },
+        entryFileNames: (chunkInfo) => {
+          return useDefault ? '[name].js' : `assets/[hash].js`;
+        },
+      },
+    },
+  },
 };

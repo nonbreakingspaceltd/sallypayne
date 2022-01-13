@@ -3,7 +3,7 @@ import { getSiteSettings } from './global';
 import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
 import { client } from '../utils/etsyClient';
 
-const storeId = process.env.ETSY_STORE_ID;
+const storeId = import.meta.env.PUBLIC_ETSY_STORE_ID;
 
 function processProductPath(slug) {
   return `/shop/product/${slug}/`;
@@ -76,11 +76,14 @@ function proccessProduct(product, siteSettings) {
 
 export async function getProducts() {
   const siteSettings = await getSiteSettings();
+  console.log(`Fetching active products...`);
   const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
+  console.log('Fetched active products:', activeProducts?.results.length);
   if (!activeProducts) {
     return [];
   }
   const ids = activeProducts.results.map((item) => item.listing_id).join(',');
+  console.log(`Fetching products...`);
   const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
   const products = productsData.results.map((product) => {
     const processedProduct = proccessProduct(product, siteSettings);
@@ -91,6 +94,7 @@ export async function getProducts() {
       props: processedProduct,
     };
   });
+  console.log('Fetched products:', products.length);
   return products;
 }
 

@@ -1,13 +1,17 @@
 ---
-const { variant, title } = Astro.props;
+import LayoutBase from './Base.astro';
+const { variant, title, meta } = Astro.props;
 const variantClass = variant ? `sp-l-list--${variant}` : '';
 ---
-<div class={`sp-l-list ${variantClass}`}>
-  <h1 class="sp-o-pagetitle sp-u-sr-only">
-    {title}
-  </h1>
-  <slot />
-</div>
+<LayoutBase variant={variant} title={title} meta={meta}>
+  <div class={`sp-l-list ${variantClass}`}>
+    <h1 class="sp-o-pagetitle sp-u-sr-only">
+      {title}
+    </h1>
+    <slot />
+  </div>
+</LayoutBase>
+
 
 <style lang="postcss" global>
 @import '../assets/styles/settings';

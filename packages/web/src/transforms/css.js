@@ -1,10 +1,15 @@
 const { PurgeCSS } = require('purgecss');
+// const PostCSS = require('postcss');
 const fs = require('fs-extra');
 const glob = require('glob');
 const kleur = require('kleur');
+const path = require('path');
+// const postCssPlugins = require('../../postcss.config').plugins;
 
 // relative to package root
-const baseDir = './dist';
+const root = path.resolve(__dirname, '../../');
+const dist = path.resolve(root, './dist');
+const assets = path.resolve(dist, './assets');
 
 const purgeCssConfig = {
   safelist: {
@@ -14,7 +19,7 @@ const purgeCssConfig = {
   variables: false,
 };
 
-glob(baseDir + '/**/*.html', (err, files) => {
+glob('**/*.html', { root: dist }, (err, files) => {
   if (err) {
     throw err;
   }
@@ -25,8 +30,9 @@ glob(baseDir + '/**/*.html', (err, files) => {
 
       // get CSS file paths
       const cssFilePaths = html
-        .match(/(?<=href=")[^."]+\.css/g)
-        ?.map((file) => baseDir + file)
+        .match(/(?<=href=")[^"]+\.css/g)
+        ?.map((file) => dist + file)
+        ?.map((file) => path.resolve(assets, file.split('/').pop()))
         .reverse();
 
       // if no CSS files found
@@ -69,13 +75,15 @@ glob(baseDir + '/**/*.html', (err, files) => {
         css: cssFilePaths,
       });
       const optimizedCss = purgeCssResults?.map(({ css }) => css).join('\n');
+      // const orderedCss = await PostCSS(postCssPlugins).process(optimizedCss).then(css => css);
 
       // output inline CSS
       html = html.replace('<link id="inline-css">', `<style>${optimizedCss}</style>`);
-      // html = html.replace('<link id="inline-css">', `<style>${css}</style>`);
+      // html = html.replace('<link id="inline-css">', `<style>${orderedCss}</style>`);
 
       // remove external CSS links
       html = html.replace(/<link rel="stylesheet" href=".*\.css"[^>]+>/g, '');
+      html = html.replace(/<link rel="stylesheet" type="text\/css" href=".*\.css"[^>]+>/g, '');
 
       // write file
       await fs.outputFile(filePath, html);
@@ -84,7 +92,7 @@ glob(baseDir + '/**/*.html', (err, files) => {
       console.log(
         `[${kleur.bold().blue('transform:css')}]`,
         kleur.green('✔'),
-        filePath.split(baseDir).pop()
+        filePath.split(dist).pop()
       );
     } catch (error) {
       // log error

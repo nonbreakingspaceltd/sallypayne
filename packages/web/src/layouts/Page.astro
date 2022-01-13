@@ -1,21 +1,24 @@
 ---
+import LayoutBase from './Base.astro';
 import Picture from '../components/Picture/Picture.vue';
 import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
 
-const { title, image, body } = Astro.props;
+const { title, image, body, meta, variant } = Astro.props;
 ---
-<div class="sp-l-page">
-  <div class="sp-l-page__media">
-    <Picture {...image} class="sp-l-page__media__picture" loading="eager" />
-  </div>
-  <div class="sp-l-page__body">
-    <div class="sp-l-page__body__inner sp-l-flow">
-      <h1 class="sp-o-pagetitle">{title}</h1>
-      <slot />
-      <SanityBlocks blocks={body} />
+<LayoutBase variant={variant} title={title} meta={meta}>
+  <div class="sp-l-page">
+    <div class="sp-l-page__media">
+      <Picture {...image} class="sp-l-page__media__picture" loading="eager" />
+    </div>
+    <div class="sp-l-page__body">
+      <div class="sp-l-page__body__inner sp-l-flow">
+        <h1 class="sp-o-pagetitle">{title}</h1>
+        <slot />
+        <SanityBlocks blocks={body} />
+      </div>
     </div>
   </div>
-</div>
+</LayoutBase>
 
 <style lang="postcss" global>
 @import '../assets/styles/settings';

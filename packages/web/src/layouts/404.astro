@@ -1,16 +1,21 @@
-<div class="sp-l-404">
-  <h1 class="sp-l-404__title">
-    <span>404</span>
-    <span>Page not found</span>
-  </h1>
-  <img
-    src="/images/sally-payne-404.svg"
-    class="sp-l-404__image"
-    alt="Illustration of a space boy"
-    width="405"
-    height="308"
-  />
-</div>
+---
+import LayoutBase from './Base.astro';
+---
+<LayoutBase variant="404" title="404 – Page not found">
+  <div class="sp-l-404">
+    <h1 class="sp-l-404__title">
+      <span>404</span>
+      <span>Page not found</span>
+    </h1>
+    <img
+      src="/images/sally-payne-404.svg"
+      class="sp-l-404__image"
+      alt="Illustration of a space boy"
+      width="405"
+      height="308"
+    />
+  </div>
+</LayoutBase>
 
 <style lang="postcss" global>
 @import '../assets/styles/settings';

@@ -1,5 +1,5 @@
 <template>
-  <div class="sp-c-home-media" v-dragscroll.x="!isTouch">
+  <div class="sp-c-home-media">
     <img
       src="/images/sally-payne-home.svg"
       class="sp-c-home-media__image"
@@ -11,23 +11,22 @@
 </template>
 
 <script>
-import { dragscrollNext } from 'vue-dragscroll';
+// import { dragscrollNext } from 'vue-dragscroll';
 
 export default {
   name: 'HomeCanvas',
-  directives: {
-    dragscroll: dragscrollNext,
-  },
-  computed: {
-    isTouch: () => {
-      return 'ontouchstart' in window;
-    },
-  },
+  // directives: {
+  //   dragscroll: dragscrollNext,
+  // },
+  // computed: {
+  //   isTouch: () => {
+  //     return 'ontouchstart' in window;
+  //   },
+  // },
 };
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-home-media {

@@ -1,5 +1,4 @@
 ---
-import LayoutBase from '../layouts/Base.astro';
 import LayoutPage from '../layouts/Page.astro';
 import ContactForm from '../components/ContactForm/ContactForm.vue';
 import { getPage } from '../data/pages';
@@ -8,9 +7,7 @@ const response = await getPage('contact');
 
 const { body, title, image, meta } = response.props;
 ---
-<LayoutBase variant="contact" title={title} meta={meta}>
-  <LayoutPage title={title} body={body} image={image}>
-    <ContactForm client:idle />
-  </LayoutPage>
-</LayoutBase>
+<LayoutPage variant="contact" title={title} meta={meta} body={body} image={image} >
+  <ContactForm client:idle />
+</LayoutPage>
 

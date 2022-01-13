@@ -9,7 +9,7 @@
 
 <script>
 import Button from '../Button';
-import IconEtsy from '../../assets/icons/etsy.svg';
+import IconEtsy from '../../assets/icons/etsy.svg?component';
 
 export default {
   components: {
@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-button-etsy {

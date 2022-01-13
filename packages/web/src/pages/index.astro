@@ -1,5 +1,4 @@
 ---
-import LayoutBase from '../layouts/Base.astro';
 import LayoutHome from '../layouts/Home.astro';
 
 const { title = 'Sally Payne - Illustration & Surface Pattern Design' } = Astro.props;
@@ -11,6 +10,4 @@ const meta = {
   }
 };
 ---
-<LayoutBase variant="home" title={title} meta={meta}>
-  <LayoutHome title={title} />
-</LayoutBase>
+<LayoutHome title={title} meta={meta} />

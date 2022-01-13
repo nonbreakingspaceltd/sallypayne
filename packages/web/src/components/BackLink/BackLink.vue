@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ArrowLeft from '../../assets/icons/arrow-left.svg';
+import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
 export default {
   components: {
     ArrowLeft
@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-backlink {

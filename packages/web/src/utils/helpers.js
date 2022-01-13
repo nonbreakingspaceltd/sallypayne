@@ -1,4 +1,3 @@
-
 export const slugify = (str) => {
   const slug = str
     .normalize('NFD') // split an accented letter in the base letter and the acent
@@ -20,3 +19,20 @@ export const toSentenceCase = (str) => {
   });
   return newString;
 };
+
+export const hashCode = (str) => {
+  let hash = 0;
+  let i;
+  let character;
+  if (str.length === 0) return hash;
+  for (i = 0; i < str.length; i++) {
+    character = str.charCodeAt(i);
+    hash = (hash << 5) - hash + character;
+    hash |= 0;
+  }
+  return hash;
+};
+
+export const randomIntFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}

@@ -62,10 +62,10 @@
 
 <script>
 import { ref, onMounted, onUnmounted } from 'vue';
-import IconMenu from '../../assets/icons/menu.svg';
-import IconClose from '../../assets/icons/close.svg';
-import Bird from '../../assets/images/bird.svg';
-import Logo from '../../assets/images/logo.svg';
+import IconMenu from '../../assets/icons/menu.svg?component';
+import IconClose from '../../assets/icons/close.svg?component';
+import Bird from '../../assets/images/bird.svg?component';
+import Logo from '../../assets/images/logo.svg?component';
 import FocusLoop from '../FocusLoop';
 
 export default {
@@ -159,7 +159,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-header {

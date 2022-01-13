@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-button {

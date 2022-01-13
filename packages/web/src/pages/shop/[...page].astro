@@ -1,5 +1,4 @@
 ---
-import LayoutBase from '../../layouts/Base.astro';
 import LayoutList from '../../layouts/List.astro';
 import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
 import Pagination from '../../components/Pagination/Pagination.vue';
@@ -44,9 +43,7 @@ const products = page.data.map(product => {
   return card;
 });
 ---
-<LayoutBase variant="post" meta={meta}>
-  <LayoutList title={title} variant="shop">
-    <CardMasonry client:load items={products} />
-    <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
-  </LayoutList>
-</LayoutBase>
+<LayoutList variant="product" meta={meta} title={title} variant="shop">
+  <CardMasonry client:load items={products} />
+  <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
+</LayoutList>

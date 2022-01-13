@@ -1,3 +1,5 @@
+require('dotenv/config');
+
 const plugins = [
   require('postcss-import'),
   require('postcss-at-rules-variables'),
@@ -6,6 +8,17 @@ const plugins = [
   require('postcss-custom-media'),
   require('postcss-pxtorem')({
     propWhiteList: [],
+  }),
+  require('postcss-sorting')({
+    order: [
+      'custom-properties',
+      'dollar-variables',
+      'declarations',
+      'at-rules',
+      'rules',
+    ],
+    'properties-order': 'alphabetical',
+    'unspecified-properties-position': 'bottom',
   }),
   require('autoprefixer'),
 ];

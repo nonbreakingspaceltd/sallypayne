@@ -1,5 +1,4 @@
 ---
-import LayoutBase from '../layouts/Base.astro';
 import LayoutPage from '../layouts/Page.astro';
 import { getPages } from '../data/pages';
 
@@ -9,7 +8,5 @@ export async function getStaticPaths() {
 
 const { body, title, image, meta } = Astro.props;
 ---
-<LayoutBase variant="page" title={title} meta={meta}>
-  <LayoutPage title={title} body={body} image={image} />
-</LayoutBase>
+<LayoutPage variant="page" title={title} meta={meta} body={body} image={image} />
 

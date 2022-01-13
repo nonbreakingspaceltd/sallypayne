@@ -9,19 +9,10 @@
 -->
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <title>Sally Payne Homepage Animation</title>
     <!-- write your code here -->
-    <style>
-      #animation_container {
-        position: absolute;
-        margin: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-      }
-    </style>
+    <style>#animation_container{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}</style>
     <script src="./createjs.min.js"></script>
     <script src="./sallypayne.js"></script>
     <script>
@@ -81,30 +72,10 @@
     </script>
     <!-- write your code here -->
   </head>
-  <body onload="init();" style="margin: 0px">
-    <div
-      id="animation_container"
-      style="background-color: rgba(255, 255, 255, 1); width: 1024px; height: 525px"
-    >
-      <canvas
-        id="canvas"
-        width="1024"
-        height="525"
-        style="position: absolute; display: block; background-color: rgba(255, 255, 255, 1)"
-      ></canvas>
-      <div
-        id="dom_overlay_container"
-        style="
-          pointer-events: none;
-          overflow: hidden;
-          width: 1024px;
-          height: 525px;
-          position: absolute;
-          left: 0px;
-          top: 0px;
-          display: block;
-        "
-      ></div>
+  <body onload="init();" style="margin:0">
+    <div id="animation_container" style="background-color:#fff;height:525px;width:1024px">
+      <canvas id="canvas" width="1024" height="525" style="background-color:#fff;display:block;position:absolute"></canvas>
+      <div id="dom_overlay_container" style="display:block;height:525px;left:0;overflow:hidden;pointer-events:none;position:absolute;top:0;width:1024px"></div>
     </div>
   </body>
 </html>

@@ -1,34 +1,37 @@
 ---
+import LayoutBase from './Base.astro';
 import BackLink from '../components/BackLink/BackLink.vue';
 import EtsyButton from '../components/EtsyButton/EtsyButton.vue';
 import Picture from '../components/Picture/Picture.vue';
 
-const { title, price, description, url, image} = Astro.props;
+const { title, price, description, url, image, meta } = Astro.props;
 ---
-<article class="sp-l-product">
-  <div class="sp-l-product__inner">
-    <figure class="sp-l-product__media">
-      <Picture {...image} class="sp-l-product__media__image" loading="eager" />
-    </figure>
-    <div class="sp-l-product__details">
-      <header class="sp-l-product__header">
-        <h1 class="sp-l-product__title">
-          {title}
-        </h1>
-        <p class="sp-l-product__price">
-          {price}
-        </p>
-      </header>
-      <div class="sp-l-product__actions">
-        <EtsyButton href={url} />
-      </div>
-      <div class="sp-l-product__body sp-l-flow">
-        {description}
+<LayoutBase variant="product" title={title} meta={meta}>
+  <article class="sp-l-product">
+    <div class="sp-l-product__inner">
+      <figure class="sp-l-product__media">
+        <Picture {...image} class="sp-l-product__media__image" loading="eager" />
+      </figure>
+      <div class="sp-l-product__details">
+        <header class="sp-l-product__header">
+          <h1 class="sp-l-product__title">
+            {title}
+          </h1>
+          <p class="sp-l-product__price">
+            {price}
+          </p>
+        </header>
+        <div class="sp-l-product__actions">
+          <EtsyButton href={url} />
+        </div>
+        <div class="sp-l-product__body sp-l-flow">
+          {description}
+        </div>
       </div>
     </div>
-  </div>
-  <BackLink label="Back to shop" path="/shop" />
-</article>
+    <BackLink label="Back to shop" path="/shop" />
+  </article>
+</LayoutBase>
 
 <style lang="postcss" global>
 @import '../assets/styles/settings';

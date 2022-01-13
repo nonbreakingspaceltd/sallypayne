@@ -1,25 +1,28 @@
 ---
+import LayoutBase from './Base.astro';
 import BackLink from '../components/BackLink/BackLink.vue';
 import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
 
-const { title, publishedDate, body } = Astro.props;
+const { title, publishedDate, body, meta } = Astro.props;
 ---
-<article class="sp-l-post">
-  <div class="sp-l-post__inner">
-    <header class="sp-l-post__header">
-      <h1 class="sp-l-post__title">
-        {title}
-      </h1>
-      <p class="sp-l-post__published-date">
-        {publishedDate}
-      </p>
-    </header>
-    <div class="sp-l-post__body sp-l-flow">
-      <SanityBlocks blocks={body} />
+<LayoutBase variant="post" title={title} meta={meta}>
+  <article class="sp-l-post">
+    <div class="sp-l-post__inner">
+      <header class="sp-l-post__header">
+        <h1 class="sp-l-post__title">
+          {title}
+        </h1>
+        <p class="sp-l-post__published-date">
+          {publishedDate}
+        </p>
+      </header>
+      <div class="sp-l-post__body sp-l-flow">
+        <SanityBlocks blocks={body} />
+      </div>
     </div>
-  </div>
-  <BackLink label="Back to scrapbook" path="/scrapbook" />
-</article>
+    <BackLink label="Back to scrapbook" path="/scrapbook" />
+  </article>
+</LayoutBase>
 
 <style lang="postcss" global>
 @import '../assets/styles/settings';

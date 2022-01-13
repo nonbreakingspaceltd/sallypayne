@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import ArrowLeft from '../../assets/icons/arrow-left.svg';
-import ArrowRight from '../../assets/icons/arrow-right.svg';
+import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
+import ArrowRight from '../../assets/icons/arrow-right.svg?component';
 
 export default {
   components: {
@@ -157,7 +157,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-pagination {

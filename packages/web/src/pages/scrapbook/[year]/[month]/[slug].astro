@@ -1,5 +1,4 @@
 ---
-import LayoutBase from '../../../../layouts/Base.astro';
 import LayoutPost from '../../../../layouts/Post.astro';
 import { getPosts } from '../../../../data/posts';
 
@@ -9,6 +8,4 @@ export async function getStaticPaths() {
 
 const { title, body, publishedDate, meta } = Astro.props;
 ---
-<LayoutBase variant="post" title={title} meta={meta}>
-  <LayoutPost title={title} publishedDate={publishedDate} body={body} />
-</LayoutBase>
+<LayoutPost variant="post" title={title} meta={meta} publishedDate={publishedDate} body={body} />

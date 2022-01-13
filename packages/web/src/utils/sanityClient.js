@@ -1,60 +1,73 @@
-
 import sanityImageUrlBuilder from '@sanity/image-url';
+import fetch from 'cross-fetch';
+import { slugify, hashCode } from './helpers';
 
-const sanityClient = (options) => {
-  const { useCdn, projectId, dataset, token, apiVersion } = options;
+export const sanityConfig = {
+  projectId: import.meta.env.PUBLIC_SANITY_STUDIO_API_PROJECT_ID,
+  dataset: import.meta.env.PUBLIC_SANITY_STUDIO_API_DATASET,
+  token: import.meta.env.PUBLIC_SANITY_STUDIO_API_TOKEN,
+  apiVersion: import.meta.env.PUBLIC_SANITY_STUDIO_API_VERSION,
+  useCdn: import.meta.env.PUBLIC_SANITY_STUDIO_USE_CDN === 'true' || true,
+};
+
+function customClient(clientConfig, useMemoryCache = false, verboseLogging = false) {
+  const { useCdn, projectId, dataset, token, apiVersion } = clientConfig;
   const hasToken = token && token.length > 0;
-  const baseHost = useCdn && !hasToken ? 'apicdn.sanity.io' : 'api.sanity.io';
+  const baseHost = useCdn ? 'apicdn.sanity.io' : 'api.sanity.io';
   const endpoint = `https://${projectId}.${baseHost}/v${apiVersion}/data/query/${dataset}`;
 
-  // Parse JSON and throw on bad responses
-  const responseHandler = (response) => {
-    if (response.status >= 400) {
-      throw new Error([response.status, response.statusText].join(' '));
-    }
-    return response.json();
-  };
-
-  // We need to prefix groq query params with `$` and quote the strings
-  const transformedParams = (parameters) =>
-    Object.keys(parameters).reduce((prev, key) => {
-      prev[`$${key}`] = JSON.stringify(parameters[key]);
-      return prev;
-    }, {});
+  const cache = new Map();
+  let cacheHits = 0;
 
   return {
-    fetch: async (query, parameters) => {
-      const urlParams = new URLSearchParams({
-        query,
-        ...(parameters && transformedParams(parameters)),
+    fetch: async (query, parameters = {}) => {
+      const cacheKey = hashCode(slugify(query + JSON.stringify(parameters)));
+
+      if (useMemoryCache && cache.has(cacheKey)) {
+        cacheHits++;
+        if (verboseLogging) {
+          console.info(`Sanity cache hit: ${cacheHits} x${cacheKey}`);
+        }
+        return cache.get(cacheKey);
+      }
+
+      const queryUrl = new URL(endpoint);
+
+      queryUrl.searchParams.set(`query`, query);
+
+      if (Object.keys(parameters).length) {
+        Object.keys(parameters).forEach((key) => {
+          queryUrl.searchParams.set(`$${key}`, JSON.stringify(parameters[key]));
+        });
+      }
+
+      const response = await fetch(queryUrl.toString(), {
+        method: 'GET',
+        headers: hasToken
+          ? {
+              Authorization: `Bearer ${token}`,
+            }
+          : undefined,
       });
 
-      const url = new URL([endpoint, urlParams].join('?'));
+      if (response.status >= 400) {
+        throw new Error(['Sanity Client -', response.status, response.statusText].join(' '));
+      }
 
-      return (
-        fetch(url.toString(), {
-          method: 'GET',
-          headers: hasToken && {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then(responseHandler)
-          // The query results are in the `result` property
-          .then((json) => json.result)
-      );
+      const { result } = await response.json();
+
+      if (useMemoryCache) {
+        cache.set(cacheKey, result);
+      }
+
+      return result;
     },
   };
-};
+}
 
-export const config = {
-  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
-  dataset: process.env.SANITY_STUDIO_API_DATASET,
-  token: process.env.SANITY_STUDIO_API_TOKEN,
-  apiVersion: process.env.SANITY_STUDIO_API_VERSION,
-  useCdn: true,
-};
+export const client = customClient(sanityConfig, true, false);
 
-
-export const client = sanityClient(config);
-
-export const imageUrlBuilder = sanityImageUrlBuilder(config);
+export const imageUrlBuilder = sanityImageUrlBuilder({
+  projectId: sanityConfig.projectId,
+  dataset: sanityConfig.dataset,
+});

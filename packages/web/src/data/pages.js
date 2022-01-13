@@ -71,6 +71,7 @@ function processPage(page, siteSettings) {
 }
 
 export async function getPages() {
+  console.log('Fetching pages...');
   const siteSettings = await getSiteSettings();
   const response = await client.fetch(/* groq */ `
     *[_type == 'page'] {
@@ -83,6 +84,7 @@ export async function getPages() {
     },
     props: processPage(page, siteSettings),
   }));
+  console.log('Fetched pages:', pages.length);
   return pages;
 }
 

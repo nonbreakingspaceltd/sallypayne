@@ -51,10 +51,10 @@
 </template>
 
 <script>
-import IconFacebook from '../../assets/icons/facebook.svg';
-import IconTwitter from '../../assets/icons/twitter.svg';
-import IconInstagram from '../../assets/icons/instagram.svg';
-import IconPinterest from '../../assets/icons/pinterest.svg';
+import IconFacebook from '../../assets/icons/facebook.svg?component';
+import IconTwitter from '../../assets/icons/twitter.svg?component';
+import IconInstagram from '../../assets/icons/instagram.svg?component';
+import IconPinterest from '../../assets/icons/pinterest.svg?component';
 
 export default {
   components: {
@@ -67,7 +67,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../assets/styles/settings';
 @import '../../assets/styles/tools';
 
 .sp-c-footer {
