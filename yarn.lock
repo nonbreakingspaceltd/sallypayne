@@ -1961,7 +1961,6 @@ __metadata:
   dependencies:
     "@astrojs/renderer-vue": ^0.3.0
     "@sanity/image-url": ^1.0.1
-    "@vitejs/plugin-vue": ^2.0.1
     astro: ^0.22.11
     autoprefixer: ^10.4.2
     classnames: ^2.3.1
@@ -3484,16 +3483,6 @@ __metadata:
   peerDependencies:
     vite: ^2.5.10
   checksum: 7cffcf10f865ba30e380a64eff5aeb69e828905833ae85a1621523d76b7de38a66549deeefecd05788919e0e31aba155d734f67fd97542a6d77046f89ae86c8c
-  languageName: node
-  linkType: hard
-
-"@vitejs/plugin-vue@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@vitejs/plugin-vue@npm:2.0.1"
-  peerDependencies:
-    vite: ^2.5.10
-    vue: ^3.2.25
-  checksum: c0273692c09d72d3afa18503cd49f48a1ad88fbfb14e4df4082414e1ead030e2788e26106e401b1ac18155f1c6ccebcf99d923f07d62aeedeb9494a7649a3d7b
   languageName: node
   linkType: hard
 

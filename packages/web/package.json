@@ -17,7 +17,6 @@
   "devDependencies": {
     "@astrojs/renderer-vue": "^0.3.0",
     "@sanity/image-url": "^1.0.1",
-    "@vitejs/plugin-vue": "^2.0.1",
     "astro": "^0.22.11",
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.15",
