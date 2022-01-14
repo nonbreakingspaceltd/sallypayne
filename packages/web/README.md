@@ -18,10 +18,10 @@ Content is sourced from Sanity - [/packages/studio](./packages/studio)
 Configure the Sanity Token, Project ID and Dataset. Add the following to a `.env` file at the root of this package:
 
 ```
-SANITY_STUDIO_API_PROJECT_ID=<string>
-SANITY_STUDIO_API_DATASET=<string>
-SANITY_STUDIO_API_VERSION=<string> (e.g. 2021-03-25)
-SANITY_STUDIO_API_TOKEN=<string>
+PUBLIC_SANITY_STUDIO_API_PROJECT_ID=<string>
+PUBLIC_SANITY_STUDIO_API_DATASET=<string>
+PUBLIC_SANITY_STUDIO_API_VERSION=<string> (e.g. 2021-03-25)
+PUBLIC_SANITY_STUDIO_API_TOKEN=<string>
 ```
 
 ### Etsy Config
@@ -29,8 +29,8 @@ SANITY_STUDIO_API_TOKEN=<string>
 Configure the Etsy Token and Store ID. Add the following to a `.env` file at the root of this package:
 
 ```
-ETSY_STORE_ID=<string>
-ETSY_API_TOKEN=<string>
+PUBLIC_ETSY_STORE_ID=<string>
+PUBLIC_ETSY_API_TOKEN=<string>
 ```
 
 To gain access to Tokens and ID's, please contact a project owner.

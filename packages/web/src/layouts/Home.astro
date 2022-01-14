@@ -4,16 +4,17 @@ import HomeMedia from '../components/HomeMedia/HomeMedia.vue';
 const { title, meta } = Astro.props;
 ---
 <LayoutBase variant="home" title={title} meta={meta}>
+
   <div class="sp-l-home">
     <h1 class="sp-u-sr-only">
       {title}
     </h1>
     <HomeMedia client:idle class="sp-l-home__media" />
   </div>
+
 </LayoutBase>
 
 <style lang="postcss" global>
-@import '../assets/styles/settings';
 @import '../assets/styles/tools';
 
 .sp-l-home {

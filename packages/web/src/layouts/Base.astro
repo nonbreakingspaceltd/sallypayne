@@ -13,10 +13,6 @@ const variantClass = variant ? `sp-l-layout--${variant}` : '';
 const isArticle = meta?.og?.type === 'article'
 
 ---
-<style lang="postcss" global>
-  @import "../assets/styles/index.css";
-</style>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,6 +67,10 @@ const isArticle = meta?.og?.type === 'article'
       document.documentElement.classList.add('js');
     </script>
 
+    <style lang="postcss" global>
+      @import "../assets/styles/global.css";
+    </style>
+
     <!-- Replaced with inline CSS -->
     <link id="inline-css">
 
@@ -87,7 +87,7 @@ const isArticle = meta?.og?.type === 'article'
       <slot />
     </main>
 
-    <Footer class="sp-l-footer" />
+    <Footer client:visible class="sp-l-footer" />
 
     <!-- [additional foot scripts] -->
 
