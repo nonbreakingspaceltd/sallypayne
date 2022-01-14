@@ -11,8 +11,8 @@
     "serve": "yarn build && npx serve --config ../serve.json dist",
     "start": "yarn dev",
     "transform": "yarn transform:css && yarn transform:html",
-    "transform:css": "node -r esbuild-runner/register src/transforms/css.js",
-    "transform:html": "node -r esbuild-runner/register src/transforms/html.js"
+    "transform:css": "node -r esbuild-runner/register scripts/optimizeCss.js",
+    "transform:html": "node -r esbuild-runner/register scripts/optimizeHtml.js"
   },
   "devDependencies": {
     "@astrojs/renderer-vue": "^0.3.0",
