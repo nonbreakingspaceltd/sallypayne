@@ -3,4 +3,6 @@
   publish = "dist/"
 
   [build.environment]
+    # Match version in monorepo root .yarnrc.yml
+    YARN_VERSION = "3.1.1"
     NETLIFY_USE_YARN = "true"
