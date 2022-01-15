@@ -70,7 +70,7 @@ function processPage(page, siteSettings) {
   };
 }
 
-export async function getPages() {
+export async function getPages(exclude = []) {
   console.log('Fetching pages...');
   const siteSettings = await getSiteSettings();
   const response = await client.fetch(/* groq */ `
@@ -78,12 +78,17 @@ export async function getPages() {
       ${pageFields}
     }
   `);
-  const pages = response.map((page) => ({
-    params: {
-      slug: page.slug,
-    },
-    props: processPage(page, siteSettings),
-  }));
+  const pages = response.reduce((filtered, page) => {
+    if (!exclude.includes(page.slug)) {
+      filtered.push({
+        params: {
+          slug: page.slug,
+        },
+        props: processPage(page, siteSettings),
+      });
+    }
+    return filtered;
+  }, []);
   console.log('Fetched pages:', pages.length);
   return pages;
 }

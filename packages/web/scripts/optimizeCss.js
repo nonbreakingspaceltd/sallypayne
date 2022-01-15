@@ -31,7 +31,7 @@ glob('**/*.html', { root: dist }, (err, files) => {
       const cssFilePaths = html
         .match(/(?<=href=")[^"]+\.css/g)
         ?.map((file) => path.resolve(dist, file.replaceAll('../', '')))
-        .reverse();
+        //.reverse();
 
       // console.log(filePath, cssFilePaths);
 

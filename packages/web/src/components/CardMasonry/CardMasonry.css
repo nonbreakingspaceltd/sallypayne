@@ -1,0 +1,57 @@
+@import '../../assets/styles/tools';
+
+.sp-c-card-masonry {
+  &.is-js-masonry {
+    display: flex;
+    width: 100%;
+    gap: var(--space-y-2) var(--space-x-2);
+
+    @media (--mq-sm) {
+      gap: var(--space-y-4) var(--space-x-4);
+    }
+  }
+}
+
+.sp-c-card-masonry__column {
+  display: grid;
+  grid-gap: var(--space-y-2) var(--space-x-2);
+  grid-template-rows: masonry;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  .is-js-masonry & {
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    flex-grow: 1;
+    height: max-content;
+    /* width: 100%;
+    min-width: 150px; */
+    gap: var(--space-y-2) var(--space-x-2);
+  }
+
+  @media (--mq-sm) {
+    grid-gap: var(--space-y-4) var(--space-x-4);
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+
+    .is-js-masonry & {
+      gap: var(--space-y-4) var(--space-x-4);
+      min-width: 270px;
+    }
+  }
+
+  @media (--mq-lg) {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    .is-js-masonry & {
+      min-width: 320px;
+    }
+  }
+
+  @media (--mq-xxxl) {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+
+    .is-js-masonry & {
+      min-width: 450px;
+    }
+  }
+}

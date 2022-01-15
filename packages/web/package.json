@@ -6,7 +6,7 @@
     "astro:build": "astro build",
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
-    "build": "yarn astro:build && yarn transform",
+    "build": "yarn astro:build",
     "dev": "yarn astro:dev",
     "serve": "yarn build && npx serve --config ../serve.json dist",
     "start": "yarn dev",
