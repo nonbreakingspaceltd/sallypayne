@@ -12,14 +12,14 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
+    "@sanity/dashboard",
     "@sanity/desk-tool",
-    "media"
+    "media",
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
@@ -30,6 +30,10 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./desk"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./desk/dashboard.js"
     }
   ]
 }
