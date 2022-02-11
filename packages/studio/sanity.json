@@ -15,7 +15,8 @@
     "@sanity/dashboard",
     "@sanity/desk-tool",
     "media",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "dashboard-widget-document-list"
   ],
   "env": {
     "development": {

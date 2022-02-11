@@ -96,16 +96,4 @@ export default {
       media: 'media.main',
     },
   },
-  orderings: [
-    {
-      title: 'Published Date, New',
-      name: 'publishedDateDesc',
-      by: [{ field: 'publishedDate', direction: 'desc' }],
-    },
-    {
-      title: 'Published Date, Old',
-      name: 'publishedDateAsc',
-      by: [{ field: 'publishedDate', direction: 'asc' }],
-    },
-  ],
 };

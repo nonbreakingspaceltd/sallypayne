@@ -14,8 +14,18 @@ export default {
           },
         ],
       },
+      layout: {
+        width: 'small',
+        height: 'small',
+      },
     },
-    { name: 'project-users' },
+    {
+      name: 'project-users',
+      layout: {
+        width: 'small',
+        height: 'small',
+      },
+    },
     {
       name: 'document-list',
       options: {
@@ -23,6 +33,10 @@ export default {
         order: '_createdAt desc',
         types: ['post'],
       },
+      layout: {
+        width: 'small',
+        height: 'small'
+      }
     },
   ],
 };

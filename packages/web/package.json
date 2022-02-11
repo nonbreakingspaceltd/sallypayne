@@ -19,13 +19,13 @@
     "@sanity/image-url": "^1.0.1",
     "astro": "^0.22.20",
     "autoprefixer": "^10.4.2",
-    "cssnano": "^5.0.16",
-    "dotenv": "^15.0.0",
+    "cssnano": "^5.0.17",
+    "dotenv": "^16.0.0",
     "esbuild-runner": "^2.2.1",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
     "htmlnano": "^2.0.0",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.6",
     "postcss-at-rules-variables": "^0.3.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
@@ -44,7 +44,7 @@
     "html-entities": "^2.3.2",
     "modern-normalize": "^1.1.0",
     "sanity-blocks-vue-component": "^1.0.1",
-    "vue": "^3.2.20",
+    "vue": "^3.2.30",
     "vue-dragscroll": "^3.0.1"
   }
 }
