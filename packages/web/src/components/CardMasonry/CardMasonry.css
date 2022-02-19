@@ -24,8 +24,8 @@
     flex-direction: column;
     flex-grow: 1;
     height: max-content;
-    /* width: 100%;
-    min-width: 150px; */
+    width: 100%;
+    min-width: 150px;
     gap: var(--space-y-2) var(--space-x-2);
   }
 

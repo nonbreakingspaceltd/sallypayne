@@ -42,7 +42,6 @@ export default {
     const { items } = toRefs(props);
     const columns = ref([]);
     const container = ref();
-    const columnWidth = ref(150);
     const isJsMasonry = ref(false);
 
     function columnCount() {
