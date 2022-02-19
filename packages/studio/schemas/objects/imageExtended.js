@@ -5,4 +5,5 @@ export default {
   options: {
     hotspot: true,
   },
+  validation: Rule => Rule.required()
 };
