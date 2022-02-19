@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.1.0",
   "scripts": {
-    "astro:build": "astro build",
+    "astro:build": "yarn products && astro build",
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
+    "products": "node -r esbuild-runner/register -r dotenv/config scripts/productsJson.js",
     "build": "yarn astro:build",
     "dev": "yarn astro:dev",
     "serve": "yarn build && npx serve --config ../serve.json dist",
@@ -46,6 +47,7 @@
     "html-entities": "^2.3.2",
     "modern-normalize": "^1.1.0",
     "sanity-blocks-vue-component": "^1.0.1",
+    "vite-plugin-environment": "^1.1.0",
     "vue": "^3.2.31",
     "vue-dragscroll": "^3.0.1"
   }

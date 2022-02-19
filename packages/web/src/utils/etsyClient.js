@@ -1,31 +1,23 @@
 import fetch from 'cross-fetch';
 import { slugify, hashCode, randomIntFromInterval } from './helpers';
-
-export const config = {
-  storeId: import.meta.env.PUBLIC_ETSY_STORE_ID,
-  token: import.meta.env.PUBLIC_ETSY_API_TOKEN,
-};
+import { etsyConfig } from './config';
 
 function timeout(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 const etsyClient = (token, useMemoryCache = false, verboseLogging = false) => {
   const hasToken = token && token.length > 0;
   const endpoint = 'https://openapi.etsy.com/v3/application';
 
-  const loadingCache = new Map();
   const cache = new Map();
   let cacheHits = 0;
 
   return {
     fetch: async (path) => {
       const offset = randomIntFromInterval(0, 500);
-      const interval = 500;
       const url = new URL([endpoint, path].join('')).toString();
       const cacheKey = hashCode(slugify(url));
-      const hasCacheKey = cache.has(cacheKey);
-      const hasLoadingCacheKey = loadingCache.has(cacheKey);
 
       await timeout(offset);
 
@@ -64,4 +56,4 @@ const etsyClient = (token, useMemoryCache = false, verboseLogging = false) => {
   };
 };
 
-export const client = etsyClient(config.token, true, false);
+export const client = etsyClient(etsyConfig.token, true, false);

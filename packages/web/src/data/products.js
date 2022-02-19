@@ -2,8 +2,9 @@ import { decode } from 'html-entities';
 import { getSiteSettings } from './global';
 import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
 import { client } from '../utils/etsyClient';
+import { etsyConfig } from '../utils/config';
 
-const storeId = import.meta.env.PUBLIC_ETSY_STORE_ID;
+const storeId = etsyConfig.storeId;
 
 function processProductPath(slug) {
   return `/shop/product/${slug}/`;
@@ -50,7 +51,7 @@ function proccessProduct(product, siteSettings) {
       title: `${cleanTitle} | Shop | ${siteSettings.title}`,
       description: descriptionParts[1] || title,
       og: {
-        image: images[0].url_570xN
+        image: images[0].url_570xN,
       },
       jsonLd: {
         '@context': 'https://schema.org/',
@@ -69,31 +70,42 @@ function proccessProduct(product, siteSettings) {
           priceCurrency: price.currency_code,
         },
       },
-    }
+    },
   };
   return processedProduct;
 }
 
-export async function getProducts() {
+async function getCachedProducts() {
+  return import('../../_temp/products.json');
+}
+
+export async function getProducts(forceFetch = false) {
   const siteSettings = await getSiteSettings();
-  console.log(`Fetching active products...`);
-  const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
-  console.log('Fetched active products:', activeProducts?.results.length);
-  if (!activeProducts) {
-    return [];
+  let products = null;
+  const cachedProducts = await getCachedProducts();
+  if (cachedProducts && !forceFetch) {
+    products = cachedProducts.results;
+  } else {
+    console.log(`Fetching active products...`);
+    const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
+    console.log('Fetched active products:', activeProducts?.results.length);
+    if (!activeProducts) {
+      return [];
+    }
+    const ids = activeProducts.results.map((item) => item.listing_id).join(',');
+    console.log(`Fetching products...`);
+    const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
+
+    products = productsData.results.map((product) => {
+      const processedProduct = proccessProduct(product, siteSettings);
+      return {
+        params: {
+          id: processedProduct.slug,
+        },
+        props: processedProduct,
+      };
+    });
   }
-  const ids = activeProducts.results.map((item) => item.listing_id).join(',');
-  console.log(`Fetching products...`);
-  const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
-  const products = productsData.results.map((product) => {
-    const processedProduct = proccessProduct(product, siteSettings);
-    return {
-      params: {
-        id: processedProduct.slug,
-      },
-      props: processedProduct,
-    };
-  });
   console.log('Fetched products:', products.length);
   return products;
 }

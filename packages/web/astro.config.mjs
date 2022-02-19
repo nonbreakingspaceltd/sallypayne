@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import svgLoader from 'vite-svg-loader';
+import env from 'vite-plugin-environment';
 
 const devPort = 3000;
 
@@ -27,7 +28,12 @@ export default {
   },
   renderers: ['@astrojs/renderer-vue'],
   vite: {
-    plugins: [svgLoader()],
+    plugins: [
+      env('all', {
+        prefix: 'PUBLIC_',
+      }),
+      svgLoader(),
+    ],
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {

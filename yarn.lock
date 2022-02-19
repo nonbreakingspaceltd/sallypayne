@@ -2016,6 +2016,7 @@ __metadata:
     postcss-sorting: ^7.0.1
     purgecss: ^4.1.3
     sanity-blocks-vue-component: ^1.0.1
+    vite-plugin-environment: ^1.1.0
     vite-svg-loader: ^3.1.2
     vue: ^3.2.31
     vue-dragscroll: ^3.0.1
@@ -19249,6 +19250,15 @@ __metadata:
   version: 0.2.0
   resolution: "viewport-dimensions@npm:0.2.0"
   checksum: d15424d553e210c363c0907441bd559edc7c969a4962ebcc54b8db032e01f66381fb7912c7eba1aa664fb95701cb89aabe835a14e006c1da991ccd39f44862bd
+  languageName: node
+  linkType: hard
+
+"vite-plugin-environment@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "vite-plugin-environment@npm:1.1.0"
+  peerDependencies:
+    vite: ^2.7
+  checksum: 0ef70eacf5b0d7c1fa771fc1355891efcfc3654ec66edfbfa91b4ce0de5a224d5bfad6c5345c79a668c03b83bafe5fa3bebc573dbc5e35c0c52ffc68677af05c
   languageName: node
   linkType: hard
 

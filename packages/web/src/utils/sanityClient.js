@@ -1,14 +1,7 @@
 import sanityImageUrlBuilder from '@sanity/image-url';
 import fetch from 'cross-fetch';
 import { slugify, hashCode } from './helpers';
-
-export const sanityConfig = {
-  projectId: import.meta.env.PUBLIC_SANITY_STUDIO_API_PROJECT_ID,
-  dataset: import.meta.env.PUBLIC_SANITY_STUDIO_API_DATASET,
-  token: import.meta.env.PRIVATE_SANITY_STUDIO_API_TOKEN,
-  apiVersion: import.meta.env.PUBLIC_SANITY_STUDIO_API_VERSION,
-  useCdn: import.meta.env.PUBLIC_SANITY_STUDIO_USE_CDN === 'true' || true,
-};
+import { sanityConfig } from './config';
 
 function customClient(clientConfig, useMemoryCache = false, verboseLogging = false) {
   const { useCdn, projectId, dataset, token, apiVersion } = clientConfig;
