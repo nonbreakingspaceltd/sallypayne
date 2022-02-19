@@ -4,8 +4,11 @@
 
   [build.environment]
     PYTHON_VERSION = "3.7"
-    # Match yarn version in monorepo root .yarnrc.yml
+    # Match version in monorepo root .yarnrc.yml
     YARN_VERSION = "3.1.1"
     NETLIFY_USE_YARN = "true"
+    NETLIFY_YARN_WORKSPACES = "true"
     YARN_ENABLE_GLOBAL_CACHE = "true"
     YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
+    CYPRESS_INSTALL_BINARY = "0"
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "0"

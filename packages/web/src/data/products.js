@@ -76,35 +76,43 @@ function proccessProduct(product, siteSettings) {
 }
 
 async function getCachedProducts() {
-  return import('../../_temp/products.json');
+  try {
+    return require('../../_temp/products.json');
+  } catch {
+    return false;
+  }
+}
+
+async function fetchProducts() {
+  const siteSettings = await getSiteSettings();
+  console.log(`Fetching active products...`);
+  const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
+  console.log('Fetched active products:', activeProducts?.results.length);
+  if (!activeProducts) {
+    return [];
+  }
+  const ids = activeProducts.results.map((item) => item.listing_id).join(',');
+  console.log(`Fetching products...`);
+  const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
+
+  return productsData.results.map((product) => {
+    const processedProduct = proccessProduct(product, siteSettings);
+    return {
+      params: {
+        id: processedProduct.slug,
+      },
+      props: processedProduct,
+    };
+  });
 }
 
 export async function getProducts(forceFetch = false) {
-  const siteSettings = await getSiteSettings();
   let products = null;
   const cachedProducts = await getCachedProducts();
   if (cachedProducts && !forceFetch) {
     products = cachedProducts.results;
   } else {
-    console.log(`Fetching active products...`);
-    const activeProducts = await client.fetch(`/shops/${storeId}/listings/active?limit=100`);
-    console.log('Fetched active products:', activeProducts?.results.length);
-    if (!activeProducts) {
-      return [];
-    }
-    const ids = activeProducts.results.map((item) => item.listing_id).join(',');
-    console.log(`Fetching products...`);
-    const productsData = await client.fetch(`/listings/batch?listing_ids=${ids}&includes=Images`);
-
-    products = productsData.results.map((product) => {
-      const processedProduct = proccessProduct(product, siteSettings);
-      return {
-        params: {
-          id: processedProduct.slug,
-        },
-        props: processedProduct,
-      };
-    });
+    products = await fetchProducts();
   }
   console.log('Fetched products:', products.length);
   return products;
