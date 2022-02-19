@@ -74,7 +74,10 @@ export async function getPages(exclude = []) {
   console.log('Fetching pages...');
   const siteSettings = await getSiteSettings();
   const response = await client.fetch(/* groq */ `
-    *[_type == 'page'] {
+    *[
+      !(_id in path("drafts.**")) &&
+      _type == 'page'
+    ] {
       ${pageFields}
     }
   `);

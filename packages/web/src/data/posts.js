@@ -7,7 +7,10 @@ import { processPicture } from './components/picture';
 import { fixPathSlashes } from './utils/fixPathSlashes';
 
 const postQuery = /* groq */ `
-  *[_type == 'post'] | order(publishedDate desc) {
+  *[!
+    (_id in path("drafts.**")) &&
+    _type == 'post'
+  ] | order(publishedDate desc) {
     title,
     "slug": slug.current,
     publishedDate,

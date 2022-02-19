@@ -1992,6 +1992,8 @@ __metadata:
     "@sanity/image-url": ^1.0.1
     astro: 0.22
     autoprefixer: ^10.4.2
+    axios: ^0.26.0
+    axios-cache-interceptor: ^0.8.10
     classnames: ^2.3.1
     cross-fetch: ^3.1.5
     cssnano: ^5.0.17
@@ -4516,6 +4518,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios-cache-interceptor@npm:^0.8.10":
+  version: 0.8.10
+  resolution: "axios-cache-interceptor@npm:0.8.10"
+  dependencies:
+    cache-parser: 1.2.0
+    fast-defer: ^1.1.3
+    object-code: ^1.0.1
+  checksum: 6d0a8c4bf67037ddc3804c673ceff3493ff1bbace497f5e33db74d18731c9a155472b1a7aa739e0f025cf15478df92c27146e28225a386889698202303423c88
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "axios@npm:0.26.0"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d7a8b898f4157bedeb2e06c03b16133b91b354c041205bea732ce58b7a21f373d22057b0eea0d482838145ce6ff482b359750d9bcb8dd19d45e3928e3c65c280
+  languageName: node
+  linkType: hard
+
 "babel-code-frame@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-code-frame@npm:6.26.0"
@@ -5131,6 +5153,13 @@ __metadata:
     union-value: ^1.0.0
     unset-value: ^1.0.0
   checksum: 9114b8654fe2366eedc390bad0bcf534e2f01b239a888894e2928cb58cdc1e6ea23a73c6f3450dcfd2058aa73a8a981e723cd1e7c670c047bf11afdc65880107
+  languageName: node
+  linkType: hard
+
+"cache-parser@npm:1.2.0":
+  version: 1.2.0
+  resolution: "cache-parser@npm:1.2.0"
+  checksum: 8391bc5d12cf6373ef400f64b7b6e51784a2fa98d844bd8387aa86ab8a87abc8922df2557cd191122a7ea71180722d2e078580d848f45799a76c1aea2f337924
   languageName: node
   linkType: hard
 
@@ -8354,6 +8383,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-defer@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "fast-defer@npm:1.1.3"
+  checksum: 2c401e1e99791dfc36a547e5e063c5bb0376cc050f7b69000090264e22d469859e8e1c1cf5a37d59d0fffd0330ce10a6f4d633fd76de73a3fe26251540344aad
+  languageName: node
+  linkType: hard
+
 "fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.7":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
@@ -8648,6 +8684,16 @@ __metadata:
   dependencies:
     tslib: ^2.0.3
   checksum: 4be2cbc0217410413f617c03720df74c3c950983f5914aa8b82c6a7ce98fab873e22e5af0818f6832d1249f86ef33357c7dc344074a09206134657d1f53915d7
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -12951,6 +12997,13 @@ __metadata:
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
+  languageName: node
+  linkType: hard
+
+"object-code@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "object-code@npm:1.0.1"
+  checksum: 0a914caf04b28c0baa6b7423a16475a7f6bcbdbda79dc0035e8977462abe82549b33c8135c850f06359234cd1ea0504eab3743905994dbae2ea465ff737a55de
   languageName: node
   linkType: hard
 

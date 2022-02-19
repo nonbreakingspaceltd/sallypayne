@@ -2,7 +2,10 @@ import { client } from '../utils/sanityClient';
 
 export async function getSiteSettings() {
   const settings = await client.fetch(/* groq */ `
-    *[_type == 'settings'][0] {
+    *[
+      !(_id in path("drafts.**")) &&
+      _type == 'settings'
+    ][0] {
       title,
       description
     }
