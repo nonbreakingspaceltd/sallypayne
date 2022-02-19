@@ -67,10 +67,6 @@ const isArticle = meta?.og?.type === 'article'
       document.documentElement.classList.add('js');
     </script>
 
-    <style lang="postcss" global>
-      @import "../assets/styles/global.css";
-    </style>
-
     <!-- Replaced with inline CSS -->
     <link id="inline-css">
 
@@ -93,3 +89,7 @@ const isArticle = meta?.og?.type === 'article'
 
   </body>
 </html>
+
+<style lang="postcss" global>
+  @import "../assets/styles/global.css";
+</style>
