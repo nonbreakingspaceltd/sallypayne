@@ -13,7 +13,7 @@
       <div class="sp-c-card__subtitle" v-if="subtitle">
         {{ subtitle }}
       </div>
-      <div class="sp-c-card__body">
+      <div v-if="$slots.default" class="sp-c-card__body">
         <slot />
       </div>
     </div>
