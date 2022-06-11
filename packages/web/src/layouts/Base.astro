@@ -91,5 +91,13 @@ const isArticle = meta?.og?.type === 'article'
 
     <!-- [additional foot scripts] -->
 
+    <script id="js-body">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+        });
+     }
+    </script>
+
   </body>
 </html>
