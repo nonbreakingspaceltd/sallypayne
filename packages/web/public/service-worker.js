@@ -68,9 +68,9 @@ self.addEventListener('fetch', function (event) {
 		return;
 	}
 
-	// Images
+	// Images & Fonts
 	// Offline-first
-	if (request.headers.get('Accept').includes('image')) {
+	if (request.headers.get('Accept').includes('image') || request.headers.get('Accept').includes('font')) {
 		event.respondWith(
 			caches.match(request).then(function (response) {
 				return response || fetch(request).then(function (response) {
