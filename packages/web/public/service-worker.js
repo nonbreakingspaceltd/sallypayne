@@ -1,5 +1,7 @@
 // Core assets
-let coreAssets = [];
+let coreAssets = [
+  '/fonts/sketchysallysans-regular-webfont.woff2',
+];
 
 // On install, cache core assets
 self.addEventListener('install', function (event) {
