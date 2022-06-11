@@ -16,7 +16,6 @@ function htmlToBlocks(html, options) {
 
   let blocks = blockTools.htmlToBlocks(sanitizeHTML(html), blockContentType, {
     parseHtml: (htmlContent) => {
-      // console.log(htmlContent);
       return new JSDOM(htmlContent).window.document;
     },
     rules: [
@@ -40,14 +39,6 @@ function htmlToBlocks(html, options) {
           if (!text) {
             return undefined;
           }
-          text = text
-            .replace('........', '…')
-            .replace('.......', '…')
-            .replace('......', '…')
-            .replace('.....', '…')
-            .replace('....', '…')
-            .replace('...', '…')
-            .trim();
           return block({
             children: [],
             _type: 'code',

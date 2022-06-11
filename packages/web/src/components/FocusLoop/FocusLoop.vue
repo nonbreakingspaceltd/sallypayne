@@ -146,7 +146,7 @@ export default {
   },
   mounted() {
     this.data.vue = this;
-    this.data.observed = this.$el.querySelector('[data-lock]');
+    this.data.observed = this.$el && this.$el.querySelector('[data-lock]');
     this.data.disabled = this.disabled;
     this.data.onActivation = () => {
       this.originalFocusedElement =

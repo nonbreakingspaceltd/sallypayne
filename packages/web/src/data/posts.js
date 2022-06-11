@@ -36,23 +36,42 @@ const postQuery = /* groq */ `
   }
 `;
 
-function processImage(imageProps) {
+function processImage(imageProps, isCard = false) {
   if (!imageProps) {
     return undefined;
   }
 
-  const sizes = [
+  const cardSizes = [
+    {
+      media: 'screen and (max-width: 599px)',
+      width: 160,
+    },
     {
       media: 'screen and (max-width: 767px)',
-      width: 350,
+      width: 250,
     },
     {
       media: 'screen and (min-width: 768px)',
-      width: 840,
+      width: 350,
     },
   ];
 
-  return processPicture(imageProps, sizes);
+  const sizes = [
+    {
+      media: 'screen and (max-width: 599px)',
+      width: 350,
+    },
+    {
+      media: 'screen and (max-width: 767px)',
+      width: 500,
+    },
+    {
+      media: 'screen and (min-width: 768px)',
+      width: 700,
+    },
+  ];
+
+  return processPicture(imageProps, isCard ? cardSizes : sizes);
 }
 
 function processYoutubeVideo(videoProps) {
@@ -77,7 +96,7 @@ function processPostPath(slug, year, month) {
   return fixPathSlashes(`/scrapbook/${year}/${month}/${slug}/`);
 }
 
-function proccessPost(post, siteSettings, siteUrl) {
+function proccessPost(post, siteSettings, siteUrl, isCard = false) {
   const { title, slug, publishedDate, excerpt, body, meta, media } = post;
   const parsedPublishDate = new Date(publishedDate);
   const year = format(parsedPublishDate, 'yyyy');
@@ -90,7 +109,7 @@ function proccessPost(post, siteSettings, siteUrl) {
     publishedDateShort: format(new Date(parsedPublishDate), 'MMMM do yyyy'),
     excerpt,
     body: processPostBody(body),
-    image: processImage(media?.main),
+    image: processImage(media?.main, isCard),
     meta: {
       title: `${meta.metaTitle || title} | Scrapbook | ${siteSettings.title}`,
       description: meta.metaDescription,
@@ -120,7 +139,7 @@ function proccessPost(post, siteSettings, siteUrl) {
 export async function getPaginatedPosts(paginate, siteUrl) {
   const siteSettings = await getSiteSettings();
   const posts = await client.fetch(postQuery);
-  const proccessedPosts = posts.map((post) => proccessPost(post, siteSettings, siteUrl));
+  const proccessedPosts = posts.map((post) => proccessPost(post, siteSettings, siteUrl, true));
   const pageSize = 20;
   return paginate(proccessedPosts, {
     pageSize,
