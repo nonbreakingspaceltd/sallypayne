@@ -59,7 +59,7 @@ const isArticle = meta?.og?.type === 'article'
     <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
 
     <!-- Replaced with preload font links -->
-    <link id="preload-fonts">
+    <link rel="preload" as="font" href="/fonts/sketchysallysans-regular-webfont.woff2" crossorigin />
 
     <!-- [additional preconnects/preloads] -->
 
@@ -70,9 +70,6 @@ const isArticle = meta?.og?.type === 'article'
     <style lang="postcss" global>
       @import "../assets/styles/global.css";
     </style>
-
-    <!-- Replaced with inline CSS -->
-    <link id="inline-css">
 
     <!-- [additional css] -->
 

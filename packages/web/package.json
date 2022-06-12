@@ -1,15 +1,16 @@
 {
   "name": "@sallypayne/web",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "astro:build": "yarn products && astro build",
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
     "products": "node -r esbuild-runner/register -r dotenv/config scripts/productsJson.js",
-    "build": "yarn astro:build",
+    "build": "yarn astro:build && yarn service-worker",
     "dev": "yarn astro:dev",
     "serve": "yarn build && npx serve --config ../serve.json dist",
+    "service-worker": "node -r esbuild-runner/register scripts/generateServiceWorker.js",
     "start": "yarn dev",
     "transform": "yarn transform:css && yarn transform:html",
     "transform:css": "node -r esbuild-runner/register scripts/optimizeCss.js",
