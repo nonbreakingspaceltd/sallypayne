@@ -11,3 +11,4 @@
     YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
     CYPRESS_INSTALL_BINARY = "0"
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "0"
+    NODE_ENV = "production"
