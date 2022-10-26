@@ -50,6 +50,6 @@
     "sanity-blocks-vue-component": "^1.0.1",
     "vite-plugin-environment": "^1.1.3",
     "vue": "3.2.37",
-    "vue-dragscroll": "^4.0.4"
+    "vue-dragscroll": "^4.0.5"
   }
 }

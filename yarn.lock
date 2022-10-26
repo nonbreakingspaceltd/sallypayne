@@ -2017,7 +2017,7 @@ __metadata:
     vite-plugin-environment: ^1.1.3
     vite-svg-loader: ^3.6.0
     vue: 3.2.37
-    vue-dragscroll: ^4.0.4
+    vue-dragscroll: ^4.0.5
   languageName: unknown
   linkType: soft
 
@@ -19241,12 +19241,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-dragscroll@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "vue-dragscroll@npm:4.0.4"
+"vue-dragscroll@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "vue-dragscroll@npm:4.0.5"
   dependencies:
     vue: ^3.2.37
-  checksum: 91b9eefaa20c8287a458a685d86fb0a20f0b4a3cb5b38f07c52c96a20edb7f2cadc21511b208f1ce824a78ce75f7c187302b34ade836e31f4ba828fef5159f84
+  checksum: 76233545a50b0189ea70c9eb8b1b40ff3f589625a051fdb111dd79d22332d754c7e791e6607cb269df1ec2b67ec767ec0b4461908839858c8096b3ddb929c05b
   languageName: node
   linkType: hard
 
