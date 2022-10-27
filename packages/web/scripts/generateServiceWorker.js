@@ -13,7 +13,8 @@ export async function generateSeviceWorker() {
     path.resolve(__dirname, './serviceWorkerTemplate.js'),
     'utf-8'
   );
-  serviceWorkerCode = serviceWorkerCode.replace('__VERSION__', slugify(pkg.version)).trim();
+  const version = slugify(pkg.version).trim()
+  serviceWorkerCode = serviceWorkerCode.replace('__VERSION__', version);
   await fs.writeFile(outputFile, serviceWorkerCode);
   consola.success('service-worker.js created successfully.');
 }
