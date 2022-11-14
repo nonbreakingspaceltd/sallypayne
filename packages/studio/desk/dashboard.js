@@ -8,7 +8,7 @@ export default {
           {
             title: 'Sally Payne Website',
             apiId: '012cbb34-aa49-495c-8b38-5c32000aeeaf',
-            buildHookId: '61f28de302b137b91278f890',
+            buildHookId: '637215973de31a15dfd3838b',
             name: 'sallypayne',
             url: 'https://www.sallypayne.com',
           },
