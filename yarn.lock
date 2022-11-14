@@ -1960,19 +1960,19 @@ __metadata:
     "@sanity/dashboard": ^2.35.0
     "@sanity/default-layout": 2.35.0
     "@sanity/default-login": 2.35.0
-    "@sanity/desk-tool": 2.35.0
+    "@sanity/desk-tool": 2.35.1
     "@sanity/ui": ^0.37.22
     "@sanity/vision": 2.35.0
     cheerio: ^1.0.0-rc.12
     consola: ^2.15.3
     date-fns: ^2.29.3
     grammarify: ^2.1.0
-    jsdom: ^20.0.1
+    jsdom: ^20.0.2
     prop-types: ^15.8
-    react: ^18.2.0
-    react-dom: ^18.2
+    react: 17
+    react-dom: 17
     react-icons: ^4.6.0
-    sanitize-html: ^2.7.2
+    sanitize-html: ^2.7.3
     sanity-plugin-dashboard-widget-document-list: ^0.0.13
     sanity-plugin-dashboard-widget-netlify: ^1.3.1
     sanity-plugin-media: ^1.4.13
@@ -2337,19 +2337,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/desk-tool@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/desk-tool@npm:2.35.0"
+"@sanity/desk-tool@npm:2.35.1":
+  version: 2.35.1
+  resolution: "@sanity/desk-tool@npm:2.35.1"
   dependencies:
     "@reach/auto-id": ^0.13.2
     "@sanity/client": ^3.3.3
     "@sanity/data-aspects": 2.33.2
     "@sanity/diff": 2.33.2
-    "@sanity/field": 2.35.0
+    "@sanity/field": 2.35.1
     "@sanity/form-builder": 2.35.0
     "@sanity/generate-help-url": ^3.0.0
     "@sanity/icons": ^1.3.4
-    "@sanity/react-hooks": 2.35.0
+    "@sanity/react-hooks": 2.35.1
     "@sanity/structure": 2.35.0
     "@sanity/types": 2.35.0
     "@sanity/ui": ^0.37.22
@@ -2372,7 +2372,7 @@ __metadata:
     "@sanity/base": ^2.0
     react: ^16.9 || ^17
     styled-components: ^5.2.0
-  checksum: 5d24a2a81a785990efaf5b6d540f92b92a963494b7c70b43e372341f584cf7ec6ff64b7faacafbc0b1e75ec2727a70d3ab9adcb183ef438ba384f952c3984d5f
+  checksum: cf7a58067af69de914dc007db6e67357ed20a73d6523a55685a963a68d3b19efdc3892b8a3d9b12167f0fb3d24826177de50118bfa366f640394961ac3a2217a
   languageName: node
   linkType: hard
 
@@ -2421,9 +2421,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/field@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/field@npm:2.35.0"
+"@sanity/field@npm:2.35.1":
+  version: 2.35.1
+  resolution: "@sanity/field@npm:2.35.1"
   dependencies:
     "@sanity/asset-utils": ^1.2.5
     "@sanity/base": 2.35.0
@@ -2432,7 +2432,7 @@ __metadata:
     "@sanity/diff": 2.33.2
     "@sanity/icons": ^1.3.4
     "@sanity/image-url": ^1.0.1
-    "@sanity/react-hooks": 2.35.0
+    "@sanity/react-hooks": 2.35.1
     "@sanity/types": 2.35.0
     "@sanity/ui": ^0.37.22
     "@sanity/util": 2.35.0
@@ -2442,7 +2442,7 @@ __metadata:
   peerDependencies:
     react: ^16.2.0 || ^17
     styled-components: ^5.2.0
-  checksum: ee57e93c66a171fda61308e6dab7c167a914275b452dce8b09e44830f503bda93f30a55df21e3d1b75926448faf42f04af93263911a2506675687df529d1f875
+  checksum: 302ea24c933fb8bddeeaa782cda2daab7c357eca5bc5fb95444584d55ae7ac1b23f469429a5160c50a3965ce56fc1911aaa818f64e9ab3c47373f886f40ad7d0
   languageName: node
   linkType: hard
 
@@ -2665,9 +2665,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/react-hooks@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/react-hooks@npm:2.35.0"
+"@sanity/react-hooks@npm:2.35.1":
+  version: 2.35.1
+  resolution: "@sanity/react-hooks@npm:2.35.1"
   dependencies:
     "@sanity/types": 2.35.0
     react-rx: ^1.0.0-beta.6
@@ -2675,7 +2675,7 @@ __metadata:
   peerDependencies:
     "@sanity/base": ^2.0
     react: ^16.9 || ^17
-  checksum: 2ab37b99585d88e9b263f9a540e77fc1979b604404e910f6bc6defe4cef134a02fd87324c1a038fa960fc14a6313325842b39e941d75625e28a42a8ea442aab2
+  checksum: 6f46de4815a09704f6e933dffa0ff363cd2ae3a42bb6db39b472701a099e8d122d0e02e480e507fd3c036bf57241a2264ea688955c9ef5b53a171fbfa29a8d48
   languageName: node
   linkType: hard
 
@@ -10718,9 +10718,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:^20.0.1":
-  version: 20.0.1
-  resolution: "jsdom@npm:20.0.1"
+"jsdom@npm:^20.0.2":
+  version: 20.0.2
+  resolution: "jsdom@npm:20.0.2"
   dependencies:
     abab: ^2.0.6
     acorn: ^8.8.0
@@ -10753,7 +10753,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 9fc0b66a866f58a28e95f5a39b167ea663dc01c9754a019c356cc517d27ff0216055f37ace69e0f4414c51084adca8d5ec71c1e6faee3b8df0941a494167c3a0
+  checksum: 1912e73ecbc7cb1e458b63c4976a1f1dd40c1cdb9f91559cfeccb08c68ad1b9918c6260bd021559ecb1a7c233fae0d0c3fdcbd2ce82df597ef9373d67c8934c0
   languageName: node
   linkType: hard
 
@@ -15341,7 +15341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
+"react-dom@npm:17, react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -15351,18 +15351,6 @@ __metadata:
   peerDependencies:
     react: 17.0.2
   checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:^18.2":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    scheduler: ^0.23.0
-  peerDependencies:
-    react: ^18.2.0
-  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
   languageName: node
   linkType: hard
 
@@ -15740,22 +15728,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
+"react@npm:17, react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
-  languageName: node
-  linkType: hard
-
-"react@npm:^18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
   linkType: hard
 
@@ -16557,9 +16536,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sanitize-html@npm:^2.7.2":
-  version: 2.7.2
-  resolution: "sanitize-html@npm:2.7.2"
+"sanitize-html@npm:^2.7.3":
+  version: 2.7.3
+  resolution: "sanitize-html@npm:2.7.3"
   dependencies:
     deepmerge: ^4.2.2
     escape-string-regexp: ^4.0.0
@@ -16567,7 +16546,7 @@ __metadata:
     is-plain-object: ^5.0.0
     parse-srcset: ^1.0.2
     postcss: ^8.3.11
-  checksum: 4c15e87a411420d670412de2beb29386c8307210c170ceb716d93b4010dcf6a8ae39408d7d863752ee84cc65f5995633c7089789c5f8c0de478a7023d93a53ec
+  checksum: 2399d1fdbbc3a263fb413c1fe1971b3dc2b51abc6cc5cb49490624539d1c57a8fe31e2b21408c118e2a957f4e673e3169b1f9a5807654408f17b130a9d78aed7
   languageName: node
   linkType: hard
 
@@ -16713,15 +16692,6 @@ __metadata:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "scheduler@npm:0.23.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
   languageName: node
   linkType: hard
 
