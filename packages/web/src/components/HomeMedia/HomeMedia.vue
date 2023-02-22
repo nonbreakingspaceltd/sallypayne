@@ -1,11 +1,11 @@
 <template>
   <div class="sp-c-home-media">
     <img
-      src="/images/sally-payne-home.svg"
+      src="/images/home-20230203.svg"
       class="sp-c-home-media__image"
-      alt="Homepage Illustration of Charactacters"
-      width="1024"
-      height="525"
+      alt="Illustration of Sally Payne style characters saying 'Hello'"
+      width="2000"
+      height="1227"
     />
   </div>
 </template>
