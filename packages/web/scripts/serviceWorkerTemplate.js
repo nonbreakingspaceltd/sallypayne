@@ -29,11 +29,10 @@ const PRE_CACHE_URLS = [
 // from outside too, so merge that if set
 const IGNORED_HOSTS = [
   ...(typeof OUTER_IGNORED_HOSTS !== 'undefined' ? OUTER_IGNORED_HOSTS : []),
-  // e.g.
-  // ...[
-  //   'api.example.com',
-  //   'www.youtube.com'
-  // ],
+  ...[
+    'www.googletagmanager.com',
+    'www.youtube.com'
+  ],
 ];
 
 // Define some hosts to ignore for runtime caching. This could have been set
