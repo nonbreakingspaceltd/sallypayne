@@ -1991,7 +1991,7 @@ __metadata:
     astro: 0.22
     autoprefixer: ^10.4.12
     axios: ^1.1.3
-    axios-cache-interceptor: ^0.10.7
+    axios-cache-interceptor: ^1.0.1
     classnames: ^2.3.2
     cross-fetch: ^3.1.5
     cssnano: ^5.1.13
@@ -4234,14 +4234,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-cache-interceptor@npm:^0.10.7":
-  version: 0.10.7
-  resolution: "axios-cache-interceptor@npm:0.10.7"
+"axios-cache-interceptor@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "axios-cache-interceptor@npm:1.0.1"
   dependencies:
     cache-parser: ^1.2.4
     fast-defer: ^1.1.7
     object-code: ^1.2.4
-  checksum: e7927101875a1e642f5459410c1bafba1e7b9fe69c5e488ece50b6e542eae24f2de025718d47aa17e3d3b9f27951e609b4aed8c7fe21d530d0e45be0cd1a04fd
+  peerDependencies:
+    axios: ^1
+  checksum: f004940ee2fd2260237ba0c943acdf03811b9265041d40b57ff49435d2c7bc170902de97c2e7330f229a8dd5babbbef5c5e2ad31541cf36d5b6b5dceef23ec74
   languageName: node
   linkType: hard
 
