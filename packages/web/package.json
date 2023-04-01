@@ -44,7 +44,7 @@
     "classnames": "^2.3.2",
     "cross-fetch": "^3.1.5",
     "date-fns": "^2.29.3",
-    "focus-lock": "^0.11.3",
+    "focus-lock": "^0.11.6",
     "html-entities": "^2.3.3",
     "modern-normalize": "^1.1.0",
     "sanity-blocks-vue-component": "^1.0.1",

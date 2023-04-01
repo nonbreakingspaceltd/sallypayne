@@ -1998,7 +1998,7 @@ __metadata:
     date-fns: ^2.29.3
     dotenv: ^16.0.3
     esbuild-runner: ^2.2.2
-    focus-lock: ^0.11.3
+    focus-lock: ^0.11.6
     fs-extra: ^10.1.0
     glob: ^8.0.3
     html-entities: ^2.3.3
@@ -8512,12 +8512,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-lock@npm:^0.11.3":
-  version: 0.11.3
-  resolution: "focus-lock@npm:0.11.3"
+"focus-lock@npm:^0.11.6":
+  version: 0.11.6
+  resolution: "focus-lock@npm:0.11.6"
   dependencies:
     tslib: ^2.0.3
-  checksum: d0ed6daaddb82a5996be97736522effe8d9637a8981cd26bc0633d618fe3e61b8ee5eb57f3f67e38ee1dba68eddb3676ab68a5afad56cf978032855697df989f
+  checksum: 6a407c4c45f05f8258f92565541fc5f8043f576643a7603eb999e1a790173e08712056766ed034ccd31c6d6deed259dea558002712fa5ef2432fc6930b9c7a05
   languageName: node
   linkType: hard
 
