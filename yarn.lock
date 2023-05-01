@@ -1956,7 +1956,7 @@ __metadata:
     "@sanity/base": 2.35.0
     "@sanity/block-content-to-html": ^2.0.0
     "@sanity/components": 2.14.0
-    "@sanity/core": 2.35.0
+    "@sanity/core": 2.36.1
     "@sanity/dashboard": ^2.35.0
     "@sanity/default-layout": 2.35.0
     "@sanity/default-login": 2.35.0
@@ -2182,9 +2182,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/core@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/core@npm:2.35.0"
+"@sanity/core@npm:2.36.1":
+  version: 2.36.1
+  resolution: "@sanity/core@npm:2.36.1"
   dependencies:
     "@babel/plugin-proposal-class-properties": ^7.10.4
     "@babel/preset-env": ^7.11.5
@@ -2192,16 +2192,16 @@ __metadata:
     "@babel/preset-typescript": ^7.10.4
     "@babel/register": ^7.7.4
     "@sanity/eventsource": ^3.0.1
-    "@sanity/export": 2.33.2
+    "@sanity/export": 2.35.5
     "@sanity/generate-help-url": ^3.0.0
-    "@sanity/import": 2.33.2
-    "@sanity/plugin-loader": 2.35.0
-    "@sanity/resolver": 2.35.0
+    "@sanity/import": 2.36.1
+    "@sanity/plugin-loader": 2.35.3
+    "@sanity/resolver": 2.35.3
     "@sanity/schema": 2.35.0
-    "@sanity/server": 2.35.0
+    "@sanity/server": 2.35.3
     "@sanity/util": 2.35.0
     "@sanity/uuid": ^3.0.1
-    "@sanity/webpack-integration": 2.35.0
+    "@sanity/webpack-integration": 2.35.3
     chalk: ^2.4.2
     chokidar: ^3.0.0
     configstore: ^5.0.1
@@ -2217,7 +2217,7 @@ __metadata:
     jsdom: ^12.0.0
     jsdom-global: ^3.0.2
     json-lexer: ^1.1.1
-    json5: ^1.0.1
+    json5: ^2.2.3
     lodash: ^4.17.15
     log-symbols: ^2.2.0
     oneline: ^1.0.3
@@ -2233,7 +2233,7 @@ __metadata:
     tar-fs: ^1.16.0
     terser: ^5.14.2
     yargs: ^16.2.0
-  checksum: ce5357f755efea7de9535f9f8b1ec3e3814d400c16901a649c809fc2f6c7bbf0c2e35fa6dd2ae3ee9fc99f7737fba7727a6e5d2f733ef643ee457411258be06c
+  checksum: b9a2764b6067446164a5e6353be52d0d36f3c4b98f3df9c433049269a4b4919ed459e084521bae0c58c2e51ff42d2b9c3af6b7dfa84565d1cd92e4b8d26000f0
   languageName: node
   linkType: hard
 
@@ -2405,9 +2405,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/export@npm:2.33.2":
-  version: 2.33.2
-  resolution: "@sanity/export@npm:2.33.2"
+"@sanity/export@npm:2.35.5":
+  version: 2.35.5
+  resolution: "@sanity/export@npm:2.35.5"
   dependencies:
     archiver: ^5.0.0
     debug: ^3.2.7
@@ -2417,7 +2417,7 @@ __metadata:
     mississippi: ^4.0.0
     p-queue: ^2.3.0
     split2: ^3.2.2
-  checksum: 212c50ae3a0ab8db596740469a5607b5063f2e337c824646beb42d94325cef93659e0ac4fba969366e9156d93050460936dec0aa94486672b8f9b08f8bbf20d5
+  checksum: 87a1be5a6affd0751fa6a66bc408584a783cde329935c388b5586077d03453dcebd27588b6ce0fe43395ec02575f72e9a88a155b208e7d7ac1aa2a93d5e3bb3f
   languageName: node
   linkType: hard
 
@@ -2568,13 +2568,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/import@npm:2.33.2":
-  version: 2.33.2
-  resolution: "@sanity/import@npm:2.33.2"
+"@sanity/import@npm:2.36.1":
+  version: 2.36.1
+  resolution: "@sanity/import@npm:2.36.1"
   dependencies:
     "@sanity/asset-utils": ^1.2.5
     "@sanity/generate-help-url": ^3.0.0
-    "@sanity/mutator": 2.33.2
+    "@sanity/mutator": 2.36.1
     "@sanity/uuid": ^3.0.1
     debug: ^3.2.7
     file-url: ^2.0.2
@@ -2592,7 +2592,7 @@ __metadata:
     tar-fs: ^1.16.0
     tempy: ^0.3.0
     whatwg-url: ^7.0.0
-  checksum: fd00212c13b8a42813cd1f5b25bd941c53e209e33942f7681b08926824e43186c3693b62b220deb792b30a710785f79ca580c50962e8d3b6746051fa09effe0e
+  checksum: 87ebbd31975f2c9f583b50c6f32cbf4575356c1905eb02f1ea4e0e58ba04050a41945cc36e9b3c9d931585926448e9cb7768666ec3b0d15f5aeae3a4fa651f89
   languageName: node
   linkType: hard
 
@@ -2631,16 +2631,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/plugin-loader@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/plugin-loader@npm:2.35.0"
+"@sanity/mutator@npm:2.36.1":
+  version: 2.36.1
+  resolution: "@sanity/mutator@npm:2.36.1"
   dependencies:
-    "@sanity/resolver": 2.35.0
+    "@types/diff-match-patch": ^1.0.32
+    debug: ^3.2.7
+    diff-match-patch: ^1.0.4
+    lodash: ^4.17.15
+  checksum: 71c7c71020b88a6178933cef9457929fe7d04796072d365243a26d0fc9535e04c2f9c6e61d7b7646df133a914ae36dc1512d6d90e1855f01cb7df21b92ed48f9
+  languageName: node
+  linkType: hard
+
+"@sanity/plugin-loader@npm:2.35.3":
+  version: 2.35.3
+  resolution: "@sanity/plugin-loader@npm:2.35.3"
+  dependencies:
+    "@sanity/resolver": 2.35.3
     "@sanity/util": 2.35.0
-    "@sanity/webpack-integration": 2.35.0
+    "@sanity/webpack-integration": 2.35.3
     css-modules-require-hook: 4.1.0
     interop-require: ^1.0.0
-  checksum: f0a9a81227125d18bcac5e3d1c180481f35525be1cc9226724d53836367ae2b494a128b645a8bf571335b3ec663a6bce388f28d58832e806f97ad3c289e2a177
+  checksum: abcbf6f8bd097ef4d7c9cb190fe04132ffe82868aafbca7d8e73e3e58a568ed281ac966a011cd9098a105b6af478b266cbd3d8d3e759f87e1848feff06644e58
   languageName: node
   linkType: hard
 
@@ -2679,9 +2691,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/resolver@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/resolver@npm:2.35.0"
+"@sanity/resolver@npm:2.35.3":
+  version: 2.35.3
+  resolution: "@sanity/resolver@npm:2.35.3"
   dependencies:
     "@sanity/generate-help-url": ^3.0.0
     "@sanity/util": 2.35.0
@@ -2689,7 +2701,7 @@ __metadata:
     lodash: ^4.17.15
     path-exists: ^3.0.0
     promise-props-recursive: ^1.0.0
-  checksum: 62073a9dd97d8bef011af439477ff2d5a3b884e737af8682f51edb9fb3fda273d191cecf493caf226c5bd65620a699896f5219221f0827260539d8b9b7ca2f9e
+  checksum: b1b15926e078d93cea0f7bf7d5a1350aa9707d3c53aa92f9feb1cd7ca5bcab1f6a8f3ad29d7c41c5103f35eef24b1da9c6431dba073c6bd1af2c786158e0d7b2
   languageName: node
   linkType: hard
 
@@ -2722,9 +2734,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/server@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/server@npm:2.35.0"
+"@sanity/server@npm:2.35.3":
+  version: 2.35.3
+  resolution: "@sanity/server@npm:2.35.3"
   dependencies:
     "@babel/core": ^7.11.6
     "@babel/plugin-proposal-class-properties": ^7.10.4
@@ -2735,10 +2747,10 @@ __metadata:
     "@sanity/css-loader": ^0.28.12
     "@sanity/eventsource": ^3.0.1
     "@sanity/hot-loader-react-dom": ^16.14.0
-    "@sanity/resolver": 2.35.0
+    "@sanity/resolver": 2.35.3
     "@sanity/util": 2.35.0
     "@sanity/webpack-dev-middleware": ^2.0.6
-    "@sanity/webpack-integration": 2.35.0
+    "@sanity/webpack-integration": 2.35.3
     babel-loader: ^8.0.6
     eventsource-polyfill: ^0.9.6
     express: ^4.16.1
@@ -2763,7 +2775,7 @@ __metadata:
     react-dom: ^16.9 || ^17
   bin:
     sanity-server: bin/sanity-server.js
-  checksum: b999f45be6023ae565ea3ca59a3988413ea3e8bb6e0f0a842d1a8e4a04ac0dcaed5a81d8586e19281e54e6cb503c01dc2cf73ea6f25cbd90913bcf82984eeb78
+  checksum: 9262421c047790f645e8fa45c1f36744e13912334ca8b8ff6ef4b6dfaeb65d18aa0dba80b795268cf81def53ee52e0e8e6b175b3583643f2f30686496168f5df
   languageName: node
   linkType: hard
 
@@ -2991,12 +3003,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/webpack-integration@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/webpack-integration@npm:2.35.0"
+"@sanity/webpack-integration@npm:2.35.3":
+  version: 2.35.3
+  resolution: "@sanity/webpack-integration@npm:2.35.3"
   dependencies:
-    "@sanity/resolver": 2.35.0
-    "@sanity/webpack-loader": 2.35.0
+    "@sanity/resolver": 2.35.3
+    "@sanity/webpack-loader": 2.35.3
     css-color-function: ^1.3.3
     dotenv: ^8.2.0
     fs.realpath: ^1.0.0
@@ -3011,18 +3023,18 @@ __metadata:
     resolve: ^1.3.3
   peerDependencies:
     webpack: ">= 1.0.0"
-  checksum: b2f61704f2d0867350a6507914257f9b1b41e853900e467872d01bbad8cb808bc6806b21276fe3e7063d07f36eb23735b58f6b85bbfbb19b9c26816feb2898a5
+  checksum: 8c340402b9109986e3a8b4c846e253e3f472f63c78fef9da0edeca560cfb934c7b2a1562a4c54b5cc79f107cc4a9f240c1350256831861783e0c100dc4223986
   languageName: node
   linkType: hard
 
-"@sanity/webpack-loader@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sanity/webpack-loader@npm:2.35.0"
+"@sanity/webpack-loader@npm:2.35.3":
+  version: 2.35.3
+  resolution: "@sanity/webpack-loader@npm:2.35.3"
   dependencies:
-    "@sanity/resolver": 2.35.0
+    "@sanity/resolver": 2.35.3
     "@sanity/util": 2.35.0
     loader-utils: 1.1.0
-  checksum: 553f9e822563416ae8b44c2002539e736aacd05e00b472dddb1bf74ee08abb529b88b04b447008ff91ab587f4678d7e8b5a4bb2c8a0e30a586e991fd78a029f0
+  checksum: a713621397e530a53626c499a0507267936147d846bbef6389aab64341231b94e7ec1fd22caf9a776350bb659d046906e48e9cb2b6c12f4d0b2861db976bae43
   languageName: node
   linkType: hard
 
@@ -10864,6 +10876,15 @@ __metadata:
   bin:
     json5: lib/cli.js
   checksum: 74b8a23b102a6f2bf2d224797ae553a75488b5adbaee9c9b6e5ab8b510a2fc6e38f876d4c77dea672d4014a44b2399e15f2051ac2b37b87f74c0c7602003543b
+  languageName: node
+  linkType: hard
+
+"json5@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "json5@npm:2.2.3"
+  bin:
+    json5: lib/cli.js
+  checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
   languageName: node
   linkType: hard
 

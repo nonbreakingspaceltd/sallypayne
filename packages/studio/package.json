@@ -17,7 +17,7 @@
     "@sanity/base": "2.35.0",
     "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/components": "2.14.0",
-    "@sanity/core": "2.35.0",
+    "@sanity/core": "2.36.1",
     "@sanity/dashboard": "^2.35.0",
     "@sanity/default-layout": "2.35.0",
     "@sanity/default-login": "2.35.0",
