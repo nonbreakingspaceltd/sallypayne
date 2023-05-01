@@ -19,7 +19,7 @@
   "devDependencies": {
     "@astrojs/renderer-vue": "0.3",
     "@sanity/image-url": "^1.0.1",
-    "astro": "0.22",
+    "astro": "2.3",
     "autoprefixer": "^10.4.12",
     "cssnano": "^5.1.13",
     "dotenv": "^16.0.3",
