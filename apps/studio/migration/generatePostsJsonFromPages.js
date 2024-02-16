@@ -79,7 +79,7 @@ async function buildJSONfromStream(stream) {
 
 async function main() {
   const filename =
-    '/Users/paul/Projects/Nonbreakingspace/Clients/SallyPayne/sallypayne/packages/studio/migration/data/sallypayne.WordPress.2021-09-25.xml';
+    '/Users/paul/Projects/Nonbreakingspace/Clients/SallyPayne/sallypayne/apps/studio/migration/data/sallypayne.WordPress.2021-09-25.xml';
   const stream = await readFile(path.resolve(filename));
   const output = await buildJSONfromStream(stream);
   // output.forEach((doc) => consola.log(JSON.stringify(doc, null, 0)));

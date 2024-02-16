@@ -1712,9 +1712,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sallypayne/studio@workspace:packages/studio":
+"@sallypayne/studio@workspace:apps/studio":
   version: 0.0.0-use.local
-  resolution: "@sallypayne/studio@workspace:packages/studio"
+  resolution: "@sallypayne/studio@workspace:apps/studio"
   dependencies:
     "@sanity/dashboard": 3.1.6
     "@sanity/vision": 3.29.1
@@ -1734,9 +1734,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sallypayne/web@workspace:packages/web":
+"@sallypayne/web@workspace:apps/web":
   version: 0.0.0-use.local
-  resolution: "@sallypayne/web@workspace:packages/web"
+  resolution: "@sallypayne/web@workspace:apps/web"
   dependencies:
     "@astrojs/vue": 4.0.8
     "@sanity/image-url": 1.0.2

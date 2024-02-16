@@ -36,9 +36,9 @@ coverage
 .netlify
 
 # migration
-packages/studio/migration/data
+apps/studio/migration/data
 
 # sanity
 *.tar.gz
-packages/studio/.sanity/runtime/app.js
-packages/studio/.sanity/runtime/index.html
+apps/studio/.sanity/runtime/app.js
+apps/studio/.sanity/runtime/index.html

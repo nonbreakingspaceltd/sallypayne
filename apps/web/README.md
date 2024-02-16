@@ -11,7 +11,7 @@
 
 ## Studio/CMS and Data Sources
 
-Content is sourced from Sanity - [/packages/studio](./packages/studio)
+Content is sourced from Sanity - [/apps/studio](./apps/studio)
 
 ### Sanity Config
 

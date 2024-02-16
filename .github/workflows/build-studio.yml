@@ -7,7 +7,7 @@ on:
       - main
   pull_request:
     paths-ignore:
-      - 'packages/web/**'
+      - 'apps/web/**'
 
 jobs:
   build:

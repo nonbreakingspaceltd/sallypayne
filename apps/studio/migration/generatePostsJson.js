@@ -5,8 +5,8 @@ import XmlStream from 'xml-stream';
 import slugify from 'slugify';
 import consola from 'consola';
 import parseDate from './lib/parseDate.js';
+import parseBody from './lib/parseBody.js';
 import grammarify from 'grammarify';
-import { format } from 'date-fns';
 
 function toSentenceCase(theString) {
   var newString = theString.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function (c) {
@@ -14,19 +14,17 @@ function toSentenceCase(theString) {
   });
   return newString;
 }
+
+// function generateCategoryId(id) {
+//   return `category-${id}`;
+// }
+
 function readFile(path = '') {
   if (!path) {
     return console.error('You need to set path');
   }
   return fs.createReadStream(path);
 }
-
-function processPostPath(slug, publishedDate) {
-  const parsedPublishDate = new Date(publishedDate);
-  const year = format(parsedPublishDate, 'yyyy');
-  const month = format(parsedPublishDate, 'MM');
-  return `/scrapbook/${year}/${month}/${slug}/`;
-};
 
 async function buildJSONfromStream(stream) {
   const xml = await new XmlStream(stream);
@@ -38,18 +36,29 @@ async function buildJSONfromStream(stream) {
     const posts = [];
     xml.collect('wp:postmeta');
     xml.on('endElement: item', (item) => {
-      const { title, link } = item;
+      const { title, description } = item;
       if (item['wp:post_type'] != 'post') {
         return;
       }
-      const originalPath = link.replace('https://sallypayne.com', '');
       const cleanTitle = grammarify.clean(toSentenceCase(title.replace(/\.+$/, '').trim())).replace(/\.$/, "");
-      const slug = slugify(cleanTitle, {
-        lower: true,
-        strict: true,
-      })
-      const newPath = processPostPath(slug, parseDate(item));
-      console.log(`${originalPath} ${newPath}`);
+      const parsedBody = parseBody(item['content:encoded']);
+      const post = {
+        _type: 'post',
+        title: cleanTitle,
+        slug: {
+          current: slugify(cleanTitle, {
+            lower: true,
+            strict: true,
+          }),
+        },
+        excerpt: description,
+        body: parsedBody,
+        publishedDate: parseDate(item),
+        meta: {
+          metaDescription: cleanTitle,
+        },
+      };
+      posts.push(post);
     });
 
     // there seems to be a bug where errors is not caught
@@ -67,9 +76,10 @@ async function buildJSONfromStream(stream) {
 
 async function main() {
   const filename =
-    '/Users/paul/Projects/Nonbreakingspace/Clients/SallyPayne/sallypayne/packages/studio/migration/data/sallypayne.WordPress.2021-09-17.xml';
+    '/Users/paul/Projects/Nonbreakingspace/Clients/SallyPayne/sallypayne/apps/studio/migration/data/sallypayne.WordPress.2021-09-17.xml';
   const stream = await readFile(path.resolve(filename));
   const output = await buildJSONfromStream(stream);
+  output.forEach((doc) => consola.log(JSON.stringify(doc, null, 0)));
 }
 
 main();
