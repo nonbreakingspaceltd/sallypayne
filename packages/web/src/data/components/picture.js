@@ -12,7 +12,7 @@ export const processPicture = (props, sizes) => {
     src: src.url(),
     width: hasDimensions ? defaultSize.width : asset.metadata.dimensions.width,
     height: hasDimensions ? defaultSize.height : asset.metadata.dimensions.height,
-    lqip: asset.metadata.lqip,
+    // lqip: asset.metadata.lqip,
     backgroundColor: asset.metadata.palette?.dominant?.background,
     sources: sizes.map(({ media, width, height }) => {
       let imageBase = src;

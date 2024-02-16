@@ -1,7 +1,6 @@
-import S from '@sanity/desk-tool/structure-builder';
 import { BiCog } from 'react-icons/bi';
 
-export default () =>
+export const desk = (S) =>
   S.list()
     .title('Content')
     .items([

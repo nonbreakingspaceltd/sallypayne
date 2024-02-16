@@ -1,5 +1,3 @@
-import createSchema from 'part:@sanity/base/schema-creator';
-import schemaTypes from 'all:part:@sanity/base/schema-type';
 // Documents
 import category from './documents/category';
 import page from './documents/page';
@@ -10,17 +8,14 @@ import meta from './objects/meta';
 import imageExtended from './objects/imageExtended';
 import videoYoutube from './objects/videoYoutube';
 
-export default createSchema({
-  name: 'default',
-  types: schemaTypes.concat([
-    // Documents
-    category,
-    page,
-    post,
-    settings,
-    // Objects
-    meta,
-    imageExtended,
-    videoYoutube,
-  ]),
-});
+export const schemas = [
+  // Documents
+  category,
+  page,
+  post,
+  settings,
+  // Objects
+  meta,
+  imageExtended,
+  videoYoutube,
+];

@@ -1,7 +1,11 @@
+<script setup>
+import imgSrc from './home-20230203.svg?url';
+</script>
+
 <template>
   <div class="sp-c-home-media">
     <img
-      src="/images/home-20230203.svg"
+      :src="imgSrc"
       class="sp-c-home-media__image"
       alt="Illustration of Sally Payne style characters saying 'Hello'"
       width="2000"
@@ -10,23 +14,7 @@
   </div>
 </template>
 
-<script>
-// import { dragscrollNext } from 'vue-dragscroll';
-
-export default {
-  name: 'HomeCanvas',
-  // directives: {
-  //   dragscroll: dragscrollNext,
-  // },
-  // computed: {
-  //   isTouch: () => {
-  //     return 'ontouchstart' in window;
-  //   },
-  // },
-};
-</script>
-
-<style lang="postcss">
+<style lang="pcss">
 @import '../../assets/styles/tools';
 
 .sp-c-home-media {

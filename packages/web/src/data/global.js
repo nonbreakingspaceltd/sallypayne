@@ -37,7 +37,7 @@ export function getNavigation(currentPath) {
     },
   ];
   return routes.map((route) => {
-    if (currentPath.includes(route.href)) {
+    if (currentPath?.includes(route.href)) {
       route.current = true
     }
     return route;

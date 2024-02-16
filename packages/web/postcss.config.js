@@ -1,17 +1,26 @@
-require('dotenv/config');
+import 'dotenv/config';
+
+import postcssImport from 'postcss-import';
+import postcssAtRulesVariables from 'postcss-at-rules-variables';
+import postcssMixins from 'postcss-mixins';
+import postcssNested from 'postcss-nested';
+import postcssCustomMedia from 'postcss-custom-media';
+import postcssPxtorem from 'postcss-pxtorem';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 
 const plugins = [
-  require('postcss-import'),
-  require('postcss-at-rules-variables'),
-  require('postcss-mixins'),
-  require('postcss-nested'),
-  require('postcss-custom-media'),
-  require('postcss-pxtorem')({
+  postcssImport,
+  postcssAtRulesVariables,
+  postcssMixins,
+  postcssNested,
+  postcssCustomMedia,
+  postcssPxtorem({
     propWhiteList: [],
   }),
-  require('autoprefixer'),
+  autoprefixer,
 ];
 
-module.exports = {
-  plugins: process.env.MINIFIED_CSS ? [...plugins, require('cssnano')] : plugins,
+export default {
+  plugins: process.env.MINIFIED_CSS ? [...plugins, cssnano] : plugins,
 };

@@ -24,16 +24,14 @@ const { title, price, description, url, image, meta } = Astro.props;
         <div class="sp-l-product__actions">
           <EtsyButton href={url} />
         </div>
-        <div class="sp-l-product__body sp-l-flow">
-          {description}
-        </div>
+        <div class="sp-l-product__body sp-l-flow" set:html={description} />
       </div>
     </div>
     <BackLink label="Back to shop" path="/shop" />
   </article>
 </LayoutBase>
 
-<style lang="postcss" global>
+<style lang="postcss" is:global>
 @import '../assets/styles/tools';
 
 .sp-l-product {

@@ -8,7 +8,7 @@ const { title, image, body, meta, variant } = Astro.props;
 <LayoutBase variant={variant} title={title} meta={meta}>
   <div class="sp-l-page">
     <div class="sp-l-page__media">
-      <Picture {...image} class="sp-l-page__media__picture" loading="eager" />
+      <Picture {...image} class="sp-l-page__media__picture" loading="eager" variants={['cover']} />
     </div>
     <div class="sp-l-page__body">
       <div class="sp-l-page__body__inner sp-l-flow">
@@ -20,7 +20,7 @@ const { title, image, body, meta, variant } = Astro.props;
   </div>
 </LayoutBase>
 
-<style lang="postcss" global>
+<style lang="postcss" is:global>
 @import '../assets/styles/tools';
 
 .sp-l-page {

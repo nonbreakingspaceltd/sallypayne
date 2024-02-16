@@ -1,6 +1,11 @@
-const getProducts = require('../src/data/products').getProducts;
-const fs = require('fs-extra');
-const path = require('path');
+import { getProducts } from '../src/data/products';
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 async function productsJson() {
   const products = await getProducts(true);

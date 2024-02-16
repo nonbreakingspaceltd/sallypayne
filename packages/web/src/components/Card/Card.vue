@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 @import '../../assets/styles/tools';
 
 .sp-c-card {

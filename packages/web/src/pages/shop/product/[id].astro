@@ -7,7 +7,6 @@ export async function getStaticPaths() {
   return getProducts();
 };
 
-const { id } = Astro.request.params;
 const {
   title,
   price,

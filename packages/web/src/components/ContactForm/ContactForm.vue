@@ -1,7 +1,7 @@
 <template>
   <form
     action="/contact"
-    class="c-contact-form"
+    class="sp-c-contact-form"
     name="contact"
     method="POST"
     netlify-honeypot="contact-form-honeypot-field"
@@ -13,21 +13,21 @@
       <label for="contact-form-honeypot-field">Ingnore this field if you're human:</label>
       <input name="contact-form-honeypot-field" />
     </p>
-    <div class="c-contact-form__group">
-      <label class="c-contact-form__label" for="formName">Full Name</label>
-      <input class="c-contact-form__input" type="text" name="name" id="formName" required />
+    <div class="sp-c-contact-form__group">
+      <label class="sp-c-contact-form__label" for="formName">Full Name</label>
+      <input class="sp-c-contact-form__input" type="text" name="name" id="formName" required />
     </div>
-    <div class="c-contact-form__group">
-      <label class="c-contact-form__label" for="formEmail">Email Address</label>
-      <input class="c-contact-form__input" type="email" name="email" id="formEmail" required />
+    <div class="sp-c-contact-form__group">
+      <label class="sp-c-contact-form__label" for="formEmail">Email Address</label>
+      <input class="sp-c-contact-form__input" type="email" name="email" id="formEmail" required />
     </div>
-    <div class="c-contact-form__group">
-      <label class="c-contact-form__label" for="formMessage">What would you like to say?</label>
-      <textarea class="c-contact-form__textarea" name="message" id="formMessage" required />
+    <div class="sp-c-contact-form__group">
+      <label class="sp-c-contact-form__label" for="formMessage">What would you like to say?</label>
+      <textarea class="sp-c-contact-form__textarea" name="message" id="formMessage" required />
     </div>
-    <div class="c-contact-form__group" data-netlify-recaptcha="true"></div>
-    <div class="c-contact-form__actions">
-      <Button type="submit" class="c-contact-form__submit" :variants="['color-a']">
+    <div class="sp-c-contact-form__group" data-netlify-recaptcha="true"></div>
+    <div class="sp-c-contact-form__actions">
+      <Button type="submit" class="sp-c-contact-form__submit" :variants="['color-a']">
         Send your message
       </Button>
     </div>
@@ -44,8 +44,8 @@ export default {
 };
 </script>
 
-<style lang="postcss">
-.c-contact-form {
+<style lang="pcss">
+.sp-c-contact-form {
   max-width: 800px;
   margin-bottom: var(--space-y-6);
 
@@ -54,7 +54,7 @@ export default {
   }
 }
 
-.c-contact-form__group {
+.sp-c-contact-form__group {
   padding-bottom: var(--space-y-4);
 
   @media (--mq-md) {
@@ -62,7 +62,7 @@ export default {
   }
 }
 
-.c-contact-form__label {
+.sp-c-contact-form__label {
   display: block;
   padding-bottom: var(--space-y-1);
   font-size: 16px;
@@ -74,8 +74,8 @@ export default {
   }
 }
 
-.c-contact-form__input,
-.c-contact-form__textarea {
+.sp-c-contact-form__input,
+.sp-c-contact-form__textarea {
   width: 100%;
   appearance: none;
   border: 4px dotted #ddd;
@@ -91,7 +91,7 @@ export default {
   }
 }
 
-.c-contact-form__textarea {
+.sp-c-contact-form__textarea {
   height: 80px;
   resize: vertical;
 }

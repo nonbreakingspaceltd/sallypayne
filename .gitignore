@@ -40,3 +40,5 @@ packages/studio/migration/data
 
 # sanity
 *.tar.gz
+packages/studio/.sanity/runtime/app.js
+packages/studio/.sanity/runtime/index.html

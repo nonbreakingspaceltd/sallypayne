@@ -5,7 +5,7 @@
         'background-image': lqip && `url(${lqip})`,
         'background-color': backgroundColor,
       }"
-      class="c-picture__picture"
+      class="sp-c-picture__picture"
     >
       <template v-if="sources">
         <source
@@ -21,11 +21,11 @@
         :alt="alt"
         :width="width"
         :height="height"
-        class="c-picture__image"
+        class="sp-c-picture__image"
         :loading="loading"
       />
     </picture>
-    <figcaption v-if="caption" class="c-picture__caption">{{ caption }}</figcaption>
+    <figcaption v-if="caption" class="sp-c-picture__caption">{{ caption }}</figcaption>
   </component>
 </template>
 
@@ -83,14 +83,14 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 @import '../../assets/styles/tools';
 
-.c-picture {
+.sp-c-picture {
   display: block;
 }
 
-.c-picture__picture {
+.sp-c-picture__picture {
   display: block;
   margin: 0;
   background-size: cover;
@@ -98,15 +98,19 @@ export default {
   z-index: 1;
   position: relative;
 }
-
-.c-picture__image {
+.sp-c-picture__image {
   display: block;
   height: auto;
   width: 100%;
   aspect-ratio: attr(width) / attr(height);
 }
 
-.c-picture__caption {
+.sp-c-picture--cover .sp-c-picture__image,
+.sp-c-picture--cover .sp-c-picture__picture {
+  object-fit: cover;
+}
+
+.sp-c-picture__caption {
   display: block;
   z-index: 2;
   bottom: 0;
