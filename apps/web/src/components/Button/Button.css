@@ -23,21 +23,15 @@
 
   /* Text */
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-6);
   font-weight: 700;
   text-align: center;
   line-height: calc(var(--baseline) * 6);
   white-space: nowrap;
 
-  @media (--mq-lgg) {
+  @media (--mq-lg) {
+    font-size: var(--font-size-base);
     line-height: calc(var(--baseline) * 7);
-  }
-
-  &:hover,
-  &:active {
-  }
-
-  &:focus {
   }
 
   &--link {
@@ -59,53 +53,9 @@
   }
 
   &--color-a {
-    background-color: var(--color-brand-peppermint-green);
-    color: var(--color-black);
-  }
-
-  &--color-b {
-    background-color: var(--color-brand-yellow);
-    color: var(--color-black);
-  }
-
-  &--color-c {
-    background-color: var(--color-brand-pink);
-    color: var(--color-black);
-  }
-
-  &--color-d {
-    background-color: var(--color-brand-dark-blue);
+    background-color: var(--color-brand-danube);
+    border-color: var(--color-brand-danube);
     color: var(--color-white);
-  }
-
-  &--color-e {
-    background-color: var(--color-brand-light-pink);
-    color: var(--color-black);
-  }
-
-  &--color-f {
-    background-color: var(--color-brand-light-green);
-    color: var(--color-black);
-  }
-
-  &--color-g {
-    background-color: var(--color-brand-light-blue);
-    color: var(--color-black);
-  }
-
-  &--color-h {
-    background-color: var(--color-brand-blush);
-    color: var(--color-black);
-  }
-
-  &--block {
-    width: 100%;
-  }
-
-  &.disabled,
-  &[disabled] {
-    cursor: default;
-    opacity: 0.3;
   }
 
   &--block {
@@ -115,10 +65,10 @@
     padding-right: 0;
   }
 
-  &--color-a {
-    background-color: var(--color-brand-danube);
-    border-color: var(--color-brand-danube);
-    color: var(--color-white);
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    opacity: 0.3;
   }
 }
 

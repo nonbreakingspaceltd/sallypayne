@@ -1,0 +1,33 @@
+---
+import Button from '../Button';
+import './CookieBanner.css';
+
+import BiscuitsImage from '../../assets/images/biscuits.svg?raw';
+---
+
+<div
+  aria-label="Cookies on Sally Payne"
+  role="region"
+  class="sp-c-cookie-banner"
+  id="cookie-banner"
+>
+  <span class="sp-c-cookie-nanner__image">
+    <Fragment set:html={BiscuitsImage} />
+  </span>
+  <p>
+    I'd like to use cookies so I can understand how you use my website and
+    make improvements.
+  </p>
+  <div class="sp-c-cookie-banner__actions">
+    <Button
+      type="button"
+      id="cookies-action"
+      class="sp-c-cookie-banner__button"
+      variants={['invert']}
+    >
+      Accept cookies and hide this message
+    </Button>
+  </div>
+</div>
+
+<script src="./CookieBanner.client.ts"></script>
