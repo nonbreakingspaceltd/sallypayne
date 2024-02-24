@@ -20,6 +20,8 @@
     "@astrojs/vue": "4.0.8",
     "@sanity/image-url": "1.0.2",
     "astro": "4.4.4",
+    "astro-compress": "2.2.10",
+    "astro-purgecss": "4.1.0",
     "autoprefixer": "10.4.17",
     "cssnano": "6.0.4",
     "dotenv": "16.4.5",

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "sourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowImportingTsExtensions": false,
+    "incremental": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "preserve",
+    "noEmit": false,
+    "outDir": "dist",
+    "verbatimModuleSyntax": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "#uco/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist", "**/*.stories.ts", "**/check.d.ts"]
+}
