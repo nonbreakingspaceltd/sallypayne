@@ -1581,7 +1581,7 @@ __metadata:
   dependencies:
     "@astrojs/vue": "npm:4.0.8"
     "@sanity/image-url": "npm:1.0.2"
-    astro: "npm:4.4.3"
+    astro: "npm:4.4.4"
     autoprefixer: "npm:10.4.17"
     axios: "npm:1.6.7"
     axios-cache-interceptor: "npm:1.5.1"
@@ -2898,9 +2898,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.4.3":
-  version: 4.4.3
-  resolution: "astro@npm:4.4.3"
+"astro@npm:4.4.4":
+  version: 4.4.4
+  resolution: "astro@npm:4.4.4"
   dependencies:
     "@astrojs/compiler": "npm:^2.5.3"
     "@astrojs/internal-helpers": "npm:0.2.1"
@@ -2972,7 +2972,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/51229e79ed57026cc59d22c5dc13613381911f3cfe676e9d3b3346ca9eb05fa9156a8f72c04622f13997db1be5d7ab62b4a9afa6911d95e3a3924f1caa97836a
+  checksum: 10/1e48ffa62febf7f029fda898b9b02bc01d73ce90e300f317e840da42eee376fb4882ee0d177da6bdbd89d1c551f47584c5961ef631cafbb2f904575f59a54d21
   languageName: node
   linkType: hard
 
