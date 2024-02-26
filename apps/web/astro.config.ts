@@ -6,7 +6,7 @@ import compress from 'astro-compress';
 import purgecss from 'astro-purgecss';
 import { defineConfig } from 'astro/config';
 
-const devPort = 3000;
+const devPort = 4321;
 
 function siteUrl() {
   let url;
@@ -22,6 +22,9 @@ export default defineConfig({
   site: siteUrl(),
   build: {
     assets: 'assets',
+  },
+  server: {
+    port: devPort,
   },
   integrations: [
     vue(),
