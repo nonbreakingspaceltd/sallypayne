@@ -1752,7 +1752,7 @@ __metadata:
   resolution: "@sallypayne/studio@workspace:apps/studio"
   dependencies:
     "@sanity/dashboard": "npm:3.1.6"
-    "@sanity/vision": "npm:3.30.0"
+    "@sanity/vision": "npm:3.30.1"
     consola: "npm:3.2.3"
     date-fns: "npm:3.3.1"
     jsdom: "npm:24.0.0"
@@ -2213,9 +2213,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/vision@npm:3.30.0":
-  version: 3.30.0
-  resolution: "@sanity/vision@npm:3.30.0"
+"@sanity/vision@npm:3.30.1":
+  version: 3.30.1
+  resolution: "@sanity/vision@npm:3.30.1"
   dependencies:
     "@codemirror/autocomplete": "npm:^6.1.0"
     "@codemirror/commands": "npm:^6.0.1"
@@ -2239,7 +2239,7 @@ __metadata:
   peerDependencies:
     react: ^18
     styled-components: ^5.2 || ^6
-  checksum: 10/57b22f00e75393e087ad26d7e4c35f93df5e7441b75dd37948afba52d7be5484519a52df2bff3652a3355ce396267a40690f338ddbac7976859a07afd7ce5a03
+  checksum: 10/9a9c6ce66d58dfe74055e4df36f22e12119a48f0b49d2ba839c5c72c4a6e4cf9766f1cdb3faf45a542f36988e39bef464f8f6b898547defac46f937e7f83b9a7
   languageName: node
   linkType: hard
 
