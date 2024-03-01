@@ -19,7 +19,7 @@
   "devDependencies": {
     "@astrojs/vue": "4.0.8",
     "@sanity/image-url": "1.0.2",
-    "astro": "4.4.5",
+    "astro": "4.4.6",
     "astro-compress": "2.2.11",
     "astro-purgecss": "4.1.0",
     "autoprefixer": "10.4.17",

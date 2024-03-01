@@ -1775,7 +1775,7 @@ __metadata:
   dependencies:
     "@astrojs/vue": "npm:4.0.8"
     "@sanity/image-url": "npm:1.0.2"
-    astro: "npm:4.4.5"
+    astro: "npm:4.4.6"
     astro-compress: "npm:2.2.11"
     astro-purgecss: "npm:4.1.0"
     autoprefixer: "npm:10.4.17"
@@ -3253,9 +3253,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.4.5":
-  version: 4.4.5
-  resolution: "astro@npm:4.4.5"
+"astro@npm:4.4.6":
+  version: 4.4.6
+  resolution: "astro@npm:4.4.6"
   dependencies:
     "@astrojs/compiler": "npm:^2.5.3"
     "@astrojs/internal-helpers": "npm:0.2.1"
@@ -3327,7 +3327,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/f067a416acf36feb1f8cc2980cd7fc27dc516b488fa7691eddb5d5bc0c0b09c11c305e62e83178c551635071efa494e1ac0bb7f8c67d8f5cd61c9bf80ce6838b
+  checksum: 10/1f21a96b71e9ea0df0e6e2db3db249f7a5cf2d161f5a51fb8bff164637755d2b20194e3370af8fe700423dff451350290e2a3a2180d5d72a540b35196caac32a
   languageName: node
   linkType: hard
 
