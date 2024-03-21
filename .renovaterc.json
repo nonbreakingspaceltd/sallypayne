@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "config:base",
+    ":pinOnlyDevDependencies",
+    "schedule:weekly",
+    ":dependencyDashboard",
+    {
+      "groupName": "all dependencies",
+      "separateMajorMinor": true,
+      "groupSlug": "all",
+      "packageRules": [
+        {
+          "packagePatterns": ["*"],
+          "groupName": "all dependencies",
+          "groupSlug": "all"
+        }
+      ],
+      "lockFileMaintenance": {
+        "enabled": true
+      },
+      "major": {
+        "dependencyDashboardApproval": true
+      }
+    }
+  ]
+}
