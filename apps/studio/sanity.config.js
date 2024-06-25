@@ -34,6 +34,24 @@ export default defineConfig({
     }),
     visionTool(),
   ],
+  scheduledPublishing: {
+    enabled: false,
+  },
+  tasks: {
+    enabled: false,
+  },
+  document: {
+    comments: {
+      enabled: false,
+    },
+    newDocumentOptions: (prev, { creationContext }) => {
+      const { type } = creationContext;
+      if (type === 'global') {
+        return prev.filter((template) => template.templateId !== 'settings');
+      }
+      return prev;
+    },
+  },
   tools: (prev) => {
     if (import.meta.env.DEV) {
       return prev;
