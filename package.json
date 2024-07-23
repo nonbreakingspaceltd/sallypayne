@@ -11,6 +11,6 @@
     "reset": "yarn reset:node-modules && yarn reset:yarn-lock",
     "reset:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "reset:yarn-lock": "find . -name 'yarn.lock' -type f -prune -exec rm -rf '{}' +",
-    "upgrade": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager yarn"
+    "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager yarn"
   }
 }
