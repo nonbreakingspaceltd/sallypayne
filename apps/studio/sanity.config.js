@@ -1,7 +1,7 @@
 // sanity.config.js
 import { defineConfig } from 'sanity';
 import { schemas } from './schemas';
-import { desk } from './desk';
+import { structure } from './structure';
 import { visionTool } from '@sanity/vision';
 import { structureTool } from 'sanity/structure';
 import { dashboardTool } from '@sanity/dashboard';
@@ -30,7 +30,7 @@ export default defineConfig({
       ],
     }),
     structureTool({
-      structure: desk,
+      structure,
     }),
     visionTool(),
   ],

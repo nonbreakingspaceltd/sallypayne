@@ -1,6 +1,6 @@
 import { BiCog } from 'react-icons/bi';
 
-export const desk = (S) =>
+export const structure = (S) =>
   S.list()
     .title('Content')
     .items([
@@ -9,8 +9,8 @@ export const desk = (S) =>
         .icon(BiCog)
         .child(S.document().schemaType('settings').documentId('settings')),
       S.divider(),
-      S.documentTypeListItem('page').title('Pages'),
       S.documentTypeListItem('post').title('Posts'),
+      S.documentTypeListItem('page').title('Pages'),
       S.divider(),
       S.documentTypeListItem('category').title('Categories'),
     ]);
