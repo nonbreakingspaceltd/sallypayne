@@ -51,5 +51,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build and deploy studio
-        run: yarn workspace @sallypayne/studio deploy
+      - name: Build studio
+        run: yarn workspace @sallypayne/studio build
