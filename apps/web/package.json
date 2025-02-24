@@ -20,7 +20,7 @@
     "@astrojs/vue": "4.5.2",
     "@sanity/image-url": "1.0.2",
     "astro": "4.16.7",
-    "astro-compress": "2.3.5",
+    "astro-compress": "2.3.6",
     "astro-purgecss": "4.6.1",
     "autoprefixer": "10.4.20",
     "axios": "1.7.7",
