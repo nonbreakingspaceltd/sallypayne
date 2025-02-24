@@ -36,7 +36,7 @@
     "html-entities": "2.5.2",
     "htmlnano": "2.1.1",
     "modern-normalize": "3.0.1",
-    "postcss": "8.4.47",
+    "postcss": "8.5.3",
     "postcss-at-rules-variables": "0.3.0",
     "postcss-custom-media": "11.0.4",
     "postcss-import": "16.1.0",
