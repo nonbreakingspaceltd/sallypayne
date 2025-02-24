@@ -23,7 +23,7 @@
     "astro-compress": "2.3.5",
     "astro-purgecss": "4.6.1",
     "autoprefixer": "10.4.20",
-    "axios": "1.7.7",
+    "axios": "1.7.9",
     "axios-cache-interceptor": "1.6.2",
     "classnames": "2.5.1",
     "cross-fetch": "4.0.0",
