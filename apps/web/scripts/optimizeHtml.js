@@ -1,6 +1,6 @@
-import fs from 'node:fs';
 import glob from 'node:glob';
 import path from 'node:path';
+import fs from 'fs-extra';
 import htmlnano from 'htmlnano';
 import kleur from 'kleur';
 
