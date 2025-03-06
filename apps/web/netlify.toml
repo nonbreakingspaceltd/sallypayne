@@ -1,3 +1,10 @@
 [build]
+base = "apps/web"
 command = "pnpm build"
-publish = "dist/"
+publish = "dist"
+
+[build.environment]
+COREPACK_INTEGRITY_KEYS = "0"
+NODE_ENV = "production"
+NODE_VERSION = "22"
+PNPM_FLAGS = "--filter=sanity-studio --shamefully-hoist --frozen-lockfile"
