@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Picture from '../Picture';
 import Button from '../Button';
+import Picture from '../Picture';
 
 export default {
   name: 'Video',

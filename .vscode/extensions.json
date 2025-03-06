@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "alexkrechik.cucumberautocomplete",
+    "biomejs.biome",
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "foxundermoon.shell-format",
+    "github.vscode-github-actions",
+    "gruntfuggly.todo-tree",
+    "ms-playwright.playwright",
+    "vunguyentuan.vscode-css-variables",
+    "wayou.vscode-todo-highlight"
+  ]
+}

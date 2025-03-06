@@ -52,9 +52,9 @@
 
 <script>
 import IconFacebook from '../../assets/icons/facebook.svg?component';
-import IconTwitter from '../../assets/icons/twitter.svg?component';
 import IconInstagram from '../../assets/icons/instagram.svg?component';
 import IconPinterest from '../../assets/icons/pinterest.svg?component';
+import IconTwitter from '../../assets/icons/twitter.svg?component';
 
 export default {
   components: {

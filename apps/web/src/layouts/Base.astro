@@ -1,6 +1,6 @@
 ---
-import Header from '../components/Header/Header.vue';
-import Footer from '../components/Footer/Footer.vue';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import { getNavigation, getSiteSettings } from '../data/global';
 import '../assets/styles/global.css';
 import { CookieBanner } from '../components/CookieBanner';
@@ -103,7 +103,7 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 
     <!-- [additional preconnects/preloads] -->
 
-    <script id="js-head">
+    <script id="js-head" is:inline>
       document.documentElement.classList.add('js');
     </script>
 

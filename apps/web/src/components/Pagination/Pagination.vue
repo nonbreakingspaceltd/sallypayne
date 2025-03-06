@@ -80,10 +80,10 @@ export default {
   },
   computed: {
     pages() {
-      let items = [];
+      const items = [];
 
       for (let i = 0; i < this.totalPage; i++) {
-        let page = {
+        const page = {
           content: i + 1,
           page: i + 1,
           show: false,
@@ -92,13 +92,13 @@ export default {
         items[i] = page;
       }
 
-      let page1 = {
+      const page1 = {
         content: '…',
         page: this.currentPage - this.pageRange + 1,
         show: false,
       };
 
-      let page2 = {
+      const page2 = {
         content: '…',
         page: this.currentPage + this.pageRange - 1,
         show: false,
@@ -108,13 +108,19 @@ export default {
       items.splice(items.length - 1, 0, page2);
 
       for (let i = 0; i < items.length; i++) {
-        if (i == 0 || i == items.length - 1) items[i].show = true;
+        if (i === 0 || i === items.length - 1) {
+          items[i].show = true;
+        }
 
         if (this.currentPage <= this.pageRange) {
-          if (this.currentPage == this.pageRange) {
-            if (i >= 2 && i <= this.pageRange + 1) items[i].show = true;
+          if (this.currentPage === this.pageRange) {
+            if (i >= 2 && i <= this.pageRange + 1) {
+              items[i].show = true;
+            }
           } else {
-            if (i >= 2 && i <= this.pageRange) items[i].show = true;
+            if (i >= 2 && i <= this.pageRange) {
+              items[i].show = true;
+            }
           }
 
           items[items.length - 2].show = true;
@@ -140,8 +146,8 @@ export default {
 
       return items;
     },
-    disablePrev: ({ currentPage }) => currentPage == 1,
-    disableNext: ({ currentPage, totalPage }) => currentPage == totalPage,
+    disablePrev: ({ currentPage }) => currentPage === 1,
+    disableNext: ({ currentPage, totalPage }) => currentPage === totalPage,
   },
   methods: {
     href(page) {

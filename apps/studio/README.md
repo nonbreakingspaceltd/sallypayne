@@ -6,23 +6,23 @@ Sanity Content Studio, an open source real-time content editing environment conn
 
 ## Commands
 
-- `yarn start` – Spins up development environment
-- `yarn build` – Builds production ready code
-- `yarn deploy` – Deploys studio to Sanity
+- `pnpm start` – Spins up development environment
+- `pnpm build` – Builds production ready code
+- `pnpm deploy` – Deploys studio to Sanity
 
 ## Sanity Config
 
 By default, Sanity will use the default dataset specified in the configured Sanity studio settings file (`sanity.json` at the root of this package). To override this, create a `.env.development` file at the root of this package:
 
-```
+```bash
 SANITY_STUDIO_API_DATASET=<string>
 ```
 
-See https://www.sanity.io/docs/studio-environment-variables for more information.
+See [Studio Environment Variables](https://www.sanity.io/docs/studio-environment-variables) for more information.
 
 ## URL's
 
-- Production Studio - https://sallypayne.sanity.studio
+- Production Studio - <https://sallypayne.sanity.studio>
 
 ## Suggested Reading
 

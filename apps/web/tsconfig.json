@@ -2,38 +2,30 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "module": "ESNext",
     "target": "ESNext",
-    "sourceMap": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "useDefineForClassFields": true,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "allowImportingTsExtensions": false,
-    "incremental": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "strict": true,
     "jsx": "preserve",
-    "noEmit": false,
-    "outDir": "dist",
-    "verbatimModuleSyntax": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "strictNullChecks": true,
-    "baseUrl": ".",
-    "paths": {
-      "#uco/*": ["./src/*"]
-    }
+    "verbatimModuleSyntax": true
   },
-  "include": ["**/*"],
-  "exclude": ["node_modules", "dist", "**/*.stories.ts", "**/check.d.ts"]
+  "include": [
+    ".astro/types.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.astro",
+    "**/*.vue"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

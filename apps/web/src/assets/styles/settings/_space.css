@@ -28,5 +28,4 @@
   --space-x-10: calc(10 * var(--baseline));
   --space-x-11: calc(11 * var(--baseline));
   --space-x-12: calc(12 * var(--baseline));
-
 }

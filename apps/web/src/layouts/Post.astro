@@ -1,10 +1,11 @@
 ---
+import BackLink from '../components/BackLink';
+import SanityBlocks from '../components/SanityBlocks';
 import LayoutBase from './Base.astro';
-import BackLink from '../components/BackLink/BackLink.vue';
-import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
 
 const { title, publishedDate, body, meta } = Astro.props;
 ---
+
 <LayoutBase variant="post" title={title} meta={meta}>
   <article class="sp-l-post">
     <div class="sp-l-post__inner">

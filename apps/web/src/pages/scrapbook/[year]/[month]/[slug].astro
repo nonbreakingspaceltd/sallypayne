@@ -1,11 +1,15 @@
 ---
-import LayoutPost from '../../../../layouts/Post.astro';
+import type { PagePayload, PageProps } from '../../../../../types';
 import { getPosts } from '../../../../data/posts';
+import LayoutPost from '../../../../layouts/Post.astro';
 
-export async function getStaticPaths() {
+type Props = PageProps;
+
+export async function getStaticPaths(): Promise<PagePayload[]> {
   return getPosts(Astro.site);
-};
+}
 
 const { title, body, publishedDate, meta } = Astro.props;
 ---
+
 <LayoutPost variant="post" title={title} meta={meta} publishedDate={publishedDate} body={body} />

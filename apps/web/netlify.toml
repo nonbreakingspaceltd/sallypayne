@@ -1,15 +1,3 @@
 [build]
-  command = "yarn build"
-  publish = "dist/"
-
-  [build.environment]
-    # Match version in monorepo root .yarnrc.yml
-    YARN_VERSION = "4.1.0"
-    NETLIFY_USE_YARN = "true"
-    NETLIFY_YARN_WORKSPACES = "true"
-    YARN_ENABLE_GLOBAL_CACHE = "true"
-    YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
-    CYPRESS_INSTALL_BINARY = "0"
-    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "0"
-    NODE_ENV = "production"
-    PYTHON_VERSION = "3.8"
+command = "pnpm build"
+publish = "dist/"

@@ -1,8 +1,8 @@
-const htmlnano = require('htmlnano');
-const fs = require('fs-extra');
-const glob = require('glob');
-const kleur = require('kleur');
-const path = require('path');
+import fs from 'node:fs';
+import glob from 'node:glob';
+import path from 'node:path';
+import htmlnano from 'htmlnano';
+import kleur from 'kleur';
 
 // relative-to-package root build output folder
 const root = path.resolve(__dirname, '../../');
@@ -32,21 +32,23 @@ const htmlnanoOptions = {
   removeOptionalTags: false,
 };
 
-glob('**/*.html', { root: dist }, (err, files) => {
+glob('**/*.html', { root: dist }, async (err, files) => {
   if (err) {
     throw err;
   }
 
-  files.forEach(async (filePath) => {
-    let html = await fs.readFileSync(filePath, 'utf-8');
+  for (const filePath of files) {
+    (async () => {
+      const html = fs.readFileSync(filePath, 'utf-8');
 
-    const optimized = await htmlnano.process(html, htmlnanoOptions);
-    await fs.outputFile(filePath, optimized.html);
+      const optimized = await htmlnano.process(html, htmlnanoOptions);
+      await fs.outputFile(filePath, optimized.html);
 
-    console.log(
-      `[${kleur.bold().blue('transform:html')}]`,
-      kleur.green('✔'),
-      filePath.split(dist).pop()
-    );
-  });
+      console.log(
+        `[${kleur.bold().blue('transform:html')}]`,
+        kleur.green('✔'),
+        filePath.split(dist).pop(),
+      );
+    })();
+  }
 });
