@@ -34,5 +34,5 @@ Every pull request (PR) will trigger a build, allowing reviewers to test work. T
 If for any instance you hit issues with development builds etc. try:
 
 - Run `pnpm install` - it may be that packages have not been symlinked or you're missing new packages.
-- Sometimes node packages can get mixed up. Start fresh. Remove all `node_modules` and `yarn.lock` files. This can be done by running the script `pnpm reset`.
+- Sometimes node packages can get mixed up. Start fresh. Remove all `node_modules` and `pnpm-lock.yml` files. This can be done by running the script `pnpm reset`.
 - Check the error stack - Is there an issue with the code or could it be an issue with the content source?
