@@ -6,17 +6,36 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "05:00"
+    open-pull-requests-limit: 1
+    rebase-strategy: auto
+    commit-message:
+      prefix: chore
+    ignore:
+      - dependency-name: "react"
+        versions: ["19.x"]
+      - dependency-name: "react-dom"
+        versions: ["19.x"]
+      - dependency-name: "react-is"
+        versions: ["19.x"]
+      - dependency-name: "@types/react"
+        versions: ["19.x"]
+      - dependency-name: "@types/react-dom"
+        versions: ["19.x"]
     groups:
       monorepo-dependencies:
         patterns:
           - "*"
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'weekly'
-      day: 'monday'
-      time: '05:00'
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+    open-pull-requests-limit: 1
+    rebase-strategy: auto
+    commit-message:
+      prefix: chore
     groups:
       github-actions:
         patterns:
-          - '*'
+          - "*"
