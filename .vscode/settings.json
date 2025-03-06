@@ -1,0 +1,102 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[feature]": {
+    "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "bluebrown.yamlfmt"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "biome.enabled": true,
+  "bun.debugTerminal.enabled": true,
+  "bun.debugTerminal.stopOnEntry": false,
+  "bun.test.filePattern": "**/*{.test.,.spec.,_test_,_spec_}{js,ts,tsx,jsx,mts,cts}",
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
+  "git.inputValidationLength": 100,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        ".ncurc",
+        ".ncurc.json"
+      ],
+      "url": "https://raw.githubusercontent.com/raineorshine/npm-check-updates/main/src/types/RunOptions.json"
+    }
+  ],
+  "prettier.enable": false,
+  "search.exclude": {
+    "bunfig.toml": true
+  },
+  "terminal.integrated.env.linux": {
+    "COREPACK_ENABLE_AUTO_PIN": "0",
+    "COREPACK_ENABLE_STRICT": "0"
+  },
+  "terminal.integrated.env.osx": {
+    "COREPACK_ENABLE_AUTO_PIN": "0",
+    "COREPACK_ENABLE_STRICT": "0"
+  },
+  "terminal.integrated.env.windows": {
+    "COREPACK_ENABLE_AUTO_PIN": "0",
+    "COREPACK_ENABLE_STRICT": "0"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/raineorshine/npm-check-updates/main/src/types/RunOptions.json": [
+      ".ncurc.yml",
+      ".ncurc.yaml"
+    ]
+  }
+}

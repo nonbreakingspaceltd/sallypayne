@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Button from '../Button';
 import IconEtsy from '../../assets/icons/etsy.svg?component';
+import Button from '../Button';
 
 export default {
   components: {

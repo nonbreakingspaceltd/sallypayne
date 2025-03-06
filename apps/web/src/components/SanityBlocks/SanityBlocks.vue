@@ -1,9 +1,9 @@
 <template>
-  <SanityBlocks :blocks="blocks" :serializers="serializers" />
+  <PortableText :value="blocks" :components="components" />
 </template>
 
 <script>
-import { SanityBlocks } from 'sanity-blocks-vue-component';
+import { PortableText } from '@portabletext/vue';
 import Picture from '../../components/Picture';
 import Video from '../../components/Video';
 
@@ -18,10 +18,10 @@ export default {
     },
   },
   components: {
-    SanityBlocks,
+    PortableText,
   },
   setup(props) {
-    const serializers = {
+    const components = {
       types: {
         picture: Picture,
         video: Video,
@@ -29,7 +29,7 @@ export default {
       ...props.serializers,
     };
     return {
-      serializers,
+      components,
     };
   },
 };

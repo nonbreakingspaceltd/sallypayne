@@ -1,10 +1,11 @@
 ---
+import Picture from '../components/Picture';
+import SanityBlocks from '../components/SanityBlocks';
 import LayoutBase from './Base.astro';
-import Picture from '../components/Picture/Picture.vue';
-import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
 
 const { title, image, body, meta, variant } = Astro.props;
 ---
+
 <LayoutBase variant={variant} title={title} meta={meta}>
   <div class="sp-l-page">
     <div class="sp-l-page__media">

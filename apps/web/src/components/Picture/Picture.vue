@@ -76,7 +76,7 @@ export default {
       const baseClass = 'sp-c-picture';
       return classNames(
         baseClass,
-        variants && variants.map((variant) => `${baseClass}--${variant}`)
+        variants?.map((variant) => `${baseClass}--${variant}`),
       );
     },
   },

@@ -37,7 +37,7 @@ export default {
       return as || (href ? 'a' : 'button');
     },
     variantClasses({ variants }) {
-      return classNames(variants && variants.map((variant) => `sp-c-button--${variant}`));
+      return classNames(variants?.map((variant) => `sp-c-button--${variant}`));
     },
   },
 };

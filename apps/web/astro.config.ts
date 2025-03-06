@@ -1,15 +1,16 @@
 import 'dotenv/config';
-import svgLoader from 'vite-svg-loader';
-import env from 'vite-plugin-environment';
+
 import vue from '@astrojs/vue';
 import compress from 'astro-compress';
 import purgecss from 'astro-purgecss';
 import { defineConfig } from 'astro/config';
+import env from 'vite-plugin-environment';
+import svgLoader from 'vite-svg-loader';
 
 const devPort = 4321;
 
 function siteUrl() {
-  let url;
+  let url: string | undefined;
   if (process.env.CONTEXT === 'production') {
     url = process.env.SITE_URL;
   } else if (process.env.NETLIFY) {

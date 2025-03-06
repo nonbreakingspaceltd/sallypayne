@@ -10,7 +10,7 @@ a {
     text-decoration: none;
   }
 
-  &[href^="tel"] {
+  &[href^='tel'] {
     color: inherit;
     cursor: default;
     text-decoration: none;

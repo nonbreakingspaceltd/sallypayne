@@ -5,9 +5,9 @@
 
 ## Commands
 
-- `yarn dev` – Spins up development environment
-- `yarn build` – Builds production ready code
-- `yarn serve` – Builds and serves production ready code
+- `pnpm dev` – Spins up development environment
+- `pnpm build` – Builds production ready code
+- `pnpm serve` – Builds and serves production ready code
 
 ## Studio/CMS and Data Sources
 
@@ -17,7 +17,7 @@ Content is sourced from Sanity - [/apps/studio](./apps/studio)
 
 Configure the Sanity Token, Project ID and Dataset. Add the following to a `.env` file at the root of this package:
 
-```
+```bash
 PUBLIC_SANITY_STUDIO_API_PROJECT_ID=<string>
 PUBLIC_SANITY_STUDIO_API_DATASET=<string>
 PUBLIC_SANITY_STUDIO_API_VERSION=<string> (e.g. 2021-03-25)
@@ -28,7 +28,7 @@ PUBLIC_SANITY_STUDIO_API_TOKEN=<string>
 
 Configure the Etsy Token and Store ID. Add the following to a `.env` file at the root of this package:
 
-```
+```bash
 PUBLIC_ETSY_STORE_ID=<string>
 PUBLIC_ETSY_API_TOKEN=<string>
 ```
@@ -37,15 +37,15 @@ To gain access to Tokens and ID's, please contact a project owner.
 
 ## Additional Environment Variables
 
-```
+```bash
 MINIFIED_CSS=<boolean>
 SITE_URL=<string> (e.g. https://www.sallypayne.com)
 ```
 
 ## URL's
 
-- Netlify Deployment - https://sallypayne.netlify.app/
-- Netlify Settings - https://app.netlify.com/sites/sallypayne/overview
+- Netlify Deployment - <https://sallypayne.netlify.app/>
+- Netlify Settings - <https://app.netlify.com/sites/sallypayne/overview>
 
 ## Using Vue with Astro
 

@@ -1,24 +1,32 @@
 ---
-import LayoutList from '../../layouts/List.astro';
+import type { GetStaticPaths, GetStaticPathsOptions, Page } from 'astro';
+import type { ProductPayload } from '../../../types';
 import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
 import Pagination from '../../components/Pagination/Pagination.vue';
-import { getPaginatedProducts } from '../../data/products';
 import { getSiteSettings } from '../../data/global';
+import { getPaginatedProducts } from '../../data/products';
+import LayoutList from '../../layouts/List.astro';
 
-export function getStaticPaths({ paginate }) {
+type Props = {
+  page: Page<ProductPayload>;
+};
+
+export const getStaticPaths: GetStaticPaths = (async ({
+  paginate,
+}: GetStaticPathsOptions) => {
   return getPaginatedProducts(paginate);
-}
+}) satisfies GetStaticPaths;
 
 const siteSettings = await getSiteSettings();
 
 const { page } = Astro.props;
 
 let title = 'Shop';
-let metaDescription = `Buy products (prints, cards, posters etc.) from Sally Payne's Etsy shop.`
+let metaDescription = `Buy products (prints, cards, posters etc.) from Sally Payne's Etsy shop.`;
 if (page.currentPage > 1) {
   const paginationTitle = `(Page ${page.currentPage})`;
   title = `${title} ${paginationTitle}`;
-  metaDescription = `${metaDescription} ${paginationTitle}`
+  metaDescription = `${metaDescription} ${paginationTitle}`;
 }
 const metaTitle = `${title} | ${siteSettings.title}`;
 
@@ -27,10 +35,10 @@ const meta = {
   description: metaDescription,
   og: {
     image: `${Astro.site}images/og/shop.jpg`,
-  }
+  },
 };
 
-const products = page.data.map(product => {
+const products = page.data.map((product) => {
   const { title, price, path, image } = product.props;
   // map to card props
   const card = {
@@ -38,12 +46,18 @@ const products = page.data.map(product => {
     subtitle: price,
     href: path,
     image,
-    variant: 'product'
-  }
+    variant: 'product',
+  };
   return card;
 });
 ---
+
 <LayoutList variant="product" meta={meta} title={title} variant="shop">
   <CardMasonry client:load items={products} />
-  <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
+  <Pagination
+    client:idle
+    totalPage={page.lastPage}
+    currentPage={page.currentPage}
+    basePath="/shop"
+  />
 </LayoutList>

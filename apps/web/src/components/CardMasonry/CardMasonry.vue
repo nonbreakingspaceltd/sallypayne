@@ -53,14 +53,20 @@ export default {
       container.value.appendChild(columnElement);
       const columnStyles = getComputedStyle(columnElement);
 
-      const gap = parseInt(containerStyles.getPropertyValue('gap'));
-      const columnWidth = parseInt(columnStyles.getPropertyValue('min-width'));
-      const containerWidth = parseInt(container.value.getBoundingClientRect().width);
+      const gap = Number.parseInt(containerStyles.getPropertyValue('gap'));
+      const columnWidth = Number.parseInt(
+        columnStyles.getPropertyValue('min-width'),
+      );
+      const containerWidth = Number.parseInt(
+        container.value.getBoundingClientRect().width,
+      );
 
       // remove dummy element
       container.value.removeChild(columnElement);
 
-      const count = columnWidth ? Math.floor((containerWidth + gap) / (columnWidth + gap)) : 1;
+      const count = columnWidth
+        ? Math.floor((containerWidth + gap) / (columnWidth + gap))
+        : 1;
 
       return count > 0 ? count : 1;
     }
@@ -76,7 +82,10 @@ export default {
       nextTick(() => {
         const columnElements = [...container.value.children];
         const target = columnElements.reduce((prev, curr) =>
-          curr.getBoundingClientRect().height < prev.getBoundingClientRect().height ? curr : prev
+          curr.getBoundingClientRect().height <
+          prev.getBoundingClientRect().height
+            ? curr
+            : prev,
         );
         columns.value[target.dataset.index].push(itemIndex);
         fillColumns(itemIndex + 1);
@@ -94,7 +103,10 @@ export default {
     columns.value = [items.value.map((_item, index) => index)];
 
     onMounted(() => {
-      const supportsGridMasonry = window.CSS.supports('grid-template-rows', 'masonry');
+      const supportsGridMasonry = window.CSS.supports(
+        'grid-template-rows',
+        'masonry',
+      );
       if (!supportsGridMasonry) {
         isJsMasonry.value = true;
         resizeObserver.value = new ResizeObserver(() => redraw());

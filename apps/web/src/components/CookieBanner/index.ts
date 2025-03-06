@@ -1,1 +1,3 @@
-export { default as CookieBanner } from './CookieBanner.astro';
+import CookieBanner from './CookieBanner.astro';
+
+export { CookieBanner };

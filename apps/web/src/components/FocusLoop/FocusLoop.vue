@@ -41,7 +41,7 @@ const activateTrap = () => {
         result = moveFocusInside(observed, lastActiveFocus);
       }
       focusWasOutsideWindow = false;
-      lastActiveFocus = document && document.activeElement;
+      lastActiveFocus = document?.activeElement;
     }
   }
   return result;
@@ -113,8 +113,8 @@ export default {
       type: String,
     },
     as: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
@@ -146,11 +146,11 @@ export default {
   },
   mounted() {
     this.data.vue = this;
-    this.data.observed = this.$el && this.$el.querySelector('[data-lock]');
+    this.data.observed = this.$el?.querySelector('[data-lock]');
     this.data.disabled = this.disabled;
     this.data.onActivation = () => {
       this.originalFocusedElement =
-        this.originalFocusedElement || (document && document.activeElement);
+        this.originalFocusedElement || document?.activeElement;
     };
     if (!instances.length) {
       attachHandler();
@@ -163,7 +163,11 @@ export default {
     if (!instances.length) {
       detachHandler();
     }
-    if (this.returnFocus && this.originalFocusedElement && this.originalFocusedElement.focus) {
+    if (
+      this.returnFocus &&
+      this.originalFocusedElement &&
+      this.originalFocusedElement.focus
+    ) {
       this.originalFocusedElement.focus();
     }
     emitChange();

@@ -1,10 +1,8 @@
-const { PurgeCSS } = require('purgecss');
-// const PostCSS = require('postcss');
-const fs = require('fs-extra');
-const glob = require('glob');
-const kleur = require('kleur');
-const path = require('path');
-// const postCssPlugins = require('../../postcss.config').plugins;
+import fs from 'node:fs';
+import glob from 'node:glob';
+import path from 'node:path';
+import kleur from 'kleur';
+import { PurgeCSS } from 'purgecss';
 
 // relative to package root
 const root = path.resolve(__dirname, '../');
@@ -18,20 +16,20 @@ const purgeCssConfig = {
   variables: false,
 };
 
-glob('**/*.html', { root: dist }, (err, files) => {
+glob('**/*.html', { root: dist }, async (err, files) => {
   if (err) {
     throw err;
   }
 
-  files.forEach(async (filePath) => {
+  for (const filePath of files) {
     try {
       let html = await fs.readFileSync(filePath, 'utf-8');
 
       // get CSS file paths
       const cssFilePaths = html
         .match(/(?<=href=")[^"]+\.css/g)
-        ?.map((file) => path.resolve(dist, file.replaceAll('../', '')))
-        //.reverse();
+        ?.map((file) => path.resolve(dist, file.replaceAll('../', '')));
+      //.reverse();
 
       // console.log(filePath, cssFilePaths);
 
@@ -52,7 +50,7 @@ glob('**/*.html', { root: dist }, (err, files) => {
           cssFilePaths.map(async (cssFilePath) => {
             const cssContent = await fs.readFileSync(cssFilePath, 'utf-8');
             return cssContent;
-          })
+          }),
         );
       }
 
@@ -61,9 +59,12 @@ glob('**/*.html', { root: dist }, (err, files) => {
       // output font preload tags
       const fontFilePaths = css.join(' ').match(/(\/.*\.(woff2)+)/g) || [];
       const fontPreloadLinks = fontFilePaths.map(
-        (path) => `<link rel="preload" as="font" href="${path}" crossorigin />`
+        (path) => `<link rel="preload" as="font" href="${path}" crossorigin />`,
       );
-      html = html.replace('<link id="preload-fonts">', fontPreloadLinks.join('\n'));
+      html = html.replace(
+        '<link id="preload-fonts">',
+        fontPreloadLinks.join('\n'),
+      );
 
       // optimize CSS
       const purgeCssResults = await new PurgeCSS().purge({
@@ -82,12 +83,18 @@ glob('**/*.html', { root: dist }, (err, files) => {
       // console.log(optimizedCss);
 
       // output inline CSS
-      html = html.replace('<link id="inline-css">', `<style>${optimizedCss}</style>`);
+      html = html.replace(
+        '<link id="inline-css">',
+        `<style>${optimizedCss}</style>`,
+      );
       // html = html.replace('<link id="inline-css">', `<style>${orderedCss}</style>`);
 
       // remove external CSS links
       html = html.replace(/<link rel="stylesheet" href=".*\.css"[^>]+>/g, '');
-      html = html.replace(/<link rel="stylesheet" type="text\/css" href=".*\.css"[^>]+>/g, '');
+      html = html.replace(
+        /<link rel="stylesheet" type="text\/css" href=".*\.css"[^>]+>/g,
+        '',
+      );
 
       // write file
       await fs.outputFile(filePath, html);
@@ -96,11 +103,11 @@ glob('**/*.html', { root: dist }, (err, files) => {
       console.log(
         `[${kleur.bold().blue('transform:css')}]`,
         kleur.green('✔'),
-        filePath.split(dist).pop()
+        filePath.split(dist).pop(),
       );
     } catch (error) {
       // log error
       console.error(error);
     }
-  });
+  }
 });

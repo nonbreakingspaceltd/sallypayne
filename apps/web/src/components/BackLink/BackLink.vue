@@ -13,7 +13,7 @@
 import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
 export default {
   components: {
-    ArrowLeft
+    ArrowLeft,
   },
   props: {
     label: {

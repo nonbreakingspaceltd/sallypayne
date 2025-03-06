@@ -1,26 +1,29 @@
 const cookieName = '_sp_accepted_cookies';
 const cookieValue = true;
 const cookies = document.cookie.split(';');
-const acceptedCookies = cookies.find(cookie => cookie.includes(`${cookieName}=${cookieValue}`));
+const acceptedCookies = cookies.find((cookie) =>
+  cookie.includes(`${cookieName}=${cookieValue}`),
+);
 
 function changeScriptTypes() {
-  const scriptElements = document.querySelectorAll<HTMLScriptElement>('script[data-cookie-script]');
+  const scriptElements = document.querySelectorAll<HTMLScriptElement>(
+    'script[data-cookie-script]',
+  );
 
-  Array.from(scriptElements).forEach(el => {
+  for (const el of scriptElements) {
     const scriptElement = el;
     const scriptType = 'text/javascript';
 
     scriptElement.type = scriptType;
 
     if (scriptElement.src) {
-      // eslint-disable-next-line no-self-assign
+      // biome-ignore lint/correctness/noSelfAssign: reload the script
       scriptElement.src = scriptElement.src;
     } else if (scriptElement.textContent) {
-      // eslint-disable-next-line no-new-func
       const fn = new Function(scriptElement.textContent);
       fn();
     }
-  });
+  }
 }
 
 function acceptCookies(cookieBanner: HTMLElement | null) {
@@ -44,7 +47,7 @@ function testCookies() {
     cookieBanner.hidden = false;
     const cookieAction = document.getElementById('cookies-action');
     if (cookieAction) {
-      cookieAction.addEventListener('click', event => {
+      cookieAction.addEventListener('click', (event) => {
         event.preventDefault();
         acceptCookies(cookieBanner);
       });

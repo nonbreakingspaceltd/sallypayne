@@ -52,7 +52,7 @@ export default {
       return classNames(
         baseClass,
         href && 'is-clickable',
-        variants && variants.map((variant) => `${baseClass}--${variant}`)
+        variants?.map((variant) => `${baseClass}--${variant}`),
       );
     },
   },

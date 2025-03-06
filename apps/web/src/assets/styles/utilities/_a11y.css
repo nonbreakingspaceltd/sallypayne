@@ -39,7 +39,7 @@ img[alt='null'] {
   platform, provide enhanced focus styles for keyboard
   focus.
 */
-:focus-visible  {
+:focus-visible {
   outline: 3px solid var(--color-accessible-focus);
 }
 
