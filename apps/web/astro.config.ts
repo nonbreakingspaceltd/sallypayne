@@ -63,7 +63,7 @@ export default defineConfig({
       svgLoader(),
     ],
     ssr: {
-      noExternal: ['@astrojs/vue'],
+      noExternal: ['@astrojs/vue', '@portabletext/vue'],
     },
     build: {
       rollupOptions: {
@@ -71,9 +71,12 @@ export default defineConfig({
           entryFileNames: 'entry.[hash].js',
           chunkFileNames: 'chunks/chunk.[hash].js',
           assetFileNames: 'assets/asset.[hash][extname]',
-          hoistTransitiveImports: false,
+          hoistTransitiveImports: true,
         },
       },
+    },
+    optimizeDeps: {
+      exclude: ['@portabletext/vue'],
     },
   },
 });
