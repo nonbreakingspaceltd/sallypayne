@@ -137,6 +137,9 @@ importers:
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
+      '@types/fs-extra':
+        specifier: 11.0.4
+        version: 11.0.4
       '@types/postcss-mixins':
         specifier: 9.0.6
         version: 9.0.6
@@ -2129,6 +2132,9 @@ packages:
   '@types/follow-redirects@1.14.4':
     resolution: {integrity: sha512-GWXfsD0Jc1RWiFmMuMFCpXMzi9L7oPDVwxUnZdg89kDNnqsRfUKXEtUYtA98A6lig1WXH/CYY/fvPW9HuN5fTA==}
 
+  '@types/fs-extra@11.0.4':
+    resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
+
   '@types/hast@2.3.10':
     resolution: {integrity: sha512-McWspRw8xx8J9HurkVBfYj0xKoE25tOFlHGdx4MJ5xORQrMGZNqJhVQWaIbm6Oyla5kYOXtDiopzKRJzEOkwJw==}
 
@@ -2140,6 +2146,9 @@ packages:
 
   '@types/html-minifier-terser@7.0.2':
     resolution: {integrity: sha512-mm2HqV22l8lFQh4r2oSsOEVea+m0qqxEmwpc9kC1p/XzmjLWrReR9D/GRs8Pex2NX/imyEH9c5IU/7tMBQCHOA==}
+
+  '@types/jsonfile@6.1.4':
+    resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -9561,6 +9570,11 @@ snapshots:
     dependencies:
       '@types/node': 22.13.9
 
+  '@types/fs-extra@11.0.4':
+    dependencies:
+      '@types/jsonfile': 6.1.4
+      '@types/node': 22.13.9
+
   '@types/hast@2.3.10':
     dependencies:
       '@types/unist': 2.0.11
@@ -9575,6 +9589,10 @@ snapshots:
       hoist-non-react-statics: 3.3.2
 
   '@types/html-minifier-terser@7.0.2': {}
+
+  '@types/jsonfile@6.1.4':
+    dependencies:
+      '@types/node': 22.13.9
 
   '@types/mdast@4.0.4':
     dependencies:

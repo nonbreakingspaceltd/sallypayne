@@ -1,6 +1,6 @@
-import fs from 'node:fs';
 import glob from 'node:glob';
 import path from 'node:path';
+import fs from 'fs-extra';
 import kleur from 'kleur';
 import { PurgeCSS } from 'purgecss';
 
@@ -23,7 +23,7 @@ glob('**/*.html', { root: dist }, async (err, files) => {
 
   for (const filePath of files) {
     try {
-      let html = await fs.readFileSync(filePath, 'utf-8');
+      let html = fs.readFileSync(filePath, 'utf-8');
 
       // get CSS file paths
       const cssFilePaths = html
@@ -47,8 +47,8 @@ glob('**/*.html', { root: dist }, async (err, files) => {
       let css = [];
       if (cssFilePaths) {
         css = await Promise.all(
-          cssFilePaths.map(async (cssFilePath) => {
-            const cssContent = await fs.readFileSync(cssFilePath, 'utf-8');
+          cssFilePaths.map((cssFilePath) => {
+            const cssContent = fs.readFileSync(cssFilePath, 'utf-8');
             return cssContent;
           }),
         );
