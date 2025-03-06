@@ -8,7 +8,6 @@ export const processPicture = (
   sizes: { media: string; width?: number; height?: number }[],
 ): (PictureProps & TypedObject) | undefined => {
   if (!props?.asset?._ref) {
-    console.log(props);
     return undefined;
   }
 
