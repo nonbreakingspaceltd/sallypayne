@@ -1,3 +1,17 @@
+
+
+<script lang="ts" setup>
+import classNames from 'classnames';
+import { computed } from 'vue';
+import type { PictureProps } from './types';
+
+const props = defineProps<PictureProps>();
+
+const classes = computed(() => {
+  return classNames('sp-c-picture', props.variants?.map((variant) => `sp-c-picture--${variant}`));
+});
+</script>
+
 <template>
   <component :is="caption ? 'figure' : 'div'" :class="classes">
     <picture
@@ -11,9 +25,9 @@
         <source
           v-for="(source, index) in sources"
           :key="index"
-          :srcset="source.srcset.join(', ')"
-          :type="source.type"
-          :media="source.media"
+          :srcset="source.srcset?.join(', ') ?? undefined"
+          :type="source.type ?? undefined"
+          :media="source.media ?? undefined"
         />
       </template>
       <img
@@ -28,60 +42,6 @@
     <figcaption v-if="caption" class="sp-c-picture__caption">{{ caption }}</figcaption>
   </component>
 </template>
-
-<script>
-import classNames from 'classnames';
-
-export default {
-  props: {
-    alt: {
-      type: String,
-      default: '',
-    },
-    backgroundColor: {
-      type: String,
-    },
-    caption: {
-      type: String,
-    },
-    lqip: {
-      type: String,
-    },
-    loading: {
-      type: String,
-      default: 'lazy',
-      validator: (value) => {
-        return (value && ['lazy', 'eager'].includes(value)) || value === null;
-      },
-    },
-    variants: {
-      type: Array,
-    },
-    sources: {
-      type: Array,
-    },
-    width: {
-      type: Number,
-    },
-    height: {
-      type: Number,
-    },
-    src: {
-      type: String,
-      required: true,
-    },
-  },
-  computed: {
-    classes: ({ variants }) => {
-      const baseClass = 'sp-c-picture';
-      return classNames(
-        baseClass,
-        variants?.map((variant) => `${baseClass}--${variant}`),
-      );
-    },
-  },
-};
-</script>
 
 <style lang="pcss">
 @import '../../assets/styles/tools';

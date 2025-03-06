@@ -36,6 +36,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/ts-plugin": "1.10.4",
+    "@portabletext/types": "2.0.13",
     "@types/fs-extra": "11.0.4",
     "@types/postcss-mixins": "9.0.6",
     "@types/postcss-pxtorem": "6.1.0",

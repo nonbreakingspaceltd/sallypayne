@@ -1,3 +1,31 @@
+<script lang="ts" setup>
+import { computed } from 'vue';
+import type { VideoProps } from './types';
+
+const props = defineProps<VideoProps>();
+
+const videoPath = computed(() => {
+  let path = '';
+  if (props.service === 'youtube') {
+    path = `https://www.youtube.com/embed/${props.videoId}?rel=0&modestbranding=1&autoplay=1&playsinline`;
+  }
+  return path;
+});
+
+const videoAllow = computed(() => {
+  let allow = '';
+  if (props.service === 'youtube') {
+    allow = `accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture`;
+  }
+  return allow;
+});
+
+const videoAspectRatio = computed(() => {
+  const parts = props.aspectRatio?.split(':') ?? ['9', '16'];
+  return `--video-aspect-ratio: ${parts[1]} / ${parts[0]}`;
+});
+</script>
+
 <template>
   <div class="sp-c-video" :style="videoAspectRatio">
     <iframe
@@ -11,81 +39,6 @@
     />
   </div>
 </template>
-
-<script>
-import Button from '../Button';
-import Picture from '../Picture';
-
-export default {
-  name: 'Video',
-  props: {
-    videoId: {
-      type: String,
-      required: true,
-    },
-    service: {
-      type: String,
-      default: 'youtube',
-    },
-    poster: {
-      type: Object,
-      default: null,
-    },
-    aspectRatio: {
-      type: String,
-      default: '16:9',
-    },
-    labels: {
-      type: Object,
-      default: () => ({
-        play: 'Play video',
-      }),
-    },
-  },
-  computed: {
-    videoPoster: ({ videoId, poster, service }) => {
-      if (poster) {
-        if (typeof poster === 'string') {
-          return {
-            src: poster,
-            alt: videoId,
-          };
-        }
-        return poster;
-      }
-      // fallback images
-      if (service === 'youtube') {
-        return {
-          src: `http://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
-          alt: videoId,
-        };
-      }
-    },
-    videoPath: ({ videoId, service }) => {
-      let path = '';
-      if (service === 'youtube') {
-        path = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1&playsinline`;
-      }
-      return path;
-    },
-    videoAllow: ({ service }) => {
-      let allow = '';
-      if (service === 'youtube') {
-        allow = `accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture`;
-      }
-      return allow;
-    },
-    videoAspectRatio: ({ aspectRatio }) => {
-      const parts = aspectRatio.split(':');
-      return `--video-aspect-ratio: ${parts[1]} / ${parts[0]}`;
-    },
-  },
-  components: {
-    Picture,
-    Button,
-  },
-};
-</script>
 
 <style lang="pcss">
 @import '../../assets/styles/tools';

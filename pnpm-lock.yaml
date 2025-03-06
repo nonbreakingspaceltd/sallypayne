@@ -137,6 +137,9 @@ importers:
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
+      '@portabletext/types':
+        specifier: 2.0.13
+        version: 2.0.13
       '@types/fs-extra':
         specifier: 11.0.4
         version: 11.0.4

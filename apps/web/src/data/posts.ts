@@ -17,10 +17,7 @@ import { processAllofType } from './utils/process';
 import { processOgImage } from './utils/processOgImage';
 
 const postQuery = /* groq */ `
-  *[!
-    (_id in path("drafts.**")) &&
-    _type == 'post'
-  ] | order(publishedDate desc) {
+  *[_type == 'post'] | order(publishedDate desc) {
     title,
     "slug": slug.current,
     publishedDate,
@@ -33,7 +30,7 @@ const postQuery = /* groq */ `
   }
 `;
 
-function processImage(imageProps: ImageResponse, isCard = false) {
+function processImage(imageProps: ImageResponse | undefined, isCard = false) {
   if (!imageProps) {
     return undefined;
   }
@@ -83,11 +80,13 @@ function processYoutubeVideo(videoProps: VideoResponse) {
 
 function processPostBody(body: BodyProps) {
   let processedBody = body;
+
   processedBody = processAllofType(
     'imageExtended',
     processedBody,
     processImage,
   );
+
   processedBody = processAllofType(
     'videoYoutube',
     processedBody,
@@ -121,9 +120,9 @@ function proccessPost(
     body: processPostBody(body),
     image: processImage(media?.main, isCard),
     meta: {
-      title: `${meta.metaTitle || title} | Scrapbook | ${siteSettings.title}`,
-      description: meta.metaDescription,
-      blockIndexing: meta.blockIndexing,
+      title: `${meta?.metaTitle || title} | Scrapbook | ${siteSettings.title}`,
+      description: meta?.metaDescription || '',
+      blockIndexing: meta?.blockIndexing,
       og: {
         image: media?.main && processOgImage(media.main),
         type: 'article',

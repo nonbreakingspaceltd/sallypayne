@@ -1,5 +1,6 @@
 import type { PortableTextComponentProps } from '@portabletext/vue';
 import type { GetStaticPathsItem } from 'astro';
+import type { PictureProps } from './src/components/Picture/types';
 
 // TODO: Replace with actual types
 export type TODO = any;
@@ -50,30 +51,18 @@ export interface ImageProps {
   backgroundColor?: string;
 }
 
-export interface PictureProps {
-  _type: string;
-  alt: string;
-  src: string;
-  sources: {
-    src: string;
-    srcset: string[];
-    media: string;
-  }[];
-  backgroundColor?: string;
-  width?: number;
-  height?: number;
-}
-
 export type BodyProps = PortableTextComponentProps<PortableTextProps>;
 
 export interface PageResponse {
   title: string;
   body: PortableTextComponentProps<PortableTextProps>;
   publishedDate: string;
-  media: {
-    main: ImageResponse;
+  slug: string;
+  excerpt?: string;
+  media?: {
+    main?: ImageResponse;
   };
-  meta: {
+  meta?: Partial<{
     metaTitle: string;
     metaDescription: string;
     og: {
@@ -82,9 +71,7 @@ export interface PageResponse {
       publishedDate: string;
     };
     blockIndexing: boolean;
-  };
-  slug: string;
-  excerpt?: string;
+  }>;
 }
 
 export interface PageProps {

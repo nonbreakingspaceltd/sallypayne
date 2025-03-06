@@ -1,12 +1,13 @@
+import type { TypedObject } from '@portabletext/types';
 import type {
   BodyProps,
   ImageResponse,
   PagePayload,
   PageProps,
   PageResponse,
-  PictureProps,
   SiteSettings,
 } from '../../types';
+import type { PictureProps } from '../components/Picture/types';
 import { client } from '../utils/sanityClient';
 import { processPicture } from './components/picture';
 import { getSiteSettings } from './global';
@@ -25,8 +26,8 @@ const pageFields = /* groq */ `
 
 function processImage(
   props: ImageResponse | undefined,
-): PictureProps | undefined {
-  if (!props) {
+): (PictureProps & TypedObject) | undefined {
+  if (!props || !props.asset?._ref) {
     return undefined;
   }
 
@@ -42,6 +43,7 @@ function processImage(
       width: 704,
     },
   ];
+
   return processPicture(props, sizes);
 }
 
@@ -65,9 +67,9 @@ function processPage(
     body: processBody(page.body),
     image,
     meta: {
-      title: `${page.meta.metaTitle || page.title} | ${siteSettings.title}`,
-      description: page.meta.metaDescription,
-      blockIndexing: !page.meta.blockIndexing,
+      title: `${page.meta?.metaTitle || page.title} | ${siteSettings.title}`,
+      description: page.meta?.metaDescription || '',
+      blockIndexing: !page.meta?.blockIndexing,
       og: {
         image: ogImage,
       },
@@ -79,10 +81,7 @@ export async function getPages(exclude: string[] = []): Promise<PagePayload[]> {
   console.log('Fetching pages...');
   const siteSettings = await getSiteSettings();
   const response = await client.fetch<PageResponse[]>(/* groq */ `
-    *[
-      !(_id in path("drafts.**")) &&
-      _type == 'page'
-    ] {
+    *[_type == 'page'] {
       ${pageFields}
     }
   `);

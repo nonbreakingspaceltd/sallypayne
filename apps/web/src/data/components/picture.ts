@@ -1,10 +1,17 @@
-import type { ImageResponse, PictureProps } from '../../../types';
+import type { TypedObject } from '@portabletext/types';
+import type { ImageResponse } from '../../../types';
+import type { PictureProps } from '../../components/Picture/types';
 import { imageUrlBuilder } from '../../utils/sanityClient';
 
 export const processPicture = (
   props: ImageResponse,
   sizes: { media: string; width?: number; height?: number }[],
-): PictureProps => {
+): (PictureProps & TypedObject) | undefined => {
+  if (!props?.asset?._ref) {
+    console.log(props);
+    return undefined;
+  }
+
   const src = imageUrlBuilder
     .image(props.asset._ref)
     .auto('format')
