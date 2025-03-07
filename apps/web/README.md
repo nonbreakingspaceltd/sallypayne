@@ -1,6 +1,6 @@
-# @sallypayne/web
+# Web
 
-[![Build website](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/build.yml)
+[![Website](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/website.yml/badge.svg)](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/website.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/012cbb34-aa49-495c-8b38-5c32000aeeaf/deploy-status)](https://app.netlify.com/sites/sallypayne/deploys)
 
 ## Commands
