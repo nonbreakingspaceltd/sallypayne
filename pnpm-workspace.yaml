@@ -1,2 +1,8 @@
 packages:
-  - 'apps/*'
+  - apps/*
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - esbuild
+  - scrollmirror
+  - sharp
+  - yarn

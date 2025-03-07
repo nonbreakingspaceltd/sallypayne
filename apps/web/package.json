@@ -1,7 +1,7 @@
 {
   "name": "@sallypayne/web",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "type": "module",
   "scripts": {
     "astro:build": "pnpm products && astro build",

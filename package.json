@@ -1,11 +1,9 @@
 {
   "name": "sallypayne",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "private": true,
   "packageManager": "pnpm@10.6.1",
-  "workspaces": [
-    "apps/*"
-  ],
+  "workspaces": ["apps/*"],
   "engines": {
     "node": ">=22.0.0"
   },
@@ -45,9 +43,7 @@
     }
   },
   "release": {
-    "branches": [
-      "main"
-    ],
+    "branches": ["main"],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -66,10 +62,7 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ],
+          "assets": ["package.json", "CHANGELOG.md"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]

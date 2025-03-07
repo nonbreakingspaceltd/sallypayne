@@ -1,15 +1,9 @@
 module.exports = {
   target: (dependencyName) => {
-    // List of React-related packages to limit to minor updates
-    const reactPackages = [
-      'react',
-      'react-dom',
-      '@types/react',
-      '@types/react-dom',
-    ];
+    const minorPackages = [];
 
-    // If it's a React-related package, only allow minor updates
-    if (reactPackages.includes(dependencyName)) {
+    // If it's a minor-only package, only allow minor updates
+    if (minorPackages.includes(dependencyName)) {
       return 'minor';
     }
 
