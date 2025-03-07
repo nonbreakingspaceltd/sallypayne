@@ -23,6 +23,7 @@ const variantClasses = computed(() =>
     :type="href ? null : type"
     :class="['sp-c-button', variantClasses]"
     :href="href"
+    :id="id"
   >
     <span class="sp-c-button__label" v-if="$slots.default">
       <slot name="default" />
