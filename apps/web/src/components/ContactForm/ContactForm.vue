@@ -1,3 +1,8 @@
+
+<script setup lang="ts">
+import Button from '../Button';
+</script>
+
 <template>
   <form
     action="/contact"
@@ -34,65 +39,4 @@
   </form>
 </template>
 
-<script>
-import Button from '../Button';
-
-export default {
-  components: {
-    Button,
-  },
-};
-</script>
-
-<style lang="pcss">
-.sp-c-contact-form {
-  max-width: 800px;
-  margin-bottom: var(--space-y-6);
-
-  @media (--mq-md) {
-    margin-bottom: var(--space-y-8);
-  }
-}
-
-.sp-c-contact-form__group {
-  padding-bottom: var(--space-y-4);
-
-  @media (--mq-md) {
-    padding-bottom: var(--space-y-5);
-  }
-}
-
-.sp-c-contact-form__label {
-  display: block;
-  padding-bottom: var(--space-y-1);
-  font-size: 16px;
-  line-height: var(--space-y-6);
-
-  @media (--mq-md) {
-    font-size: 18px;
-    padding-bottom: var(--space-y-2);
-  }
-}
-
-.sp-c-contact-form__input,
-.sp-c-contact-form__textarea {
-  width: 100%;
-  appearance: none;
-  border: 4px dotted #ddd;
-  padding: var(--space-y-2);
-  outline: none;
-  transition: border-color 0.2s;
-  font-size: 16px;
-  line-height: var(--space-y-6);
-  background: transparent;
-
-  &:focus {
-    border-color: var(--color-brand-danube);
-  }
-}
-
-.sp-c-contact-form__textarea {
-  height: 80px;
-  resize: vertical;
-}
-</style>
+<style src="./styles.css" />

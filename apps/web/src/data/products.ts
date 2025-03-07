@@ -105,7 +105,7 @@ async function getCachedProducts(): Promise<
   { results: ProductPayload[] } | false
 > {
   try {
-    return require('../../_temp/products.json');
+    return require('../../tmp/products.json');
   } catch {
     return false;
   }

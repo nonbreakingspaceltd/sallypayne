@@ -1,0 +1,51 @@
+.sp-c-contact-form {
+  max-inline-size: 800px;
+  margin-block-end: var(--space-y-6);
+
+  @media (--mq-md) {
+    margin-block-end: var(--space-y-8);
+  }
+}
+
+.sp-c-contact-form__group {
+  padding-block-end: var(--space-y-4);
+
+  @media (--mq-md) {
+    padding-block-end: var(--space-y-5);
+  }
+}
+
+.sp-c-contact-form__label {
+  display: block;
+  padding-block-end: var(--space-y-1);
+  font-size: 16px;
+  line-height: var(--space-y-6);
+
+  @media (--mq-md) {
+    font-size: 18px;
+    padding-block-end: var(--space-y-2);
+  }
+}
+
+.sp-c-contact-form__input,
+.sp-c-contact-form__textarea {
+  inline-size: 100%;
+  appearance: none;
+  border: 4px dotted #ddd;
+  padding: var(--space-y-2);
+  outline: none;
+  transition: border-color 0.2s;
+  font-size: 16px;
+  line-height: var(--space-y-6);
+  background: transparent;
+}
+
+.sp-c-contact-form__input:focus,
+.sp-c-contact-form__textarea:focus {
+  border-color: var(--color-brand-danube);
+}
+
+.sp-c-contact-form__textarea {
+  block-size: 80px;
+  resize: vertical;
+}

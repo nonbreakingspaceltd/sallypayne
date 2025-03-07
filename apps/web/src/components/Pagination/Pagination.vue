@@ -1,221 +1,151 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
+import ArrowRight from '../../assets/icons/arrow-right.svg?component';
+import type { PaginationPage, PaginationProps } from './types';
+
+const props = withDefaults(defineProps<PaginationProps>(), {
+  currentPage: 1,
+  myData: null,
+  pageRange: 3,
+  showNextPrev: false,
+});
+
+const generatePageItem = (
+  content: string | number,
+  page: number,
+  show = false,
+): PaginationPage => ({
+  content,
+  page,
+  show,
+});
+
+const pages = computed((): PaginationPage[] => {
+  // Generate basic page numbers
+  const items = Array.from({ length: props.totalPage }, (_, i) =>
+    generatePageItem(i + 1, i + 1, false),
+  );
+
+  // Insert ellipsis markers
+  const leftEllipsis = generatePageItem(
+    '…',
+    props.currentPage - props.pageRange + 1,
+  );
+  const rightEllipsis = generatePageItem(
+    '…',
+    props.currentPage + props.pageRange - 1,
+  );
+
+  items.splice(1, 0, leftEllipsis);
+  items.splice(items.length - 1, 0, rightEllipsis);
+
+  // Always show first and last pages
+  items[0].show = true;
+  items[items.length - 1].show = true;
+
+  // Handle visibility logic for different page ranges
+  if (props.currentPage <= props.pageRange) {
+    // Near start of pagination
+    const endRange =
+      props.currentPage === props.pageRange
+        ? props.pageRange + 1
+        : props.pageRange;
+    for (const item of items.slice(2, endRange + 1)) {
+      item.show = true;
+    }
+    items[items.length - 2].show = true;
+  } else {
+    // Middle or end of pagination
+    const isNearEnd = props.currentPage + 2 >= items.length - 2;
+
+    if (isNearEnd) {
+      // Near end of pagination
+      items[1].show = true;
+      for (const item of items.slice(items.length - 2 - props.pageRange)) {
+        item.show = true;
+      }
+    } else {
+      // Middle of pagination
+      items[1].show = true;
+      items[items.length - 2].show = true;
+      for (const item of items.slice(
+        props.currentPage - 1,
+        props.currentPage + 2,
+      )) {
+        item.show = true;
+      }
+    }
+  }
+
+  return items;
+});
+
+const disablePrev = computed(() => props.currentPage === 1);
+const disableNext = computed(() => props.currentPage === props.totalPage);
+
+const href = (page: number): string => {
+  const basePath = props.basePath || '';
+  return page < 2 ? basePath : `${basePath}/${page}`;
+};
+</script>
+
 <template>
   <nav class="sp-c-pagination">
     <h2 class="sp-c-pagination__title" id="pagination">
       Page:
-      <span class="sp-u-sr-only"> {{ currentPage }} of {{ totalPage }} </span>
+      <span class="sp-u-sr-only">{{ currentPage }} of {{ totalPage }}</span>
     </h2>
+
     <ul class="sp-c-pagination__list" aria-labelledby="pagination">
-      <li class="sp-c-pagination__item" v-if="showNextPrev">
+      <!-- Previous button -->
+      <li v-if="showNextPrev" class="sp-c-pagination__item">
         <component
           :is="disablePrev ? 'span' : 'a'"
           :href="!disablePrev ? href(currentPage - 1) : undefined"
-          :class="['sp-c-pagination__link', disablePrev && 'is-disabled']"
+          :class="['sp-c-pagination__link', { 'is-disabled': disablePrev }]"
         >
           <ArrowLeft class="sp-c-pagination__icon" />
-          <span class="sp-u-sr-only"> Previous page </span>
+          <span class="sp-u-sr-only">Previous page</span>
         </component>
       </li>
-      <template v-for="n in pages" :key="n.page">
-        <li v-if="n.show" class="sp-c-pagination__item">
-          <component
-            :is="n.page == currentPage ? 'span' : 'a'"
-            :href="n.page != currentPage ? href(n.page) : undefined"
-            :class="[
-              'sp-c-pagination__link',
-              n.disable && 'is-disabled',
-              n.page == currentPage && 'is-active',
-            ]"
-            :aria-label="`Page ${n.page}`"
-          >
-            {{ n.content }}
-          </component>
-        </li>
-      </template>
-      <li class="sp-c-pagination__item" v-if="showNextPrev">
+
+      <!-- Page numbers -->
+      <li
+        v-for="page in pages"
+        :key="page.page"
+        v-show="page.show"
+        class="sp-c-pagination__item"
+      >
+        <component
+          :is="page.page === currentPage ? 'span' : 'a'"
+          :href="page.page !== currentPage ? href(page.page) : undefined"
+          :class="[
+            'sp-c-pagination__link',
+            {
+              'is-disabled': page.disable,
+              'is-active': page.page === currentPage
+            }
+          ]"
+          :aria-label="`Page ${page.page}`"
+        >
+          {{ page.content }}
+        </component>
+      </li>
+
+      <!-- Next button -->
+      <li v-if="showNextPrev" class="sp-c-pagination__item">
         <component
           :is="disableNext ? 'span' : 'a'"
           :href="!disableNext ? href(currentPage + 1) : undefined"
-          :class="['sp-c-pagination__link', disableNext && 'is-disabled']"
+          :class="['sp-c-pagination__link', { 'is-disabled': disableNext }]"
         >
           <ArrowRight class="sp-c-pagination__icon" />
-          <span class="sp-u-sr-only"> Next page </span>
+          <span class="sp-u-sr-only">Next page</span>
         </component>
       </li>
     </ul>
   </nav>
 </template>
 
-<script>
-import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
-import ArrowRight from '../../assets/icons/arrow-right.svg?component';
-
-export default {
-  components: {
-    ArrowLeft,
-    ArrowRight,
-  },
-  props: {
-    basePath: {
-      type: String,
-    },
-    totalPage: {
-      type: Number,
-      required: true,
-    },
-    currentPage: {
-      type: Number,
-      default: 1,
-    },
-    myData: {
-      default: null,
-    },
-    pageRange: {
-      type: Number,
-      default: 3,
-    },
-    showNextPrev: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    pages() {
-      const items = [];
-
-      for (let i = 0; i < this.totalPage; i++) {
-        const page = {
-          content: i + 1,
-          page: i + 1,
-          show: false,
-        };
-
-        items[i] = page;
-      }
-
-      const page1 = {
-        content: '…',
-        page: this.currentPage - this.pageRange + 1,
-        show: false,
-      };
-
-      const page2 = {
-        content: '…',
-        page: this.currentPage + this.pageRange - 1,
-        show: false,
-      };
-
-      items.splice(1, 0, page1);
-      items.splice(items.length - 1, 0, page2);
-
-      for (let i = 0; i < items.length; i++) {
-        if (i === 0 || i === items.length - 1) {
-          items[i].show = true;
-        }
-
-        if (this.currentPage <= this.pageRange) {
-          if (this.currentPage === this.pageRange) {
-            if (i >= 2 && i <= this.pageRange + 1) {
-              items[i].show = true;
-            }
-          } else {
-            if (i >= 2 && i <= this.pageRange) {
-              items[i].show = true;
-            }
-          }
-
-          items[items.length - 2].show = true;
-        } else if (this.currentPage > this.pageRange) {
-          if (
-            i >= this.currentPage - 1 &&
-            this.currentPage + 2 < items.length - 2 &&
-            i <= this.currentPage + 1
-          ) {
-            items[1].show = true;
-            items[items.length - 2].show = true;
-            items[i].show = true;
-          } else if (
-            i >= items.length - 2 - this.pageRange &&
-            this.currentPage + 2 >= items.length - 2
-          ) {
-            items[1].show = true;
-            items[items.length - 2].show = false;
-            items[i].show = true;
-          }
-        }
-      }
-
-      return items;
-    },
-    disablePrev: ({ currentPage }) => currentPage === 1,
-    disableNext: ({ currentPage, totalPage }) => currentPage === totalPage,
-  },
-  methods: {
-    href(page) {
-      const { basePath } = this;
-      const path = `${basePath}/`;
-      if (page < 2) {
-        return path;
-      }
-      return `${basePath}/${page}`;
-    },
-  },
-};
-</script>
-
-<style lang="pcss">
-@import '../../assets/styles/tools';
-
-.sp-c-pagination {
-  display: flex;
-  padding: var(--space-y-8) 0 0;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.sp-c-pagination__title {
-  margin: 0 10px 0 0;
-  padding: 0;
-  font-size: var(--font-size-4);
-}
-
-.sp-c-pagination__list {
-  margin: 0;
-  padding: 0;
-}
-
-.sp-c-pagination__item {
-  display: inline-block;
-}
-
-.sp-c-pagination__link {
-  display: inline-block;
-  min-width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 18px;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-
-  &.is-disabled {
-    opacity: 0.3;
-  }
-
-  &.is-active {
-    font-weight: 700;
-    opacity: 1;
-  }
-}
-
-.sp-c-pagination__icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-</style>
+<style src="./styles.css" />

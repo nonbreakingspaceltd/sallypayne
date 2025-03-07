@@ -6,6 +6,7 @@ import LayoutBase from './Base.astro';
 
 const { title, price, description, url, image, meta } = Astro.props;
 ---
+
 <LayoutBase variant="product" title={title} meta={meta}>
   <article class="sp-l-product">
     <div class="sp-l-product__inner">
@@ -35,35 +36,37 @@ const { title, price, description, url, image, meta } = Astro.props;
 @import '../assets/styles/tools';
 
 .sp-l-product {
-  padding: var(--space-y-4) var(--space-x-4);
+  padding-block: var(--space-y-4);
+  padding-inline: var(--space-x-4);
 
   @media (--mq-md) {
-    padding: var(--space-y-6) var(--space-x-6);
+    padding-block: var(--space-y-6);
+    padding-inline: var(--space-x-6);
   }
 
   @media (--mq-lg) {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
 .sp-l-product__inner {
-  width: 100%;
-  max-width: 704px;
-  margin: 0 auto;
+  inline-size: 100%;
+  max-inline-size: 704px;
+  margin-inline: auto;
 
   @media (--mq-xl) {
-    max-width: 1080px;
+    max-inline-size: 1080px;
   }
 }
 
 .sp-l-product__header {
-  padding-bottom: var(--space-y-3);
+  padding-block-end: var(--space-y-3);
 }
 
 .sp-l-product__title {
-  margin-bottom: var(--space-y-2);
+  margin-block-end: var(--space-y-2);
   color: var(--color-brand-acapulco);
 }
 
@@ -74,70 +77,68 @@ const { title, price, description, url, image, meta } = Astro.props;
 }
 
 .sp-l-product__actions {
-  margin-bottom: var(--space-y-6);
+  margin-block-end: var(--space-y-6);
 }
 
 .sp-l-product__inner {
-  width: 100%;
+  inline-size: 100%;
 
   @media (--mq-md) {
     display: flex;
   }
 }
 
-
 .sp-l-product__media {
-  margin: 0 auto var(--space-y-6);
-  width: 100%;
+  margin-block-end: var(--space-y-6);
+  margin-inline: auto;
+  inline-size: 100%;
   text-align: center;
 
   @media (--mq-md) {
-    padding-right: var(--space-x-2);
-    max-width: none;
-    width: 40%;
-    min-width: 40%;
+    padding-inline-end: var(--space-x-2);
+    max-inline-size: none;
+    inline-size: 40%;
+    min-inline-size: 40%;
     flex-basis: 40%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   @media (--mq-lg) {
-    padding-right: var(--space-x-6);
+    padding-inline-end: var(--space-x-6);
   }
 
   img {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     display: block;
     border: 0;
 
     @media (--mq-md) {
-      max-height: 100%;
+      max-block-size: 100%;
       object-fit: contain;
     }
   }
 }
 
-
 .sp-l-product__details {
-
   @media (--mq-md) {
-    min-width: 60%;
+    min-inline-size: 60%;
     flex-basis: 60%;
     display: flex;
-    padding-left: var(--space-x-2);
+    padding-inline-start: var(--space-x-2);
     flex-direction: column;
   }
 
   @media (--mq-lg) {
-    padding-left: var(--space-x-2);
+    padding-inline-start: var(--space-x-2);
   }
 }
 
 .sp-l-product__body {
-  max-width: 65ch;
+  max-inline-size: 65ch;
 }
 
 </style>

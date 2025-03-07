@@ -29,34 +29,36 @@ const { title, publishedDate, body, meta } = Astro.props;
 @import '../assets/styles/tools';
 
 .sp-l-post {
-  padding: var(--space-y-4) var(--space-x-4);
+  padding-block: var(--space-y-4);
+  padding-inline: var(--space-x-4);
 
   @media (--mq-md) {
-    padding: var(--space-y-6) var(--space-x-6);
+    padding-block: var(--space-y-6);
+    padding-inline: var(--space-x-6);
   }
 
   @media (--mq-lg) {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
 .sp-l-post__inner {
-  max-width: 704px;
-  margin: 0 auto;
+  max-inline-size: 704px;
+  margin-inline: auto;
 }
 
 .sp-l-post__header {
-  padding-bottom: var(--space-y-4);
+  padding-block-end: var(--space-y-4);
 
   @media (--mq-md) {
-    padding-bottom: var(--space-y-8);
+    padding-block-end: var(--space-y-8);
   }
 }
 
 .sp-l-post__title {
-  margin-bottom: var(--space-y-4);
+  margin-block-end: var(--space-y-4);
   color: var(--color-brand-manhattan);
 }
 

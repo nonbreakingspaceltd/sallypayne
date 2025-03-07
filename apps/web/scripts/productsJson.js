@@ -10,7 +10,7 @@ async function productsJson() {
   const products = await getProducts(true);
 
   fs.outputFile(
-    path.resolve(__dirname, '../_temp/', 'products.json'),
+    path.resolve(__dirname, '../tmp/', 'products.json'),
     JSON.stringify({
       results: products,
     }),

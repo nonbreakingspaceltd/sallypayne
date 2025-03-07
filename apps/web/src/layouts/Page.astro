@@ -25,37 +25,40 @@ const { title, image, body, meta, variant } = Astro.props;
 @import '../assets/styles/tools';
 
 .sp-l-page {
-  width: 100%;
+  inline-size: 100%;
 
   @media (--mq-lg) {
     display: flex;
     flex-direction: row;
     flex: 1;
-    min-height: min-content;
+    min-block-size: min-content;
   }
 }
 
 .sp-l-page__body {
-  padding: var(--space-y-6) var(--space-x-4);
+  padding-block: var(--space-y-6);
+  padding-inline: var(--space-x-4);
   position: relative;
 
   @media (--mq-md) {
-    padding: var(--space-y-8) var(--space-x-8);
+    padding-block: var(--space-y-8);
+    padding-inline: var(--space-x-8);
   }
 
   @media (--mq-lg) {
     flex: 1;
-    max-width: 50%;
+    max-inline-size: 50%;
     flex-basis: 50%;
-    min-height: min-content;
-    padding: var(--space-y-12) var(--space-x-12);
+    min-block-size: min-content;
+    padding-block: var(--space-y-12);
+    padding-inline: var(--space-x-12);
     background-color: var(--color-lightest-grey);
   }
 }
 
 .sp-l-page__body__inner {
-  max-width: 780px;
-  width: 100%;
+  max-inline-size: 780px;
+  inline-size: 100%;
 }
 
 .sp-l-page__media {
@@ -63,47 +66,44 @@ const { title, image, body, meta, variant } = Astro.props;
   padding: 0;
 
   @media (--mq-md) {
-    height: 50vh;
+    block-size: 50vh;
   }
 
   @media (--mq-lg) {
-    height: auto;
+    block-size: auto;
   }
 
   @media (--mq-lg) {
     flex: 1;
-    max-width: 50%;
+    max-inline-size: 50%;
     flex-basis: 50%;
-    min-height: min-content;
+    min-block-size: min-content;
     background-color: var(--color-light-grey);
   }
 }
 
 .sp-l-page__media__picture {
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
   display: block;
   position: relative;
 
   @media (--mq-md) {
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
   }
 
   picture,
   img {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     display: block;
 
     @media (--mq-md) {
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
       object-fit: cover;
     }
   }

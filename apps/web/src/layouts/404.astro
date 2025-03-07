@@ -1,6 +1,7 @@
 ---
 import LayoutBase from './Base.astro';
 ---
+
 <LayoutBase variant="404" title="404 – Page not found">
   <div class="sp-l-404">
     <h1 class="sp-l-404__title">
@@ -33,7 +34,7 @@ import LayoutBase from './Base.astro';
 
 .sp-l-404__title {
   text-align: center;
-  padding-bottom: var(--space-y-12);
+  padding-block-end: var(--space-y-12);
 }
 
 .sp-l-404__title span {
@@ -46,9 +47,9 @@ import LayoutBase from './Base.astro';
 
 .sp-l-404__image {
   position: absolute;
-  bottom: -4vh;
-  right: -30px;
-  height: auto;
-  width: 40vh;
+  inset-block-end: -4vh;
+  inset-inline-end: -30px;
+  block-size: auto;
+  inline-size: 40vh;
 }
 </style>

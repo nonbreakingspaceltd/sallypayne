@@ -1,3 +1,101 @@
+<script setup lang="ts">
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import Card from '../Card';
+import type { CardMasonryProps } from './types';
+
+const props = defineProps<CardMasonryProps>();
+
+const resizeObserver = ref<ResizeObserver>();
+const columns = ref<number[][]>([[]]);
+const container = ref<HTMLDivElement>();
+const isJsMasonry = ref(false);
+
+function columnCount(): number {
+  if (!container.value) {
+    return 1;
+  }
+
+  const containerStyles = getComputedStyle(container.value);
+
+  // create dummy element
+  const columnElement = document.createElement('div');
+  columnElement.classList.add('sp-c-card-masonry__column');
+  container.value.appendChild(columnElement);
+  const columnStyles = getComputedStyle(columnElement);
+
+  const gap = Number.parseInt(containerStyles.getPropertyValue('gap'));
+  const columnWidth = Number.parseInt(
+    columnStyles.getPropertyValue('min-width'),
+  );
+  const containerWidth = Number.parseInt(
+    container.value.getBoundingClientRect().width.toString(),
+  );
+
+  // remove dummy element
+  container.value.removeChild(columnElement);
+
+  const count = columnWidth
+    ? Math.floor((containerWidth + gap) / (columnWidth + gap))
+    : 1;
+
+  return count > 0 ? count : 1;
+}
+
+function createColumns(count: number): number[][] {
+  return [...new Array(count)].map(() => []);
+}
+
+function fillColumns(itemIndex: number): void {
+  if (itemIndex >= props.items.length) {
+    return;
+  }
+  nextTick(() => {
+    if (!container.value) {
+      return;
+    }
+
+    const columnElements = [...container.value.children];
+    const target = columnElements.reduce((prev, curr) =>
+      curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
+        ? curr
+        : prev,
+    ) as HTMLElement;
+    columns.value[Number(target.getAttribute('data-index'))].push(itemIndex);
+    fillColumns(itemIndex + 1);
+  });
+}
+
+function redraw(force = false): void {
+  if (columns.value.length === columnCount() && !force) {
+    return;
+  }
+  columns.value = createColumns(columnCount());
+  fillColumns(0);
+}
+
+columns.value = [props.items.map((_item, index) => index)];
+
+onMounted(() => {
+  const supportsGridMasonry = window.CSS.supports(
+    'grid-template-rows',
+    'masonry',
+  );
+  if (!supportsGridMasonry && container.value) {
+    isJsMasonry.value = true;
+    resizeObserver.value = new ResizeObserver(() => redraw());
+    columnCount();
+    redraw();
+    resizeObserver.value.observe(container.value);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (resizeObserver.value && container.value) {
+    resizeObserver.value.unobserve(container.value);
+  }
+});
+</script>
+
 <template>
   <div ref="container" :class="['sp-c-card-masonry', isJsMasonry && 'is-js-masonry']">
     <div
@@ -23,113 +121,4 @@
   </div>
 </template>
 
-<script>
-import { nextTick, onBeforeUnmount, onMounted, ref, toRefs } from 'vue';
-import Card from '../Card';
-
-export default {
-  components: {
-    Card,
-  },
-  props: {
-    items: {
-      type: Object,
-      required: true,
-    },
-  },
-  setup(props) {
-    const resizeObserver = ref();
-    const { items } = toRefs(props);
-    const columns = ref([]);
-    const container = ref();
-    const isJsMasonry = ref(false);
-
-    function columnCount() {
-      const containerStyles = getComputedStyle(container.value);
-
-      // create dummy element
-      const columnElement = document.createElement('div');
-      columnElement.classList.add('sp-c-card-masonry__column');
-      container.value.appendChild(columnElement);
-      const columnStyles = getComputedStyle(columnElement);
-
-      const gap = Number.parseInt(containerStyles.getPropertyValue('gap'));
-      const columnWidth = Number.parseInt(
-        columnStyles.getPropertyValue('min-width'),
-      );
-      const containerWidth = Number.parseInt(
-        container.value.getBoundingClientRect().width,
-      );
-
-      // remove dummy element
-      container.value.removeChild(columnElement);
-
-      const count = columnWidth
-        ? Math.floor((containerWidth + gap) / (columnWidth + gap))
-        : 1;
-
-      return count > 0 ? count : 1;
-    }
-
-    function createColumns(count) {
-      return [...new Array(count)].map(() => []);
-    }
-
-    function fillColumns(itemIndex) {
-      if (itemIndex >= items.value.length) {
-        return;
-      }
-      nextTick(() => {
-        const columnElements = [...container.value.children];
-        const target = columnElements.reduce((prev, curr) =>
-          curr.getBoundingClientRect().height <
-          prev.getBoundingClientRect().height
-            ? curr
-            : prev,
-        );
-        columns.value[target.dataset.index].push(itemIndex);
-        fillColumns(itemIndex + 1);
-      });
-    }
-
-    function redraw(force = false) {
-      if (columns.value.length === columnCount() && !force) {
-        return;
-      }
-      columns.value = createColumns(columnCount());
-      fillColumns(0);
-    }
-
-    columns.value = [items.value.map((_item, index) => index)];
-
-    onMounted(() => {
-      const supportsGridMasonry = window.CSS.supports(
-        'grid-template-rows',
-        'masonry',
-      );
-      if (!supportsGridMasonry) {
-        isJsMasonry.value = true;
-        resizeObserver.value = new ResizeObserver(() => redraw());
-        columnCount();
-        redraw();
-        resizeObserver.value.observe(container.value);
-      }
-    });
-
-    onBeforeUnmount(() => {
-      if (resizeObserver.value) {
-        resizeObserver.value.unobserve(container.value);
-      }
-    });
-
-    return {
-      items,
-      columns,
-      container,
-      isJsMasonry,
-    };
-  },
-};
-</script>
-
-<style lang="postcss" src="./CardMasonry.css"></style>
+<style src="./styles.css" />
