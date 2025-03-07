@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run Biome check
+pnpm biome:check || {
+  echo '❌ Biome check failed. Please fix the issues and try committing again.'
+  exit 1
+}
+
+# Run TypeScript type check
+pnpm types:check || {
+  echo '❌ TypeScript check failed. Please fix the type errors and try committing again.'
+  exit 1
+}

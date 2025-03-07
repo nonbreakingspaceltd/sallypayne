@@ -27,8 +27,8 @@ export const processPicture = (
     _type: 'picture',
     alt: alt || '',
     src: src.url(),
-    width: hasDimensions ? defaultSize.width : dimensions.width,
-    height: hasDimensions ? defaultSize.height : dimensions.height,
+    width: hasDimensions ? defaultSize.width : dimensions?.width,
+    height: hasDimensions ? defaultSize.height : dimensions?.height,
     backgroundColor: undefined,
     sources: sizes.map(({ media, width, height }) => {
       let imageBase = src;

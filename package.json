@@ -2,20 +2,22 @@
   "name": "sallypayne",
   "version": "0.0.0-semantically-released",
   "private": true,
+  "license": "UNLICENSED",
   "packageManager": "pnpm@10.6.1",
-  "workspaces": ["apps/*"],
   "engines": {
     "node": ">=22.0.0"
   },
+  "workspaces": ["apps/*"],
   "scripts": {
+    "biome:check": "npx @biomejs/biome check .",
+    "biome:check:fix": "npx @biomejs/biome check . --fix --unsafe",
+    "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
     "reset": "pnpm reset:dependencies && pnpm reset:lock",
     "reset:dependencies": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "reset:lock": "find . -name 'pnpm-lock.yaml' -type f -prune -exec rm -rf '{}' +",
-    "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager pnpm",
     "types:check": "pnpm --recursive --if-present types:check",
-    "biome:check": "npx @biomejs/biome check .",
-    "biome:check:fix": "npx @biomejs/biome check . --fix --unsafe"
+    "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager pnpm"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -24,6 +26,7 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "11.0.1",
     "@semantic-release/release-notes-generator": "14.0.3",
+    "husky": "9.1.7",
     "semantic-release": "24.2.3"
   },
   "pnpm": {

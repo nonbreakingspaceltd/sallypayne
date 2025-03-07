@@ -1,19 +1,17 @@
 {
   "name": "@sallypayne/studio",
-  "private": true,
   "version": "0.0.0-semantically-released",
-  "description": "",
-  "main": "package.json",
+  "private": true,
   "type": "module",
+  "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "dotenv -- sanity start",
     "build": "dotenv -- sanity build",
     "deploy": "dotenv -- sanity deploy",
     "dev": "dotenv -- sanity dev",
+    "start": "dotenv -- sanity start",
     "types:check": "tsc --noEmit"
   },
-  "keywords": ["sanity"],
   "dependencies": {
     "@sanity/dashboard": "4.1.2",
     "@sanity/vision": "3.78.1",

@@ -1,8 +1,10 @@
 {
   "name": "@sallypayne/web",
-  "private": true,
   "version": "0.0.0-semantically-released",
+  "private": true,
   "type": "module",
+  "main": "package.json",
+  "license": "UNLICENSED",
   "scripts": {
     "astro:build": "pnpm products && astro build",
     "astro:dev": "astro dev",
