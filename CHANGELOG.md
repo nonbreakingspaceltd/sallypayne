@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.0.0...v1.0.1) (2025-03-07)
+
+
+### Bug Fixes
+
+* update Husky pre-commit hook configuration ([bb14aec](https://github.com/nonbreakingspaceltd/sallypayne/commit/bb14aec4482ca73b7da6ebcd0673a1aa84d9fb5b))
+
 # 1.0.0 (2025-03-07)
 
 
