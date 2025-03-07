@@ -1,0 +1,89 @@
+@import '../../assets/styles/tools';
+
+.sp-c-card {
+  display: block;
+  background-color: var(--color-white);
+  color: var(--color-brand-abbey);
+}
+
+.sp-c-card.is-clickable {
+  cursor: pointer;
+}
+
+.sp-c-card__link {
+  display: block;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.sp-c-card__media {
+  padding-block-start: var(--space-y-2);
+  padding-inline: var(--space-x-2);
+
+  @media (--mq-sm) {
+    padding-block-start: var(--space-y-4);
+    padding-inline: var(--space-x-4);
+  }
+}
+
+.sp-c-card__media__picture {
+  display: block;
+}
+
+.sp-c-card__media__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-inline-size: 100%;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.sp-c-card__content {
+  padding-block: var(--space-y-4) var(--space-y-2);
+  padding-inline: var(--space-x-2);
+
+  @media (--mq-sm) {
+    padding-block: var(--space-y-6) var(--space-y-4);
+    padding-inline: var(--space-x-4);
+  }
+}
+
+.sp-c-card__title {
+  font-size: var(--font-size-4);
+  color: var(--color-black);
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-3);
+  }
+}
+
+.is-clickable:hover .sp-c-card--scrapbook .sp-c-card__link,
+.is-clickable:focus .sp-c-card--scrapbook .sp-c-card__link {
+  color: var(--color-brand-manhattan);
+}
+
+.is-clickable:hover .sp-c-card--product .sp-c-card__link,
+.is-clickable:focus .sp-c-card--product .sp-c-card__link {
+  color: var(--color-brand-acapulco);
+}
+
+.sp-c-card__body {
+  margin-block-start: var(--space-y-2);
+  font-size: var(--font-size-7);
+  word-wrap: break-word;
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-6);
+  }
+}
+
+.sp-c-card__subtitle {
+  font-weight: 700;
+  margin-block-start: var(--space-y-2);
+  font-size: var(--font-size-7);
+  word-wrap: break-word;
+
+  @media (--mq-sm) {
+    font-size: var(--font-size-6);
+  }
+}

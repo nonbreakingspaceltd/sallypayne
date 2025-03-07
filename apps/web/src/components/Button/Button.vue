@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import classNames from 'classnames';
+import { computed } from 'vue';
+import type { ButtonProps } from './types';
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+  as: undefined,
+  href: undefined,
+  variants: () => [],
+  type: undefined,
+});
+
+const htmlTag = computed(() => props.as || (props.href ? 'a' : 'button'));
+
+const variantClasses = computed(() =>
+  classNames(props.variants?.map((variant) => `sp-c-button--${variant}`)),
+);
+</script>
+
 <template>
   <component
     :is="htmlTag"
@@ -14,33 +33,4 @@
   </component>
 </template>
 
-<script>
-import classNames from 'classnames';
-
-export default {
-  props: {
-    as: {
-      type: String,
-    },
-    href: {
-      type: String,
-    },
-    variants: {
-      type: Array,
-    },
-    type: {
-      type: String,
-    },
-  },
-  computed: {
-    htmlTag({ as, href }) {
-      return as || (href ? 'a' : 'button');
-    },
-    variantClasses({ variants }) {
-      return classNames(variants?.map((variant) => `sp-c-button--${variant}`));
-    },
-  },
-};
-</script>
-
-<style lang="postcss" src="./Button.css"></style>
+<style src="./styles.css" />

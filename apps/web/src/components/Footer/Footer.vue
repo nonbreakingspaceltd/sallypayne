@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import IconFacebook from '../../assets/icons/facebook.svg?component';
+import IconInstagram from '../../assets/icons/instagram.svg?component';
+import IconPinterest from '../../assets/icons/pinterest.svg?component';
+import IconTwitter from '../../assets/icons/twitter.svg?component';
+</script>
+
 <template>
   <footer class="sp-c-footer">
     <span class="sp-c-footer__item">
@@ -50,119 +57,4 @@
   </footer>
 </template>
 
-<script>
-import IconFacebook from '../../assets/icons/facebook.svg?component';
-import IconInstagram from '../../assets/icons/instagram.svg?component';
-import IconPinterest from '../../assets/icons/pinterest.svg?component';
-import IconTwitter from '../../assets/icons/twitter.svg?component';
-
-export default {
-  components: {
-    IconFacebook,
-    IconTwitter,
-    IconInstagram,
-    IconPinterest,
-  },
-};
-</script>
-
-<style lang="pcss">
-@import '../../assets/styles/tools';
-
-.sp-c-footer {
-  padding: var(--space-y-4) var(--space-x-4);
-  font-size: 0;
-  overflow: hidden;
-
-  @media (--mq-md) {
-    padding: var(--space-y-8) var(--space-x-8);
-  }
-
-  @media (--mq-lg) {
-    display: flex;
-  }
-}
-
-.sp-c-footer__item {
-  font-size: 14px;
-  line-height: var(--space-y-5);
-  display: block;
-
-  @media (--mq-lg) {
-    display: inline-block;
-    font-size: 16px;
-    line-height: var(--space-y-7);
-  }
-
-  & + & {
-    margin-top: var(--space-y-2);
-
-    @media (--mq-lg) {
-      padding-left: var(--space-x-3);
-      margin-top: 0;
-      margin-left: var(--space-x-3);
-      border-left: 1px solid #ddd;
-    }
-  }
-
-  small {
-    font-size: inherit;
-    line-height: inherit;
-  }
-}
-
-.sp-c-footer__social {
-  margin-top: var(--space-y-4);
-
-  @media (--mq-lg) {
-    margin: calc(var(--space-y-1) * -1) 0 0 auto;
-  }
-}
-
-.sp-c-footer__social__link {
-  width: var(--space-x-7);
-  display: inline-block;
-  color: var(--color-brand-abbey);
-
-  & + & {
-    margin-left: var(--space-x-2);
-  }
-
-  &--facebook {
-
-    &:hover,
-    &:focus {
-      color: var(--color-social-facebook);
-    }
-  }
-
-  &--twitter {
-
-    &:hover,
-    &:focus {
-      color: var(--color-social-twitter);
-    }
-  }
-
-  &--pinterest {
-
-    &:hover,
-    &:focus {
-      color: var(--color-social-pinterest);
-    }
-  }
-
-  &--instagram {
-
-    &:hover,
-    &:focus {
-      color: var(--color-social-instagram);
-    }
-  }
-}
-
-.sp-c-footer__social__icon {
-  width: 100%;
-  fill: currentColor;
-}
-</style>
+<style src="./styles.css" />

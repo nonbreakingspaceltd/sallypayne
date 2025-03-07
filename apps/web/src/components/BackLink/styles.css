@@ -1,0 +1,14 @@
+@import '../../assets/styles/tools';
+
+.sp-c-backlink {
+  display: none;
+
+  @media (--mq-lg) {
+    position: fixed;
+    width: 32px;
+    top: 164px;
+    left: 32px;
+    z-index: 2;
+    display: block;
+  }
+}

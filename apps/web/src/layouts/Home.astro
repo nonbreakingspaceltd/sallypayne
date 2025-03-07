@@ -3,15 +3,14 @@ import HomeMedia from '../components/HomeMedia/HomeMedia.vue';
 import LayoutBase from './Base.astro';
 const { title, meta } = Astro.props;
 ---
-<LayoutBase variant="home" title={title} meta={meta}>
 
+<LayoutBase variant="home" title={title} meta={meta}>
   <div class="sp-l-home">
     <h1 class="sp-u-sr-only">
       {title}
     </h1>
     <HomeMedia client:idle class="sp-l-home__media" />
   </div>
-
 </LayoutBase>
 
 <style lang="postcss" is:global>
@@ -24,6 +23,6 @@ const { title, meta } = Astro.props;
 
 .sp-l-home__media {
   flex: 1;
-  padding: 0 var(--space-x-4);
+  padding-inline: var(--space-x-4);
 }
 </style>

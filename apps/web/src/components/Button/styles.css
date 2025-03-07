@@ -19,7 +19,8 @@
   border-radius: 0;
 
   /* Size */
-  padding: var(--space-y-3) var(--space-x-5);
+  padding-block: var(--space-y-3);
+  padding-inline: var(--space-x-5);
 
   /* Text */
   font-family: var(--font-family-base);
@@ -33,43 +34,42 @@
     font-size: var(--font-size-base);
     line-height: calc(var(--baseline) * 7);
   }
+}
 
-  &--link {
-    background: none;
-    padding: 0;
-    line-height: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-  }
+.sp-c-button--link {
+  background: none;
+  padding: 0;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
 
-  &--ghost {
-    background: none;
-  }
+.sp-c-button--ghost {
+  background: none;
+}
 
-  &--invert {
-    background-color: var(--color-black);
-    color: var(--color-white);
-  }
+.sp-c-button--invert {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
 
-  &--color-a {
-    background-color: var(--color-brand-danube);
-    border-color: var(--color-brand-danube);
-    color: var(--color-white);
-  }
+.sp-c-button--color-a {
+  background-color: var(--color-brand-danube);
+  border-color: var(--color-brand-danube);
+  color: var(--color-white);
+}
 
-  &--block {
-    width: 100%;
-    display: block;
-    padding-left: 0;
-    padding-right: 0;
-  }
+.sp-c-button--block {
+  inline-size: 100%;
+  display: block;
+  padding-inline: 0;
+}
 
-  &.disabled,
-  &[disabled] {
-    cursor: default;
-    opacity: 0.3;
-  }
+.sp-c-button.disabled,
+.sp-c-button[disabled] {
+  cursor: default;
+  opacity: 0.3;
 }
 
 .sp-c-button__label {

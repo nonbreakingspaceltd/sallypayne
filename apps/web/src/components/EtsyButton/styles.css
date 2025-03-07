@@ -1,0 +1,14 @@
+@import '../../assets/styles/tools';
+
+.sp-c-button-etsy {
+  background-color: var(--color-social-etsy);
+  border-color: var(--color-social-etsy);
+  color: var(--color-white);
+}
+
+.sp-c-button-etsy__icon {
+  fill: var(--color-white);
+  width: 50px;
+  vertical-align: -10px;
+  margin-left: 10px;
+}

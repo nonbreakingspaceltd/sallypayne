@@ -3,6 +3,7 @@ import LayoutBase from './Base.astro';
 const { variant, title, meta } = Astro.props;
 const variantClass = variant ? `sp-l-list--${variant}` : '';
 ---
+
 <LayoutBase variant={variant} title={title} meta={meta}>
   <div class={`sp-l-list ${variantClass}`}>
     <h1 class="sp-o-pagetitle sp-u-sr-only">
@@ -12,27 +13,28 @@ const variantClass = variant ? `sp-l-list--${variant}` : '';
   </div>
 </LayoutBase>
 
-
 <style lang="postcss" is:global>
 @import '../assets/styles/tools';
 
 .sp-l-list {
-  padding: var(--space-y-2) var(--space-x-2);
+  padding-block: var(--space-y-2);
+  padding-inline: var(--space-x-2);
   position: relative;
   flex: 1;
 
   @media (--mq-sm) {
-    padding: var(--space-y-4) var(--space-x-4);
+    padding-block: var(--space-y-4);
+    padding-inline: var(--space-x-4);
   }
+}
 
-  &--scrapbook {
-    background-color: var(--color-brand-manhattan);
-    color: var(--color-black);
-  }
+.sp-l-list--scrapbook {
+  background-color: var(--color-brand-manhattan);
+  color: var(--color-black);
+}
 
-  &--shop {
-    background-color: var(--color-brand-acapulco);
-    color: var(--color-black);
-  }
+.sp-l-list--shop {
+  background-color: var(--color-brand-acapulco);
+  color: var(--color-black);
 }
 </style>

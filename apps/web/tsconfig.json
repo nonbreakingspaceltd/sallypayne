@@ -18,7 +18,9 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "types": ["vite/client", "vite-svg-loader", "vue"],
+    "outDir": "dist"
   },
   "include": [
     ".astro/types.d.ts",
