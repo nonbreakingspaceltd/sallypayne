@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # Run Biome check
 pnpm biome:check || {
   echo '❌ Biome check failed. Please fix the issues and try committing again.'
