@@ -265,40 +265,57 @@
   padding-inline: var(--space-x-4);
   color: var(--color-text);
   text-decoration: none;
-  font-size: var(--font-size-4);
-  line-height: calc(var(--baseline) * 7);
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 56px;
+  margin-block: 8px;
+  display: inline-block;
+  text-align: center;
+  color: var(--color-black);
+  -webkit-tap-highlight-color: transparent;
 
   @media (--mq-lg) {
+    margin-block: 0;
+    margin-inline-start: calc(var(--baseline) * 8);
+    font-size: 30px;
+    line-height: 54px;
+    letter-spacing: 3px;
     padding-block: var(--space-y-2);
     padding-inline: var(--space-x-4);
-    font-size: var(--font-size-6);
-    line-height: calc(var(--baseline) * 6);
   }
 }
 
 .sp-c-header__nav__link--about:hover,
-.sp-c-header__nav__link--about:focus {
-  color: var(--color-brand-manhattan);
+.sp-c-header__nav__link--about:focus,
+.sp-c-header__nav__link--about.is-active {
+  color: var(--color-brand-goldensand);
 }
 
 .sp-c-header__nav__link--shop:hover,
-.sp-c-header__nav__link--shop:focus {
+.sp-c-header__nav__link--shop:focus,
+.sp-c-header__nav__link--shop.is-active {
   color: var(--color-brand-acapulco);
 }
 
 .sp-c-header__nav__link--scrapbook:hover,
-.sp-c-header__nav__link--scrapbook:focus {
+.sp-c-header__nav__link--scrapbook:focus,
+.sp-c-header__nav__link--scrapbook.is-active {
   color: var(--color-brand-manhattan);
 }
 
 .sp-c-header__nav__link--contact:hover,
-.sp-c-header__nav__link--contact:focus {
-  color: var(--color-brand-acapulco);
+.sp-c-header__nav__link--contact:focus,
+.sp-c-header__nav__link--contact.is-active {
+  color: var(--color-brand-danube);
 }
 
 .sp-c-header__nav__link__label {
+  display: block;
   position: relative;
-  display: inline-block;
+  overflow: hidden;
 
   @media (--mq-lg) {
     display: block;
@@ -306,19 +323,16 @@
 }
 
 .sp-c-header__nav__link__label::after {
-  content: '';
+  content: '....................';
+  display: block;
   position: absolute;
-  inset-block-end: -2px;
-  inset-inline-start: 0;
-  inline-size: 100%;
-  block-size: 1px;
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  inset-block-end: calc(var(--space-y-4) * -1);
+  inset-inline: 0;
+  visibility: hidden;
 }
 
 .sp-c-header__nav__link:hover .sp-c-header__nav__link__label::after,
-.sp-c-header__nav__link:focus .sp-c-header__nav__link__label::after {
-  transform: scaleX(1);
-  transform-origin: left center;
+.sp-c-header__nav__link:focus .sp-c-header__nav__link__label::after,
+.sp-c-header__nav__link.is-active .sp-c-header__nav__link__label::after {
+  visibility: visible;
 }
