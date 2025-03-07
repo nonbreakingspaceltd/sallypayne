@@ -6,4 +6,5 @@ export default defineCliConfig({
     projectId: 's9bzuqxn',
     dataset: 'prod',
   },
+  studioHost: 'sallypayne',
 });

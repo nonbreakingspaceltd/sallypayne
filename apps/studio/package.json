@@ -7,10 +7,10 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "dev": "sanity dev",
+    "start": "dotenv -- sanity start",
+    "build": "dotenv -- sanity build",
+    "deploy": "dotenv -- sanity deploy",
+    "dev": "dotenv -- sanity dev",
     "types:check": "tsc --noEmit"
   },
   "keywords": ["sanity"],
@@ -19,6 +19,7 @@
     "@sanity/vision": "3.78.0",
     "consola": "3.4.0",
     "date-fns": "4.1.0",
+    "dotenv-cli": "8.0.0",
     "jsdom": "26.0.0",
     "prop-types": "15.8.1",
     "react": "18.3.1",

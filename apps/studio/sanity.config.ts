@@ -5,6 +5,7 @@ import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { structureTool } from 'sanity/structure';
+import { env } from './loadEnv';
 import { Logo } from './plugins/Logo';
 import { schemaTypes } from './schemaTypes';
 import { structure } from './structure';
@@ -57,7 +58,7 @@ export default defineConfig({
     },
   },
   tools: (prev) => {
-    if (import.meta.env.DEV) {
+    if (env.DEV) {
       return prev;
     }
     return prev.filter((tool) => tool.name !== 'vision');
