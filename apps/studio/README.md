@@ -1,4 +1,6 @@
-# @sallypayne/studio
+# Studio
+
+[![Studio](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/studio.yml/badge.svg)](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/studio.yml)
 
 Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
 
