@@ -28,7 +28,7 @@
     "sanitize-html": "2.14.0",
     "sanity": "3.78.1",
     "sanity-plugin-dashboard-widget-netlify": "2.0.1",
-    "sanity-plugin-media": "2.3.2",
+    "sanity-plugin-media": "2.4.0",
     "slugify": "1.6.6",
     "styled-components": "6.1.15"
   },
@@ -39,6 +39,6 @@
     "jsdom": "26.0.0",
     "sanitize-html": "2.14.0",
     "typescript": "5.8.2",
-    "vite": "6.2.0"
+    "vite": "6.2.1"
   }
 }
