@@ -1,9 +1,12 @@
 {
   "name": "sallypayne",
-  "packageManager": "pnpm@10.6.1",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.6.1",
   "workspaces": ["apps/*"],
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "reset": "pnpm reset:dependencies && pnpm reset:lock",
@@ -14,22 +17,49 @@
     "biome:check": "npx @biomejs/biome check .",
     "biome:check:fix": "npx @biomejs/biome check . --fix --unsafe"
   },
-  "engines": {
-    "node": ">=22.0.0"
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
   },
   "pnpm": {
     "overrides": {
-      "react": "18.3.1",
-      "react-dom": "18.3.1",
+      "@octokit/core": ">=6.0.0",
+      "@octokit/plugin-paginate-rest@>=1.0.0 <11.4.1": ">=11.4.1",
+      "@octokit/request@>=1.0.0 <9.2.1": ">=9.2.1",
+      "@sanity/dashboard": ">=3.0.0",
       "@types/react": "18.3.1",
       "@types/react-dom": "18.3.1",
-      "typescript": "5.8.2",
-      "@octokit/request@>=1.0.0 <9.2.1": ">=9.2.1",
-      "@octokit/plugin-paginate-rest@>=1.0.0 <11.4.1": ">=11.4.1",
-      "esbuild@<=0.24.2": ">=0.25.0"
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "purgecss": ">=7.0.0",
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "styled-components": ">=6.0.0",
+      "typescript": "5.8.2"
     }
   },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+  "release": {
+    "branches": ["main"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "dist.zip",
+              "label": "Distribution"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": ["package.json", "CHANGELOG.md"],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   }
 }

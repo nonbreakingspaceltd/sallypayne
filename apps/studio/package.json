@@ -28,7 +28,7 @@
     "sanitize-html": "2.14.0",
     "sanity": "3.78.1",
     "sanity-plugin-dashboard-widget-netlify": "2.0.1",
-    "sanity-plugin-media": "2.4.0",
+    "sanity-plugin-media": "2.4.1",
     "slugify": "1.6.6",
     "styled-components": "6.1.15"
   },
