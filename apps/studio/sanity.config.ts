@@ -4,6 +4,7 @@ import { dashboardTool } from '@sanity/dashboard';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
+import { media } from 'sanity-plugin-media';
 import { structureTool } from 'sanity/structure';
 import { env } from './loadEnv';
 import { Logo } from './plugins/Logo';
@@ -15,6 +16,10 @@ export default defineConfig({
   projectId: 's9bzuqxn',
   dataset: 'prod',
   plugins: [
+    structureTool({
+      structure,
+    }),
+    media(),
     dashboardTool({
       widgets: [
         netlifyWidget({
@@ -30,9 +35,6 @@ export default defineConfig({
           ],
         }),
       ],
-    }),
-    structureTool({
-      structure,
     }),
     visionTool(),
   ],
