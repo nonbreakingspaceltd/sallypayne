@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.0.1...v1.1.0) (2025-03-07)
+
+
+### Features
+
+* add id prop to Button component ([3002371](https://github.com/nonbreakingspaceltd/sallypayne/commit/30023715193f74abf9771ae96001a036f7a60c13))
+* upgrade Vue to use TypeScript ([0560ce3](https://github.com/nonbreakingspaceltd/sallypayne/commit/0560ce3824f822482647d232992175b1e1429670))
+
 ## [1.0.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.0.0...v1.0.1) (2025-03-07)
 
 
