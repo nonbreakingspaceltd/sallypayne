@@ -2,7 +2,7 @@
 
 [![Code](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/code.yml/badge.svg)](https://github.com/nonbreakingspaceltd/sallypayne/actions/workflows/code.yml)
 
-This project contains the sorce code for Sally Payne. It is structured as a monorepo, utilising pnpm workspaces, to facilitate easier maintenance of websites and applications.
+This project contains the source code for Sally Payne. It is structured as a monorepo, utilising pnpm workspaces, to facilitate easier maintenance of websites and applications.
 
 ## Setup
 
