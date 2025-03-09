@@ -36,8 +36,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Typecheck
-        run: pnpm --filter @sallypayne/web typecheck
+      - name: Check types
+        run: pnpm --filter @sallypayne/web types:check
 
-      - name: Build Website
+      - name: Build website
         run: pnpm --filter @sallypayne/web build
