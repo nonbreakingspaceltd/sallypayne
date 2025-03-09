@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Typecheck
-        run: pnpm --filter @sallypayne/studio typecheck
+      - name: Check types
+        run: pnpm --filter @sallypayne/studio types:check
 
       - name: Build studio
         run: pnpm --filter @sallypayne/studio build
