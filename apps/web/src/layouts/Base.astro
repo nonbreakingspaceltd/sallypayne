@@ -28,7 +28,7 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 
     <meta
       name="robots"
-      content={meta?.blockIndexing ? 'noindex, nofollow' : 'index'}
+      content="index, follow"
     />
 
     <link rel="canonical" href={canonicalURL} />
