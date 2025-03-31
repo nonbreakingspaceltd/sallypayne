@@ -37,6 +37,6 @@
     "jsdom": "26.0.0",
     "sanitize-html": "2.15.0",
     "typescript": "5.8.2",
-    "vite": "6.2.3"
+    "vite": "6.2.4"
   }
 }
