@@ -1,6 +1,7 @@
 ---
 import type { ProductProps } from '../../../../types';
 import { getProducts } from '../../../data/products';
+import LayoutProduct from '../../../layouts/Product.astro';
 
 type Props = ProductProps;
 
@@ -10,7 +11,7 @@ export async function getStaticPaths() {
 
 const { title, price, description, image, url, meta } = Astro.props;
 
-const _product = {
+const product = {
   title,
   price,
   description,

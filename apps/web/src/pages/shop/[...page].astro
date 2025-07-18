@@ -1,8 +1,11 @@
 ---
 import type { GetStaticPaths, GetStaticPathsOptions, Page } from 'astro';
 import type { ProductPayload } from '../../../types';
+import CardMasonry from '../../components/CardMasonry';
+import Pagination from '../../components/Pagination';
 import { getSiteSettings } from '../../data/global';
 import { getPaginatedProducts } from '../../data/products';
+import LayoutList from '../../layouts/List.astro';
 
 type Props = {
   page: Page<ProductPayload>;
@@ -27,7 +30,7 @@ if (page.currentPage > 1) {
 }
 const metaTitle = `${title} | ${siteSettings.title}`;
 
-const _meta = {
+const meta = {
   title: metaTitle,
   description: metaDescription,
   og: {
@@ -35,7 +38,7 @@ const _meta = {
   },
 };
 
-const _products = page.data.map((product) => {
+const products = page.data.map((product) => {
   const { title, price, path, image } = product.props;
   // map to card props
   const card = {
@@ -51,10 +54,5 @@ const _products = page.data.map((product) => {
 
 <LayoutList variant="product" meta={meta} title={title} variant="shop">
   <CardMasonry client:load items={products} />
-  <Pagination
-    client:idle
-    totalPage={page.lastPage}
-    currentPage={page.currentPage}
-    basePath="/shop"
-  />
+  <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/shop" />
 </LayoutList>

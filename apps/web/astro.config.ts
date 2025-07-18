@@ -59,8 +59,8 @@ export default defineConfig({
     plugins: [
       env('all', {
         prefix: 'PUBLIC_',
-      }),
-      svgLoader(),
+      }) as any,
+      svgLoader() as any,
     ],
     ssr: {
       noExternal: ['@astrojs/vue', '@portabletext/vue'],

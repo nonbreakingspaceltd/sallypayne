@@ -27,7 +27,7 @@ if (page.currentPage > 1) {
 }
 const metaTitle = `${title} | ${siteSettings.title}`;
 
-const _meta = {
+const meta = {
   title: metaTitle,
   description: metaDescription,
   og: {
@@ -35,7 +35,7 @@ const _meta = {
   },
 };
 
-const _posts = page.data.map((post: PageProps) => {
+const posts = page.data.map((post: PageProps) => {
   const { title, path, excerpt, image, publishedDateShort } = post;
   // map to card props
   return {
@@ -51,10 +51,5 @@ const _posts = page.data.map((post: PageProps) => {
 
 <LayoutList title={title} meta={meta} variant="scrapbook">
   <CardMasonry client:load items={posts} />
-  <Pagination
-    client:idle
-    totalPage={page.lastPage}
-    currentPage={page.currentPage}
-    basePath="/scrapbook"
-  />
+  <Pagination client:idle totalPage={page.lastPage} currentPage={page.currentPage} basePath="/scrapbook" />
 </LayoutList>

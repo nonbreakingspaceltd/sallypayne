@@ -8,10 +8,4 @@ export async function getStaticPaths() {
 const { body, title, image, meta } = Astro.props;
 ---
 
-<LayoutPage
-  variant="page"
-  title={title}
-  meta={meta}
-  body={body}
-  image={image}
-/>
+<LayoutPage variant="page" title={title} meta={meta} body={body} image={image} />
