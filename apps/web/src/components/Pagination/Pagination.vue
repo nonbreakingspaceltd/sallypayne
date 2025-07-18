@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
-import ArrowRight from '../../assets/icons/arrow-right.svg?component';
 import type { PaginationPage, PaginationProps } from './types';
 
 const props = withDefaults(defineProps<PaginationProps>(), {
@@ -21,7 +19,7 @@ const generatePageItem = (
   show,
 });
 
-const pages = computed((): PaginationPage[] => {
+const _pages = computed((): PaginationPage[] => {
   // Generate basic page numbers
   const items = Array.from({ length: props.totalPage }, (_, i) =>
     generatePageItem(i + 1, i + 1, false),
@@ -81,10 +79,10 @@ const pages = computed((): PaginationPage[] => {
   return items;
 });
 
-const disablePrev = computed(() => props.currentPage === 1);
-const disableNext = computed(() => props.currentPage === props.totalPage);
+const _disablePrev = computed(() => props.currentPage === 1);
+const _disableNext = computed(() => props.currentPage === props.totalPage);
 
-const href = (page: number): string => {
+const _href = (page: number): string => {
   const basePath = props.basePath || '';
   return page < 2 ? basePath : `${basePath}/${page}`;
 };

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,17 +7,18 @@
     "defaultBranch": "main"
   },
   "files": {
-    "ignore": [
-      "**/public/**",
-      "**/dist/**",
-      "**/*generated*",
-      "**/coverage/**",
-      "**/node_modules/**",
-      "**/.turbo/**",
-      "**/.vite/**",
-      "**/.vscode/**",
-      "**/.sanity/**",
-      "**/.astro/**"
+    "includes": [
+      "**",
+      "!**/public/**",
+      "!**/dist/**",
+      "!**/*generated*",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/.turbo/**",
+      "!**/.vite/**",
+      "!**/.vscode/**",
+      "!**/.sanity/**",
+      "!**/.astro/**"
     ]
   },
   "linter": {
@@ -47,9 +48,7 @@
   "formatter": {
     "enabled": true
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "javascript": {
     "formatter": {
       "enabled": true,

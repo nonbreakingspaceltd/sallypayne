@@ -15,8 +15,9 @@
   --font-size-6: 14px;
   --font-size-7: 12px;
 
-  --font-family-base: Courier New, Courier, Lucida Sans Typewriter, Lucida
-    Typewriter, monospace;
-  --font-family-heading: 'SketchySallySans', 'HelveticaNeue-CondensedBold',
+  --font-family-base:
+    Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+  --font-family-heading:
+    'SketchySallySans', 'HelveticaNeue-CondensedBold',
     'FranklinGothicFSDemiCondensed', 'Arial Narrow', sans-serif;
 }

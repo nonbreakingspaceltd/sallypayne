@@ -16,7 +16,7 @@ export const textToHtml = (str: string) => {
 export const toSentenceCase = (str: string) => {
   const newString = str
     .toLowerCase()
-    .replace(/(^\s*\w|[\.\!\?]\s*\w)/g, (c: string) => c.toUpperCase());
+    .replace(/(^\s*\w|[.!?]\s*\w)/g, (c: string) => c.toUpperCase());
   return newString;
 };
 

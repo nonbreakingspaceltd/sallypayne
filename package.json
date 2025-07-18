@@ -3,11 +3,13 @@
   "version": "0.0.0-semantically-released",
   "private": true,
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=22.0.0"
   },
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "biome:check": "npx @biomejs/biome check .",
     "biome:check:fix": "npx @biomejs/biome check . --fix --unsafe",
@@ -20,15 +22,15 @@
     "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager pnpm"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.1.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "11.0.2",
+    "@semantic-release/github": "11.0.3",
     "@semantic-release/release-notes-generator": "14.0.3",
-    "conventional-changelog-conventionalcommits": "8.0.0",
+    "conventional-changelog-conventionalcommits": "9.1.0",
     "husky": "9.1.7",
-    "semantic-release": "24.2.3"
+    "semantic-release": "24.2.7"
   },
   "pnpm": {
     "overrides": {
@@ -50,7 +52,9 @@
     }
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
       [
         "@semantic-release/commit-analyzer",
@@ -74,7 +78,10 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["package.json", "CHANGELOG.md"],
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]

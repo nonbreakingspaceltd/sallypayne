@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
-import Card from '../Card';
 import type { CardMasonryProps } from './types';
 
 const props = defineProps<CardMasonryProps>();

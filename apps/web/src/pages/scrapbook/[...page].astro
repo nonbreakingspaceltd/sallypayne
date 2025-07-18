@@ -1,11 +1,8 @@
 ---
 import type { GetStaticPaths, GetStaticPathsOptions, Page } from 'astro';
 import type { PageProps } from '../../../types';
-import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
-import Pagination from '../../components/Pagination/Pagination.vue';
 import { getSiteSettings } from '../../data/global';
 import { getPaginatedPosts } from '../../data/posts';
-import LayoutList from '../../layouts/List.astro';
 
 type Props = {
   page: Page<PageProps>;
@@ -30,7 +27,7 @@ if (page.currentPage > 1) {
 }
 const metaTitle = `${title} | ${siteSettings.title}`;
 
-const meta = {
+const _meta = {
   title: metaTitle,
   description: metaDescription,
   og: {
@@ -38,7 +35,7 @@ const meta = {
   },
 };
 
-const posts = page.data.map((post: PageProps) => {
+const _posts = page.data.map((post: PageProps) => {
   const { title, path, excerpt, image, publishedDateShort } = post;
   // map to card props
   return {

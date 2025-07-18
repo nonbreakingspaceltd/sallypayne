@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import moveFocusInside, { focusInside, focusIsHidden } from 'focus-lock';
-import { constants } from 'focus-lock';
+import moveFocusInside, {
+  constants,
+  focusInside,
+  focusIsHidden,
+} from 'focus-lock';
 import {
   computed,
   getCurrentInstance,
@@ -22,7 +25,7 @@ const data = ref<{
   onActivation?: () => void;
 }>({});
 
-const hidden = ref(''); // "width: 1px;height: 0px;padding: 0;overflow: hidden;position: fixed;top: 0;left: 0;"
+const _hidden = ref(''); // "width: 1px;height: 0px;padding: 0;overflow: hidden;position: fixed;top: 0;left: 0;"
 let originalFocusedElement: Element | null = null;
 
 function deferAction(action: () => void) {
@@ -113,15 +116,15 @@ const detachHandler = () => {
   window.removeEventListener('blur', onWindowBlur);
 };
 
-const groupAttr = computed(() => ({ [constants.FOCUS_GROUP]: props.group }));
+const _groupAttr = computed(() => ({ [constants.FOCUS_GROUP]: props.group }));
 
 const hasLeadingGuards = computed(() => props.noFocusGuards !== true);
 
-const hasTailingGuards = computed(
+const _hasTailingGuards = computed(
   () => hasLeadingGuards.value && props.noFocusGuards !== 'tail',
 );
 
-const handleBlur = () => {
+const _handleBlur = () => {
   deferAction(emitChange);
 };
 

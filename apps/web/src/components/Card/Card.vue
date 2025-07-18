@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import classNames from 'classnames';
 import { computed, ref } from 'vue';
-import Picture from '../Picture';
 import type { CardProps } from './types';
 
 const props = withDefaults(defineProps<CardProps>(), {
@@ -11,18 +10,20 @@ const props = withDefaults(defineProps<CardProps>(), {
   variants: undefined,
 });
 
-const classes = computed(() => {
+const _classes = computed(() => {
   const baseClass = 'sp-c-card';
   return classNames(
     baseClass,
-    props.href && 'is-clickable',
-    props.variants?.map((variant) => `${baseClass}--${variant}`),
+    props.variants?.map((variant) => `sp-c-card--${variant}`),
+    {
+      'sp-c-card--link': !!props.href,
+    },
   );
 });
 
 const link = ref<HTMLAnchorElement>();
 
-const handleClick = () => {
+const _handleClick = () => {
   if (props.href && link.value) {
     link.value.click();
   }
