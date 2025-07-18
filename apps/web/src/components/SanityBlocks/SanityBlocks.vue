@@ -1,24 +1,32 @@
 <script lang="ts" setup>
-import { h } from 'vue';
+import type { PortableTextComponents } from '@portabletext/vue';
+import { PortableText } from '@portabletext/vue';
+import { computed, h } from 'vue';
 import Picture from '../../components/Picture';
 import Video from '../../components/Video';
-import type { PictureProps } from '../Picture/types';
-import type { VideoProps } from '../Video/types';
 import type { SanityBlocksProps } from './types';
 
 const props = defineProps<SanityBlocksProps>();
 
-const _components = {
+// Ensure blocks is valid
+const blocks = computed(() => {
+  if (!props.blocks) {
+    return [];
+  }
+  return props.blocks;
+});
+
+const components: PortableTextComponents = {
   ...(props.serializers || {}),
   types: {
-    picture: ({ value }: { value: PictureProps }) => h(Picture, value),
-    video: ({ value }: { value: VideoProps }) => h(Video, value),
+    picture: ({ value }) => h(Picture, value),
+    video: ({ value }) => h(Video, value),
     ...(props.serializers?.types || {}),
   },
 };
 </script>
 
 <template>
-  <PortableText :value="blocks" :components="components" />
+  <PortableText v-if="blocks" :value="blocks" :components="components" />
 </template>
 

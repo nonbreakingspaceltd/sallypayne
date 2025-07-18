@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths, GetStaticPathsOptions, Page } from 'astro';
 import type { ProductPayload } from '../../../types';
-import CardMasonry from '../../components/CardMasonry';
-import Pagination from '../../components/Pagination';
+import CardMasonry from '../../components/CardMasonry/CardMasonry.vue';
+import Pagination from '../../components/Pagination/Pagination.vue';
 import { getSiteSettings } from '../../data/global';
 import { getPaginatedProducts } from '../../data/products';
 import LayoutList from '../../layouts/List.astro';
