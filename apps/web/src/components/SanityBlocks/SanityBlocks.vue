@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { PortableText } from '@portabletext/vue';
 import { h } from 'vue';
 import Picture from '../../components/Picture';
 import Video from '../../components/Video';
@@ -9,7 +8,7 @@ import type { SanityBlocksProps } from './types';
 
 const props = defineProps<SanityBlocksProps>();
 
-const components = {
+const _components = {
   ...(props.serializers || {}),
   types: {
     picture: ({ value }: { value: PictureProps }) => h(Picture, value),

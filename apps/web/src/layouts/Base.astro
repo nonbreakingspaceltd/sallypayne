@@ -1,22 +1,18 @@
 ---
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import { getNavigation, getSiteSettings } from '../data/global';
 import '../assets/styles/global.css';
-import { CookieBanner } from '../components/CookieBanner';
 
-const siteSettings = await getSiteSettings();
+const _siteSettings = await getSiteSettings();
 
 const { title, meta, variant } = Astro.props;
-const canonicalURL = Astro.props.canonicalURL;
+const _canonicalURL = Astro.props.canonicalURL;
 const currentPath = Astro.url.pathname;
-const navigation = getNavigation(currentPath);
-const variantClass = variant ? `sp-l-layout--${variant}` : '';
-const isArticle = meta?.og?.type === 'article';
+const _navigation = getNavigation(currentPath);
+const _variantClass = variant ? `sp-l-layout--${variant}` : '';
+const _isArticle = meta?.og?.type === 'article';
 
-const serviceWorkerVersion =
-  import.meta.env.BUILD_ID || new Date().getTime().toString();
-const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
+const serviceWorkerVersion = import.meta.env.BUILD_ID || Date.now().toString();
+const _serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 ---
 
 <!doctype html>

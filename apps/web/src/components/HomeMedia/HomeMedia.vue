@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import imgSrc from './home-20230203.svg?url';
+
 </script>
 
 <template>

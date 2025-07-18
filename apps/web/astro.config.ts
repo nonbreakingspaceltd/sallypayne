@@ -1,9 +1,9 @@
 import 'dotenv/config';
 
 import vue from '@astrojs/vue';
+import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import purgecss from 'astro-purgecss';
-import { defineConfig } from 'astro/config';
 import env from 'vite-plugin-environment';
 import svgLoader from 'vite-svg-loader';
 

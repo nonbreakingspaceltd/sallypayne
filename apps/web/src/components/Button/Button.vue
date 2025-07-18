@@ -10,9 +10,9 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   type: undefined,
 });
 
-const htmlTag = computed(() => props.as || (props.href ? 'a' : 'button'));
+const _htmlTag = computed(() => props.as || (props.href ? 'a' : 'button'));
 
-const variantClasses = computed(() =>
+const _variantClasses = computed(() =>
   classNames(props.variants?.map((variant) => `sp-c-button--${variant}`)),
 );
 </script>

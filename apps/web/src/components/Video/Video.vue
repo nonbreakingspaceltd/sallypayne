@@ -4,7 +4,7 @@ import type { VideoProps } from './types';
 
 const props = defineProps<VideoProps>();
 
-const videoPath = computed(() => {
+const _videoPath = computed(() => {
   let path = '';
   if (props.service === 'youtube') {
     path = `https://www.youtube.com/embed/${props.videoId}?rel=0&modestbranding=1&autoplay=1&playsinline`;
@@ -12,7 +12,7 @@ const videoPath = computed(() => {
   return path;
 });
 
-const videoAllow = computed(() => {
+const _videoAllow = computed(() => {
   let allow = '';
   if (props.service === 'youtube') {
     allow = `accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture`;
@@ -20,7 +20,7 @@ const videoAllow = computed(() => {
   return allow;
 });
 
-const videoAspectRatio = computed(() => {
+const _videoAspectRatio = computed(() => {
   const parts = props.aspectRatio?.split(':') ?? ['9', '16'];
   return `--video-aspect-ratio: ${parts[1]} / ${parts[0]}`;
 });
