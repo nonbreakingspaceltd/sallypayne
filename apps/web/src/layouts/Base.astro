@@ -2,17 +2,17 @@
 import { getNavigation, getSiteSettings } from '../data/global';
 import '../assets/styles/global.css';
 
-const _siteSettings = await getSiteSettings();
+const siteSettings = await getSiteSettings();
 
 const { title, meta, variant } = Astro.props;
-const _canonicalURL = Astro.props.canonicalURL;
+const canonicalURL = Astro.props.canonicalURL;
 const currentPath = Astro.url.pathname;
-const _navigation = getNavigation(currentPath);
-const _variantClass = variant ? `sp-l-layout--${variant}` : '';
-const _isArticle = meta?.og?.type === 'article';
+const navigation = getNavigation(currentPath);
+const variantClass = variant ? `sp-l-layout--${variant}` : '';
+const isArticle = meta?.og?.type === 'article';
 
 const serviceWorkerVersion = import.meta.env.BUILD_ID || Date.now().toString();
-const _serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
+const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 ---
 
 <!doctype html>

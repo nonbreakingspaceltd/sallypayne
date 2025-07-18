@@ -7,7 +7,7 @@ import type { PictureProps } from './types';
 
 const props = defineProps<PictureProps>();
 
-const _classes = computed(() => {
+const classes = computed(() => {
   return classNames(
     'sp-c-picture',
     props.variants?.map((variant) => `sp-c-picture--${variant}`),

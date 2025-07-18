@@ -41,7 +41,9 @@
         "useButtonType": "off"
       },
       "correctness": {
-        "noUnknownMediaFeatureName": "off"
+        "noUnknownMediaFeatureName": "off",
+        "noUnusedVariables": "off",
+        "noUnusedImports": "off"
       }
     }
   },

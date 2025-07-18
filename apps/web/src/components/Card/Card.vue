@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<CardProps>(), {
   variants: undefined,
 });
 
-const _classes = computed(() => {
+const classes = computed(() => {
   const baseClass = 'sp-c-card';
   return classNames(
     baseClass,
@@ -23,7 +23,7 @@ const _classes = computed(() => {
 
 const link = ref<HTMLAnchorElement>();
 
-const _handleClick = () => {
+const handleClick = () => {
   if (props.href && link.value) {
     link.value.click();
   }
