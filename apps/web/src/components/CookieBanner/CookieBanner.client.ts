@@ -1,3 +1,5 @@
+/* global document */
+
 const cookieName = '_sp_accepted_cookies';
 const cookieValue = true;
 const cookies = document.cookie.split(';');
@@ -33,6 +35,7 @@ function acceptCookies(cookieBanner: HTMLElement | null) {
   cookieBanner.hidden = true;
   changeScriptTypes();
   const expires = new Date(Date.now() + 360 * 864e5).toUTCString();
+  // biome-ignore lint/suspicious/noDocumentCookie: this is a client-side script
   document.cookie = `${cookieName}=${cookieValue}; expires=${expires}; path=/`;
 }
 

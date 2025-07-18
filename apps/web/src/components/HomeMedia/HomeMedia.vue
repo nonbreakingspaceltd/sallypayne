@@ -1,5 +1,10 @@
 <script setup lang="ts">
+interface Props {
+  imgSrc: string;
+  class?: string;
+}
 
+defineProps<Props>();
 </script>
 
 <template>

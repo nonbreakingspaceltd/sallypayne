@@ -14,9 +14,9 @@ import {
 } from 'vue';
 import type { FocusLoopProps } from './types';
 
-const props = withDefaults(defineProps<FocusLoopProps>(), {
-  noFocusGuards: false,
-});
+const props = defineProps<FocusLoopProps>();
+
+const noFocusGuards = computed(() => props.noFocusGuards ?? false);
 
 const data = ref<{
   vue?: any;
@@ -25,7 +25,7 @@ const data = ref<{
   onActivation?: () => void;
 }>({});
 
-const _hidden = ref(''); // "width: 1px;height: 0px;padding: 0;overflow: hidden;position: fixed;top: 0;left: 0;"
+const hidden = ref(''); // "width: 1px;height: 0px;padding: 0;overflow: hidden;position: fixed;top: 0;left: 0;"
 let originalFocusedElement: Element | null = null;
 
 function deferAction(action: () => void) {
@@ -116,15 +116,15 @@ const detachHandler = () => {
   window.removeEventListener('blur', onWindowBlur);
 };
 
-const _groupAttr = computed(() => ({ [constants.FOCUS_GROUP]: props.group }));
+const groupAttr = computed(() => ({ [constants.FOCUS_GROUP]: props.group }));
 
-const hasLeadingGuards = computed(() => props.noFocusGuards !== true);
+const hasLeadingGuards = computed(() => noFocusGuards.value !== true);
 
-const _hasTailingGuards = computed(
-  () => hasLeadingGuards.value && props.noFocusGuards !== 'tail',
+const hasTailingGuards = computed(
+  () => hasLeadingGuards.value && noFocusGuards.value !== 'tail',
 );
 
-const _handleBlur = () => {
+const handleBlur = () => {
   deferAction(emitChange);
 };
 

@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
+import IconClose from '../../assets/icons/close.svg';
+import IconMenu from '../../assets/icons/menu.svg';
+import Bird from '../../assets/images/bird.svg';
+import Logo from '../../assets/images/logo.svg';
+import FocusLoop from '../FocusLoop/FocusLoop.vue';
 import type { HeaderProps } from './types';
 
-const _props = defineProps<HeaderProps>();
+const props = defineProps<HeaderProps>();
 
 // Refs
 const menuActive = ref(false);
@@ -33,11 +38,11 @@ const openMenu = () => {
   testExpanded();
 };
 
-const _toggleMenu = () => {
+const toggleMenu = () => {
   menuActive.value ? closeMenu() : openMenu();
 };
 
-const _linkVariant = (label: string): string => {
+const linkVariant = (label: string): string => {
   return `sp-c-header__nav__link--${label.toLowerCase().replace(/\W/g, '')}`;
 };
 

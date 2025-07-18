@@ -19,7 +19,7 @@ const generatePageItem = (
   show,
 });
 
-const _pages = computed((): PaginationPage[] => {
+const pages = computed((): PaginationPage[] => {
   // Generate basic page numbers
   const items = Array.from({ length: props.totalPage }, (_, i) =>
     generatePageItem(i + 1, i + 1, false),
@@ -79,10 +79,10 @@ const _pages = computed((): PaginationPage[] => {
   return items;
 });
 
-const _disablePrev = computed(() => props.currentPage === 1);
-const _disableNext = computed(() => props.currentPage === props.totalPage);
+const disablePrev = computed(() => props.currentPage === 1);
+const disableNext = computed(() => props.currentPage === props.totalPage);
 
-const _href = (page: number): string => {
+const href = (page: number): string => {
   const basePath = props.basePath || '';
   return page < 2 ? basePath : `${basePath}/${page}`;
 };
