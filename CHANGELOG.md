@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.1...v1.1.2) (2025-08-29)
+
+
+### Bug Fixes
+
+* update HomeMedia component to use dynamic image source for improved maintainability ([0144518](https://github.com/nonbreakingspaceltd/sallypayne/commit/0144518d5de5ca61536688fa56691b14e9dbfe7c))
+
 ## [1.1.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.0...v1.1.1) (2025-03-26)
 
 
