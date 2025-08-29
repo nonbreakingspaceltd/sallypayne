@@ -1,0 +1,95 @@
+/* Modern Layout Mixins using PostCSS */
+
+/* Container mixin with logical properties */
+@define-mixin container $max-width: var(--container-max-inline-size) {
+  inline-size: var(--size-full);
+  max-inline-size: $max-width;
+  margin-inline: auto;
+  padding-inline: var(--space-inline-4);
+
+  @media (--mq-md) {
+    padding-inline: var(--space-inline-6);
+  }
+
+  @media (--mq-lg) {
+    padding-inline: var(--space-inline-8);
+  }
+}
+
+/* Stack mixin for vertical spacing */
+@define-mixin stack $space: var(--space-block-4) {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+}
+
+/* Cluster mixin for horizontal spacing */
+@define-mixin cluster $space: var(--space-inline-4) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space;
+  align-items: center;
+}
+
+/* Center mixin for centering content */
+@define-mixin center $max-width: var(--size-full) {
+  inline-size: $max-width;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Grid mixin for responsive grids */
+@define-mixin grid $columns: 1, $gap: var(--space-inline-4) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+/* Aspect ratio mixin */
+@define-mixin aspect-ratio $width: 16, $height: 9 {
+  position: relative;
+  inline-size: var(--size-full);
+
+  &::before {
+    content: '';
+    display: block;
+    padding-block-start: calc($height / $width * 100%);
+  }
+
+  & > * {
+    position: absolute;
+    inset: 0;
+    inline-size: var(--size-full);
+    block-size: var(--size-full);
+    object-fit: cover;
+  }
+}
+
+/* Visually hidden mixin for accessibility */
+@define-mixin visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible mixin */
+@define-mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, currentColor);
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion mixin */
+@define-mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
+}

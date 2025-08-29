@@ -1,0 +1,190 @@
+/* Spacing Utilities - Modernized with logical properties */
+
+/* Margin utilities */
+.m {
+  &-0 { margin: 0; }
+  &-auto { margin: auto; }
+
+  /* Block direction margins */
+  &b-0 { margin-block: 0; }
+  &b-1 { margin-block: var(--space-block-1); }
+  &b-2 { margin-block: var(--space-block-2); }
+  &b-3 { margin-block: var(--space-block-3); }
+  &b-4 { margin-block: var(--space-block-4); }
+  &b-5 { margin-block: var(--space-block-5); }
+  &b-6 { margin-block: var(--space-block-6); }
+  &b-8 { margin-block: var(--space-block-8); }
+  &b-10 { margin-block: var(--space-block-10); }
+  &b-12 { margin-block: var(--space-block-12); }
+
+  /* Inline direction margins */
+  &i-0 { margin-inline: 0; }
+  &i-1 { margin-inline: var(--space-inline-1); }
+  &i-2 { margin-inline: var(--space-inline-2); }
+  &i-3 { margin-inline: var(--space-inline-3); }
+  &i-4 { margin-inline: var(--space-inline-4); }
+  &i-5 { margin-inline: var(--space-inline-5); }
+  &i-6 { margin-inline: var(--space-inline-6); }
+  &i-8 { margin-inline: var(--space-inline-8); }
+  &i-10 { margin-inline: var(--space-inline-10); }
+  &i-12 { margin-inline: var(--space-inline-12); }
+
+  /* Individual block margins */
+  &b-start-0 { margin-block-start: 0; }
+  &b-start-1 { margin-block-start: var(--space-block-1); }
+  &b-start-2 { margin-block-start: var(--space-block-2); }
+  &b-start-3 { margin-block-start: var(--space-block-3); }
+  &b-start-4 { margin-block-start: var(--space-block-4); }
+  &b-start-5 { margin-block-start: var(--space-block-5); }
+  &b-start-6 { margin-block-start: var(--space-block-6); }
+  &b-start-8 { margin-block-start: var(--space-block-8); }
+  &b-start-10 { margin-block-start: var(--space-block-10); }
+  &b-start-12 { margin-block-start: var(--space-block-12); }
+
+  &b-end-0 { margin-block-end: 0; }
+  &b-end-1 { margin-block-end: var(--space-block-1); }
+  &b-end-2 { margin-block-end: var(--space-block-2); }
+  &b-end-3 { margin-block-end: var(--space-block-3); }
+  &b-end-4 { margin-block-end: var(--space-block-4); }
+  &b-end-5 { margin-block-end: var(--space-block-5); }
+  &b-end-6 { margin-block-end: var(--space-block-6); }
+  &b-end-8 { margin-block-end: var(--space-block-8); }
+  &b-end-10 { margin-block-end: var(--space-block-10); }
+  &b-end-12 { margin-block-end: var(--space-block-12); }
+
+  /* Individual inline margins */
+  &i-start-0 { margin-inline-start: 0; }
+  &i-start-1 { margin-inline-start: var(--space-inline-1); }
+  &i-start-2 { margin-inline-start: var(--space-inline-2); }
+  &i-start-3 { margin-inline-start: var(--space-inline-3); }
+  &i-start-4 { margin-inline-start: var(--space-inline-4); }
+  &i-start-5 { margin-inline-start: var(--space-inline-5); }
+  &i-start-6 { margin-inline-start: var(--space-inline-6); }
+  &i-start-8 { margin-inline-start: var(--space-inline-8); }
+  &i-start-10 { margin-inline-start: var(--space-inline-10); }
+  &i-start-12 { margin-inline-start: var(--space-inline-12); }
+
+  &i-end-0 { margin-inline-end: 0; }
+  &i-end-1 { margin-inline-end: var(--space-inline-1); }
+  &i-end-2 { margin-inline-end: var(--space-inline-2); }
+  &i-end-3 { margin-inline-end: var(--space-inline-3); }
+  &i-end-4 { margin-inline-end: var(--space-inline-4); }
+  &i-end-5 { margin-inline-end: var(--space-inline-5); }
+  &i-end-6 { margin-inline-end: var(--space-inline-6); }
+  &i-end-8 { margin-inline-end: var(--space-inline-8); }
+  &i-end-10 { margin-inline-end: var(--space-inline-10); }
+  &i-end-12 { margin-inline-end: var(--space-inline-12); }
+}
+
+/* Padding utilities */
+.p {
+  &-0 { padding: 0; }
+
+  /* Block direction padding */
+  &b-0 { padding-block: 0; }
+  &b-1 { padding-block: var(--space-block-1); }
+  &b-2 { padding-block: var(--space-block-2); }
+  &b-3 { padding-block: var(--space-block-3); }
+  &b-4 { padding-block: var(--space-block-4); }
+  &b-5 { padding-block: var(--space-block-5); }
+  &b-6 { padding-block: var(--space-block-6); }
+  &b-8 { padding-block: var(--space-block-8); }
+  &b-10 { padding-block: var(--space-block-10); }
+  &b-12 { padding-block: var(--space-block-12); }
+
+  /* Inline direction padding */
+  &i-0 { padding-inline: 0; }
+  &i-1 { padding-inline: var(--space-inline-1); }
+  &i-2 { padding-inline: var(--space-inline-2); }
+  &i-3 { padding-inline: var(--space-inline-3); }
+  &i-4 { padding-inline: var(--space-inline-4); }
+  &i-5 { padding-inline: var(--space-inline-5); }
+  &i-6 { padding-inline: var(--space-inline-6); }
+  &i-8 { padding-inline: var(--space-inline-8); }
+  &i-10 { padding-inline: var(--space-inline-10); }
+  &i-12 { padding-inline: var(--space-inline-12); }
+
+  /* Individual block padding */
+  &b-start-0 { padding-block-start: 0; }
+  &b-start-1 { padding-block-start: var(--space-block-1); }
+  &b-start-2 { padding-block-start: var(--space-block-2); }
+  &b-start-3 { padding-block-start: var(--space-block-3); }
+  &b-start-4 { padding-block-start: var(--space-block-4); }
+  &b-start-5 { padding-block-start: var(--space-block-5); }
+  &b-start-6 { padding-block-start: var(--space-block-6); }
+  &b-start-8 { padding-block-start: var(--space-block-8); }
+  &b-start-10 { padding-block-start: var(--space-block-10); }
+  &b-start-12 { padding-block-start: var(--space-block-12); }
+
+  &b-end-0 { padding-block-end: 0; }
+  &b-end-1 { padding-block-end: var(--space-block-1); }
+  &b-end-2 { padding-block-end: var(--space-block-2); }
+  &b-end-3 { padding-block-end: var(--space-block-3); }
+  &b-end-4 { padding-block-end: var(--space-block-4); }
+  &b-end-5 { padding-block-end: var(--space-block-5); }
+  &b-end-6 { padding-block-end: var(--space-block-6); }
+  &b-end-8 { padding-block-end: var(--space-block-8); }
+  &b-end-10 { padding-block-end: var(--space-block-10); }
+  &b-end-12 { padding-block-end: var(--space-block-12); }
+
+  /* Individual inline padding */
+  &i-start-0 { padding-inline-start: 0; }
+  &i-start-1 { padding-inline-start: var(--space-inline-1); }
+  &i-start-2 { padding-inline-start: var(--space-inline-2); }
+  &i-start-3 { padding-inline-start: var(--space-inline-3); }
+  &i-start-4 { padding-inline-start: var(--space-inline-4); }
+  &i-start-5 { padding-inline-start: var(--space-inline-5); }
+  &i-start-6 { padding-inline-start: var(--space-inline-6); }
+  &i-start-8 { padding-inline-start: var(--space-inline-8); }
+  &i-start-10 { padding-inline-start: var(--space-inline-10); }
+  &i-start-12 { padding-inline-start: var(--space-inline-12); }
+
+  &i-end-0 { padding-inline-end: 0; }
+  &i-end-1 { padding-inline-end: var(--space-inline-1); }
+  &i-end-2 { padding-inline-end: var(--space-inline-2); }
+  &i-end-3 { padding-inline-end: var(--space-inline-3); }
+  &i-end-4 { padding-inline-end: var(--space-inline-4); }
+  &i-end-5 { padding-inline-end: var(--space-inline-5); }
+  &i-end-6 { padding-inline-end: var(--space-inline-6); }
+  &i-end-8 { padding-inline-end: var(--space-inline-8); }
+  &i-end-10 { padding-inline-end: var(--space-inline-10); }
+  &i-end-12 { padding-inline-end: var(--space-inline-12); }
+}
+
+/* Gap utilities for flexbox and grid */
+.gap {
+  &-0 { gap: 0; }
+  &-1 { gap: var(--space-inline-1); }
+  &-2 { gap: var(--space-inline-2); }
+  &-3 { gap: var(--space-inline-3); }
+  &-4 { gap: var(--space-inline-4); }
+  &-5 { gap: var(--space-inline-5); }
+  &-6 { gap: var(--space-inline-6); }
+  &-8 { gap: var(--space-inline-8); }
+  &-10 { gap: var(--space-inline-10); }
+  &-12 { gap: var(--space-inline-12); }
+
+  /* Block gap */
+  &b-0 { row-gap: 0; }
+  &b-1 { row-gap: var(--space-block-1); }
+  &b-2 { row-gap: var(--space-block-2); }
+  &b-3 { row-gap: var(--space-block-3); }
+  &b-4 { row-gap: var(--space-block-4); }
+  &b-5 { row-gap: var(--space-block-5); }
+  &b-6 { row-gap: var(--space-block-6); }
+  &b-8 { row-gap: var(--space-block-8); }
+  &b-10 { row-gap: var(--space-block-10); }
+  &b-12 { row-gap: var(--space-block-12); }
+
+  /* Inline gap */
+  &i-0 { column-gap: 0; }
+  &i-1 { column-gap: var(--space-inline-1); }
+  &i-2 { column-gap: var(--space-inline-2); }
+  &i-3 { column-gap: var(--space-inline-3); }
+  &i-4 { column-gap: var(--space-inline-4); }
+  &i-5 { column-gap: var(--space-inline-5); }
+  &i-6 { column-gap: var(--space-inline-6); }
+  &i-8 { column-gap: var(--space-inline-8); }
+  &i-10 { column-gap: var(--space-inline-10); }
+  &i-12 { column-gap: var(--space-inline-12); }
+}
