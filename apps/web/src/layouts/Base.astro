@@ -86,7 +86,7 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 
     {
       meta?.jsonLd &&
-        <script type="application/ld+json" is:inline>${JSON.stringify(meta.jsonLd)}</script>
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(meta.jsonLd)} />
     }
 
     <!-- [additional meta] -->
