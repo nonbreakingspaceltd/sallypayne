@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.2...v1.1.3) (2025-08-29)
+
+
+### Bug Fixes
+
+* simplify HomeMedia component by removing imgSrc prop and using a static image source ([cc6e284](https://github.com/nonbreakingspaceltd/sallypayne/commit/cc6e2849ba11df08c4014ddc8d9a856420d57d96))
+
 ## [1.1.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.1...v1.1.2) (2025-08-29)
 
 
