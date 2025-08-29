@@ -2,6 +2,8 @@
 import HomeMedia from '../components/HomeMedia/HomeMedia.vue';
 import LayoutBase from './Base.astro';
 
+const src = '/src/components/HomeMedia/home-20230203.svg?url';
+
 const { title, meta } = Astro.props;
 ---
 
@@ -10,7 +12,7 @@ const { title, meta } = Astro.props;
     <h1 class="sp-u-sr-only">
       {title}
     </h1>
-    <HomeMedia client:idle class="sp-l-home__media" imgSrc="/src/components/HomeMedia/home-20230203.svg" />
+    <HomeMedia client:idle class="sp-l-home__media" imgSrc={src} />
   </div>
 </LayoutBase>
 
