@@ -1,6 +1,28 @@
+/* Layout - Modernized with logical properties and modern CSS */
+
 :root {
+  /* Scrollbar handling */
   --scrollbar-width: 0%; /* requires unit definition here - dynamically set using Javascript helper */
-  --fluid-min-width: 375px;
-  --fluid-max-width: 1160px;
-  --fluid-screen: calc(100vw - var(--scrollbar-width));
+
+  /* Container sizing with logical properties */
+  --container-min-inline-size: 375px;
+  --container-max-inline-size: 1160px;
+  --container-inline-size: calc(100vw - var(--scrollbar-width));
+
+  /* Legacy support */
+  --fluid-min-width: var(--container-min-inline-size);
+  --fluid-max-width: var(--container-max-inline-size);
+  --fluid-screen: var(--container-inline-size);
+
+  /* Modern container queries support */
+  --container-type: inline-size;
+
+  /* Logical sizing for common layouts */
+  --size-full: 100%;
+  --size-screen: 100vw;
+  --size-screen-block: 100vh;
+  --size-auto: auto;
+  --size-fit: fit-content;
+  --size-min: min-content;
+  --size-max: max-content;
 }

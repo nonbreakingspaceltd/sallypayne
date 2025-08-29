@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import classNames from 'classnames';
 import { computed, ref } from 'vue';
+import Picture from '../Picture/Picture.vue';
 import type { CardProps } from './types';
 
 const props = withDefaults(defineProps<CardProps>(), {

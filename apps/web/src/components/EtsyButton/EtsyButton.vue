@@ -1,6 +1,8 @@
 
 
 <script setup lang="ts">
+import IconEtsy from '../../assets/icons/etsy.svg?component';
+import Button from '../Button/Button.vue';
 import type { EtsyButtonProps } from './types';
 
 defineProps<EtsyButtonProps>();

@@ -313,6 +313,7 @@
   display: block;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
 
   @media (--mq-lg) {
     display: block;
@@ -326,6 +327,7 @@
   inset-block-end: calc(var(--space-y-4) * -1);
   inset-inline: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .sp-c-header__nav__link:hover .sp-c-header__nav__link__label::after,

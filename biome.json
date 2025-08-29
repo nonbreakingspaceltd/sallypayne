@@ -18,7 +18,8 @@
       "!**/.vite",
       "!**/.vscode",
       "!**/.sanity",
-      "!**/.astro"
+      "!**/.astro",
+      "!**/*.css"
     ]
   },
   "linter": {
@@ -74,14 +75,6 @@
     "formatter": {
       "enabled": true,
       "indentStyle": "space",
-      "indentWidth": 2
-    }
-  },
-  "css": {
-    "formatter": {
-      "enabled": true,
-      "indentStyle": "space",
-      "quoteStyle": "single",
       "indentWidth": 2
     }
   }

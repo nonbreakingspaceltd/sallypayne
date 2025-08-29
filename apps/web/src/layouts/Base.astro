@@ -25,10 +25,7 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta
-      name="robots"
-      content="index, follow"
-    />
+    <meta name="robots" content="index, follow" />
 
     <link rel="canonical" href={canonicalURL} />
 
@@ -36,28 +33,10 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
 
     <meta name="description" content={meta?.description || title} />
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="mask-icon"
-      href="/favicon/safari-pinned-tab.svg"
-      color="#ffffff"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#ffffff" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
 
@@ -70,35 +49,20 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
     <meta property="og:locale" content="en_GB" />
 
     {isArticle && <meta property="article:author" content="Sally Payne" />}
-    {
-      isArticle && (
-        <meta
-          property="article:published_time"
-          content={meta?.og?.publishedDate}
-        />
-      )
-    }
+    {isArticle && <meta property="article:published_time" content={meta?.og?.publishedDate} />}
 
     <!-- Twitter card-->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@salpdesign" />
 
-    {
-      meta?.jsonLd &&
-        <script type="application/ld+json" is:inline>${JSON.stringify(meta.jsonLd)}</script>
-    }
+    {meta?.jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(meta.jsonLd)} />}
 
     <!-- [additional meta] -->
 
     <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
 
     <!-- Replaced with preload font links -->
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/sketchysallysans-regular-webfont.woff2"
-      crossorigin
-    />
+    <link rel="preload" as="font" href="/fonts/sketchysallysans-regular-webfont.woff2" crossorigin />
 
     <!-- [additional preconnects/preloads] -->
 
@@ -111,15 +75,9 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
     <!-- [additional head scripts] -->
   </head>
   <body class={`sp-l-layout ${variantClass}`}>
-
     <CookieBanner />
 
-    <Header
-      client:idle
-      title={siteSettings.title}
-      links={navigation}
-      class="sp-l-header"
-    />
+    <Header client:idle title={siteSettings.title} links={navigation} class="sp-l-header" />
 
     <main class="sp-l-main">
       <slot />
@@ -134,12 +92,7 @@ const serviceWorkerUrl = `/service-worker.js?version=${serviceWorkerVersion}`;
       data-cookie-script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-YBTLEY7GL3"></script>
-    <script
-      is:inline
-      type="text/plain"
-      data-cookie-script
-      id="js-gtag"
-    >
+    <script is:inline type="text/plain" data-cookie-script id="js-gtag">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);

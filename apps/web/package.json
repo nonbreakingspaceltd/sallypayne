@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "astro:build": "pnpm products && astro build",
-    "astro:dev": "astro dev",
+    "astro:dev": "astro dev --verbose",
     "astro:preview": "astro preview",
     "build": "pnpm astro:build",
-    "dev": "pnpm astro:dev",
+    "dev": "pnpm astro:dev --verbose",
     "preview": "pnpm astro:preview",
     "products": "tsx scripts/productsJson.js",
     "serve": "pnpm build && npx serve --config ../serve.json dist",

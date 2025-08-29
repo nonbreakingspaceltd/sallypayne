@@ -1,4 +1,4 @@
-/* Headings */
+/* Headings - Modernized with logical properties */
 
 h1 {
   font-size: var(--font-size-1);
@@ -36,4 +36,17 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   line-height: 1.2;
+
+  /* Modern logical properties */
+  text-wrap: balance;
+  hanging-punctuation: first;
+
+  /* Better accessibility */
+  scroll-margin-block-start: var(--space-block-4);
+
+  /* Focus styles for keyboard navigation */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, currentColor);
+    outline-offset: 2px;
+  }
 }

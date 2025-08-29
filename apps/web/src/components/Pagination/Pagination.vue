@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import ArrowLeft from '../../assets/icons/arrow-left.svg?component';
+import ArrowRight from '../../assets/icons/arrow-right.svg?component';
 import type { PaginationPage, PaginationProps } from './types';
 
 const props = withDefaults(defineProps<PaginationProps>(), {

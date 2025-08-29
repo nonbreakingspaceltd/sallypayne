@@ -1,31 +1,60 @@
-/* Space */
+/* Space - Modernized with logical properties */
 
 :root {
   --baseline: 4px;
 
-  --space-y-1: var(--baseline);
-  --space-y-2: calc(2 * var(--baseline));
-  --space-y-3: calc(3 * var(--baseline));
-  --space-y-4: calc(4 * var(--baseline));
-  --space-y-5: calc(5 * var(--baseline));
-  --space-y-6: calc(6 * var(--baseline));
-  --space-y-7: calc(7 * var(--baseline));
-  --space-y-8: calc(8 * var(--baseline));
-  --space-y-9: calc(9 * var(--baseline));
-  --space-y-10: calc(10 * var(--baseline));
-  --space-y-11: calc(11 * var(--baseline));
-  --space-y-12: calc(12 * var(--baseline));
+  /* Logical spacing for block direction (vertical) */
+  --space-block-1: var(--baseline);
+  --space-block-2: calc(2 * var(--baseline));
+  --space-block-3: calc(3 * var(--baseline));
+  --space-block-4: calc(4 * var(--baseline));
+  --space-block-5: calc(5 * var(--baseline));
+  --space-block-6: calc(6 * var(--baseline));
+  --space-block-7: calc(7 * var(--baseline));
+  --space-block-8: calc(8 * var(--baseline));
+  --space-block-9: calc(9 * var(--baseline));
+  --space-block-10: calc(10 * var(--baseline));
+  --space-block-11: calc(11 * var(--baseline));
+  --space-block-12: calc(12 * var(--baseline));
 
-  --space-x-1: var(--baseline);
-  --space-x-2: calc(2 * var(--baseline));
-  --space-x-3: calc(3 * var(--baseline));
-  --space-x-4: calc(4 * var(--baseline));
-  --space-x-5: calc(5 * var(--baseline));
-  --space-x-6: calc(6 * var(--baseline));
-  --space-x-7: calc(7 * var(--baseline));
-  --space-x-8: calc(8 * var(--baseline));
-  --space-x-9: calc(9 * var(--baseline));
-  --space-x-10: calc(10 * var(--baseline));
-  --space-x-11: calc(11 * var(--baseline));
-  --space-x-12: calc(12 * var(--baseline));
+  /* Logical spacing for inline direction (horizontal) */
+  --space-inline-1: var(--baseline);
+  --space-inline-2: calc(2 * var(--baseline));
+  --space-inline-3: calc(3 * var(--baseline));
+  --space-inline-4: calc(4 * var(--baseline));
+  --space-inline-5: calc(5 * var(--baseline));
+  --space-inline-6: calc(6 * var(--baseline));
+  --space-inline-7: calc(7 * var(--baseline));
+  --space-inline-8: calc(8 * var(--baseline));
+  --space-inline-9: calc(9 * var(--baseline));
+  --space-inline-10: calc(10 * var(--baseline));
+  --space-inline-11: calc(11 * var(--baseline));
+  --space-inline-12: calc(12 * var(--baseline));
+
+  /* Legacy support - keeping for backward compatibility */
+  --space-y-1: var(--space-block-1);
+  --space-y-2: var(--space-block-2);
+  --space-y-3: var(--space-block-3);
+  --space-y-4: var(--space-block-4);
+  --space-y-5: var(--space-block-5);
+  --space-y-6: var(--space-block-6);
+  --space-y-7: var(--space-block-7);
+  --space-y-8: var(--space-block-8);
+  --space-y-9: var(--space-block-9);
+  --space-y-10: var(--space-block-10);
+  --space-y-11: var(--space-block-11);
+  --space-y-12: var(--space-block-12);
+
+  --space-x-1: var(--space-inline-1);
+  --space-x-2: var(--space-inline-2);
+  --space-x-3: var(--space-inline-3);
+  --space-x-4: var(--space-inline-4);
+  --space-x-5: var(--space-inline-5);
+  --space-x-6: var(--space-inline-6);
+  --space-x-7: var(--space-inline-7);
+  --space-x-8: var(--space-inline-8);
+  --space-x-9: var(--space-inline-9);
+  --space-x-10: var(--space-inline-10);
+  --space-x-11: var(--space-inline-11);
+  --space-x-12: var(--space-inline-12);
 }

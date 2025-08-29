@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-import IconClose from '../../assets/icons/close.svg';
-import IconMenu from '../../assets/icons/menu.svg';
-import Bird from '../../assets/images/bird.svg';
-import Logo from '../../assets/images/logo.svg';
+import IconClose from '../../assets/icons/close.svg?component';
+import IconMenu from '../../assets/icons/menu.svg?component';
+import Bird from '../../assets/images/bird.svg?component';
+import Logo from '../../assets/images/logo.svg?component';
 import FocusLoop from '../FocusLoop/FocusLoop.vue';
 import type { HeaderProps } from './types';
 
@@ -73,7 +73,7 @@ onUnmounted(() => {
           <span class="sp-c-header__logo__bird">
             <Bird aria-hidden="true" />
           </span>
-          <span class="sp-u-sr-only">{{ title }}</span>
+          <span class="sp-u-sr-only">{{ props.title }}</span>
         </a>
       </div>
       <button
@@ -103,7 +103,7 @@ onUnmounted(() => {
       >
         <ul class="sp-c-header__nav__menu">
           <li
-            v-for="link in links"
+            v-for="link in props.links"
             :key="link.href"
             class="sp-c-header__nav__item"
           >

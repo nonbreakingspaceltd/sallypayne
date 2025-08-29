@@ -1,9 +1,11 @@
+/* Layout Composition - Modernized with logical properties */
+
 * {
   box-sizing: border-box;
 }
 
 .sp-l-layout {
-  min-height: 100vh;
+  min-block-size: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -17,4 +19,103 @@
 .sp-l-header,
 .sp-l-footer {
   flex-shrink: 0;
+}
+
+/* Modern layout compositions using mixins */
+.l-container {
+  @mixin container;
+}
+
+.l-stack {
+  @mixin stack;
+
+  &--small {
+    @mixin stack var(--space-block-2);
+  }
+  &--large {
+    @mixin stack var(--space-block-6);
+  }
+  &--xlarge {
+    @mixin stack var(--space-block-8);
+  }
+}
+
+.l-cluster {
+  @mixin cluster;
+
+  &--small {
+    @mixin cluster var(--space-inline-2);
+  }
+  &--large {
+    @mixin cluster var(--space-inline-6);
+  }
+  &--xlarge {
+    @mixin cluster var(--space-inline-8);
+  }
+}
+
+.l-center {
+  @mixin center;
+
+  &--narrow {
+    @mixin center 60ch;
+  }
+  &--wide {
+    @mixin center 80ch;
+  }
+}
+
+.l-grid {
+  @mixin grid 1;
+
+  &--2 {
+    @mixin grid 2;
+  }
+  &--3 {
+    @mixin grid 3;
+  }
+  &--4 {
+    @mixin grid 4;
+  }
+
+  @media (--mq-md) {
+    &--md-2 {
+      @mixin grid 2;
+    }
+    &--md-3 {
+      @mixin grid 3;
+    }
+    &--md-4 {
+      @mixin grid 4;
+    }
+  }
+
+  @media (--mq-lg) {
+    &--lg-2 {
+      @mixin grid 2;
+    }
+    &--lg-3 {
+      @mixin grid 3;
+    }
+    &--lg-4 {
+      @mixin grid 4;
+    }
+    &--lg-6 {
+      @mixin grid 6;
+    }
+  }
+}
+
+.l-aspect-ratio {
+  @mixin aspect-ratio 16, 9;
+
+  &--square {
+    @mixin aspect-ratio 1, 1;
+  }
+  &--portrait {
+    @mixin aspect-ratio 3, 4;
+  }
+  &--landscape {
+    @mixin aspect-ratio 4, 3;
+  }
 }

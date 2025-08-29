@@ -1,5 +1,8 @@
 <script setup lang="ts">
-
+import IconFacebook from '../../assets/icons/facebook.svg?component';
+import IconInstagram from '../../assets/icons/instagram.svg?component';
+import IconPinterest from '../../assets/icons/pinterest.svg?component';
+import IconTwitter from '../../assets/icons/twitter.svg?component';
 </script>
 
 <template>
