@@ -3,7 +3,7 @@
   "version": "0.0.0-semantically-released",
   "private": true,
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.15.0",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -22,11 +22,11 @@
     "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager pnpm"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.2",
+    "@biomejs/biome": "2.2.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "11.0.3",
+    "@semantic-release/github": "11.0.4",
     "@semantic-release/release-notes-generator": "14.0.3",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "husky": "9.1.7",

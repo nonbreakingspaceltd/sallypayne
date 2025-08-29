@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -9,16 +9,16 @@
   "files": {
     "includes": [
       "**",
-      "!**/public/**",
-      "!**/dist/**",
+      "!**/public",
+      "!**/dist",
       "!**/*generated*",
-      "!**/coverage/**",
-      "!**/node_modules/**",
-      "!**/.turbo/**",
-      "!**/.vite/**",
-      "!**/.vscode/**",
-      "!**/.sanity/**",
-      "!**/.astro/**"
+      "!**/coverage",
+      "!**/node_modules",
+      "!**/.turbo",
+      "!**/.vite",
+      "!**/.vscode",
+      "!**/.sanity",
+      "!**/.astro"
     ]
   },
   "linter": {
@@ -28,7 +28,8 @@
       "suspicious": {
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
-        "noAssignInExpressions": "off"
+        "noAssignInExpressions": "off",
+        "noUnknownAtRules": "off"
       },
       "style": {
         "noNonNullAssertion": "off",
@@ -44,6 +45,9 @@
         "noUnknownMediaFeatureName": "off",
         "noUnusedVariables": "off",
         "noUnusedImports": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
       }
     }
   },
