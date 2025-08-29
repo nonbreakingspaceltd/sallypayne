@@ -22,12 +22,14 @@ function columnCount(): number {
   container.value.appendChild(columnElement);
   const columnStyles = getComputedStyle(columnElement);
 
-  const gap = Number.parseInt(containerStyles.getPropertyValue('gap'));
+  const gap = Number.parseInt(containerStyles.getPropertyValue('gap'), 10);
   const columnWidth = Number.parseInt(
     columnStyles.getPropertyValue('min-width'),
+    10,
   );
   const containerWidth = Number.parseInt(
     container.value.getBoundingClientRect().width.toString(),
+    10,
   );
 
   // remove dummy element
