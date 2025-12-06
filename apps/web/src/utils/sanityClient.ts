@@ -1,4 +1,4 @@
-import sanityImageUrlBuilder from '@sanity/image-url';
+import createImageUrlBuilder from '@sanity/image-url';
 import fetch from 'cross-fetch';
 import type { TODO } from '../../types';
 import { sanityConfig } from './config';
@@ -70,7 +70,7 @@ function customClient(
 
 export const client = customClient(sanityConfig, true, false);
 
-export const imageUrlBuilder = sanityImageUrlBuilder({
+export const imageUrlBuilder = createImageUrlBuilder({
   projectId: sanityConfig.projectId,
   dataset: sanityConfig.dataset,
 });
