@@ -26,7 +26,7 @@
     "@sanity/image-url": "2.0.2",
     "astro": "5.16.4",
     "axios": "1.13.2",
-    "axios-cache-interceptor": "1.8.3",
+    "axios-cache-interceptor": "1.11.1",
     "classnames": "2.5.1",
     "cross-fetch": "4.1.0",
     "date-fns": "4.1.0",
