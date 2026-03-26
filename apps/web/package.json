@@ -24,7 +24,7 @@
     "@portabletext/vue": "1.0.14",
     "@sanity/asset-utils": "2.3.0",
     "@sanity/image-url": "2.0.2",
-    "astro": "5.16.4",
+    "astro": "5.18.1",
     "axios": "1.13.2",
     "axios-cache-interceptor": "1.11.1",
     "classnames": "2.5.1",
