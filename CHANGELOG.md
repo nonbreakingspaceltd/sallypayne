@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.3...v1.2.0) (2026-03-30)
+
+
+### Features
+
+* add sharedSecret to etsyConfig and update etsyClient ([efd9666](https://github.com/nonbreakingspaceltd/sallypayne/commit/efd9666fb1301d0028475e806a5146d9d20a520f))
+
 ## [1.1.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.2...v1.1.3) (2025-08-29)
 
 
