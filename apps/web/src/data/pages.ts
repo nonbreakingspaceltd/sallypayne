@@ -27,7 +27,7 @@ const pageFields = /* groq */ `
 function processImage(
   props: ImageResponse | undefined,
 ): (PictureProps & TypedObject) | undefined {
-  if (!props || !props.asset?._ref) {
+  if (!props?.asset?._ref) {
     return undefined;
   }
 

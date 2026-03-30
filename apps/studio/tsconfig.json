@@ -14,7 +14,6 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
     "types": ["sanity"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
