@@ -6,5 +6,5 @@ publish = "dist"
 [build.environment]
 COREPACK_INTEGRITY_KEYS = "0"
 NODE_ENV = "production"
-NODE_VERSION = "22"
+NODE_VERSION = "24"
 PNPM_FLAGS = "--shamefully-hoist --frozen-lockfile"
