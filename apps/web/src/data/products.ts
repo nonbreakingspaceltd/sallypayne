@@ -112,43 +112,51 @@ async function getCachedProducts(): Promise<
 }
 
 async function fetchProducts(): Promise<ProductPayload[]> {
-  const siteSettings = await getSiteSettings();
-  console.log(`Fetching active products...`);
-  const activeProducts = await client.fetch(
-    `/shops/${storeId}/listings/active?limit=100`,
-  );
-  console.log('Fetched active products:', activeProducts?.results.length);
-  if (!activeProducts) {
+  try {
+    const siteSettings = await getSiteSettings();
+    console.log(`Fetching active products...`);
+    const activeProducts = await client.fetch(
+      `/shops/${storeId}/listings/active?limit=100`,
+    );
+    console.log('Fetched active products:', activeProducts?.results.length);
+    if (!activeProducts) {
+      return [];
+    }
+    const ids = activeProducts.results
+      .map((item: { listing_id: number }) => item.listing_id)
+      .join(',');
+    console.log(`Fetching products...`);
+    const productsData = await client.fetch(
+      `/listings/batch?listing_ids=${ids}&includes=Images`,
+    );
+
+    return productsData.results.map((product: EtsyProduct) => {
+      const processedProduct = proccessProduct(product, siteSettings);
+      return {
+        params: {
+          id: processedProduct.slug,
+        },
+        props: processedProduct,
+      };
+    });
+  } catch (error) {
+    console.error('Failed to fetch products from Etsy:', error);
     return [];
   }
-  const ids = activeProducts.results
-    .map((item: { listing_id: number }) => item.listing_id)
-    .join(',');
-  console.log(`Fetching products...`);
-  const productsData = await client.fetch(
-    `/listings/batch?listing_ids=${ids}&includes=Images`,
-  );
-
-  return productsData.results.map((product: EtsyProduct) => {
-    const processedProduct = proccessProduct(product, siteSettings);
-    return {
-      params: {
-        id: processedProduct.slug,
-      },
-      props: processedProduct,
-    };
-  });
 }
 
 export async function getProducts(
   forceFetch = false,
 ): Promise<ProductPayload[]> {
-  let products = null;
   const cachedProducts = await getCachedProducts();
   if (cachedProducts && !forceFetch) {
-    products = cachedProducts.results;
-  } else {
-    products = await fetchProducts();
+    console.log('Fetched products:', cachedProducts.results.length);
+    return cachedProducts.results;
+  }
+  const products = await fetchProducts();
+  if (products.length === 0 && cachedProducts) {
+    console.log('Etsy fetch failed, falling back to cached products');
+    return cachedProducts.results;
   }
   console.log('Fetched products:', products.length);
   return products;
