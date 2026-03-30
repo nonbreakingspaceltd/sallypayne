@@ -57,6 +57,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "biome.enabled": true,
+  "biome.lspBin": "node_modules/.bin/biome",
   "bun.debugTerminal.enabled": true,
   "bun.debugTerminal.stopOnEntry": false,
   "bun.test.filePattern": "**/*{.test.,.spec.,_test_,_spec_}{js,ts,tsx,jsx,mts,cts}",
