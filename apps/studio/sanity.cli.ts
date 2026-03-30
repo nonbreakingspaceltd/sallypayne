@@ -7,4 +7,7 @@ export default defineCliConfig({
     dataset: 'prod',
   },
   studioHost: 'sallypayne',
+  deployment: {
+    appId: '16b202c31788bef76971f6f8',
+  },
 });
