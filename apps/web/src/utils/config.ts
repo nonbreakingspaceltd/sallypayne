@@ -19,4 +19,5 @@ export const sanityConfig = {
 export const etsyConfig = {
   storeId: process.env.PUBLIC_ETSY_STORE_ID,
   token: process.env.PUBLIC_ETSY_API_TOKEN,
+  sharedSecret: process.env.PUBLIC_ETSY_SHARED_SECRET,
 };

@@ -61,7 +61,7 @@ function proccessProduct(
   const trimmedDescription = toSentenceCase(
     description.split('About me:')[0] || description,
   );
-  const descriptionParts = trimmedDescription.replace(/\r/g, '').split(/\n/);
+  const descriptionParts = trimmedDescription.replaceAll('\r', '').split(/\n/);
 
   return {
     title: cleanTitle,

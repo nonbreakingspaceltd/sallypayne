@@ -1,29 +1,56 @@
-import fetch from 'cross-fetch';
 import { etsyConfig } from './config';
-import { hashCode, randomIntFromInterval, slugify } from './helpers';
+import { hashCode, slugify } from './helpers';
 
-function timeout(ms: number | undefined) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+const ENDPOINT = 'https://openapi.etsy.com/v3/application';
+const MAX_RETRIES = 3;
+
+function buildApiKey(
+  token: string | undefined,
+  sharedSecret: string | undefined,
+): string | undefined {
+  if (!token) {
+    return undefined;
+  }
+  return sharedSecret ? `${token}:${sharedSecret}` : token;
+}
+
+async function fetchWithRetry(
+  url: string,
+  apiKey: string | undefined,
+): Promise<Response> {
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: apiKey ? { 'x-api-key': apiKey } : undefined,
+    });
+
+    if (response.status === 429) {
+      const retryAfter = Number(response.headers.get('retry-after')) || 1;
+      console.warn(
+        `Etsy rate limited, retrying in ${retryAfter}s (attempt ${attempt + 1}/${MAX_RETRIES})`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, retryAfter * 1000));
+      continue;
+    }
+
+    return response;
+  }
+
+  throw new Error('Etsy Client - max retries exceeded');
 }
 
 const etsyClient = (
-  token: string | undefined,
+  apiKey: string | undefined,
   useMemoryCache = false,
   verboseLogging = false,
 ) => {
-  const hasToken = token && token.length > 0;
-  const endpoint = 'https://openapi.etsy.com/v3/application';
-
   const cache = new Map();
   let cacheHits = 0;
 
   return {
     fetch: async (path: string) => {
-      const offset = randomIntFromInterval(0, 500);
-      const url = new URL([endpoint, path].join('')).toString();
+      const url = new URL([ENDPOINT, path].join('')).toString();
       const cacheKey = hashCode(slugify(url));
-
-      await timeout(offset);
 
       if (useMemoryCache && cache.has(cacheKey)) {
         cacheHits++;
@@ -33,18 +60,11 @@ const etsyClient = (
         return cache.get(cacheKey);
       }
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: hasToken
-          ? {
-              'x-api-key': token,
-            }
-          : undefined,
-      });
+      const response = await fetchWithRetry(url, apiKey);
 
       if (response.status >= 400) {
         throw new Error(
-          ['Etsy Client -', response.status, response.statusText].join(' '),
+          `Etsy Client - ${response.status} ${response.statusText}`,
         );
       }
 
@@ -62,4 +82,8 @@ const etsyClient = (
   };
 };
 
-export const client = etsyClient(etsyConfig.token, true, false);
+export const client = etsyClient(
+  buildApiKey(etsyConfig.token, etsyConfig.sharedSecret),
+  true,
+  false,
+);
