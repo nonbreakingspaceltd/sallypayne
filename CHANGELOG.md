@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.2.0...v1.3.0) (2026-03-30)
+
+
+### Features
+
+* add deployment configuration with appId to sanity CLI ([9deb7f3](https://github.com/nonbreakingspaceltd/sallypayne/commit/9deb7f341bf19dc49fa483b650cfc62490ed9066))
+
 # [1.2.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.1.3...v1.2.0) (2026-03-30)
 
 
