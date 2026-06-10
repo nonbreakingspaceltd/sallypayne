@@ -4,8 +4,11 @@ allowBuilds:
   esbuild: true
   sharp: true
 minimumReleaseAgeExclude:
-  - astro@6.4.5
-  - semantic-release@25.0.5
+  - astro
+  - semantic-release
+  - sanitize-html
+  - sanity
+  - '@sanity/*'
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - esbuild
