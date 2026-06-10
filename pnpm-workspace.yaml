@@ -1,5 +1,11 @@
 packages:
   - apps/*
+allowBuilds:
+  esbuild: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - astro@6.4.5
+  - semantic-release@25.0.5
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - esbuild
