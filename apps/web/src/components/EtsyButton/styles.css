@@ -1,6 +1,8 @@
 @import '../../assets/styles/tools';
 
-.sp-c-button-etsy {
+/* Compound selector so this beats the .sp-c-button base rule regardless
+   of which stylesheet chunk the bundler emits first */
+.sp-c-button.sp-c-button-etsy {
   background-color: var(--color-social-etsy);
   border-color: var(--color-social-etsy);
   color: var(--color-white);
