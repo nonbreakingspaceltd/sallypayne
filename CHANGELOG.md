@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.0...v1.4.1) (2026-06-10)
+
+
+### Bug Fixes
+
+* restore class fallthrough on Button so EtsyButton styles apply ([96720dc](https://github.com/nonbreakingspaceltd/sallypayne/commit/96720dc0bd560bc3f7526bfe02688b7ffab5eb35))
+
 # [1.4.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.3.0...v1.4.0) (2026-06-10)
 
 
