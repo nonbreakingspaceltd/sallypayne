@@ -1,0 +1,131 @@
+---
+import BackLink from '../components/BackLink/BackLink.vue';
+import Carousel from '../components/Carousel/Carousel.vue';
+import Picture from '../components/Picture/Picture.vue';
+import SanityBlocks from '../components/SanityBlocks/SanityBlocks.vue';
+import LayoutBase from './Base.astro';
+
+const { title, logo, slides, body, meta, variant, galleryBackground } =
+  Astro.props;
+---
+
+<LayoutBase variant={variant} title={title} meta={meta}>
+  <article class="sp-l-work">
+    <div
+      class="sp-l-work__media"
+      style={galleryBackground && `background-color: ${galleryBackground}`}
+    >
+      <Carousel
+        client:idle
+        label={title}
+        slides={slides}
+        backgroundColor={galleryBackground}
+        class="sp-l-work__media__carousel"
+      />
+    </div>
+    <div class="sp-l-work__body">
+      <div class="sp-l-work__body__inner sp-l-flow">
+        {logo && <Picture {...logo} class="sp-l-work__logo" loading="eager" />}
+        <h1 class="sp-o-pagetitle">{title}</h1>
+        <slot />
+        <SanityBlocks blocks={body} />
+      </div>
+    </div>
+    <BackLink label="Back to work" path="/work" />
+  </article>
+</LayoutBase>
+
+<style lang="postcss" is:global>
+@import '../assets/styles/tools';
+
+.sp-l-work {
+  inline-size: 100%;
+
+  @media (--mq-lg) {
+    display: flex;
+    flex-direction: row-reverse;
+    flex: 1;
+    min-block-size: min-content;
+  }
+}
+
+.sp-l-work__body {
+  padding-block: var(--space-y-8);
+  padding-inline: var(--space-x-6);
+  position: relative;
+
+  @media (--mq-md) {
+    padding-block: var(--space-y-12);
+    padding-inline: var(--space-x-12);
+  }
+
+  @media (--mq-lg) {
+    flex: 1;
+    max-inline-size: 50%;
+    flex-basis: 50%;
+    min-block-size: min-content;
+    padding-block: calc(var(--space-y-12) * 2);
+    padding-inline: calc(var(--space-x-12) * 2);
+    background-color: var(--color-lightest-grey);
+  }
+
+  @media (--mq-xl) {
+    /* Keep the text column at a readable width (~560px): grow the inline
+       padding with the viewport instead of jumping straight to x4 */
+    padding-block: calc(var(--space-y-12) * 4);
+    padding-inline: clamp(
+      calc(var(--space-x-12) * 2),
+      25vw - 280px,
+      calc(var(--space-x-12) * 4)
+    );
+  }
+}
+
+.sp-l-work__body__inner {
+  max-inline-size: 780px;
+  inline-size: 100%;
+}
+
+.sp-l-work__media {
+  position: relative;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+
+  @media (--mq-md) {
+    aspect-ratio: auto;
+    block-size: 50vh;
+  }
+
+  @media (--mq-lg) {
+    flex: 1;
+    max-inline-size: 50%;
+    flex-basis: 50%;
+    block-size: auto;
+    min-block-size: min-content;
+    background-color: var(--color-light-grey);
+  }
+}
+
+.sp-l-work__media__carousel {
+  position: absolute;
+  inset: 0;
+
+  @media (--mq-lg) {
+    /* 126px matches the sticky header height at this breakpoint */
+    position: sticky;
+    inset: auto;
+    inset-block-start: 126px;
+    block-size: calc(100vh - 126px);
+    inline-size: 100%;
+  }
+}
+
+.sp-l-work__logo .sp-c-picture__image {
+  block-size: 48px;
+  inline-size: auto;
+
+  @media (--mq-lg) {
+    block-size: 64px;
+  }
+}
+</style>

@@ -276,11 +276,16 @@
 
   @media (--mq-lg) {
     margin-block: 0;
-    margin-inline-start: calc(var(--baseline) * 8);
+    margin-inline-start: calc(var(--baseline) * 2);
     font-size: 30px;
     line-height: 54px;
     letter-spacing: 3px;
     padding-block: var(--space-y-2);
+    padding-inline: var(--space-x-2);
+  }
+
+  @media (--mq-xl) {
+    margin-inline-start: calc(var(--baseline) * 8);
     padding-inline: var(--space-x-4);
   }
 }
@@ -295,6 +300,12 @@
 .sp-c-header__nav__link--shop:focus,
 .sp-c-header__nav__link--shop.is-active {
   color: var(--color-brand-acapulco);
+}
+
+.sp-c-header__nav__link--work:hover,
+.sp-c-header__nav__link--work:focus,
+.sp-c-header__nav__link--work.is-active {
+  color: var(--color-brand-sinbad);
 }
 
 .sp-c-header__nav__link--scrapbook:hover,

@@ -12,6 +12,7 @@ export const structure = (S: StructureBuilder) =>
       S.divider(),
       S.documentTypeListItem('post').title('Posts'),
       S.documentTypeListItem('page').title('Pages'),
+      S.documentTypeListItem('work').title('Work'),
       S.divider(),
       S.documentTypeListItem('category').title('Categories'),
     ]);

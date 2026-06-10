@@ -1,5 +1,6 @@
 import type { PortableTextComponentProps } from '@portabletext/vue';
 import type { GetStaticPathsItem } from 'astro';
+import type { CarouselSlideProps } from './src/components/Carousel/types';
 import type { PictureProps } from './src/components/Picture/types';
 
 // TODO: Replace with actual types
@@ -110,6 +111,44 @@ export interface PageProps {
 export type PagePayload = {
   params: GetStaticPathsItem['params'];
   props: PageProps;
+};
+
+export interface WorkSlideResponse {
+  _key: string;
+  title: string;
+  caption?: string;
+  image?: ImageResponse;
+}
+
+export interface WorkResponse {
+  title: string;
+  slug: string;
+  publishedDate: string;
+  logo?: ImageResponse;
+  excerpt?: string;
+  body: PortableTextComponentProps<PortableTextProps>;
+  gallery?: WorkSlideResponse[];
+  galleryBackground?: string;
+  meta?: PageResponse['meta'];
+}
+
+export interface WorkProps {
+  title: string;
+  path: string;
+  logo?: PictureProps;
+  excerpt?: string;
+  image?: PictureProps;
+  body: BodyProps;
+  slides: CarouselSlideProps[];
+  galleryBackground?: string;
+  meta: PageProps['meta'];
+}
+
+export type WorkPayload = {
+  params: {
+    slug: string;
+  };
+  props: WorkProps;
 };
 
 export interface EtsyPrice {

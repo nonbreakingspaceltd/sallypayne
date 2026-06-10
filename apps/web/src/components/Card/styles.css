@@ -62,6 +62,11 @@
   color: var(--color-brand-manhattan);
 }
 
+.is-clickable:hover .sp-c-card--work .sp-c-card__link,
+.is-clickable:focus .sp-c-card--work .sp-c-card__link {
+  color: var(--color-brand-sinbad);
+}
+
 .is-clickable:hover .sp-c-card--product .sp-c-card__link,
 .is-clickable:focus .sp-c-card--product .sp-c-card__link {
   color: var(--color-brand-acapulco);

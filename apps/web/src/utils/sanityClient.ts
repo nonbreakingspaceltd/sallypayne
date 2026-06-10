@@ -68,7 +68,15 @@ function customClient(
   };
 }
 
-export const client = customClient(sanityConfig, true, false);
+// In dev, skip both the memory cache and Sanity's CDN so every request
+// fetches fresh content (import.meta.env is undefined outside Vite, e.g. tsx)
+const isProd = import.meta.env?.PROD ?? true;
+
+export const client = customClient(
+  { ...sanityConfig, useCdn: sanityConfig.useCdn && isProd },
+  isProd,
+  false,
+);
 
 export const imageUrlBuilder = createImageUrlBuilder({
   projectId: sanityConfig.projectId,

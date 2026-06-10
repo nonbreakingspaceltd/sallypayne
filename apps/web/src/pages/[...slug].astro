@@ -3,7 +3,7 @@ import { getPages } from '../data/pages';
 import LayoutPage from '../layouts/Page.astro';
 
 export async function getStaticPaths() {
-  return getPages(['contact']);
+  return getPages(['contact', 'work']);
 }
 
 const { body, title, image, meta } = Astro.props;

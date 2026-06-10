@@ -22,6 +22,11 @@ export function getNavigation(currentPath: string): NavigationItem[] {
       current: false,
     },
     {
+      label: 'Work',
+      href: '/work',
+      current: false,
+    },
+    {
       label: 'Scrapbook',
       href: '/scrapbook',
       current: false,

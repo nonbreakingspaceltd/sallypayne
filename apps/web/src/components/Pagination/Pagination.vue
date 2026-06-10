@@ -27,6 +27,11 @@ const pages = computed((): PaginationPage[] => {
     generatePageItem(i + 1, i + 1, false),
   );
 
+  // With few pages there is nothing to collapse: show them all, no ellipses
+  if (props.totalPage <= props.pageRange * 2 + 1) {
+    return items.map((item) => ({ ...item, show: true }));
+  }
+
   // Insert ellipsis markers
   const leftEllipsis = generatePageItem(
     '…',
@@ -91,7 +96,7 @@ const href = (page: number): string => {
 </script>
 
 <template>
-  <nav class="sp-c-pagination">
+  <nav v-if="totalPage > 1" class="sp-c-pagination">
     <h2 class="sp-c-pagination__title" id="pagination">
       Page:
       <span class="sp-u-sr-only">{{ currentPage }} of {{ totalPage }}</span>

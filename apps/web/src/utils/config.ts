@@ -13,7 +13,7 @@ export const sanityConfig = {
   dataset: process.env.PUBLIC_SANITY_STUDIO_API_DATASET,
   token: process.env.PRIVATE_SANITY_STUDIO_API_TOKEN,
   apiVersion: process.env.PUBLIC_SANITY_STUDIO_API_VERSION,
-  useCdn: process.env.PUBLIC_SANITY_STUDIO_USE_CDN || true,
+  useCdn: process.env.PUBLIC_SANITY_STUDIO_USE_CDN !== 'false',
 };
 
 export const etsyConfig = {
