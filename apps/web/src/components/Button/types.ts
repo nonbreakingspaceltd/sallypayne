@@ -4,6 +4,5 @@ export interface ButtonProps {
   variants?: string[];
   type?: string;
   id?: string;
-  class?: string;
   children?: any;
 }
