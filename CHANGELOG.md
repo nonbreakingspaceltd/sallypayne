@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.3.0...v1.4.0) (2026-06-10)
+
+
+### Features
+
+* add work section with showcase listing and gallery carousel ([90c518a](https://github.com/nonbreakingspaceltd/sallypayne/commit/90c518a20b7d43ab3bc70d33d8dbd430e25ef844))
+
 # [1.3.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.2.0...v1.3.0) (2026-03-30)
 
 
