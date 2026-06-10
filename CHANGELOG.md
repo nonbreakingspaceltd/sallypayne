@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.1...v1.4.2) (2026-06-10)
+
+
+### Bug Fixes
+
+* give EtsyButton overrides higher specificity than the button base ([2c1556c](https://github.com/nonbreakingspaceltd/sallypayne/commit/2c1556c986e3ada38a024ee9dfa61496af06a2e4))
+
 ## [1.4.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.0...v1.4.1) (2026-06-10)
 
 
