@@ -9,10 +9,6 @@
   @media (--mq-md) {
     padding: 0 var(--space-x-6);
   }
-
-  @media (--mq-lg) {
-    margin-top: auto;
-  }
 }
 
 .sp-c-home-media__image {

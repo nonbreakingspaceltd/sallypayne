@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import src from './home-20230203.svg?url';
-
-interface Props {
-  class?: string;
-}
-
-defineProps<Props>();
 </script>
 
 <template>

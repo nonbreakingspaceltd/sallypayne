@@ -17,13 +17,27 @@ const { title, meta } = Astro.props;
 <style lang="postcss" is:global>
 @import '../assets/styles/tools';
 
+/* Lock the page to the viewport so the illustration scales to fit the
+   window height. The 480px floor keeps it legible on short windows —
+   the page scrolls instead. */
+.sp-l-layout--home {
+  block-size: 100vh;
+  block-size: 100dvh;
+}
+
+.sp-l-layout--home .sp-l-main {
+  min-block-size: 0;
+}
+
 .sp-l-home {
   flex: 1;
   display: flex;
+  min-block-size: 480px;
 }
 
 .sp-l-home__media {
   flex: 1;
   padding-inline: var(--space-x-4);
+  min-block-size: 0;
 }
 </style>
