@@ -32,15 +32,6 @@
     "husky": "9.1.7",
     "semantic-release": "25.0.5"
   },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "18.3.1",
-      "@types/react-dom": "18.3.1",
-      "prismjs@<1.30.0": ">=1.30.0",
-      "js-yaml@<3.14.2": ">=3.14.2",
-      "yaml@>=2.0.0 <2.8.3": ">=2.8.3"
-    }
-  },
   "release": {
     "branches": [
       "main"

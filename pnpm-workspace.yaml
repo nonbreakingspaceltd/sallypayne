@@ -1,5 +1,22 @@
 packages:
   - apps/*
+# Force patched versions of transitive dependencies with security advisories.
+# Ranged so they only rewrite vulnerable resolutions, not future majors.
+overrides:
+  'brace-expansion@>=5.0.0 <5.0.6': ^5.0.6
+  'defu@<6.1.5': ^6.1.7
+  'dompurify@<3.4.0': ^3.4.0
+  'fast-uri@<3.1.2': ^3.1.2
+  'js-yaml@<3.14.2': ^3.14.2
+  'lodash@<4.18.0': ^4.18.1
+  'lodash-es@<4.18.0': ^4.18.1
+  'postcss@<8.5.10': ^8.5.15
+  'prismjs@<1.30.0': '>=1.30.0'
+  'uuid@<11.1.1': ^11.1.1
+  'uuid@>=13.0.0 <13.0.1': ^13.0.1
+  'vite@>=7.0.0 <7.3.2': ^7.3.5
+  'ws@>=8.0.0 <8.20.1': ^8.20.1
+  'yaml@>=2.0.0 <2.8.3': ^2.9.0
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
