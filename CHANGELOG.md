@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.3...v1.7.0) (2026-06-11)
+
+
+### Features
+
+* show the brand logo on work listing cards ([51d590d](https://github.com/nonbreakingspaceltd/sallypayne/commit/51d590d579003234e792ded0250e1b565725d475))
+
 ## [1.6.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.2...v1.6.3) (2026-06-11)
 
 
