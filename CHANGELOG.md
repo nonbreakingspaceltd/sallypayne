@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.5.1...v1.6.0) (2026-06-11)
+
+
+### Features
+
+* scale home illustration to fit the window height ([b446697](https://github.com/nonbreakingspaceltd/sallypayne/commit/b4466971e087a64fd5a7a8b746fe64cb811e1cdf))
+
 ## [1.5.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.5.0...v1.5.1) (2026-06-11)
 
 
