@@ -1,5 +1,10 @@
 ---
 import Layout404 from '../layouts/404.astro';
+
+// Must be server-rendered: when this page is prerendered, on-demand routes
+// that return a 404 Response can't render it — the runtime falls back to an
+// empty body that Chrome rejects (ERR_INVALID_RESPONSE).
+export const prerender = false;
 ---
 
 <Layout404 />
