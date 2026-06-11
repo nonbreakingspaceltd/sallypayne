@@ -1,173 +1,136 @@
-import type { PaginateFunction } from 'astro';
-import { decode } from 'html-entities';
 import type {
-  EtsyImage,
-  EtsyPrice,
-  EtsyProduct,
-  ImageProps,
-  ProductPayload,
+  ListingPage,
+  ProductDocument,
   ProductProps,
   SiteSettings,
 } from '../../types';
-import { etsyConfig } from '../utils/config';
-import { client } from '../utils/etsyClient';
-import { slugify, textToHtml, toSentenceCase } from '../utils/helpers';
+import { client } from '../utils/sanityClient';
 import { getSiteSettings } from './global';
 
-const storeId = etsyConfig.storeId;
+const productFields = /* groq */ `
+  title,
+  slug,
+  listingId,
+  state,
+  url,
+  price,
+  priceAmount,
+  currencyCode,
+  description,
+  metaDescription,
+  image,
+  sortOrder
+`;
+
+const productListQuery = /* groq */ `
+  *[
+    !(_id in path("drafts.**")) &&
+    _type == 'product' &&
+    state == 'active'
+  ] | order(sortOrder asc) {
+    ${productFields}
+  }
+`;
 
 function processProductPath(slug: string): string {
   return `/shop/product/${slug}/`;
 }
 
-function calculatePrice(amount: number, divisor: number): string {
-  return (amount / divisor).toFixed(2);
-}
-
-function processDisplayPrice(price: EtsyPrice): string {
-  const currencySymbol = price.currency_code === 'GBP' ? '£' : 'NA';
-  const amount = calculatePrice(price.amount, price.divisor);
-  return `${currencySymbol}${amount}`;
-}
-
-function processImage(image: EtsyImage, alt: string): ImageProps {
-  return {
-    src: image.url_570xN,
-    width: image.full_width,
-    height: image.full_height,
-    alt,
-    backgroundColor: image.hex_code && `#${image.hex_code}`,
-  };
-}
-
 function proccessProduct(
-  product: EtsyProduct,
+  product: ProductDocument,
   siteSettings: SiteSettings,
 ): ProductProps {
   const {
-    state,
-    listing_id,
     title,
-    price,
-    currency_code,
+    slug,
+    listingId,
+    state,
     url,
+    price,
+    priceAmount,
+    currencyCode,
     description,
-    images,
+    metaDescription,
+    image,
   } = product;
-  const cleanTitle = decode(toSentenceCase(title.split(' - ')[0] || title), {
-    level: 'html5',
-  });
-  const slug = slugify(cleanTitle);
-  const trimmedDescription = toSentenceCase(
-    description.split('About me:')[0] || description,
-  );
-  const descriptionParts = trimmedDescription.replaceAll('\r', '').split(/\n/);
 
   return {
-    title: cleanTitle,
-    price: processDisplayPrice(price),
-    description: textToHtml(trimmedDescription),
-    currencyCode: currency_code,
+    title,
+    price,
+    description,
+    currencyCode,
     path: processProductPath(slug),
     slug,
     url,
-    listingId: listing_id,
+    listingId,
     state,
-    image: processImage(images[0], cleanTitle),
+    image,
     meta: {
-      title: `${cleanTitle} | Shop | ${siteSettings.title}`,
-      description: descriptionParts[1] || title,
+      title: `${title} | Shop | ${siteSettings.title}`,
+      description: metaDescription,
       og: {
-        image: images[0].url_570xN,
+        image: image.src,
       },
       jsonLd: {
         '@context': 'https://schema.org/',
         '@type': 'Product',
-        name: cleanTitle,
-        image: images[0].url_570xN,
-        description: trimmedDescription,
+        name: title,
+        image: image.src,
+        description: metaDescription,
         brand: {
           '@type': 'Brand',
           name: 'Sally Payne',
         },
         offers: {
           '@type': 'AggregateOffer',
-          price: calculatePrice(price.amount, price.divisor),
-          lowPrice: calculatePrice(price.amount, price.divisor),
-          priceCurrency: price.currency_code,
+          price: priceAmount,
+          lowPrice: priceAmount,
+          priceCurrency: currencyCode,
         },
       },
     },
   };
 }
 
-async function getCachedProducts(): Promise<
-  { results: ProductPayload[] } | false
-> {
-  try {
-    return require('../../tmp/products.json');
-  } catch {
-    return false;
-  }
-}
-
-async function fetchProducts(): Promise<ProductPayload[]> {
-  try {
-    const siteSettings = await getSiteSettings();
-    console.log(`Fetching active products...`);
-    const activeProducts = await client.fetch(
-      `/shops/${storeId}/listings/active?limit=100`,
-    );
-    console.log('Fetched active products:', activeProducts?.results.length);
-    if (!activeProducts) {
-      return [];
+export async function getProduct(
+  slug: string,
+): Promise<ProductProps | undefined> {
+  const siteSettings = await getSiteSettings();
+  const response = await client.fetch<ProductDocument | null>(
+    /* groq */ `
+    *[
+      !(_id in path("drafts.**")) &&
+      _type == 'product' &&
+      state == 'active' &&
+      slug == $slug
+    ][0] {
+      ${productFields}
     }
-    const ids = activeProducts.results
-      .map((item: { listing_id: number }) => item.listing_id)
-      .join(',');
-    console.log(`Fetching products...`);
-    const productsData = await client.fetch(
-      `/listings/batch?listing_ids=${ids}&includes=Images`,
-    );
-
-    return productsData.results.map((product: EtsyProduct) => {
-      const processedProduct = proccessProduct(product, siteSettings);
-      return {
-        params: {
-          id: processedProduct.slug,
-        },
-        props: processedProduct,
-      };
-    });
-  } catch (error) {
-    console.error('Failed to fetch products from Etsy:', error);
-    return [];
+  `,
+    { slug },
+  );
+  if (!response) {
+    return undefined;
   }
+  return proccessProduct(response, siteSettings);
 }
 
-export async function getProducts(
-  forceFetch = false,
-): Promise<ProductPayload[]> {
-  const cachedProducts = await getCachedProducts();
-  if (cachedProducts && !forceFetch) {
-    console.log('Fetched products:', cachedProducts.results.length);
-    return cachedProducts.results;
+export async function getProductsPage(
+  pageNumber: number,
+  pageSize = 20,
+): Promise<ListingPage<ProductProps> | undefined> {
+  const siteSettings = await getSiteSettings();
+  const products = await client.fetch<ProductDocument[]>(productListQuery);
+  const lastPage = Math.max(1, Math.ceil(products.length / pageSize));
+  if (pageNumber < 1 || pageNumber > lastPage) {
+    return undefined;
   }
-  const products = await fetchProducts();
-  if (products.length === 0 && cachedProducts) {
-    console.log('Etsy fetch failed, falling back to cached products');
-    return cachedProducts.results;
-  }
-  console.log('Fetched products:', products.length);
-  return products;
-}
-
-export async function getPaginatedProducts(
-  paginate: PaginateFunction,
-): Promise<ReturnType<PaginateFunction>> {
-  const proccessedProducts = await getProducts();
-  const pageSize = 20;
-  return paginate(proccessedProducts, {
-    pageSize,
-  });
+  const start = (pageNumber - 1) * pageSize;
+  return {
+    data: products
+      .slice(start, start + pageSize)
+      .map((product) => proccessProduct(product, siteSettings)),
+    currentPage: pageNumber,
+    lastPage,
+  };
 }

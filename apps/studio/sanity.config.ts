@@ -1,15 +1,17 @@
 // sanity.config.js
 
-import { dashboardTool } from '@sanity/dashboard';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
-import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { media } from 'sanity-plugin-media';
 import { env } from './loadEnv';
 import { Logo } from './plugins/Logo';
+import { refreshEtsyProducts } from './plugins/RefreshEtsyProducts';
 import { schemaTypes } from './schemaTypes';
 import { structure } from './structure';
+
+// 'releases' is the Scheduled Drafts tab (so titled when releases are off)
+const hiddenTools = ['releases'];
 
 export default defineConfig({
   title: 'Sally Payne',
@@ -20,22 +22,7 @@ export default defineConfig({
       structure,
     }),
     media(),
-    dashboardTool({
-      widgets: [
-        netlifyWidget({
-          title: 'Deploy',
-          sites: [
-            {
-              title: 'Sally Payne Website',
-              apiId: '012cbb34-aa49-495c-8b38-5c32000aeeaf',
-              buildHookId: '637217133de31a1723d37f3e',
-              name: 'sallypayne',
-              url: 'https://www.sallypayne.com',
-            },
-          ],
-        }),
-      ],
-    }),
+    refreshEtsyProducts(),
     visionTool(),
   ],
   scheduledPublishing: {
@@ -53,17 +40,24 @@ export default defineConfig({
     },
     newDocumentOptions: (prev, { creationContext }) => {
       const { type } = creationContext;
+      // Products are synced from Etsy, never created by hand
+      const filtered = prev.filter(
+        (template) => template.templateId !== 'product',
+      );
       if (type === 'global') {
-        return prev.filter((template) => template.templateId !== 'settings');
+        return filtered.filter(
+          (template) => template.templateId !== 'settings',
+        );
       }
-      return prev;
+      return filtered;
     },
   },
   tools: (prev) => {
+    const tools = prev.filter((tool) => !hiddenTools.includes(tool.name));
     if (env.DEV) {
-      return prev;
+      return tools;
     }
-    return prev.filter((tool) => tool.name !== 'vision');
+    return tools.filter((tool) => tool.name !== 'vision');
   },
   schema: {
     types: schemaTypes,

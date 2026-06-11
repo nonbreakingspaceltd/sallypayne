@@ -1,23 +1,25 @@
 ---
-import type { ProductProps } from '../../../../types';
-import { getProducts } from '../../../data/products';
+import { getProduct } from '../../../data/products';
 import LayoutProduct from '../../../layouts/Product.astro';
 
-type Props = ProductProps;
+export const prerender = false;
 
-export async function getStaticPaths() {
-  return getProducts();
+const { id } = Astro.params;
+const product = id ? await getProduct(id) : undefined;
+
+if (!product) {
+  return new Response(null, { status: 404 });
 }
 
-const { title, price, description, image, url, meta } = Astro.props;
-
-const product = {
-  title,
-  price,
-  description,
-  image,
-  url,
-};
+const { title, price, description, image, url, meta } = product;
 ---
 
-<LayoutProduct variant="product" meta={meta} {...product} />
+<LayoutProduct
+  variant="product"
+  meta={meta}
+  title={title}
+  price={price}
+  description={description}
+  image={image}
+  url={url}
+/>

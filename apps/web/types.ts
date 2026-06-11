@@ -181,6 +181,25 @@ export interface EtsyProduct {
   images: EtsyImage[];
 }
 
+/** A `product` document in the Sanity dataset, synced from Etsy by the
+ * studio's "Refresh Etsy products" tool. */
+export interface ProductDocument {
+  _id: string;
+  _type: 'product';
+  title: string;
+  slug: string;
+  listingId: number;
+  state: string;
+  url: string;
+  price: string;
+  priceAmount: string;
+  currencyCode: string;
+  description: string;
+  metaDescription: string;
+  image: ImageProps;
+  sortOrder: number;
+}
+
 export interface ProductProps {
   title: string;
   price: string;
@@ -216,11 +235,4 @@ export interface ProductProps {
       };
     };
   };
-}
-
-export interface ProductPayload {
-  params: {
-    id: string;
-  };
-  props: ProductProps;
 }
