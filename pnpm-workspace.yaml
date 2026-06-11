@@ -10,6 +10,47 @@ minimumReleaseAgeExclude:
   - sanitize-html
   - sanity
   - '@sanity/*'
+  - '@vue/compiler-core@3.5.38'
+  - '@vue/compiler-dom@3.5.38'
+  - '@vue/compiler-sfc@3.5.38'
+  - '@vue/compiler-ssr@3.5.38'
+  - '@vue/reactivity@3.5.38'
+  - '@vue/runtime-core@3.5.38'
+  - '@vue/runtime-dom@3.5.38'
+  - '@vue/server-renderer@3.5.38'
+  - '@vue/shared@3.5.38'
+  - cssnano-preset-default@8.0.2
+  - cssnano-utils@6.0.1
+  - cssnano@8.0.2
+  - groq@6.0.0
+  - postcss-colormin@8.0.1
+  - postcss-convert-values@8.0.1
+  - postcss-discard-comments@8.0.1
+  - postcss-discard-duplicates@8.0.1
+  - postcss-discard-empty@8.0.1
+  - postcss-discard-overridden@8.0.1
+  - postcss-merge-longhand@8.0.1
+  - postcss-merge-rules@8.0.1
+  - postcss-minify-font-values@8.0.1
+  - postcss-minify-gradients@8.0.1
+  - postcss-minify-params@8.0.1
+  - postcss-minify-selectors@8.0.2
+  - postcss-normalize-charset@8.0.1
+  - postcss-normalize-display-values@8.0.1
+  - postcss-normalize-positions@8.0.1
+  - postcss-normalize-repeat-style@8.0.1
+  - postcss-normalize-string@8.0.1
+  - postcss-normalize-timing-functions@8.0.1
+  - postcss-normalize-unicode@8.0.1
+  - postcss-normalize-url@8.0.1
+  - postcss-normalize-whitespace@8.0.1
+  - postcss-ordered-values@8.0.1
+  - postcss-reduce-initial@8.0.1
+  - postcss-reduce-transforms@8.0.1
+  - postcss-svgo@8.0.1
+  - postcss-unique-selectors@8.0.1
+  - stylehacks@8.0.1
+  - vue@3.5.38
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - esbuild
