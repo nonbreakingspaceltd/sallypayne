@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.0...v1.6.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* server-render the 404 page so it displays for not-found content routes ([d3fd730](https://github.com/nonbreakingspaceltd/sallypayne/commit/d3fd7308bec7298da490c5534587edc25252e5f7))
+
 # [1.6.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.5.1...v1.6.0) (2026-06-11)
 
 
