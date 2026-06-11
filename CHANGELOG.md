@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.0...v1.8.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* force patched versions of vulnerable transitive dependencies ([f353048](https://github.com/nonbreakingspaceltd/sallypayne/commit/f353048505fa1a8830714ab69a7daf655e3ea2d6))
+
 # [1.8.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.7.0...v1.8.0) (2026-06-11)
 
 
