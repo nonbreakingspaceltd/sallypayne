@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.7.0...v1.8.0) (2026-06-11)
+
+
+### Features
+
+* sync Etsy products into Sanity via a studio refresh tool ([c8fe33b](https://github.com/nonbreakingspaceltd/sallypayne/commit/c8fe33b542c7346b0f370d22cb505e7ca9fc3386))
+
 # [1.7.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.3...v1.7.0) (2026-06-11)
 
 
