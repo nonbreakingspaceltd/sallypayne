@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.2...v1.6.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* resolve scrapbook posts by date-encoded path, not first slug match ([e1a4724](https://github.com/nonbreakingspaceltd/sallypayne/commit/e1a4724eb0de3bb950d955c64bc4b3d87e3410ca))
+
 ## [1.6.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.1...v1.6.2) (2026-06-11)
 
 
