@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.1...v1.6.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* centre the 404 page title ([0d76d1f](https://github.com/nonbreakingspaceltd/sallypayne/commit/0d76d1f5fbbb60dffac0d33907f6dc066b464631))
+
 ## [1.6.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.6.0...v1.6.1) (2026-06-11)
 
 
