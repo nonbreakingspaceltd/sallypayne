@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.5.0...v1.5.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* inline studio logo so it renders inside the sanity.io dashboard ([526998f](https://github.com/nonbreakingspaceltd/sallypayne/commit/526998ffce51810da4ba85e800d833187a279574))
+
 # [1.5.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.2...v1.5.0) (2026-06-11)
 
 
