@@ -194,7 +194,7 @@ function processWork(
   return {
     title,
     path,
-    logo: isCard ? undefined : processWorkLogo(logo, title),
+    logo: processWorkLogo(logo, title),
     excerpt,
     image: isCard
       ? processFeatureImage(mainImage, gallery?.[0]?.title)

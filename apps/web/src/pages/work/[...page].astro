@@ -38,7 +38,7 @@ const meta = {
 };
 
 const works = page.data.map((work: WorkProps) => {
-  const { title, path, excerpt, image, galleryBackground } = work;
+  const { title, path, excerpt, image, logo, galleryBackground } = work;
   // map to showcase item props
   return {
     key: path,
@@ -46,6 +46,7 @@ const works = page.data.map((work: WorkProps) => {
     href: path,
     excerpt,
     image,
+    logo,
     backgroundColor: galleryBackground,
   };
 });

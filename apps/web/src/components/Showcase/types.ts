@@ -6,6 +6,7 @@ export interface ShowcaseItemProps {
   href: string;
   excerpt?: string;
   image?: PictureProps;
+  logo?: PictureProps;
   backgroundColor?: string;
 }
 

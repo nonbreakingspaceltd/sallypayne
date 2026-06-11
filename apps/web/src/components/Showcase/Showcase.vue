@@ -29,6 +29,11 @@ const classes = computed(() => {
           />
         </div>
         <div class="sp-c-showcase__content">
+          <Picture
+            v-if="item.logo"
+            v-bind="item.logo"
+            class="sp-c-showcase__logo"
+          />
           <h2 class="sp-c-showcase__title">{{ item.title }}</h2>
           <p v-if="item.excerpt" class="sp-c-showcase__excerpt">
             {{ item.excerpt }}

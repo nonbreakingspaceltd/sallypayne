@@ -89,6 +89,15 @@
   }
 }
 
+.sp-c-showcase__logo .sp-c-picture__image {
+  block-size: 40px;
+  inline-size: auto;
+
+  @media (--mq-lg) {
+    block-size: 48px;
+  }
+}
+
 .sp-c-showcase__title {
   margin: 0;
   font-size: var(--font-size-3);
