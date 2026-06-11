@@ -1,4 +1,6 @@
-import logo from './logo.png?url';
+// Inlined as a data URI: a relative asset URL breaks when the studio is
+// embedded in the sanity.io dashboard, which serves from its own origin
+import logo from './logo.png?inline';
 
 export const Logo = () => (
   <img
