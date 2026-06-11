@@ -113,6 +113,12 @@ export type PagePayload = {
   props: PageProps;
 };
 
+export interface ListingPage<T> {
+  data: T[];
+  currentPage: number;
+  lastPage: number;
+}
+
 export interface WorkSlideResponse {
   _key: string;
   title: string;

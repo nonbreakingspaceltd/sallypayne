@@ -1,15 +1,18 @@
 ---
-import type { PagePayload, PageProps } from '../../../../../types';
-import { getPosts } from '../../../../data/posts';
+import { getPost } from '../../../../data/posts';
 import LayoutPost from '../../../../layouts/Post.astro';
 
-type Props = PageProps;
+export const prerender = false;
 
-export async function getStaticPaths(): Promise<PagePayload[]> {
-  return getPosts(Astro.site);
+const { year, month, slug } = Astro.params;
+const post = slug ? await getPost(slug, Astro.site) : undefined;
+
+// The post's canonical path encodes its publish date — reject mismatches
+if (!post || post.path !== `/scrapbook/${year}/${month}/${slug}/`) {
+  return new Response(null, { status: 404 });
 }
 
-const { title, body, publishedDate, meta } = Astro.props;
+const { title, body, publishedDate, meta } = post;
 ---
 
 <LayoutPost variant="post" title={title} meta={meta} publishedDate={publishedDate} body={body} />

@@ -3,9 +3,15 @@ import ContactForm from '../components/ContactForm/ContactForm.vue';
 import { getPage } from '../data/pages';
 import LayoutPage from '../layouts/Page.astro';
 
-const response = await getPage('contact');
+export const prerender = false;
 
-const { body, title, image, meta } = response.props;
+const page = await getPage('contact');
+
+if (!page) {
+  return new Response(null, { status: 404 });
+}
+
+const { body, title, image, meta } = page;
 ---
 
 <LayoutPage variant="contact" title={title} meta={meta} body={body} image={image}>

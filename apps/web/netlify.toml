@@ -1,5 +1,6 @@
 [build]
-base = "apps/web"
+# base is set in the Netlify UI; declaring it here breaks the Netlify
+# adapter's local dev emulation (it resolves apps/web/apps/web)
 command = "pnpm build"
 publish = "dist"
 

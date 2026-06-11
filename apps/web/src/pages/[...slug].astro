@@ -1,12 +1,20 @@
 ---
-import { getPages } from '../data/pages';
+import { getPage } from '../data/pages';
 import LayoutPage from '../layouts/Page.astro';
 
-export async function getStaticPaths() {
-  return getPages(['contact', 'work']);
+export const prerender = false;
+
+// Slugs served by dedicated routes
+const reserved = ['contact', 'work', 'scrapbook', 'shop'];
+
+const slug = Astro.params.slug;
+const page = slug && !reserved.includes(slug) ? await getPage(slug) : undefined;
+
+if (!page) {
+  return new Response(null, { status: 404 });
 }
 
-const { body, title, image, meta } = Astro.props;
+const { body, title, image, meta } = page;
 ---
 
 <LayoutPage variant="page" title={title} meta={meta} body={body} image={image} />

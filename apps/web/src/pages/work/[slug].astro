@@ -1,15 +1,17 @@
 ---
-import type { WorkPayload, WorkProps } from '../../../types';
-import { getWorks } from '../../data/work';
+import { getWork } from '../../data/work';
 import LayoutWork from '../../layouts/Work.astro';
 
-type Props = WorkProps;
+export const prerender = false;
 
-export async function getStaticPaths(): Promise<WorkPayload[]> {
-  return getWorks();
+const { slug } = Astro.params;
+const work = slug ? await getWork(slug) : undefined;
+
+if (!work) {
+  return new Response(null, { status: 404 });
 }
 
-const { title, logo, body, slides, galleryBackground, meta } = Astro.props;
+const { title, logo, body, slides, galleryBackground, meta } = work;
 ---
 
 <LayoutWork

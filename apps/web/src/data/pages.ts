@@ -2,7 +2,6 @@ import type { TypedObject } from '@portabletext/types';
 import type {
   BodyProps,
   ImageResponse,
-  PagePayload,
   PageProps,
   PageResponse,
   SiteSettings,
@@ -77,44 +76,18 @@ function processPage(
   };
 }
 
-export async function getPages(exclude: string[] = []): Promise<PagePayload[]> {
-  console.log('Fetching pages...');
+export async function getPage(slug: string): Promise<PageProps | undefined> {
   const siteSettings = await getSiteSettings();
-  const response = await client.fetch<PageResponse[]>(/* groq */ `
-    *[_type == 'page'] {
+  const response = await client.fetch<PageResponse | null>(
+    /* groq */ `
+    *[_type == 'page' && slug.current == $slug][0] {
       ${pageFields}
     }
-  `);
-  const pages = response.reduce<PagePayload[]>(
-    (filtered: PagePayload[], page: PageResponse) => {
-      if (!exclude.includes(page.slug)) {
-        filtered.push({
-          params: {
-            slug: page.slug,
-          },
-          props: processPage(page, siteSettings),
-        });
-      }
-      return filtered;
-    },
-    [],
+  `,
+    { slug },
   );
-  console.log('Fetched pages:', pages.length);
-  return pages;
-}
-
-export async function getPage(slug: string): Promise<PagePayload> {
-  const siteSettings = await getSiteSettings();
-  const response = await client.fetch<PageResponse>(/* groq */ `
-    *[_type == 'page' && slug.current == '${slug}'][0] {
-      ${pageFields}
-    }
-  `);
-  const page: PagePayload = {
-    params: {
-      slug: response.slug,
-    },
-    props: processPage(response, siteSettings),
-  };
-  return page;
+  if (!response) {
+    return undefined;
+  }
+  return processPage(response, siteSettings);
 }

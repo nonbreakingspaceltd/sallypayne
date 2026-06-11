@@ -10,8 +10,6 @@ https://sallypayne.netlify.app/* https://www.sallypayne.com/:splat 301!
 /illustration/* /scrapbook/
 /blog/ /scrapbook/
 /blog/* /scrapbook/
-/work/ /scrapbook/
-/work/* /scrapbook/
 /about-me/ /about/
 
 # Posts

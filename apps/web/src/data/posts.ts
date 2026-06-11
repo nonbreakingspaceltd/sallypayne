@@ -1,9 +1,8 @@
-import type { GetStaticPathsResult, PaginateFunction } from 'astro';
 import { format } from 'date-fns';
 import type {
   BodyProps,
   ImageResponse,
-  PagePayload,
+  ListingPage,
   PageProps,
   PageResponse,
   SiteSettings,
@@ -16,17 +15,21 @@ import { fixPathSlashes } from './utils/fixPathSlashes.ts';
 import { processAllofType } from './utils/process';
 import { processOgImage } from './utils/processOgImage';
 
-const postQuery = /* groq */ `
+const postFields = /* groq */ `
+  title,
+  "slug": slug.current,
+  publishedDate,
+  excerpt,
+  media {
+    main
+  },
+  body[],
+  meta
+`;
+
+const postListQuery = /* groq */ `
   *[_type == 'post'] | order(publishedDate desc) {
-    title,
-    "slug": slug.current,
-    publishedDate,
-    excerpt,
-    media {
-      main
-    },
-    body[],
-    meta
+    ${postFields}
   }
 `;
 
@@ -145,41 +148,50 @@ function proccessPost(
   };
 }
 
-export async function getPaginatedPosts(
-  paginate: PaginateFunction,
+export async function getPost(
+  slug: string,
   siteUrl: URL | undefined,
-): Promise<GetStaticPathsResult> {
+): Promise<PageProps | undefined> {
   if (!siteUrl) {
     throw new Error('Site URL is required');
   }
   const siteSettings = await getSiteSettings();
-  const posts = await client.fetch<PageResponse[]>(postQuery);
-  const proccessedPosts = posts.map((post) =>
-    proccessPost(post, siteSettings, siteUrl.toString(), true),
+  const response = await client.fetch<PageResponse | null>(
+    /* groq */ `
+    *[_type == 'post' && slug.current == $slug][0] {
+      ${postFields}
+    }
+  `,
+    { slug },
   );
-  const pageSize = 20;
-  return paginate(proccessedPosts, { pageSize });
+  if (!response) {
+    return undefined;
+  }
+  return proccessPost(response, siteSettings, siteUrl.toString());
 }
 
-export async function getPosts(
+export async function getPostsPage(
+  pageNumber: number,
   siteUrl: URL | undefined,
-): Promise<PagePayload[]> {
+  pageSize = 20,
+): Promise<ListingPage<PageProps> | undefined> {
   if (!siteUrl) {
     throw new Error('Site URL is required');
   }
-  console.log('Fetching posts...');
   const siteSettings = await getSiteSettings();
-  const response = await client.fetch<PageResponse[]>(postQuery);
-  const posts = response.map((post) => {
-    return {
-      params: {
-        year: format(new Date(post.publishedDate), 'yyyy'),
-        month: format(new Date(post.publishedDate), 'MM'),
-        slug: post.slug,
-      },
-      props: proccessPost(post, siteSettings, siteUrl.toString()),
-    };
-  });
-  console.log('Fetched posts:', posts.length);
-  return posts;
+  const posts = await client.fetch<PageResponse[]>(postListQuery);
+  const lastPage = Math.max(1, Math.ceil(posts.length / pageSize));
+  if (pageNumber < 1 || pageNumber > lastPage) {
+    return undefined;
+  }
+  const start = (pageNumber - 1) * pageSize;
+  return {
+    data: posts
+      .slice(start, start + pageSize)
+      .map((post) =>
+        proccessPost(post, siteSettings, siteUrl.toString(), true),
+      ),
+    currentPage: pageNumber,
+    lastPage,
+  };
 }

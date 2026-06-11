@@ -1,9 +1,9 @@
 import 'dotenv/config';
 
+import netlify from '@astrojs/netlify';
 import vue from '@astrojs/vue';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
-import purgecss from 'astro-purgecss';
 import env from 'vite-plugin-environment';
 import svgLoader from 'vite-svg-loader';
 
@@ -21,6 +21,11 @@ function siteUrl() {
 
 export default defineConfig({
   site: siteUrl(),
+  // Sanity-driven routes opt out of prerendering with `export const
+  // prerender = false`, so published content goes live without a redeploy.
+  // PurgeCSS was removed with the move to SSR: it scans built HTML, and
+  // server-rendered pages emit none, so their styles would be purged.
+  adapter: netlify(),
   build: {
     assets: 'assets',
   },
@@ -29,23 +34,6 @@ export default defineConfig({
   },
   integrations: [
     vue(),
-    purgecss({
-      safelist: {
-        standard: ['body', 'html', 'img', 'a', ':lang'],
-        greedy: [
-          /^is-/,
-          /^has-/,
-          /^js/,
-          /^no-js/,
-          /^data-/,
-          /^disabled/,
-          /^[src$=".svg"]/,
-          /^[src*=".svg"]/,
-          /^cookie/,
-        ],
-      },
-      variables: false,
-    }),
     compress({
       CSS: true,
       HTML: false,

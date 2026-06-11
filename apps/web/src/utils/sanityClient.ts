@@ -4,6 +4,10 @@ import type { TODO } from '../../types';
 import { sanityConfig } from './config';
 import { hashCode, slugify } from './helpers';
 
+// Long enough to dedupe the repeated queries of a static build, short
+// enough that published content reaches server-rendered pages quickly
+const CACHE_TTL_MS = 60_000;
+
 function customClient(
   clientConfig: TODO,
   useMemoryCache = false,
@@ -14,7 +18,7 @@ function customClient(
   const baseHost = useCdn ? 'apicdn.sanity.io' : 'api.sanity.io';
   const endpoint = `https://${projectId}.${baseHost}/v${apiVersion}/data/query/${dataset}`;
 
-  const cache = new Map();
+  const cache = new Map<number, { value: unknown; expires: number }>();
   let cacheHits = 0;
 
   return {
@@ -24,12 +28,15 @@ function customClient(
     ): Promise<T> => {
       const cacheKey = hashCode(slugify(query + JSON.stringify(parameters)));
 
-      if (useMemoryCache && cache.has(cacheKey)) {
-        cacheHits++;
-        if (verboseLogging) {
-          console.info(`Sanity cache hit: ${cacheHits} x${cacheKey}`);
+      if (useMemoryCache) {
+        const cached = cache.get(cacheKey);
+        if (cached && cached.expires > Date.now()) {
+          cacheHits++;
+          if (verboseLogging) {
+            console.info(`Sanity cache hit: ${cacheHits} x${cacheKey}`);
+          }
+          return cached.value as T;
         }
-        return cache.get(cacheKey);
       }
 
       const queryUrl = new URL(endpoint);
@@ -60,7 +67,10 @@ function customClient(
       const { result } = await response.json();
 
       if (useMemoryCache) {
-        cache.set(cacheKey, result);
+        cache.set(cacheKey, {
+          value: result,
+          expires: Date.now() + CACHE_TTL_MS,
+        });
       }
 
       return result;
