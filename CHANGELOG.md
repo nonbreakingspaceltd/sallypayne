@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.2...v1.5.0) (2026-06-11)
+
+
+### Features
+
+* render Sanity-driven pages on demand so publishes go live without a redeploy ([e3ff090](https://github.com/nonbreakingspaceltd/sallypayne/commit/e3ff090b5606d1feae035b981a06c844718e72b5))
+
 ## [1.4.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.4.1...v1.4.2) (2026-06-10)
 
 
