@@ -5,10 +5,14 @@ import LayoutPost from '../../../../layouts/Post.astro';
 export const prerender = false;
 
 const { year, month, slug } = Astro.params;
-const post = slug ? await getPost(slug, Astro.site) : undefined;
+// The post's canonical path encodes its publish date — getPost resolves the
+// post matching this exact path, so duplicate slugs in other months don't clash
+const post =
+  slug && year && month
+    ? await getPost(slug, year, month, Astro.site)
+    : undefined;
 
-// The post's canonical path encodes its publish date — reject mismatches
-if (!post || post.path !== `/scrapbook/${year}/${month}/${slug}/`) {
+if (!post) {
   return new Response(null, { status: 404 });
 }
 

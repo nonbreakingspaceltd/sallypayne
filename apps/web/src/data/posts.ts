@@ -150,24 +150,28 @@ function proccessPost(
 
 export async function getPost(
   slug: string,
+  year: string,
+  month: string,
   siteUrl: URL | undefined,
 ): Promise<PageProps | undefined> {
   if (!siteUrl) {
     throw new Error('Site URL is required');
   }
   const siteSettings = await getSiteSettings();
-  const response = await client.fetch<PageResponse | null>(
+  // Slugs are only unique per publish month — the date-encoded path is what
+  // identifies a post, so match on it rather than taking the first slug hit
+  const response = await client.fetch<PageResponse[]>(
     /* groq */ `
-    *[_type == 'post' && slug.current == $slug][0] {
+    *[_type == 'post' && slug.current == $slug] {
       ${postFields}
     }
   `,
     { slug },
   );
-  if (!response) {
-    return undefined;
-  }
-  return proccessPost(response, siteSettings, siteUrl.toString());
+  const requestedPath = processPostPath(slug, year, month);
+  return response
+    .map((post) => proccessPost(post, siteSettings, siteUrl.toString()))
+    .find((post) => post.path === requestedPath);
 }
 
 export async function getPostsPage(
