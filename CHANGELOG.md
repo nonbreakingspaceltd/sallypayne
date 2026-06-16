@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.3...v1.8.4) (2026-06-16)
+
+
+### Bug Fixes
+
+* query Sanity from the published perspective ([e5b3c68](https://github.com/nonbreakingspaceltd/sallypayne/commit/e5b3c689a4e95633c4bd03bbd6dd03ff2121043c))
+
 ## [1.8.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.2...v1.8.3) (2026-06-16)
 
 
