@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.1...v1.8.2) (2026-06-16)
+
+
+### Bug Fixes
+
+* scope slug uniqueness to within each document type ([fb9a8b1](https://github.com/nonbreakingspaceltd/sallypayne/commit/fb9a8b1a1b7960010dc3994525e35033cf612871))
+
 ## [1.8.1](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.0...v1.8.1) (2026-06-11)
 
 
