@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.2...v1.8.3) (2026-06-16)
+
+
+### Bug Fixes
+
+* prevent duplicate card rendering by managing fillColumns recursion ([816eced](https://github.com/nonbreakingspaceltd/sallypayne/commit/816eced2f12f0a2fed86bdea9a6b85c6974ac634))
+
 ## [1.8.2](https://github.com/nonbreakingspaceltd/sallypayne/compare/v1.8.1...v1.8.2) (2026-06-16)
 
 
