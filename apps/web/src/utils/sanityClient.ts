@@ -43,6 +43,12 @@ function customClient(
 
       queryUrl.searchParams.set(`query`, query);
 
+      // This is a public site and the API token can read drafts, so without an
+      // explicit perspective the query endpoint returns both the published and
+      // draft version of every edited document — surfacing unpublished content
+      // and rendering edited posts twice. Pin to published content only.
+      queryUrl.searchParams.set(`perspective`, `published`);
+
       if (parameters && Object.keys(parameters).length) {
         for (const key of Object.keys(parameters)) {
           queryUrl.searchParams.set(`$${key}`, JSON.stringify(parameters[key]));
