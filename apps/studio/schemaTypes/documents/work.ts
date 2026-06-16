@@ -2,6 +2,8 @@ import { format } from 'date-fns';
 import { BiPalette } from 'react-icons/bi';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
+import { isUniqueWithinType } from '../lib/isUniqueWithinType';
+
 export default defineType({
   name: 'work',
   title: 'Work',
@@ -21,6 +23,7 @@ export default defineType({
       options: {
         source: 'title',
         maxLength: 200,
+        isUnique: isUniqueWithinType,
       },
       validation: (Rule) => Rule.required(),
     }),
