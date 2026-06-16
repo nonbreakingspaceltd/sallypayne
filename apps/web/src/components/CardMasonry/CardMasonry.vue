@@ -10,6 +10,13 @@ const columns = ref<number[][]>([[]]);
 const container = ref<HTMLDivElement>();
 const isJsMasonry = ref(false);
 
+// Each redraw bumps this; an in-flight fillColumns recursion bails as soon as
+// its id is superseded. Without it, a redraw triggered while a previous fill is
+// still running (e.g. the scrollbar appearing mid-load changes the column
+// count) leaves two recursions populating the columns at once, so every item
+// gets placed twice and renders as a duplicate card.
+let fillId = 0;
+
 function columnCount(): number {
   if (!container.value) {
     return 1;
@@ -47,12 +54,12 @@ function createColumns(count: number): number[][] {
   return [...new Array(count)].map(() => []);
 }
 
-function fillColumns(itemIndex: number): void {
-  if (itemIndex >= props.items.length) {
+function fillColumns(itemIndex: number, runId: number): void {
+  if (runId !== fillId || itemIndex >= props.items.length) {
     return;
   }
   nextTick(() => {
-    if (!container.value) {
+    if (runId !== fillId || !container.value) {
       return;
     }
 
@@ -63,7 +70,7 @@ function fillColumns(itemIndex: number): void {
         : prev,
     ) as HTMLElement;
     columns.value[Number(target.getAttribute('data-index'))].push(itemIndex);
-    fillColumns(itemIndex + 1);
+    fillColumns(itemIndex + 1, runId);
   });
 }
 
@@ -71,8 +78,9 @@ function redraw(force = false): void {
   if (columns.value.length === columnCount() && !force) {
     return;
   }
+  const runId = ++fillId;
   columns.value = createColumns(columnCount());
-  fillColumns(0);
+  fillColumns(0, runId);
 }
 
 columns.value = [props.items.map((_item, index) => index)];
