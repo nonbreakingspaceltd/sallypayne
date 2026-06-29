@@ -22,13 +22,13 @@
     "upgrade:dependencies": "npx npm-check-updates --root --workspaces --dep dev,optional,peer,prod,packageManager --upgrade --packageManager pnpm"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.16",
+    "@biomejs/biome": "2.5.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "12.0.8",
     "@semantic-release/release-notes-generator": "14.1.1",
-    "conventional-changelog-conventionalcommits": "9.3.1",
+    "conventional-changelog-conventionalcommits": "10.2.0",
     "husky": "9.1.7",
     "semantic-release": "25.0.5"
   },
@@ -69,6 +69,6 @@
     ]
   },
   "dependencies": {
-    "@sanity/cli": "7.2.3"
+    "@sanity/cli": "7.4.0"
   }
 }
